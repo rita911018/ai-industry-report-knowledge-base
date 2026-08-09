@@ -1,0 +1,11 @@
+{
+  "startedAt": "2026-08-09T11:39:57.169Z",
+  "model": "gpt-5.4-mini",
+  "plannedBatches": 1,
+  "completedBatches": 1,
+  "translated": 1,
+  "records": [
+    "bain-rearchitecting-the-data-platform-for-the-ai-era"
+  ],
+  "updatedAt": "2026-08-09T11:42:10.956Z"
+}
