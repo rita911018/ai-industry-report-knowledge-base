@@ -1,0 +1,5 @@
+{
+  "query": "Import compatible BCG and bilingual radar cards into normalized records.",
+  "files": ["BCG fixture", "bilingual analysis-card fixture"],
+  "expected_behavior": ["preserve official URL", "preserve provenance", "keep absent fields null", "never invent score dimensions", "retain evidence locator"]
+}

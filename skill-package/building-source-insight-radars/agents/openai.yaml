@@ -1,0 +1,4 @@
+interface:
+  display_name: "Building Source Insight Radars"
+  short_description: "Build auditable, scored insight radars from official sources"
+  default_prompt: "Use $building-source-insight-radars to analyze these official source URLs into a cited, scored insight radar."

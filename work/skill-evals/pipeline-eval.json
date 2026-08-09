@@ -1,0 +1,5 @@
+{
+  "query": "Build a six-month recurring radar and cited knowledge interface.",
+  "files": ["undated page", "podcast without transcript", "duplicate canonical URL", "official article"],
+  "expected_behavior": ["candidate ledger", "coverage equation", "terminal statuses", "no fabricated transcript", "content fingerprint deduplication", "validated chunk citations"]
+}

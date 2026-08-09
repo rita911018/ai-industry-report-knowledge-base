@@ -1,0 +1,5 @@
+{
+  "query": "Score a mixed official-source corpus for management priority.",
+  "files": ["primary-data article", "vendor announcement", "forecast"],
+  "expected_behavior": ["35/25/25/15 additive score", "dimension reasons", "independent confidence", "vendor and forecast downgrades", "documented corpus calibration"]
+}
