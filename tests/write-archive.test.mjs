@@ -55,6 +55,7 @@ test('writes deterministic auditable archive files and source manifests', async 
   assert.equal(metadata.sourceUrl, record.sourceUrl);
   assert.equal(metadata.radarTitle, record.radarTitle);
   assert.equal(metadata.status, 'downloaded');
+  assert.equal(metadata.retrievalMethod, 'direct_http');
   assert.equal(metadata.files.originalHtml, `${record.radarTitle}/articles/007-ai-data-what/原始网页.html`);
   assert.equal(metadata.files.englishMarkdown, `${record.radarTitle}/articles/007-ai-data-what/英文原文.md`);
 

@@ -61,6 +61,8 @@ export async function writeArticleArchive({ root, record, index, page, extracted
     category: record.category,
     provenance: record.provenance,
     status: 'downloaded',
+    retrievalMethod: page.retrievalMethod || 'direct_http',
+    retrievalDetails: page.retrievalDetails || null,
     extractionStatus: extracted.status,
     extractionMethod: extracted.extractionMethod,
     headingCount: extracted.headingCount,
