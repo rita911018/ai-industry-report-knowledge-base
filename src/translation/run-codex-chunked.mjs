@@ -43,6 +43,51 @@ async function atomicJson(filePath, value) {
   await rename(temporaryPath, filePath);
 }
 
+async function translateVerifiedChunk({ sourceChunk, model, schemaPath, outputPath, label, depth = 0 }) {
+  let validationError = '';
+  let existingInvalid = false;
+  try {
+    const existing = parseDirectTranslation(await readFile(outputPath, 'utf8')).trimEnd();
+    verifyTranslation(sourceChunk, existing);
+    console.log(`  ${label} reused`);
+    return existing;
+  } catch (error) {
+    existingInvalid = error.code !== 'ENOENT';
+    validationError = error.message;
+  }
+  let hasSubOutput = false;
+  if (existingInvalid) {
+    try { await readFile(outputPath.replace(/\.json$/, '-s1.json'), 'utf8'); hasSubOutput = true; } catch {}
+  }
+  if (!existingInvalid || !hasSubOutput) {
+    const maxAttempts = sourceChunk.length <= 4_000 ? 4 : 2;
+    for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+      await invokeCodex({ source: sourceChunk, model, schemaPath, outputPath, repair: validationError });
+      const translation = parseDirectTranslation(await readFile(outputPath, 'utf8')).trimEnd();
+      try {
+        verifyTranslation(sourceChunk, translation);
+        console.log(`  ${label} verified`);
+        return translation;
+      } catch (error) {
+        validationError = error.message;
+        console.log(`  ${label} attempt ${attempt} failed: ${validationError}`);
+      }
+    }
+  }
+  if (sourceChunk.length <= 800 || depth >= 5) throw new Error(`${label} failed after repair: ${validationError}`);
+  const subchunks = splitMarkdownForTranslation(sourceChunk, Math.ceil(sourceChunk.length / 2));
+  if (subchunks.length < 2) throw new Error(`${label} could not be split after failure: ${validationError}`);
+  console.log(`  ${label} splitting into ${subchunks.length} smaller chunks`);
+  const translations = [];
+  for (let index = 0; index < subchunks.length; index += 1) {
+    const subOutput = outputPath.replace(/\.json$/, `-s${index + 1}.json`);
+    translations.push(await translateVerifiedChunk({ sourceChunk: subchunks[index], model, schemaPath, outputPath: subOutput, label: `${label}.${index + 1}`, depth: depth + 1 }));
+  }
+  const combined = translations.join('\n\n');
+  verifyTranslation(sourceChunk, combined);
+  return combined;
+}
+
 async function main() {
   const options = parseArguments(process.argv.slice(2));
   const projectRoot = process.cwd();
@@ -64,17 +109,11 @@ async function main() {
     for (let chunkIndex = 0; chunkIndex < chunks.length; chunkIndex += 1) {
       const sourceChunk = chunks[chunkIndex];
       const outputPath = path.join(outputRoot, `${entry.id}-${String(chunkIndex + 1).padStart(3, '0')}.json`);
-      let translation;
-      let errorMessage = '';
-      for (let attempt = 1; attempt <= 3; attempt += 1) {
-        await invokeCodex({ source: sourceChunk, model: options.model, schemaPath, outputPath, repair: errorMessage });
-        translation = parseDirectTranslation(await readFile(outputPath, 'utf8')).trimEnd();
-        try { verifyTranslation(sourceChunk, translation); errorMessage = ''; break; }
-        catch (error) { errorMessage = error.message; console.log(`  chunk ${chunkIndex + 1}/${chunks.length} attempt ${attempt} failed: ${errorMessage}`); }
-      }
-      if (errorMessage) throw new Error(`Chunk ${chunkIndex + 1} failed after repair: ${entry.id}: ${errorMessage}`);
+      const translation = await translateVerifiedChunk({
+        sourceChunk, model: options.model, schemaPath, outputPath,
+        label: `chunk ${chunkIndex + 1}/${chunks.length}`,
+      });
       translations.push(translation);
-      console.log(`  chunk ${chunkIndex + 1}/${chunks.length} verified`);
     }
     const translation = `${translations.join('\n\n')}\n`;
     verifyTranslation(source, translation);
