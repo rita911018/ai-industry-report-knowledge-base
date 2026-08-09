@@ -2,6 +2,7 @@ import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { scanTranslationQueue } from './queue.mjs';
+import { filterTranslationEntries } from './run-codex-batches.mjs';
 import { invokeCodex, parseDirectTranslation } from './run-codex-direct.mjs';
 import { verifyTranslation } from './verify-translation.mjs';
 
@@ -25,7 +26,11 @@ export function splitMarkdownForTranslation(source, maxCharacters = 12_000) {
   return chunks;
 }
 
-function parseArguments(argv) {
+export function verifyChunkTranslation(source, translation) {
+  return verifyTranslation(source, translation, { minimumChineseRatio: 0.05 });
+}
+
+export function parseChunkedArguments(argv) {
   const options = { archive: 'work/archive', model: 'gpt-5.4-mini', maxCharacters: 12_000, limit: Infinity };
   for (let index = 0; index < argv.length; index += 1) {
     if (argv[index] === '--archive') options.archive = argv[++index];
@@ -33,6 +38,8 @@ function parseArguments(argv) {
     else if (argv[index] === '--max-chars') options.maxCharacters = Number(argv[++index]);
     else if (argv[index] === '--limit') options.limit = Number(argv[++index]);
     else if (argv[index] === '--model') options.model = argv[++index];
+    else if (argv[index] === '--min-index') options.minIndex = Number(argv[++index]);
+    else if (argv[index] === '--max-index') options.maxIndex = Number(argv[++index]);
   }
   return options;
 }
@@ -48,7 +55,7 @@ async function translateVerifiedChunk({ sourceChunk, model, schemaPath, outputPa
   let existingInvalid = false;
   try {
     const existing = parseDirectTranslation(await readFile(outputPath, 'utf8')).trimEnd();
-    verifyTranslation(sourceChunk, existing);
+    verifyChunkTranslation(sourceChunk, existing);
     console.log(`  ${label} reused`);
     return existing;
   } catch (error) {
@@ -65,7 +72,7 @@ async function translateVerifiedChunk({ sourceChunk, model, schemaPath, outputPa
       await invokeCodex({ source: sourceChunk, model, schemaPath, outputPath, repair: validationError });
       const translation = parseDirectTranslation(await readFile(outputPath, 'utf8')).trimEnd();
       try {
-        verifyTranslation(sourceChunk, translation);
+        verifyChunkTranslation(sourceChunk, translation);
         console.log(`  ${label} verified`);
         return translation;
       } catch (error) {
@@ -84,21 +91,26 @@ async function translateVerifiedChunk({ sourceChunk, model, schemaPath, outputPa
     translations.push(await translateVerifiedChunk({ sourceChunk: subchunks[index], model, schemaPath, outputPath: subOutput, label: `${label}.${index + 1}`, depth: depth + 1 }));
   }
   const combined = translations.join('\n\n');
-  verifyTranslation(sourceChunk, combined);
+  verifyChunkTranslation(sourceChunk, combined);
   return combined;
 }
 
 async function main() {
-  const options = parseArguments(process.argv.slice(2));
+  const options = parseChunkedArguments(process.argv.slice(2));
   const projectRoot = process.cwd();
   const schemaPath = path.join(path.dirname(fileURLToPath(import.meta.url)), 'direct-output-schema.json');
   const outputRoot = path.join(projectRoot, 'work', 'translation-direct-output');
   await mkdir(outputRoot, { recursive: true });
-  const entries = (await scanTranslationQueue(path.resolve(options.archive)))
-    .filter((entry) => entry.sourceLanguage === 'en' && entry.status !== 'complete' && (!options.publisher || entry.publisher === options.publisher))
-    .slice(0, options.limit);
+  const entries = filterTranslationEntries(
+    (await scanTranslationQueue(path.resolve(options.archive)))
+      .filter((entry) => entry.sourceLanguage === 'en' && entry.status !== 'complete'),
+    options,
+  ).slice(0, options.limit);
   const state = { startedAt: new Date().toISOString(), publisher: options.publisher || null, model: options.model, planned: entries.length, complete: 0, records: [] };
-  const suffix = (options.publisher || 'all').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  const rangeSuffix = options.minIndex !== undefined || options.maxIndex !== undefined
+    ? `-${options.minIndex ?? 'first'}-${options.maxIndex ?? 'last'}`
+    : '';
+  const suffix = `${(options.publisher || 'all').toLowerCase().replace(/[^a-z0-9]+/g, '-')}${rangeSuffix}`;
   const statePath = path.join(projectRoot, 'work', `translation-chunked-state-${suffix}.json`);
   for (let articleIndex = 0; articleIndex < entries.length; articleIndex += 1) {
     const entry = entries[articleIndex];

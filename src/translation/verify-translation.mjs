@@ -26,6 +26,19 @@ function numericTokens(text) {
   return [...text.matchAll(/\d+(?:[.,]\d+)*(?:%|‰)?/g)].map((match) => match[0]);
 }
 
+function missingNumericValues(sourceValues, translatedValues) {
+  const canonical = (value) => value.replace(/[%‰]$/, '');
+  const available = occurrences(translatedValues.map(canonical));
+  const required = occurrences(sourceValues.map(canonical));
+  const sourceLabels = new Map(sourceValues.map((value) => [canonical(value), value]));
+  const missing = [];
+  for (const [value, count] of required) {
+    const actual = available.get(value) || 0;
+    if (actual < count) missing.push(`${sourceLabels.get(value)} (${actual}/${count})`);
+  }
+  return missing;
+}
+
 function headingCount(text) {
   return (text.match(/^#{1,6}\s+\S/gm) || []).length;
 }
@@ -47,7 +60,7 @@ export function verifyTranslation(source, translation, { minimumChineseRatio = 0
   if (missingUrls.length) errors.push(`Missing URL(s): ${missingUrls.join(', ')}`);
 
   const sourceNumbers = numericTokens(source);
-  const missingNumbers = missingValues(sourceNumbers, numericTokens(translation));
+  const missingNumbers = missingNumericValues(sourceNumbers, numericTokens(translation));
   if (missingNumbers.length) errors.push(`Missing or altered numeric token(s): ${missingNumbers.join(', ')}`);
 
   const sourceParagraphs = paragraphCount(source);

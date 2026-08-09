@@ -1,11 +1,31 @@
 {
-  "startedAt": "2026-08-09T11:39:57.169Z",
+  "startedAt": "2026-08-09T12:11:20.648Z",
   "model": "gpt-5.4-mini",
-  "plannedBatches": 1,
-  "completedBatches": 1,
-  "translated": 1,
+  "plannedBatches": 104,
+  "completedBatches": 21,
+  "translated": 21,
   "records": [
-    "bain-rearchitecting-the-data-platform-for-the-ai-era"
+    "bcg-12",
+    "bcg-13",
+    "bcg-14",
+    "bcg-15",
+    "bcg-16",
+    "bcg-17",
+    "bcg-18",
+    "bcg-19",
+    "bcg-20",
+    "bcg-21",
+    "bcg-22",
+    "bcg-23",
+    "bcg-24",
+    "bcg-25",
+    "bcg-26",
+    "bcg-27",
+    "bcg-28",
+    "bcg-29",
+    "bcg-30",
+    "bcg-31",
+    "bcg-32"
   ],
-  "updatedAt": "2026-08-09T11:42:10.956Z"
+  "updatedAt": "2026-08-09T12:55:58.973Z"
 }

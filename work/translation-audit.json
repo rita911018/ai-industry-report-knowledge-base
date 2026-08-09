@@ -1,0 +1,6687 @@
+{
+  "generatedAt": "2026-08-09T16:50:54.945Z",
+  "total": 418,
+  "passed": 418,
+  "failed": 0,
+  "records": [
+    {
+      "id": "anthropic-trustworthy-agents-in-practice",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 11,
+        "translationHeadings": 11,
+        "sourceParagraphs": 33,
+        "translatedParagraphs": 33,
+        "sourceNumbers": 27,
+        "sourceUrls": 28,
+        "chineseCharacters": 3427,
+        "chineseRatio": 0.6455076285552834
+      }
+    },
+    {
+      "id": "anthropic-agentic-coding-returns-to-expertise",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 22,
+        "translationHeadings": 22,
+        "sourceParagraphs": 66,
+        "translatedParagraphs": 66,
+        "sourceNumbers": 400,
+        "sourceUrls": 39,
+        "chineseCharacters": 7681,
+        "chineseRatio": 0.6431920951264445
+      }
+    },
+    {
+      "id": "anthropic-managed-agents-decoupled-runtime",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 31,
+        "translatedParagraphs": 31,
+        "sourceNumbers": 98,
+        "sourceUrls": 14,
+        "chineseCharacters": 3178,
+        "chineseRatio": 0.5382791327913279
+      }
+    },
+    {
+      "id": "anthropic-cyber-eval-real-world-incidents",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 13,
+        "translationHeadings": 13,
+        "sourceParagraphs": 53,
+        "translatedParagraphs": 53,
+        "sourceNumbers": 54,
+        "sourceUrls": 11,
+        "chineseCharacters": 5648,
+        "chineseRatio": 0.790040565114002
+      }
+    },
+    {
+      "id": "anthropic-contain-claude-across-products",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 14,
+        "translationHeadings": 14,
+        "sourceParagraphs": 88,
+        "translatedParagraphs": 88,
+        "sourceNumbers": 209,
+        "sourceUrls": 29,
+        "chineseCharacters": 7256,
+        "chineseRatio": 0.6727239013536065
+      }
+    },
+    {
+      "id": "anthropic-agent-autonomy-in-practice",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 16,
+        "translationHeadings": 16,
+        "sourceParagraphs": 117,
+        "translatedParagraphs": 117,
+        "sourceNumbers": 418,
+        "sourceUrls": 55,
+        "chineseCharacters": 9913,
+        "chineseRatio": 0.6233023138832998
+      }
+    },
+    {
+      "id": "anthropic-finance-agent-reference-architecture",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 10,
+        "translationHeadings": 10,
+        "sourceParagraphs": 58,
+        "translatedParagraphs": 58,
+        "sourceNumbers": 256,
+        "sourceUrls": 31,
+        "chineseCharacters": 2892,
+        "chineseRatio": 0.3843700159489633
+      }
+    },
+    {
+      "id": "anthropic-responsible-scaling-policy-v3",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 13,
+        "translationHeadings": 13,
+        "sourceParagraphs": 41,
+        "translatedParagraphs": 41,
+        "sourceNumbers": 83,
+        "sourceUrls": 27,
+        "chineseCharacters": 3917,
+        "chineseRatio": 0.6551262752968724
+      }
+    },
+    {
+      "id": "anthropic-long-running-harness-design",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 11,
+        "translationHeadings": 11,
+        "sourceParagraphs": 130,
+        "translatedParagraphs": 130,
+        "sourceNumbers": 118,
+        "sourceUrls": 15,
+        "chineseCharacters": 7789,
+        "chineseRatio": 0.6135486411973218
+      }
+    },
+    {
+      "id": "anthropic-ai-fluency-index",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 14,
+        "translationHeadings": 14,
+        "sourceParagraphs": 49,
+        "translatedParagraphs": 49,
+        "sourceNumbers": 168,
+        "sourceUrls": 21,
+        "chineseCharacters": 3926,
+        "chineseRatio": 0.6063320463320463
+      }
+    },
+    {
+      "id": "anthropic-ai-enabled-cyber-threat-map",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 18,
+        "translationHeadings": 18,
+        "sourceParagraphs": 66,
+        "translatedParagraphs": 66,
+        "sourceNumbers": 252,
+        "sourceUrls": 25,
+        "chineseCharacters": 6677,
+        "chineseRatio": 0.6336116910229646
+      }
+    },
+    {
+      "id": "anthropic-claude-tag-team-agent",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 27,
+        "translatedParagraphs": 27,
+        "sourceNumbers": 69,
+        "sourceUrls": 14,
+        "chineseCharacters": 1344,
+        "chineseRatio": 0.4669909659485754
+      }
+    },
+    {
+      "id": "anthropic-claude-code-quality-postmortem",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 37,
+        "translatedParagraphs": 37,
+        "sourceNumbers": 107,
+        "sourceUrls": 7,
+        "chineseCharacters": 2700,
+        "chineseRatio": 0.6491945179129599
+      }
+    },
+    {
+      "id": "anthropic-labor-market-observed-exposure",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 20,
+        "translationHeadings": 20,
+        "sourceParagraphs": 95,
+        "translatedParagraphs": 95,
+        "sourceNumbers": 447,
+        "sourceUrls": 31,
+        "chineseCharacters": 6087,
+        "chineseRatio": 0.4583584337349398
+      }
+    },
+    {
+      "id": "anthropic-economic-index-cadences",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 27,
+        "translationHeadings": 27,
+        "sourceParagraphs": 120,
+        "translatedParagraphs": 120,
+        "sourceNumbers": 793,
+        "sourceUrls": 62,
+        "chineseCharacters": 11619,
+        "chineseRatio": 0.5733813659692065
+      }
+    },
+    {
+      "id": "anthropic-claude-science-workbench",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 37,
+        "translatedParagraphs": 37,
+        "sourceNumbers": 118,
+        "sourceUrls": 19,
+        "chineseCharacters": 2697,
+        "chineseRatio": 0.5149894978040863
+      }
+    },
+    {
+      "id": "anthropic-claude-opus-5-economics",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 11,
+        "translationHeadings": 11,
+        "sourceParagraphs": 97,
+        "translatedParagraphs": 97,
+        "sourceNumbers": 645,
+        "sourceUrls": 45,
+        "chineseCharacters": 4129,
+        "chineseRatio": 0.39595320291522823
+      }
+    },
+    {
+      "id": "anthropic-what-81000-people-want",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 28,
+        "translationHeadings": 28,
+        "sourceParagraphs": 529,
+        "translatedParagraphs": 531,
+        "sourceNumbers": 370,
+        "sourceUrls": 73,
+        "chineseCharacters": 15229,
+        "chineseRatio": 0.6566205320570861
+      }
+    },
+    {
+      "id": "anthropic-claude-robotics-interface-risk",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 30,
+        "translationHeadings": 30,
+        "sourceParagraphs": 296,
+        "translatedParagraphs": 296,
+        "sourceNumbers": 878,
+        "sourceUrls": 35,
+        "chineseCharacters": 14331,
+        "chineseRatio": 0.6227620371979836
+      }
+    },
+    {
+      "id": "anthropic-teaching-claude-why",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 12,
+        "translationHeadings": 12,
+        "sourceParagraphs": 49,
+        "translatedParagraphs": 49,
+        "sourceNumbers": 212,
+        "sourceUrls": 20,
+        "chineseCharacters": 3483,
+        "chineseRatio": 0.5564786707141716
+      }
+    },
+    {
+      "id": "anthropic-project-deal-agent-commerce",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 187,
+        "translatedParagraphs": 187,
+        "sourceNumbers": 433,
+        "sourceUrls": 34,
+        "chineseCharacters": 7413,
+        "chineseRatio": 0.657997514645837
+      }
+    },
+    {
+      "id": "anthropic-claude-values-models-languages",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 13,
+        "translationHeadings": 13,
+        "sourceParagraphs": 67,
+        "translatedParagraphs": 67,
+        "sourceNumbers": 333,
+        "sourceUrls": 32,
+        "chineseCharacters": 6582,
+        "chineseRatio": 0.5925459128555995
+      }
+    },
+    {
+      "id": "anthropic-infrastructure-noise-agent-evals",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 28,
+        "translatedParagraphs": 28,
+        "sourceNumbers": 71,
+        "sourceUrls": 2,
+        "chineseCharacters": 3282,
+        "chineseRatio": 0.8174346201743462
+      }
+    },
+    {
+      "id": "anthropic-dual-use-knowledge-off-switch",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 26,
+        "translatedParagraphs": 26,
+        "sourceNumbers": 23,
+        "sourceUrls": 12,
+        "chineseCharacters": 2126,
+        "chineseRatio": 0.6721466961745178
+      }
+    },
+    {
+      "id": "anthropic-open-weights-position",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 18,
+        "translatedParagraphs": 18,
+        "sourceNumbers": 36,
+        "sourceUrls": 24,
+        "chineseCharacters": 2555,
+        "chineseRatio": 0.5757097791798107
+      }
+    },
+    {
+      "id": "bain-rearchitecting-the-data-platform-for-the-ai-era",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 39,
+        "translatedParagraphs": 39,
+        "sourceNumbers": 15,
+        "sourceUrls": 11,
+        "chineseCharacters": 4307,
+        "chineseRatio": 0.7917279411764706
+      }
+    },
+    {
+      "id": "bain-your-ai-budget-is-growing-your-returns-arent-heres-why",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 45,
+        "translatedParagraphs": 45,
+        "sourceNumbers": 74,
+        "sourceUrls": 21,
+        "chineseCharacters": 3172,
+        "chineseRatio": 0.5737022969795623
+      }
+    },
+    {
+      "id": "bain-agentic-ai-governance-risk-and-controls-for-business-leaders",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 39,
+        "translatedParagraphs": 39,
+        "sourceNumbers": 10,
+        "sourceUrls": 14,
+        "chineseCharacters": 4142,
+        "chineseRatio": 0.7865552601595138
+      }
+    },
+    {
+      "id": "bain-cloud-sovereignty-maintaining-control-without-losing-scale",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 32,
+        "translatedParagraphs": 32,
+        "sourceNumbers": 9,
+        "sourceUrls": 9,
+        "chineseCharacters": 2143,
+        "chineseRatio": 0.729159578087785
+      }
+    },
+    {
+      "id": "bain-is-your-ai-transformation-forgetting-the-front-line",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 39,
+        "translatedParagraphs": 39,
+        "sourceNumbers": 81,
+        "sourceUrls": 31,
+        "chineseCharacters": 2021,
+        "chineseRatio": 0.41312346688470974
+      }
+    },
+    {
+      "id": "bain-resilience-by-design-preparing-your-ai-stack-for-an-era-of-uncertainty",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 23,
+        "translatedParagraphs": 23,
+        "sourceNumbers": 21,
+        "sourceUrls": 14,
+        "chineseCharacters": 1928,
+        "chineseRatio": 0.6191393705844573
+      }
+    },
+    {
+      "id": "bain-proprietary-intelligence-how-to-win-with-ai",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 37,
+        "translatedParagraphs": 37,
+        "sourceNumbers": 61,
+        "sourceUrls": 24,
+        "chineseCharacters": 3250,
+        "chineseRatio": 0.5732933497971423
+      }
+    },
+    {
+      "id": "bain-mobilizing-the-organization-in-the-agent-economy",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 12,
+        "translationHeadings": 12,
+        "sourceParagraphs": 56,
+        "translatedParagraphs": 56,
+        "sourceNumbers": 88,
+        "sourceUrls": 23,
+        "chineseCharacters": 4930,
+        "chineseRatio": 0.7522123893805309
+      }
+    },
+    {
+      "id": "bain-the-three-layers-of-an-agentic-ai-platform",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 34,
+        "translatedParagraphs": 34,
+        "sourceNumbers": 77,
+        "sourceUrls": 22,
+        "chineseCharacters": 1899,
+        "chineseRatio": 0.4718012422360248
+      }
+    },
+    {
+      "id": "bain-why-agentic-ai-demands-a-new-architecture",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 26,
+        "translatedParagraphs": 26,
+        "sourceNumbers": 4,
+        "sourceUrls": 10,
+        "chineseCharacters": 2090,
+        "chineseRatio": 0.7320490367775832
+      }
+    },
+    {
+      "id": "bain-ai-focused-organizational-changes-underperform-other-reorganizations-snap-chart",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 17,
+        "translatedParagraphs": 17,
+        "sourceNumbers": 21,
+        "sourceUrls": 20,
+        "chineseCharacters": 665,
+        "chineseRatio": 0.2645186953062848
+      }
+    },
+    {
+      "id": "bain-how-token-economics-will-change-opex",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 40,
+        "translatedParagraphs": 40,
+        "sourceNumbers": 46,
+        "sourceUrls": 19,
+        "chineseCharacters": 2927,
+        "chineseRatio": 0.6047520661157024
+      }
+    },
+    {
+      "id": "bain-the-rise-of-the-ai-development-life-cycle",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 43,
+        "translatedParagraphs": 43,
+        "sourceNumbers": 47,
+        "sourceUrls": 13,
+        "chineseCharacters": 2918,
+        "chineseRatio": 0.6822539162964695
+      }
+    },
+    {
+      "id": "bain-the-architecture-decisions-only-cfos-can-make",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 36,
+        "translatedParagraphs": 36,
+        "sourceNumbers": 36,
+        "sourceUrls": 23,
+        "chineseCharacters": 2460,
+        "chineseRatio": 0.5367663102771111
+      }
+    },
+    {
+      "id": "bain-the-zero-click-playbook-how-sports-sponsorships-build-preference-before-search",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 14,
+        "translationHeadings": 14,
+        "sourceParagraphs": 46,
+        "translatedParagraphs": 46,
+        "sourceNumbers": 30,
+        "sourceUrls": 8,
+        "chineseCharacters": 3000,
+        "chineseRatio": 0.6888633754305397
+      }
+    },
+    {
+      "id": "bain-when-ai-optimizes-the-wrong-thing",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 23,
+        "translatedParagraphs": 23,
+        "sourceNumbers": 14,
+        "sourceUrls": 11,
+        "chineseCharacters": 2304,
+        "chineseRatio": 0.6988171064604186
+      }
+    },
+    {
+      "id": "bain-when-people-never-see-your-app-designing-brands-for-the-agentic-economy",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 42,
+        "translatedParagraphs": 42,
+        "sourceNumbers": 24,
+        "sourceUrls": 14,
+        "chineseCharacters": 2953,
+        "chineseRatio": 0.6432149858418645
+      }
+    },
+    {
+      "id": "bain-agentic-ai-commerce-the-next-retail-revolution-is-here",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 36,
+        "translatedParagraphs": 36,
+        "sourceNumbers": 41,
+        "sourceUrls": 14,
+        "chineseCharacters": 3033,
+        "chineseRatio": 0.7027340129749768
+      }
+    },
+    {
+      "id": "bain-the-learning-system-how-agentic-ai-can-compound-its-own-advantage-forbes",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 33,
+        "translatedParagraphs": 33,
+        "sourceNumbers": 10,
+        "sourceUrls": 0,
+        "chineseCharacters": 2243,
+        "chineseRatio": 0.9524416135881104
+      }
+    },
+    {
+      "id": "bain-databricks-data-ai-summit-the-lakehouse-becomes-the-agentic-enterprise-control-plane",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 38,
+        "translatedParagraphs": 38,
+        "sourceNumbers": 9,
+        "sourceUrls": 9,
+        "chineseCharacters": 2799,
+        "chineseRatio": 0.5368239355581128
+      }
+    },
+    {
+      "id": "bain-google-cloud-next-2026-the-agentic-enterprise-control-plane-comes-into-view",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 46,
+        "translatedParagraphs": 46,
+        "sourceNumbers": 17,
+        "sourceUrls": 9,
+        "chineseCharacters": 2503,
+        "chineseRatio": 0.515657189946436
+      }
+    },
+    {
+      "id": "bain-governance-trust-and-the-data-foundation",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 33,
+        "translatedParagraphs": 33,
+        "sourceNumbers": 7,
+        "sourceUrls": 17,
+        "chineseCharacters": 2205,
+        "chineseRatio": 0.6061022539857064
+      }
+    },
+    {
+      "id": "bain-preparing-for-the-quantum-computing-acceleration",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 11,
+        "translationHeadings": 11,
+        "sourceParagraphs": 57,
+        "translatedParagraphs": 57,
+        "sourceNumbers": 74,
+        "sourceUrls": 17,
+        "chineseCharacters": 3485,
+        "chineseRatio": 0.6617926319787315
+      }
+    },
+    {
+      "id": "bain-the-2026-ceo-agenda-where-ambition-outpaces-execution",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 19,
+        "translationHeadings": 19,
+        "sourceParagraphs": 87,
+        "translatedParagraphs": 87,
+        "sourceNumbers": 100,
+        "sourceUrls": 45,
+        "chineseCharacters": 3473,
+        "chineseRatio": 0.4681223884620569
+      }
+    },
+    {
+      "id": "bain-sap-sapphire-2026-erp-moves-beyond-transactions-to-orchestration",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 27,
+        "translatedParagraphs": 27,
+        "sourceNumbers": 11,
+        "sourceUrls": 9,
+        "chineseCharacters": 2017,
+        "chineseRatio": 0.6342767295597485
+      }
+    },
+    {
+      "id": "bain-ibm-think-2026-from-ai-pilots-to-an-operating-model",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 26,
+        "translatedParagraphs": 26,
+        "sourceNumbers": 32,
+        "sourceUrls": 15,
+        "chineseCharacters": 2015,
+        "chineseRatio": 0.523104880581516
+      }
+    },
+    {
+      "id": "bain-an-operating-model-for-the-age-of-ai",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 48,
+        "translatedParagraphs": 48,
+        "sourceNumbers": 17,
+        "sourceUrls": 14,
+        "chineseCharacters": 3491,
+        "chineseRatio": 0.7337116435477091
+      }
+    },
+    {
+      "id": "bain-100-billion-saas-opportunity-hiding-in-cross-system-labor",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 62,
+        "translatedParagraphs": 62,
+        "sourceNumbers": 59,
+        "sourceUrls": 21,
+        "chineseCharacters": 4466,
+        "chineseRatio": 0.6789297658862876
+      }
+    },
+    {
+      "id": "bain-claude-mythos-and-ai-cybersecurity-wake-up-call",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 19,
+        "translationHeadings": 19,
+        "sourceParagraphs": 44,
+        "translatedParagraphs": 44,
+        "sourceNumbers": 35,
+        "sourceUrls": 13,
+        "chineseCharacters": 4423,
+        "chineseRatio": 0.7271083347032714
+      }
+    },
+    {
+      "id": "bain-the-new-sales-productivity-equation-b2b-growth-agenda-2026",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 35,
+        "translatedParagraphs": 35,
+        "sourceNumbers": 62,
+        "sourceUrls": 18,
+        "chineseCharacters": 1954,
+        "chineseRatio": 0.5526018099547512
+      }
+    },
+    {
+      "id": "bain-your-next-customer-will-find-you-using-ai-now-what",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 34,
+        "translatedParagraphs": 34,
+        "sourceNumbers": 35,
+        "sourceUrls": 15,
+        "chineseCharacters": 2189,
+        "chineseRatio": 0.6367073880162886
+      }
+    },
+    {
+      "id": "bain-raising-the-odds-on-a-deal-how-likelihood-to-buy-rewires-b2b-growth",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 51,
+        "translatedParagraphs": 51,
+        "sourceNumbers": 46,
+        "sourceUrls": 12,
+        "chineseCharacters": 2778,
+        "chineseRatio": 0.6603280247207036
+      }
+    },
+    {
+      "id": "bain-what-financial-services-leaders-are-wrestling-with-on-ai-and-organizational-transformation",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 36,
+        "translatedParagraphs": 36,
+        "sourceNumbers": 15,
+        "sourceUrls": 9,
+        "chineseCharacters": 2830,
+        "chineseRatio": 0.7576974564926372
+      }
+    },
+    {
+      "id": "bain-accelerating-the-ai-transformation",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 31,
+        "translatedParagraphs": 31,
+        "sourceNumbers": 11,
+        "sourceUrls": 11,
+        "chineseCharacters": 3276,
+        "chineseRatio": 0.7488
+      }
+    },
+    {
+      "id": "bain-redesigning-tech-company-operating-models-for-an-ai-accelerated-world",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 39,
+        "translatedParagraphs": 39,
+        "sourceNumbers": 31,
+        "sourceUrls": 21,
+        "chineseCharacters": 1939,
+        "chineseRatio": 0.48952284776571575
+      }
+    },
+    {
+      "id": "bain-tech-services-buyer-survey-betting-big-on-ai-and-resilience",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 27,
+        "translatedParagraphs": 27,
+        "sourceNumbers": 29,
+        "sourceUrls": 16,
+        "chineseCharacters": 1305,
+        "chineseRatio": 0.44327445652173914
+      }
+    },
+    {
+      "id": "bain-will-it-accelerate-or-stall-your-ai-transformation",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 25,
+        "translatedParagraphs": 25,
+        "sourceNumbers": 11,
+        "sourceUrls": 13,
+        "chineseCharacters": 2147,
+        "chineseRatio": 0.6382282996432818
+      }
+    },
+    {
+      "id": "bain-from-roadmap-to-reality-phasing-agentic-ai-into-production",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 28,
+        "translatedParagraphs": 28,
+        "sourceNumbers": 13,
+        "sourceUrls": 17,
+        "chineseCharacters": 1739,
+        "chineseRatio": 0.6142705757682798
+      }
+    },
+    {
+      "id": "bain-quantum-will-not-speed-up-your-enterprise",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 44,
+        "translatedParagraphs": 44,
+        "sourceNumbers": 12,
+        "sourceUrls": 7,
+        "chineseCharacters": 3295,
+        "chineseRatio": 0.8565115674551599
+      }
+    },
+    {
+      "id": "bain-nvidia-gtc-2026-ai-becomes-the-operating-layer",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 10,
+        "translationHeadings": 10,
+        "sourceParagraphs": 32,
+        "translatedParagraphs": 32,
+        "sourceNumbers": 16,
+        "sourceUrls": 8,
+        "chineseCharacters": 3216,
+        "chineseRatio": 0.766626936829559
+      }
+    },
+    {
+      "id": "bain-why-saas-stocks-have-dropped-and-what-it-signals-for-softwares-next-chapter",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 35,
+        "translatedParagraphs": 35,
+        "sourceNumbers": 66,
+        "sourceUrls": 12,
+        "chineseCharacters": 1765,
+        "chineseRatio": 0.5557304785894207
+      }
+    },
+    {
+      "id": "bain-the-marketing-finance-divide-is-about-proof-of-performance-not-priorities",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 42,
+        "translatedParagraphs": 42,
+        "sourceNumbers": 51,
+        "sourceUrls": 19,
+        "chineseCharacters": 1777,
+        "chineseRatio": 0.49595311191738767
+      }
+    },
+    {
+      "id": "bain-winning-over-the-customer-in-the-age-of-ai-a-new-horizon-for-luxury",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 17,
+        "translationHeadings": 17,
+        "sourceParagraphs": 90,
+        "translatedParagraphs": 90,
+        "sourceNumbers": 184,
+        "sourceUrls": 21,
+        "chineseCharacters": 5727,
+        "chineseRatio": 0.6049434879053555
+      }
+    },
+    {
+      "id": "bain-agentic-ai-in-retail-how-autonomous-shopping-redefining-customer-journey",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 38,
+        "translatedParagraphs": 39,
+        "sourceNumbers": 80,
+        "sourceUrls": 22,
+        "chineseCharacters": 3459,
+        "chineseRatio": 0.570509648688768
+      }
+    },
+    {
+      "id": "bain-rewiring-demand-generation-in-age-of-ai-agents",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 30,
+        "translatedParagraphs": 30,
+        "sourceNumbers": 21,
+        "sourceUrls": 14,
+        "chineseCharacters": 2695,
+        "chineseRatio": 0.6742556917688266
+      }
+    },
+    {
+      "id": "bain-what-agency-consolidation-means-for-cmos",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 36,
+        "translatedParagraphs": 36,
+        "sourceNumbers": 18,
+        "sourceUrls": 9,
+        "chineseCharacters": 3018,
+        "chineseRatio": 0.7946287519747235
+      }
+    },
+    {
+      "id": "bain-how-agentic-ai-is-reshaping-procurement",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 22,
+        "translatedParagraphs": 22,
+        "sourceNumbers": 6,
+        "sourceUrls": 10,
+        "chineseCharacters": 1283,
+        "chineseRatio": 0.6198067632850242
+      }
+    },
+    {
+      "id": "bain-ai-data-center-forecast-from-scramble-to-strategy-snap-chart",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 10,
+        "translatedParagraphs": 10,
+        "sourceNumbers": 15,
+        "sourceUrls": 10,
+        "chineseCharacters": 1050,
+        "chineseRatio": 0.5308392315470172
+      }
+    },
+    {
+      "id": "bain-a-new-supply-chain-efficiency-playbook-for-medtech",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 39,
+        "translatedParagraphs": 39,
+        "sourceNumbers": 41,
+        "sourceUrls": 19,
+        "chineseCharacters": 2931,
+        "chineseRatio": 0.6178330522765598
+      }
+    },
+    {
+      "id": "bain-from-representation-to-power-ai-and-gender-equity-in-financial-services",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 14,
+        "translationHeadings": 14,
+        "sourceParagraphs": 58,
+        "translatedParagraphs": 58,
+        "sourceNumbers": 2733,
+        "sourceUrls": 7,
+        "chineseCharacters": 4427,
+        "chineseRatio": 0.13077513883965497
+      }
+    },
+    {
+      "id": "bain-ais-next-operating-model",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 34,
+        "translatedParagraphs": 34,
+        "sourceNumbers": 5,
+        "sourceUrls": 9,
+        "chineseCharacters": 2960,
+        "chineseRatio": 0.8063198038681558
+      }
+    },
+    {
+      "id": "bain-unclear-value-propositions-stall-growth-b2b-growth-agenda-2026",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 10,
+        "translationHeadings": 10,
+        "sourceParagraphs": 59,
+        "translatedParagraphs": 59,
+        "sourceNumbers": 68,
+        "sourceUrls": 20,
+        "chineseCharacters": 2850,
+        "chineseRatio": 0.6213211249182472
+      }
+    },
+    {
+      "id": "bain-ai-wont-transform-your-go-to-market-until-you-transform-the-work-b2b-growth-agenda-2026",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 55,
+        "translatedParagraphs": 55,
+        "sourceNumbers": 74,
+        "sourceUrls": 17,
+        "chineseCharacters": 3093,
+        "chineseRatio": 0.6092180421508765
+      }
+    },
+    {
+      "id": "bain-want-more-out-of-your-ai-investments-think-people-first",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 13,
+        "translationHeadings": 13,
+        "sourceParagraphs": 75,
+        "translatedParagraphs": 75,
+        "sourceNumbers": 51,
+        "sourceUrls": 24,
+        "chineseCharacters": 5846,
+        "chineseRatio": 0.7250403075778247
+      }
+    },
+    {
+      "id": "bain-the-us-grocery-slowdown-is-real-snap-chart",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 34,
+        "translatedParagraphs": 34,
+        "sourceNumbers": 108,
+        "sourceUrls": 32,
+        "chineseCharacters": 1088,
+        "chineseRatio": 0.29421308815575986
+      }
+    },
+    {
+      "id": "bain-the-road-forward-to-value-creation-in-consumer-products",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 15,
+        "translationHeadings": 15,
+        "sourceParagraphs": 47,
+        "translatedParagraphs": 47,
+        "sourceNumbers": 43,
+        "sourceUrls": 10,
+        "chineseCharacters": 3576,
+        "chineseRatio": 0.6919504643962848
+      }
+    },
+    {
+      "id": "bain-beyond-sales-lift-how-rewards-build-valuable-customers",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 13,
+        "translationHeadings": 13,
+        "sourceParagraphs": 51,
+        "translatedParagraphs": 51,
+        "sourceNumbers": 69,
+        "sourceUrls": 11,
+        "chineseCharacters": 3373,
+        "chineseRatio": 0.7372677595628415
+      }
+    },
+    {
+      "id": "bain-us-consumer-health-indexes",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 11,
+        "translatedParagraphs": 11,
+        "sourceNumbers": 30,
+        "sourceUrls": 15,
+        "chineseCharacters": 537,
+        "chineseRatio": 0.3153258954785672
+      }
+    },
+    {
+      "id": "bain-online-grocery-pricing-for-both-humans-and-bots",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 33,
+        "translatedParagraphs": 33,
+        "sourceNumbers": 18,
+        "sourceUrls": 10,
+        "chineseCharacters": 2827,
+        "chineseRatio": 0.797686230248307
+      }
+    },
+    {
+      "id": "bain-synthetic-customers-earn-their-stripes",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 34,
+        "translatedParagraphs": 34,
+        "sourceNumbers": 21,
+        "sourceUrls": 13,
+        "chineseCharacters": 2549,
+        "chineseRatio": 0.7494854454572185
+      }
+    },
+    {
+      "id": "bain-2026-us-insurgent-brands-powering-the-next-wave-of-growth-snap-chart",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 18,
+        "translatedParagraphs": 18,
+        "sourceNumbers": 38,
+        "sourceUrls": 9,
+        "chineseCharacters": 1319,
+        "chineseRatio": 0.6260085429520645
+      }
+    },
+    {
+      "id": "bain-four-things-ceos-need-to-do-differently-on-ai-forbes",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 21,
+        "translatedParagraphs": 19,
+        "sourceNumbers": 15,
+        "sourceUrls": 0,
+        "chineseCharacters": 2062,
+        "chineseRatio": 0.7035141589901057
+      }
+    },
+    {
+      "id": "bain-industrial-ceos-is-ai-the-least-of-their-worries-snap-chart",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 16,
+        "translatedParagraphs": 16,
+        "sourceNumbers": 26,
+        "sourceUrls": 16,
+        "chineseCharacters": 707,
+        "chineseRatio": 0.3503468780971259
+      }
+    },
+    {
+      "id": "bain-ai-enabled-transformation-starts-and-stops-with-the-ceo",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 12,
+        "translationHeadings": 12,
+        "sourceParagraphs": 31,
+        "translatedParagraphs": 31,
+        "sourceNumbers": 41,
+        "sourceUrls": 16,
+        "chineseCharacters": 2871,
+        "chineseRatio": 0.6425693822739481
+      }
+    },
+    {
+      "id": "bain-how-will-ai-change-software-organizations",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 36,
+        "translatedParagraphs": 36,
+        "sourceNumbers": 35,
+        "sourceUrls": 15,
+        "chineseCharacters": 1937,
+        "chineseRatio": 0.5965506621496767
+      }
+    },
+    {
+      "id": "bain-agentic-ai-and-the-new-complexity-trap-in-enterprise-software",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 24,
+        "translatedParagraphs": 24,
+        "sourceNumbers": 14,
+        "sourceUrls": 16,
+        "chineseCharacters": 1684,
+        "chineseRatio": 0.5753331055688418
+      }
+    },
+    {
+      "id": "bain-making-the-nuclear-final-investment-decision-the-right-way",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 33,
+        "translatedParagraphs": 33,
+        "sourceNumbers": 33,
+        "sourceUrls": 11,
+        "chineseCharacters": 3324,
+        "chineseRatio": 0.7375194142445085
+      }
+    },
+    {
+      "id": "bain-the-secret-to-scaling-circular-supply-chains",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 60,
+        "translatedParagraphs": 60,
+        "sourceNumbers": 70,
+        "sourceUrls": 16,
+        "chineseCharacters": 3634,
+        "chineseRatio": 0.7200317020011888
+      }
+    },
+    {
+      "id": "bain-b2b-growth-masters-formula-for-repeatably-capturing-new-customers-b2b-growth-agenda-2026",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 54,
+        "translatedParagraphs": 54,
+        "sourceNumbers": 90,
+        "sourceUrls": 22,
+        "chineseCharacters": 2886,
+        "chineseRatio": 0.5622443015780245
+      }
+    },
+    {
+      "id": "bain-ai-enterprise-code-red",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 63,
+        "translatedParagraphs": 63,
+        "sourceNumbers": 105,
+        "sourceUrls": 23,
+        "chineseCharacters": 3146,
+        "chineseRatio": 0.6019900497512438
+      }
+    },
+    {
+      "id": "bain-how-technology-operating-models-are-evolving-for-ai-infographic",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 24,
+        "translatedParagraphs": 24,
+        "sourceNumbers": 23,
+        "sourceUrls": 18,
+        "chineseCharacters": 488,
+        "chineseRatio": 0.2398034398034398
+      }
+    },
+    {
+      "id": "bain-ai-ripple-effect-managing-strained-semiconductor-supply-infographic",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 13,
+        "translatedParagraphs": 13,
+        "sourceNumbers": 13,
+        "sourceUrls": 0,
+        "chineseCharacters": 603,
+        "chineseRatio": 0.7913385826771654
+      }
+    },
+    {
+      "id": "bain-ravi-ahuja-is-working-the-buzzer",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 58,
+        "translatedParagraphs": 58,
+        "sourceNumbers": 17,
+        "sourceUrls": 9,
+        "chineseCharacters": 3610,
+        "chineseRatio": 0.7497403946002077
+      }
+    },
+    {
+      "id": "bain-a-risk-balanced-approach-to-upstream-capital-projects",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 59,
+        "translatedParagraphs": 59,
+        "sourceNumbers": 54,
+        "sourceUrls": 14,
+        "chineseCharacters": 3684,
+        "chineseRatio": 0.7469586374695864
+      }
+    },
+    {
+      "id": "bain-aerospace-and-defense-winning-the-race-to-scale",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 30,
+        "translatedParagraphs": 30,
+        "sourceNumbers": 35,
+        "sourceUrls": 12,
+        "chineseCharacters": 2319,
+        "chineseRatio": 0.6838690651725154
+      }
+    },
+    {
+      "id": "bain-how-telecom-carriers-are-preparing-for-quantum",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 32,
+        "translatedParagraphs": 32,
+        "sourceNumbers": 25,
+        "sourceUrls": 5,
+        "chineseCharacters": 3661,
+        "chineseRatio": 0.8392939018798716
+      }
+    },
+    {
+      "id": "bain-the-rise-of-autonomous-intelligent-procurement",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 30,
+        "translatedParagraphs": 30,
+        "sourceNumbers": 22,
+        "sourceUrls": 14,
+        "chineseCharacters": 1860,
+        "chineseRatio": 0.5969191270860077
+      }
+    },
+    {
+      "id": "bain-from-plans-to-bets-strategy-in-the-age-of-prediction",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 22,
+        "translatedParagraphs": 22,
+        "sourceNumbers": 19,
+        "sourceUrls": 12,
+        "chineseCharacters": 1557,
+        "chineseRatio": 0.6210610291184683
+      }
+    },
+    {
+      "id": "bain-cannes-lions-2026-connecting-art-and-algorithm",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 28,
+        "translatedParagraphs": 28,
+        "sourceNumbers": 38,
+        "sourceUrls": 13,
+        "chineseCharacters": 1918,
+        "chineseRatio": 0.6046658259773013
+      }
+    },
+    {
+      "id": "bain-charting-the-rise-of-preowned-apparel-in-the-us-and-europe",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 19,
+        "translatedParagraphs": 19,
+        "sourceNumbers": 53,
+        "sourceUrls": 13,
+        "chineseCharacters": 1097,
+        "chineseRatio": 0.5155075187969925
+      }
+    },
+    {
+      "id": "bain-insurgent-qa-chomps-cofounder-rashid-ali",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 33,
+        "translatedParagraphs": 33,
+        "sourceNumbers": 12,
+        "sourceUrls": 6,
+        "chineseCharacters": 2265,
+        "chineseRatio": 0.7273603082851637
+      }
+    },
+    {
+      "id": "bain-building-global-champions-asia-pacific-regions-next-medtech-wave",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 28,
+        "translationHeadings": 28,
+        "sourceParagraphs": 109,
+        "translatedParagraphs": 109,
+        "sourceNumbers": 208,
+        "sourceUrls": 23,
+        "chineseCharacters": 12600,
+        "chineseRatio": 0.7553503986571548
+      }
+    },
+    {
+      "id": "bain-energy-and-materials-outlook-2026",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 88,
+        "translatedParagraphs": 88,
+        "sourceNumbers": 120,
+        "sourceUrls": 58,
+        "chineseCharacters": 3774,
+        "chineseRatio": 0.3690592607079992
+      }
+    },
+    {
+      "id": "bain-how-some-big-brands-are-beating-the-odds-snap-chart",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 19,
+        "translatedParagraphs": 19,
+        "sourceNumbers": 47,
+        "sourceUrls": 10,
+        "chineseCharacters": 1065,
+        "chineseRatio": 0.5192588980984886
+      }
+    },
+    {
+      "id": "bain-resetting-the-restaurant-value-equation",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 51,
+        "translatedParagraphs": 51,
+        "sourceNumbers": 60,
+        "sourceUrls": 12,
+        "chineseCharacters": 2999,
+        "chineseRatio": 0.7181513409961686
+      }
+    },
+    {
+      "id": "bain-theres-more-than-one-way-to-win-on-value-in-us-grocery-snap-chart",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 15,
+        "translatedParagraphs": 15,
+        "sourceNumbers": 62,
+        "sourceUrls": 26,
+        "chineseCharacters": 561,
+        "chineseRatio": 0.23433583959899748
+      }
+    },
+    {
+      "id": "bain-beyond-payments-the-real-prize-in-sme-commerce-is-ecosystem-control",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 39,
+        "translatedParagraphs": 39,
+        "sourceNumbers": 46,
+        "sourceUrls": 12,
+        "chineseCharacters": 2801,
+        "chineseRatio": 0.7219072164948453
+      }
+    },
+    {
+      "id": "bain-orbital-data-centers-beyond-the-grid",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 35,
+        "translatedParagraphs": 35,
+        "sourceNumbers": 34,
+        "sourceUrls": 10,
+        "chineseCharacters": 2199,
+        "chineseRatio": 0.7172211350293543
+      }
+    },
+    {
+      "id": "bain-full-potential-the-antidote-to-satisfactory-underperformance",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 15,
+        "translationHeadings": 15,
+        "sourceParagraphs": 77,
+        "translatedParagraphs": 77,
+        "sourceNumbers": 213,
+        "sourceUrls": 30,
+        "chineseCharacters": 3258,
+        "chineseRatio": 0.4954379562043796
+      }
+    },
+    {
+      "id": "bain-global-job-market-trends",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 46,
+        "translatedParagraphs": 46,
+        "sourceNumbers": 88,
+        "sourceUrls": 25,
+        "chineseCharacters": 1782,
+        "chineseRatio": 0.4535505217612624
+      }
+    },
+    {
+      "id": "bain-support-not-just-strategy-builds-motivation-and-confidence-in-reorganizations-snap-chart",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 19,
+        "translatedParagraphs": 19,
+        "sourceNumbers": 42,
+        "sourceUrls": 15,
+        "chineseCharacters": 805,
+        "chineseRatio": 0.3677478300593878
+      }
+    },
+    {
+      "id": "bain-operating-models-in-mining-start-at-the-asset",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 49,
+        "translatedParagraphs": 49,
+        "sourceNumbers": 24,
+        "sourceUrls": 14,
+        "chineseCharacters": 2732,
+        "chineseRatio": 0.7070393374741201
+      }
+    },
+    {
+      "id": "bain-four-ways-leaders-can-make-ai-redesigns-stick-forbes",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 12,
+        "translationHeadings": 12,
+        "sourceParagraphs": 27,
+        "translatedParagraphs": 27,
+        "sourceNumbers": 70,
+        "sourceUrls": 13,
+        "chineseCharacters": 313,
+        "chineseRatio": 0.15977539561000512
+      }
+    },
+    {
+      "id": "bain-winning-in-the-agentic-era-a-conversation-with-andrew-ng",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 15,
+        "translationHeadings": 15,
+        "sourceParagraphs": 72,
+        "translatedParagraphs": 72,
+        "sourceNumbers": 40,
+        "sourceUrls": 15,
+        "chineseCharacters": 5955,
+        "chineseRatio": 0.7873859579531932
+      }
+    },
+    {
+      "id": "bain-business-breakthrough-barometer-2026",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 14,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 52,
+        "sourceUrls": 23,
+        "chineseCharacters": 543,
+        "chineseRatio": 0.24349775784753364
+      }
+    },
+    {
+      "id": "bain-the-human-imperative-scaling-ai-across-life-sciences",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 56,
+        "translatedParagraphs": 59,
+        "sourceNumbers": 50,
+        "sourceUrls": 16,
+        "chineseCharacters": 3134,
+        "chineseRatio": 0.6854768153980753
+      }
+    },
+    {
+      "id": "bain-nuclear-and-megaproject-delivery-five-elements-that-predict-success",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 10,
+        "translationHeadings": 10,
+        "sourceParagraphs": 48,
+        "translatedParagraphs": 48,
+        "sourceNumbers": 90,
+        "sourceUrls": 14,
+        "chineseCharacters": 3336,
+        "chineseRatio": 0.6822085889570552
+      }
+    },
+    {
+      "id": "bain-procurement-in-financial-services-a-tech-powered-value-creator",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 34,
+        "translatedParagraphs": 34,
+        "sourceNumbers": 46,
+        "sourceUrls": 18,
+        "chineseCharacters": 2870,
+        "chineseRatio": 0.6475631768953068
+      }
+    },
+    {
+      "id": "bain-energy-agenda-2026-returns-restructuring-and-resilience",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 56,
+        "translatedParagraphs": 56,
+        "sourceNumbers": 79,
+        "sourceUrls": 19,
+        "chineseCharacters": 3461,
+        "chineseRatio": 0.6750536376048372
+      }
+    },
+    {
+      "id": "bain-commercial-aviation-forecast",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 35,
+        "translatedParagraphs": 35,
+        "sourceNumbers": 87,
+        "sourceUrls": 22,
+        "chineseCharacters": 681,
+        "chineseRatio": 0.27294589178356715
+      }
+    },
+    {
+      "id": "bain-six-threats-demand-a-new-playbook-for-banks-in-wealth-and-asset-management",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 30,
+        "translatedParagraphs": 30,
+        "sourceNumbers": 27,
+        "sourceUrls": 9,
+        "chineseCharacters": 2484,
+        "chineseRatio": 0.7170900692840647
+      }
+    },
+    {
+      "id": "bain-takeaways-from-bains-2026-m-and-a-report-webinar",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 1214,
+        "translatedParagraphs": 1168,
+        "sourceNumbers": 1995,
+        "sourceUrls": 3,
+        "chineseCharacters": 11068,
+        "chineseRatio": 0.5422566263289402
+      }
+    },
+    {
+      "id": "bain-luxury-jewelry-in-2026-what-valentines-day-told-us-snap-chart",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 14,
+        "translatedParagraphs": 18,
+        "sourceNumbers": 22,
+        "sourceUrls": 16,
+        "chineseCharacters": 216,
+        "chineseRatio": 0.16011860637509265
+      }
+    },
+    {
+      "id": "bain-why-consumers-choose-an-ai-chatbot-over-a-search-engine-snap-chart",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 17,
+        "translatedParagraphs": 17,
+        "sourceNumbers": 96,
+        "sourceUrls": 32,
+        "chineseCharacters": 577,
+        "chineseRatio": 0.18224889450410614
+      }
+    },
+    {
+      "id": "bain-retailers-have-a-secret-weapon-in-ai-powered-shopping-trust-snap-chart",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 15,
+        "translatedParagraphs": 15,
+        "sourceNumbers": 89,
+        "sourceUrls": 31,
+        "chineseCharacters": 476,
+        "chineseRatio": 0.16690042075736325
+      }
+    },
+    {
+      "id": "bain-bring-back-managing-for-value-hbr",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 13,
+        "translatedParagraphs": 13,
+        "sourceNumbers": 2,
+        "sourceUrls": 8,
+        "chineseCharacters": 170,
+        "chineseRatio": 0.2556390977443609
+      }
+    },
+    {
+      "id": "bain-asia-pacific-front-line-of-healthcare-2026",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 19,
+        "translationHeadings": 19,
+        "sourceParagraphs": 199,
+        "translatedParagraphs": 199,
+        "sourceNumbers": 386,
+        "sourceUrls": 40,
+        "chineseCharacters": 10264,
+        "chineseRatio": 0.7035437658509837
+      }
+    },
+    {
+      "id": "bain-the-ai-upskilling-boom-has-a-problem-forbes",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 12,
+        "translationHeadings": 12,
+        "sourceParagraphs": 27,
+        "translatedParagraphs": 27,
+        "sourceNumbers": 71,
+        "sourceUrls": 12,
+        "chineseCharacters": 294,
+        "chineseRatio": 0.18421052631578946
+      }
+    },
+    {
+      "id": "bain-redefining-corporate-strategy-in-a-more-volatile-world-weforum",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 13,
+        "translationHeadings": 13,
+        "sourceParagraphs": 55,
+        "translatedParagraphs": 55,
+        "sourceNumbers": 110,
+        "sourceUrls": 0,
+        "chineseCharacters": 2743,
+        "chineseRatio": 0.4971003986951794
+      }
+    },
+    {
+      "id": "bain-insurgent-brands-defining-the-next-era-of-consumer-growth-webinar",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 11,
+        "translatedParagraphs": 12,
+        "sourceNumbers": 35,
+        "sourceUrls": 11,
+        "chineseCharacters": 188,
+        "chineseRatio": 0.15614617940199335
+      }
+    },
+    {
+      "id": "bain-what-it-takes-to-build-the-ai-native-modern-bank",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 42,
+        "translatedParagraphs": 42,
+        "sourceNumbers": 89,
+        "sourceUrls": 33,
+        "chineseCharacters": 2774,
+        "chineseRatio": 0.5027183762232693
+      }
+    },
+    {
+      "id": "bain-the-future-of-opex-in-the-agent-economy",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 11,
+        "translationHeadings": 11,
+        "sourceParagraphs": 41,
+        "translatedParagraphs": 41,
+        "sourceNumbers": 45,
+        "sourceUrls": 17,
+        "chineseCharacters": 3376,
+        "chineseRatio": 0.6439061605950791
+      }
+    },
+    {
+      "id": "bain-cfos-funded-ai-revolution-now-they-are-joining-it",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 49,
+        "translatedParagraphs": 49,
+        "sourceNumbers": 69,
+        "sourceUrls": 20,
+        "chineseCharacters": 2443,
+        "chineseRatio": 0.5400088417329797
+      }
+    },
+    {
+      "id": "bain-industrial-automation-from-control-to-intelligence",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 76,
+        "translatedParagraphs": 76,
+        "sourceNumbers": 82,
+        "sourceUrls": 27,
+        "chineseCharacters": 4773,
+        "chineseRatio": 0.6473619964736199
+      }
+    },
+    {
+      "id": "bain-is-your-telco-winning-the-race-to-autonomous-networks",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 42,
+        "translatedParagraphs": 42,
+        "sourceNumbers": 62,
+        "sourceUrls": 9,
+        "chineseCharacters": 3050,
+        "chineseRatio": 0.7340553549939831
+      }
+    },
+    {
+      "id": "bain-key-insights-from-bains-2026-paper-and-packaging-report-webinar",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 10,
+        "translatedParagraphs": 10,
+        "sourceNumbers": 9,
+        "sourceUrls": 3,
+        "chineseCharacters": 145,
+        "chineseRatio": 0.2187028657616893
+      }
+    },
+    {
+      "id": "bain-power-capital-and-governance-leadership-in-a-fragmented-world-cjbs",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 13,
+        "translatedParagraphs": 13,
+        "sourceNumbers": 3,
+        "sourceUrls": 9,
+        "chineseCharacters": 169,
+        "chineseRatio": 0.17440660474716202
+      }
+    },
+    {
+      "id": "bain-the-end-of-cheap-capital-hbr",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 13,
+        "translatedParagraphs": 13,
+        "sourceNumbers": 2,
+        "sourceUrls": 8,
+        "chineseCharacters": 135,
+        "chineseRatio": 0.16206482593037214
+      }
+    },
+    {
+      "id": "bain-the-brands-defining-the-next-era-of-consumer-growth-video",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 190,
+        "translatedParagraphs": 189,
+        "sourceNumbers": 85,
+        "sourceUrls": 8,
+        "chineseCharacters": 17073,
+        "chineseRatio": 0.8554893019992985
+      }
+    },
+    {
+      "id": "bain-how-to-conduct-difficult-conversations-as-a-leader-forbes",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 13,
+        "translatedParagraphs": 13,
+        "sourceNumbers": 3,
+        "sourceUrls": 9,
+        "chineseCharacters": 166,
+        "chineseRatio": 0.21671018276762402
+      }
+    },
+    {
+      "id": "bain-ceo-sessions-compete-evolve-compete-again",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 30,
+        "translatedParagraphs": 30,
+        "sourceNumbers": 42,
+        "sourceUrls": 29,
+        "chineseCharacters": 669,
+        "chineseRatio": 0.22997593674802339
+      }
+    },
+    {
+      "id": "bain-signals-from-cannes-lions-2026-the-next-gen-cmo-agenda-webinar",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 11,
+        "translatedParagraphs": 11,
+        "sourceNumbers": 34,
+        "sourceUrls": 13,
+        "chineseCharacters": 177,
+        "chineseRatio": 0.16179159049360145
+      }
+    },
+    {
+      "id": "bain-inside-bains-2025-asia-pacific-consumer-products-report-webinar",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 11,
+        "translatedParagraphs": 11,
+        "sourceNumbers": 30,
+        "sourceUrls": 10,
+        "chineseCharacters": 152,
+        "chineseRatio": 0.158004158004158
+      }
+    },
+    {
+      "id": "bain-new-era-in-tech-investing-starts-now",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 46,
+        "translatedParagraphs": 46,
+        "sourceNumbers": 30,
+        "sourceUrls": 12,
+        "chineseCharacters": 3707,
+        "chineseRatio": 0.7711670480549199
+      }
+    },
+    {
+      "id": "bain-asia-pacific-private-equity-report-2026",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 13,
+        "translationHeadings": 13,
+        "sourceParagraphs": 225,
+        "translatedParagraphs": 225,
+        "sourceNumbers": 783,
+        "sourceUrls": 74,
+        "chineseCharacters": 8995,
+        "chineseRatio": 0.4834462001504891
+      }
+    },
+    {
+      "id": "bain-medtech-supply-chains-have-an-efficiency-problem-snap-chart",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 14,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 13,
+        "sourceUrls": 10,
+        "chineseCharacters": 716,
+        "chineseRatio": 0.4625322997416021
+      }
+    },
+    {
+      "id": "bain-ai-infrastructure-in-the-age-of-sovereignty-wef",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 13,
+        "translatedParagraphs": 13,
+        "sourceNumbers": 6,
+        "sourceUrls": 12,
+        "chineseCharacters": 197,
+        "chineseRatio": 0.21864594894561598
+      }
+    },
+    {
+      "id": "bain-why-software-capability-will-define-winners-in-2026-forbes",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 13,
+        "translatedParagraphs": 13,
+        "sourceNumbers": 9,
+        "sourceUrls": 13,
+        "chineseCharacters": 162,
+        "chineseRatio": 0.14754098360655737
+      }
+    },
+    {
+      "id": "bain-hannover-messe-2026-the-technology-is-ready-are-manufacturers",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 12,
+        "translatedParagraphs": 12,
+        "sourceNumbers": 20,
+        "sourceUrls": 10,
+        "chineseCharacters": 968,
+        "chineseRatio": 0.5076035658101731
+      }
+    },
+    {
+      "id": "bain-the-business-case-for-prioritizing-the-human-side-of-ai-forbes",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 12,
+        "translationHeadings": 12,
+        "sourceParagraphs": 27,
+        "translatedParagraphs": 27,
+        "sourceNumbers": 66,
+        "sourceUrls": 13,
+        "chineseCharacters": 285,
+        "chineseRatio": 0.1717902350813743
+      }
+    },
+    {
+      "id": "bain-takeaways-from-bains-2026-b2b-growth-agenda-webinar",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 10,
+        "translatedParagraphs": 10,
+        "sourceNumbers": 16,
+        "sourceUrls": 3,
+        "chineseCharacters": 196,
+        "chineseRatio": 0.3835616438356164
+      }
+    },
+    {
+      "id": "bain-engineering-speed-is-reshaping-defense-competition",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 50,
+        "translatedParagraphs": 50,
+        "sourceNumbers": 14,
+        "sourceUrls": 10,
+        "chineseCharacters": 2775,
+        "chineseRatio": 0.7510148849797023
+      }
+    },
+    {
+      "id": "bain-m-and-a-midyear-outlook-2026-a-winners-paradox",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 42,
+        "translatedParagraphs": 42,
+        "sourceNumbers": 129,
+        "sourceUrls": 22,
+        "chineseCharacters": 2319,
+        "chineseRatio": 0.3652543707670499
+      }
+    },
+    {
+      "id": "bain-the-future-of-sovereign-wealth-funds-four-imperatives-for-the-next-decade",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 17,
+        "translationHeadings": 17,
+        "sourceParagraphs": 96,
+        "translatedParagraphs": 97,
+        "sourceNumbers": 162,
+        "sourceUrls": 14,
+        "chineseCharacters": 6627,
+        "chineseRatio": 0.7143473105529805
+      }
+    },
+    {
+      "id": "bain-enterprise-shared-services-in-medtech-the-only-wrong-move-is-standing-still",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 34,
+        "translatedParagraphs": 34,
+        "sourceNumbers": 32,
+        "sourceUrls": 10,
+        "chineseCharacters": 2535,
+        "chineseRatio": 0.7134815648747538
+      }
+    },
+    {
+      "id": "bain-gartner-finance-symposium-xpo-2026-five-takeaways-for-cfos",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 20,
+        "translatedParagraphs": 20,
+        "sourceNumbers": 15,
+        "sourceUrls": 9,
+        "chineseCharacters": 1705,
+        "chineseRatio": 0.6505150705837467
+      }
+    },
+    {
+      "id": "bain-how-ai-rewrites-the-rules-of-brand-discoverability-in-banking-brief",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 40,
+        "translatedParagraphs": 40,
+        "sourceNumbers": 32,
+        "sourceUrls": 17,
+        "chineseCharacters": 2927,
+        "chineseRatio": 0.6223687008292579
+      }
+    },
+    {
+      "id": "bain-the-clean-fuels-opportunity",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 24,
+        "translationHeadings": 24,
+        "sourceParagraphs": 99,
+        "translatedParagraphs": 99,
+        "sourceNumbers": 210,
+        "sourceUrls": 25,
+        "chineseCharacters": 5706,
+        "chineseRatio": 0.6776722090261282
+      }
+    },
+    {
+      "id": "bain-ai-brings-headwinds-and-tailwinds-to-the-rule-of-40",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 36,
+        "translatedParagraphs": 36,
+        "sourceNumbers": 58,
+        "sourceUrls": 17,
+        "chineseCharacters": 1399,
+        "chineseRatio": 0.4792737238780404
+      }
+    },
+    {
+      "id": "bain-volatility-isnt-the-storm-its-the-climate-b2b-growth-agenda-2026",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 52,
+        "translatedParagraphs": 52,
+        "sourceNumbers": 114,
+        "sourceUrls": 31,
+        "chineseCharacters": 2485,
+        "chineseRatio": 0.468602677729587
+      }
+    },
+    {
+      "id": "bain-global-venture-capital-outlook-latest-trends-snap-chart",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 15,
+        "translatedParagraphs": 15,
+        "sourceNumbers": 80,
+        "sourceUrls": 21,
+        "chineseCharacters": 679,
+        "chineseRatio": 0.29676573426573427
+      }
+    },
+    {
+      "id": "bain-inside-bains-2026-private-equity-report-webinar",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 10,
+        "translatedParagraphs": 10,
+        "sourceNumbers": 15,
+        "sourceUrls": 3,
+        "chineseCharacters": 200,
+        "chineseRatio": 0.33167495854063017
+      }
+    },
+    {
+      "id": "bain-from-pilots-to-portfolios-coordinated-finance-for-food-systems",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 215,
+        "translatedParagraphs": 228,
+        "sourceNumbers": 212,
+        "sourceUrls": 1,
+        "chineseCharacters": 8538,
+        "chineseRatio": 0.7931995540691192
+      }
+    },
+    {
+      "id": "bain-the-circular-economy-is-now-an-economic-and-industrial-strategy-heres-why",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 14,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 6,
+        "sourceUrls": 11,
+        "chineseCharacters": 171,
+        "chineseRatio": 0.20430107526881722
+      }
+    },
+    {
+      "id": "bain-ceo-sessions-pedro-arnt",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 22,
+        "translatedParagraphs": 22,
+        "sourceNumbers": 49,
+        "sourceUrls": 25,
+        "chineseCharacters": 468,
+        "chineseRatio": 0.19991456642460487
+      }
+    },
+    {
+      "id": "bain-how-cmos-can-adapt-to-agency-consolidation-webinar",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 11,
+        "translatedParagraphs": 11,
+        "sourceNumbers": 27,
+        "sourceUrls": 12,
+        "chineseCharacters": 196,
+        "chineseRatio": 0.16795201371036847
+      }
+    },
+    {
+      "id": "bain-winning-the-next-auto-cycle-playbook-for-dealers-webinar",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 2,
+        "translationHeadings": 2,
+        "sourceParagraphs": 9,
+        "translatedParagraphs": 9,
+        "sourceNumbers": 67,
+        "sourceUrls": 24,
+        "chineseCharacters": 331,
+        "chineseRatio": 0.17653333333333332
+      }
+    },
+    {
+      "id": "bain-private-equity-midyear-report-2026",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 107,
+        "translatedParagraphs": 107,
+        "sourceNumbers": 134,
+        "sourceUrls": 32,
+        "chineseCharacters": 5233,
+        "chineseRatio": 0.6187041853866162
+      }
+    },
+    {
+      "id": "bain-welcome-to-a-new-era-global-private-equity-report-2026",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 70,
+        "translatedParagraphs": 70,
+        "sourceNumbers": 174,
+        "sourceUrls": 40,
+        "chineseCharacters": 4882,
+        "chineseRatio": 0.546146101353619
+      }
+    },
+    {
+      "id": "bain-outlook-gaining-traction-global-private-equity-report-2026",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 241,
+        "translatedParagraphs": 241,
+        "sourceNumbers": 362,
+        "sourceUrls": 58,
+        "chineseCharacters": 9964,
+        "chineseRatio": 0.6145306525225114
+      }
+    },
+    {
+      "id": "bain-the-magic-of-founder-led-companies-snap-chart",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 16,
+        "translatedParagraphs": 16,
+        "sourceNumbers": 29,
+        "sourceUrls": 18,
+        "chineseCharacters": 374,
+        "chineseRatio": 0.2170632617527568
+      }
+    },
+    {
+      "id": "bain-mwc-2026-telecoms-at-the-inflection-point",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 20,
+        "translatedParagraphs": 20,
+        "sourceNumbers": 9,
+        "sourceUrls": 6,
+        "chineseCharacters": 1881,
+        "chineseRatio": 0.7910008410428931
+      }
+    },
+    {
+      "id": "bain-how-to-make-your-organization-five-times-faster-forbes",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 12,
+        "translationHeadings": 12,
+        "sourceParagraphs": 27,
+        "translatedParagraphs": 27,
+        "sourceNumbers": 71,
+        "sourceUrls": 13,
+        "chineseCharacters": 295,
+        "chineseRatio": 0.1823238566131026
+      }
+    },
+    {
+      "id": "bain-strong-momentum-in-insurance-but-structural-challenges-remain",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 93,
+        "translatedParagraphs": 93,
+        "sourceNumbers": 132,
+        "sourceUrls": 35,
+        "chineseCharacters": 3409,
+        "chineseRatio": 0.49948717948717947
+      }
+    },
+    {
+      "id": "bain-superai-2016-when-intelligence-is-cheap-what-remains-yours",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 27,
+        "translatedParagraphs": 27,
+        "sourceNumbers": 8,
+        "sourceUrls": 9,
+        "chineseCharacters": 2131,
+        "chineseRatio": 0.7245834750085005
+      }
+    },
+    {
+      "id": "bain-managing-the-transition-to-a-multipolar-pharma-market",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 22,
+        "translatedParagraphs": 22,
+        "sourceNumbers": 6,
+        "sourceUrls": 7,
+        "chineseCharacters": 1470,
+        "chineseRatio": 0.7115198451113263
+      }
+    },
+    {
+      "id": "bain-telecom-m-and-a-here-are-the-latest-deal-trends-worldwide-interactive",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 20,
+        "translatedParagraphs": 20,
+        "sourceNumbers": 57,
+        "sourceUrls": 12,
+        "chineseCharacters": 1425,
+        "chineseRatio": 0.4786698018139066
+      }
+    },
+    {
+      "id": "bain-global-m-and-a-deal-trends-interactive",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 28,
+        "translatedParagraphs": 28,
+        "sourceNumbers": 74,
+        "sourceUrls": 20,
+        "chineseCharacters": 607,
+        "chineseRatio": 0.2778032036613272
+      }
+    },
+    {
+      "id": "bain-from-hype-to-hard-value-stablecoin-and-the-great-rewiring-of-wholesale-banking",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 58,
+        "translatedParagraphs": 58,
+        "sourceNumbers": 64,
+        "sourceUrls": 22,
+        "chineseCharacters": 3489,
+        "chineseRatio": 0.633097441480675
+      }
+    },
+    {
+      "id": "bain-execs-arent-prepared-for-the-post-quantum-cybersecurity-risks-they-know-are-coming-snap-chart",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 0,
+        "translationHeadings": 0,
+        "sourceParagraphs": 9,
+        "translatedParagraphs": 9,
+        "sourceNumbers": 32,
+        "sourceUrls": 7,
+        "chineseCharacters": 293,
+        "chineseRatio": 0.2625448028673835
+      }
+    },
+    {
+      "id": "bain-ceo-sessions-jacqueline-novogratz",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 30,
+        "translatedParagraphs": 30,
+        "sourceNumbers": 59,
+        "sourceUrls": 26,
+        "chineseCharacters": 522,
+        "chineseRatio": 0.19923664122137405
+      }
+    },
+    {
+      "id": "bain-consumer-scale-buyouts-defy-the-broader-slowdown-snap-chart",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 9,
+        "translatedParagraphs": 9,
+        "sourceNumbers": 28,
+        "sourceUrls": 9,
+        "chineseCharacters": 572,
+        "chineseRatio": 0.45796637309847876
+      }
+    },
+    {
+      "id": "bain-six-provocations-to-future-proof-your-bank",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 28,
+        "translatedParagraphs": 28,
+        "sourceNumbers": 22,
+        "sourceUrls": 8,
+        "chineseCharacters": 2351,
+        "chineseRatio": 0.784712950600801
+      }
+    },
+    {
+      "id": "bain-life-sciences-ai-momentum-requires-a-workforce-redesign-snap-chart",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 2,
+        "translationHeadings": 2,
+        "sourceParagraphs": 21,
+        "translatedParagraphs": 21,
+        "sourceNumbers": 39,
+        "sourceUrls": 21,
+        "chineseCharacters": 542,
+        "chineseRatio": 0.24558223833257817
+      }
+    },
+    {
+      "id": "bain-constructing-m-and-a-strategy-building-products-infographic",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 2,
+        "translationHeadings": 2,
+        "sourceParagraphs": 13,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 73,
+        "sourceUrls": 30,
+        "chineseCharacters": 453,
+        "chineseRatio": 0.16979010494752625
+      }
+    },
+    {
+      "id": "bain-winning-with-ai-podcast-glenn-fogel",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 108,
+        "translatedParagraphs": 108,
+        "sourceNumbers": 67,
+        "sourceUrls": 31,
+        "chineseCharacters": 6861,
+        "chineseRatio": 0.6748967145386583
+      }
+    },
+    {
+      "id": "bain-why-smart-leaders-still-fail-at-change-forbes",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 13,
+        "translatedParagraphs": 13,
+        "sourceNumbers": 7,
+        "sourceUrls": 13,
+        "chineseCharacters": 203,
+        "chineseRatio": 0.22161572052401746
+      }
+    },
+    {
+      "id": "bain-why-strategy-starts-with-better-predictions-and-ends-with-resilience-forbes",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 11,
+        "translationHeadings": 11,
+        "sourceParagraphs": 26,
+        "translatedParagraphs": 26,
+        "sourceNumbers": 81,
+        "sourceUrls": 12,
+        "chineseCharacters": 319,
+        "chineseRatio": 0.20795306388526727
+      }
+    },
+    {
+      "id": "bain-ceo-sessions-embrace-the-new-rules-of-scaling",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 28,
+        "translatedParagraphs": 28,
+        "sourceNumbers": 47,
+        "sourceUrls": 24,
+        "chineseCharacters": 537,
+        "chineseRatio": 0.20813953488372092
+      }
+    },
+    {
+      "id": "bain-the-560-billion-energy-question-infographic",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 17,
+        "translatedParagraphs": 17,
+        "sourceNumbers": 40,
+        "sourceUrls": 17,
+        "chineseCharacters": 652,
+        "chineseRatio": 0.3516720604099245
+      }
+    },
+    {
+      "id": "bain-ceo-sessions-kevin-lobo",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 30,
+        "translatedParagraphs": 30,
+        "sourceNumbers": 68,
+        "sourceUrls": 29,
+        "chineseCharacters": 560,
+        "chineseRatio": 0.1960098004900245
+      }
+    },
+    {
+      "id": "bain-how-ai-is-reshaping-industrial-automation-profit-pools-video",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 53,
+        "translatedParagraphs": 53,
+        "sourceNumbers": 23,
+        "sourceUrls": 11,
+        "chineseCharacters": 6900,
+        "chineseRatio": 0.8069231668810666
+      }
+    },
+    {
+      "id": "bain-six-ways-to-accelerate-exit-momentum",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 33,
+        "translatedParagraphs": 33,
+        "sourceNumbers": 18,
+        "sourceUrls": 11,
+        "chineseCharacters": 2587,
+        "chineseRatio": 0.7642540620384047
+      }
+    },
+    {
+      "id": "bain-air-travel-forecast-interactive",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 40,
+        "translatedParagraphs": 40,
+        "sourceNumbers": 75,
+        "sourceUrls": 22,
+        "chineseCharacters": 1739,
+        "chineseRatio": 0.4625
+      }
+    },
+    {
+      "id": "bain-automotive-profitability-how-oem-and-supplier-margins-are-faring-interactive",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 9,
+        "translatedParagraphs": 9,
+        "sourceNumbers": 27,
+        "sourceUrls": 8,
+        "chineseCharacters": 800,
+        "chineseRatio": 0.4694835680751174
+      }
+    },
+    {
+      "id": "bain-rebuilding-exploration",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 40,
+        "translatedParagraphs": 40,
+        "sourceNumbers": 29,
+        "sourceUrls": 14,
+        "chineseCharacters": 2605,
+        "chineseRatio": 0.7296918767507002
+      }
+    },
+    {
+      "id": "bain-is-the-airline-industry-ready-for-agent-led-bookings",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 43,
+        "translatedParagraphs": 43,
+        "sourceNumbers": 32,
+        "sourceUrls": 17,
+        "chineseCharacters": 1952,
+        "chineseRatio": 0.5635103926096998
+      }
+    },
+    {
+      "id": "bain-accelerating-growth-and-innovation-in-european-mid-sized-pharma",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 65,
+        "translatedParagraphs": 65,
+        "sourceNumbers": 105,
+        "sourceUrls": 20,
+        "chineseCharacters": 3705,
+        "chineseRatio": 0.6329005807994533
+      }
+    },
+    {
+      "id": "bain-modernizing-the-bank-how-to-turn-ai-ambition-into-advantage-international-banker",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 13,
+        "translatedParagraphs": 16,
+        "sourceNumbers": 5,
+        "sourceUrls": 11,
+        "chineseCharacters": 168,
+        "chineseRatio": 0.15053763440860216
+      }
+    },
+    {
+      "id": "bain-ai-talent-lab-underwriters",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 29,
+        "translatedParagraphs": 29,
+        "sourceNumbers": 22,
+        "sourceUrls": 24,
+        "chineseCharacters": 910,
+        "chineseRatio": 0.3217821782178218
+      }
+    },
+    {
+      "id": "bain-technology-trends-redefining-the-future-of-banking-temenos",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 190,
+        "translatedParagraphs": 293,
+        "sourceNumbers": 187,
+        "sourceUrls": 9,
+        "chineseCharacters": 13757,
+        "chineseRatio": 0.843056747150386
+      }
+    },
+    {
+      "id": "bain-will-private-capital-and-disruption-reshape-defense-industrial-base",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 13,
+        "translatedParagraphs": 13,
+        "sourceNumbers": 2,
+        "sourceUrls": 8,
+        "chineseCharacters": 205,
+        "chineseRatio": 0.2408930669800235
+      }
+    },
+    {
+      "id": "bain-private-equitys-reality-check-gp-outlook-2026",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 49,
+        "translatedParagraphs": 49,
+        "sourceNumbers": 82,
+        "sourceUrls": 26,
+        "chineseCharacters": 1325,
+        "chineseRatio": 0.37663445139283686
+      }
+    },
+    {
+      "id": "bain-sustainable-leadership-in-2026-resilience-growth-and-action-webinar",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 2,
+        "translationHeadings": 2,
+        "sourceParagraphs": 9,
+        "translatedParagraphs": 9,
+        "sourceNumbers": 71,
+        "sourceUrls": 20,
+        "chineseCharacters": 328,
+        "chineseRatio": 0.1704781704781705
+      }
+    },
+    {
+      "id": "bain-the-doctor-is-always-on-dynamic-medicine-is-the-next-frontier-for-pharma",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 34,
+        "translatedParagraphs": 34,
+        "sourceNumbers": 7,
+        "sourceUrls": 6,
+        "chineseCharacters": 2681,
+        "chineseRatio": 0.7917897223862965
+      }
+    },
+    {
+      "id": "bain-betting-on-the-future-without-a-plan-b-snap-chart",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 10,
+        "translatedParagraphs": 10,
+        "sourceNumbers": 8,
+        "sourceUrls": 6,
+        "chineseCharacters": 795,
+        "chineseRatio": 0.6411290322580645
+      }
+    },
+    {
+      "id": "bain-banking-modernization-at-scale-a-conversation-with-patrick-wright-video",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 15,
+        "translationHeadings": 15,
+        "sourceParagraphs": 36,
+        "translatedParagraphs": 36,
+        "sourceNumbers": 50,
+        "sourceUrls": 20,
+        "chineseCharacters": 2932,
+        "chineseRatio": 0.591367486889875
+      }
+    },
+    {
+      "id": "bain-oil-and-gas-in-2026-staying-focused-in-a-disruptive-environment",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 31,
+        "translatedParagraphs": 31,
+        "sourceNumbers": 25,
+        "sourceUrls": 8,
+        "chineseCharacters": 3009,
+        "chineseRatio": 0.8077852348993289
+      }
+    },
+    {
+      "id": "bain-companies-are-betting-bigger-on-ai-even-as-returns-fall-short-video",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 44,
+        "translatedParagraphs": 44,
+        "sourceNumbers": 34,
+        "sourceUrls": 11,
+        "chineseCharacters": 2812,
+        "chineseRatio": 0.6732104381134786
+      }
+    },
+    {
+      "id": "bain-inside-bains-2026-midyear-m-and-a-outlook-webinar",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 10,
+        "translatedParagraphs": 10,
+        "sourceNumbers": 16,
+        "sourceUrls": 3,
+        "chineseCharacters": 148,
+        "chineseRatio": 0.20670391061452514
+      }
+    },
+    {
+      "id": "bain-inside-bains-latest-survey-of-energy-and-natural-resources-executives-webinar",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 11,
+        "translatedParagraphs": 11,
+        "sourceNumbers": 30,
+        "sourceUrls": 15,
+        "chineseCharacters": 241,
+        "chineseRatio": 0.15844838921762
+      }
+    },
+    {
+      "id": "bain-dry-powder-live-from-nexus-2026-podcast",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 10,
+        "translatedParagraphs": 10,
+        "sourceNumbers": 34,
+        "sourceUrls": 11,
+        "chineseCharacters": 286,
+        "chineseRatio": 0.2346185397867104
+      }
+    },
+    {
+      "id": "bain-exiting-well-in-tough-markets-with-apollos-david-sambur-podcast",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 14,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 32,
+        "sourceUrls": 12,
+        "chineseCharacters": 451,
+        "chineseRatio": 0.29828042328042326
+      }
+    },
+    {
+      "id": "bain-key-takeaways-from-bains-2026-midyear-private-equity-report-webinar",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 10,
+        "translatedParagraphs": 10,
+        "sourceNumbers": 11,
+        "sourceUrls": 3,
+        "chineseCharacters": 156,
+        "chineseRatio": 0.21428571428571427
+      }
+    },
+    {
+      "id": "bain-buying-well-at-scale-with-apollos-david-sambur-podcast",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 14,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 29,
+        "sourceUrls": 11,
+        "chineseCharacters": 501,
+        "chineseRatio": 0.3450413223140496
+      }
+    },
+    {
+      "id": "bain-bain-and-companys-global-private-equity-report-2026-executive-summary-podcast",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 14,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 48,
+        "sourceUrls": 15,
+        "chineseCharacters": 204,
+        "chineseRatio": 0.12647241165530068
+      }
+    },
+    {
+      "id": "bain-software-as-a-coworker-with-vistas-robert-smith-podcast",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 13,
+        "translatedParagraphs": 13,
+        "sourceNumbers": 29,
+        "sourceUrls": 11,
+        "chineseCharacters": 428,
+        "chineseRatio": 0.3096960926193922
+      }
+    },
+    {
+      "id": "bain-infrastructures-next-frontiers-with-stonepeaks-michael-dorrell-podcast",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 13,
+        "translatedParagraphs": 13,
+        "sourceNumbers": 29,
+        "sourceUrls": 12,
+        "chineseCharacters": 476,
+        "chineseRatio": 0.2986198243412798
+      }
+    },
+    {
+      "id": "bain-winning-with-ai-podcast-robert-smith",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 125,
+        "translatedParagraphs": 125,
+        "sourceNumbers": 94,
+        "sourceUrls": 30,
+        "chineseCharacters": 7574,
+        "chineseRatio": 0.6616580763518826
+      }
+    },
+    {
+      "id": "bain-inside-bains-2026-asia-pacific-private-equity-report-webinar",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 10,
+        "translatedParagraphs": 10,
+        "sourceNumbers": 10,
+        "sourceUrls": 3,
+        "chineseCharacters": 230,
+        "chineseRatio": 0.444015444015444
+      }
+    },
+    {
+      "id": "bain-looking-over-the-horizon-with-cvcs-rob-lucas-podcast",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 13,
+        "translatedParagraphs": 13,
+        "sourceNumbers": 29,
+        "sourceUrls": 12,
+        "chineseCharacters": 385,
+        "chineseRatio": 0.28817365269461076
+      }
+    },
+    {
+      "id": "bain-himalayan-heights-with-cvcs-rob-lucas-podcast",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 14,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 30,
+        "sourceUrls": 11,
+        "chineseCharacters": 481,
+        "chineseRatio": 0.3627450980392157
+      }
+    },
+    {
+      "id": "bain-the-hard-truth-about-operational-excellence-with-kkrs-pete-stavros-podcast",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 10,
+        "translatedParagraphs": 10,
+        "sourceNumbers": 29,
+        "sourceUrls": 11,
+        "chineseCharacters": 256,
+        "chineseRatio": 0.20728744939271254
+      }
+    },
+    {
+      "id": "bain-bains-private-equity-midyear-report-2026-executive-summary-podcast",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 11,
+        "translatedParagraphs": 11,
+        "sourceNumbers": 35,
+        "sourceUrls": 11,
+        "chineseCharacters": 226,
+        "chineseRatio": 0.17922283901665345
+      }
+    },
+    {
+      "id": "bain-new-normal-new-opportunities-with-tritons-peder-prahl-podcast",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 14,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 29,
+        "sourceUrls": 13,
+        "chineseCharacters": 410,
+        "chineseRatio": 0.2616464582003829
+      }
+    },
+    {
+      "id": "bain-buying-before-the-theme-with-tritons-peder-prahl-podcast",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 13,
+        "translatedParagraphs": 13,
+        "sourceNumbers": 30,
+        "sourceUrls": 11,
+        "chineseCharacters": 464,
+        "chineseRatio": 0.32814710042432815
+      }
+    },
+    {
+      "id": "bain-mastering-the-infrastructure-cycle-with-stonespeaks-michael-dorrell-podcast",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 11,
+        "translatedParagraphs": 11,
+        "sourceNumbers": 30,
+        "sourceUrls": 11,
+        "chineseCharacters": 358,
+        "chineseRatio": 0.26265590608950845
+      }
+    },
+    {
+      "id": "bain-megafund-capabilities-on-a-mid-market-budget-with-gryphons-david-andrews-podcast",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 14,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 32,
+        "sourceUrls": 11,
+        "chineseCharacters": 383,
+        "chineseRatio": 0.2789512017479971
+      }
+    },
+    {
+      "id": "bain-employee-ownership-at-scale-with-kkrs-pete-stavros-podcast",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 13,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 31,
+        "sourceUrls": 12,
+        "chineseCharacters": 395,
+        "chineseRatio": 0.29108327192336036
+      }
+    },
+    {
+      "id": "bain-spotting-the-downturn-early-and-coming-out-ahead-with-gryphons-david-andrews-podcast",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 12,
+        "translatedParagraphs": 12,
+        "sourceNumbers": 30,
+        "sourceUrls": 11,
+        "chineseCharacters": 362,
+        "chineseRatio": 0.2529699510831586
+      }
+    },
+    {
+      "id": "bcg-1",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 0,
+        "translationHeadings": 0,
+        "sourceParagraphs": 23,
+        "translatedParagraphs": 23,
+        "sourceNumbers": 13,
+        "sourceUrls": 9,
+        "chineseCharacters": 1317,
+        "chineseRatio": 0.6705702647657841
+      }
+    },
+    {
+      "id": "bcg-2",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 39,
+        "translatedParagraphs": 39,
+        "sourceNumbers": 106,
+        "sourceUrls": 11,
+        "chineseCharacters": 3579,
+        "chineseRatio": 0.7149420695165801
+      }
+    },
+    {
+      "id": "bcg-3",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 2,
+        "translationHeadings": 2,
+        "sourceParagraphs": 28,
+        "translatedParagraphs": 28,
+        "sourceNumbers": 12,
+        "sourceUrls": 8,
+        "chineseCharacters": 1355,
+        "chineseRatio": 0.6906218144750255
+      }
+    },
+    {
+      "id": "bcg-4",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 18,
+        "translationHeadings": 18,
+        "sourceParagraphs": 47,
+        "translatedParagraphs": 47,
+        "sourceNumbers": 34,
+        "sourceUrls": 11,
+        "chineseCharacters": 4334,
+        "chineseRatio": 0.8058757902566009
+      }
+    },
+    {
+      "id": "bcg-5",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 29,
+        "translatedParagraphs": 29,
+        "sourceNumbers": 14,
+        "sourceUrls": 7,
+        "chineseCharacters": 1681,
+        "chineseRatio": 0.7248814144027598
+      }
+    },
+    {
+      "id": "bcg-6",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 47,
+        "translatedParagraphs": 47,
+        "sourceNumbers": 67,
+        "sourceUrls": 9,
+        "chineseCharacters": 4107,
+        "chineseRatio": 0.7974757281553398
+      }
+    },
+    {
+      "id": "bcg-7",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 14,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 54,
+        "sourceUrls": 8,
+        "chineseCharacters": 405,
+        "chineseRatio": 0.3440951571792693
+      }
+    },
+    {
+      "id": "bcg-8",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 0,
+        "translationHeadings": 0,
+        "sourceParagraphs": 54,
+        "translatedParagraphs": 56,
+        "sourceNumbers": 901,
+        "sourceUrls": 31,
+        "chineseCharacters": 2933,
+        "chineseRatio": 0.291521717523109
+      }
+    },
+    {
+      "id": "bcg-9",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 26,
+        "translatedParagraphs": 26,
+        "sourceNumbers": 34,
+        "sourceUrls": 8,
+        "chineseCharacters": 2212,
+        "chineseRatio": 0.7119407788863856
+      }
+    },
+    {
+      "id": "bcg-10",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 72,
+        "translatedParagraphs": 72,
+        "sourceNumbers": 319,
+        "sourceUrls": 18,
+        "chineseCharacters": 5154,
+        "chineseRatio": 0.6159913947651487
+      }
+    },
+    {
+      "id": "bcg-11",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 50,
+        "translatedParagraphs": 50,
+        "sourceNumbers": 155,
+        "sourceUrls": 12,
+        "chineseCharacters": 4553,
+        "chineseRatio": 0.7444408109875735
+      }
+    },
+    {
+      "id": "bcg-12",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 166,
+        "translatedParagraphs": 221,
+        "sourceNumbers": 1200,
+        "sourceUrls": 67,
+        "chineseCharacters": 10582,
+        "chineseRatio": 0.440696318507413
+      }
+    },
+    {
+      "id": "bcg-13",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 14,
+        "translationHeadings": 14,
+        "sourceParagraphs": 73,
+        "translatedParagraphs": 73,
+        "sourceNumbers": 246,
+        "sourceUrls": 12,
+        "chineseCharacters": 7337,
+        "chineseRatio": 0.6845493562231759
+      }
+    },
+    {
+      "id": "bcg-14",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 31,
+        "translatedParagraphs": 31,
+        "sourceNumbers": 132,
+        "sourceUrls": 17,
+        "chineseCharacters": 3861,
+        "chineseRatio": 0.6642009289523482
+      }
+    },
+    {
+      "id": "bcg-15",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 42,
+        "translatedParagraphs": 42,
+        "sourceNumbers": 65,
+        "sourceUrls": 10,
+        "chineseCharacters": 4196,
+        "chineseRatio": 0.8092574734811958
+      }
+    },
+    {
+      "id": "bcg-16",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 11,
+        "translationHeadings": 11,
+        "sourceParagraphs": 55,
+        "translatedParagraphs": 55,
+        "sourceNumbers": 171,
+        "sourceUrls": 13,
+        "chineseCharacters": 5374,
+        "chineseRatio": 0.6858966177409062
+      }
+    },
+    {
+      "id": "bcg-17",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 59,
+        "translatedParagraphs": 59,
+        "sourceNumbers": 191,
+        "sourceUrls": 12,
+        "chineseCharacters": 3819,
+        "chineseRatio": 0.6387355745107878
+      }
+    },
+    {
+      "id": "bcg-18",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 0,
+        "translationHeadings": 0,
+        "sourceParagraphs": 17,
+        "translatedParagraphs": 17,
+        "sourceNumbers": 35,
+        "sourceUrls": 7,
+        "chineseCharacters": 1145,
+        "chineseRatio": 0.6284302963776071
+      }
+    },
+    {
+      "id": "bcg-19",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 15,
+        "translatedParagraphs": 15,
+        "sourceNumbers": 44,
+        "sourceUrls": 7,
+        "chineseCharacters": 502,
+        "chineseRatio": 0.4169435215946844
+      }
+    },
+    {
+      "id": "bcg-20",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 40,
+        "translatedParagraphs": 40,
+        "sourceNumbers": 89,
+        "sourceUrls": 9,
+        "chineseCharacters": 3072,
+        "chineseRatio": 0.7196064652143359
+      }
+    },
+    {
+      "id": "bcg-21",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 42,
+        "translatedParagraphs": 54,
+        "sourceNumbers": 133,
+        "sourceUrls": 11,
+        "chineseCharacters": 3825,
+        "chineseRatio": 0.7015774027879678
+      }
+    },
+    {
+      "id": "bcg-22",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 25,
+        "translatedParagraphs": 25,
+        "sourceNumbers": 0,
+        "sourceUrls": 7,
+        "chineseCharacters": 1850,
+        "chineseRatio": 0.8367254635911352
+      }
+    },
+    {
+      "id": "bcg-23",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 24,
+        "translatedParagraphs": 24,
+        "sourceNumbers": 3,
+        "sourceUrls": 8,
+        "chineseCharacters": 1699,
+        "chineseRatio": 0.746157224418094
+      }
+    },
+    {
+      "id": "bcg-24",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 18,
+        "translatedParagraphs": 18,
+        "sourceNumbers": 3,
+        "sourceUrls": 5,
+        "chineseCharacters": 1019,
+        "chineseRatio": 0.7570579494799405
+      }
+    },
+    {
+      "id": "bcg-25",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 46,
+        "translatedParagraphs": 46,
+        "sourceNumbers": 105,
+        "sourceUrls": 18,
+        "chineseCharacters": 4871,
+        "chineseRatio": 0.7106798949518529
+      }
+    },
+    {
+      "id": "bcg-26",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 35,
+        "translatedParagraphs": 35,
+        "sourceNumbers": 64,
+        "sourceUrls": 3,
+        "chineseCharacters": 3390,
+        "chineseRatio": 0.8382789317507419
+      }
+    },
+    {
+      "id": "bcg-27",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 63,
+        "translatedParagraphs": 68,
+        "sourceNumbers": 86,
+        "sourceUrls": 11,
+        "chineseCharacters": 5366,
+        "chineseRatio": 0.769981345960683
+      }
+    },
+    {
+      "id": "bcg-28",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 11,
+        "translationHeadings": 11,
+        "sourceParagraphs": 61,
+        "translatedParagraphs": 61,
+        "sourceNumbers": 187,
+        "sourceUrls": 14,
+        "chineseCharacters": 6253,
+        "chineseRatio": 0.7572051344151126
+      }
+    },
+    {
+      "id": "bcg-29",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 35,
+        "translatedParagraphs": 38,
+        "sourceNumbers": 74,
+        "sourceUrls": 8,
+        "chineseCharacters": 4055,
+        "chineseRatio": 0.7682834406972338
+      }
+    },
+    {
+      "id": "bcg-30",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 53,
+        "translatedParagraphs": 55,
+        "sourceNumbers": 275,
+        "sourceUrls": 15,
+        "chineseCharacters": 5099,
+        "chineseRatio": 0.5998823529411764
+      }
+    },
+    {
+      "id": "bcg-31",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 13,
+        "translationHeadings": 13,
+        "sourceParagraphs": 42,
+        "translatedParagraphs": 42,
+        "sourceNumbers": 151,
+        "sourceUrls": 14,
+        "chineseCharacters": 4536,
+        "chineseRatio": 0.6839565741857659
+      }
+    },
+    {
+      "id": "bcg-32",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 17,
+        "translatedParagraphs": 17,
+        "sourceNumbers": 76,
+        "sourceUrls": 6,
+        "chineseCharacters": 909,
+        "chineseRatio": 0.5407495538370017
+      }
+    },
+    {
+      "id": "bcg-33",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 25,
+        "translatedParagraphs": 25,
+        "sourceNumbers": 174,
+        "sourceUrls": 7,
+        "chineseCharacters": 2030,
+        "chineseRatio": 0.6112616681722373
+      }
+    },
+    {
+      "id": "bcg-34",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 14,
+        "translationHeadings": 14,
+        "sourceParagraphs": 37,
+        "translatedParagraphs": 37,
+        "sourceNumbers": 81,
+        "sourceUrls": 9,
+        "chineseCharacters": 3400,
+        "chineseRatio": 0.7475813544415127
+      }
+    },
+    {
+      "id": "bcg-35",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 17,
+        "translatedParagraphs": 17,
+        "sourceNumbers": 42,
+        "sourceUrls": 7,
+        "chineseCharacters": 757,
+        "chineseRatio": 0.5090786819098857
+      }
+    },
+    {
+      "id": "bcg-36",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 17,
+        "translatedParagraphs": 17,
+        "sourceNumbers": 49,
+        "sourceUrls": 9,
+        "chineseCharacters": 354,
+        "chineseRatio": 0.28780487804878047
+      }
+    },
+    {
+      "id": "bcg-37",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 17,
+        "translatedParagraphs": 17,
+        "sourceNumbers": 49,
+        "sourceUrls": 7,
+        "chineseCharacters": 846,
+        "chineseRatio": 0.5533028122956181
+      }
+    },
+    {
+      "id": "bcg-38",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 30,
+        "translatedParagraphs": 30,
+        "sourceNumbers": 159,
+        "sourceUrls": 9,
+        "chineseCharacters": 3118,
+        "chineseRatio": 0.6770901194353963
+      }
+    },
+    {
+      "id": "bcg-39",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 27,
+        "translatedParagraphs": 27,
+        "sourceNumbers": 161,
+        "sourceUrls": 7,
+        "chineseCharacters": 1834,
+        "chineseRatio": 0.5655257477644157
+      }
+    },
+    {
+      "id": "bcg-40",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 54,
+        "translatedParagraphs": 54,
+        "sourceNumbers": 238,
+        "sourceUrls": 17,
+        "chineseCharacters": 4898,
+        "chineseRatio": 0.5926194797338173
+      }
+    },
+    {
+      "id": "bcg-41",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 34,
+        "translatedParagraphs": 34,
+        "sourceNumbers": 31,
+        "sourceUrls": 8,
+        "chineseCharacters": 3273,
+        "chineseRatio": 0.8448631905007744
+      }
+    },
+    {
+      "id": "bcg-42",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 0,
+        "translationHeadings": 0,
+        "sourceParagraphs": 36,
+        "translatedParagraphs": 36,
+        "sourceNumbers": 10,
+        "sourceUrls": 6,
+        "chineseCharacters": 3373,
+        "chineseRatio": 0.7825986078886311
+      }
+    },
+    {
+      "id": "bcg-43",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 38,
+        "translatedParagraphs": 38,
+        "sourceNumbers": 172,
+        "sourceUrls": 13,
+        "chineseCharacters": 3412,
+        "chineseRatio": 0.6030399434429127
+      }
+    },
+    {
+      "id": "bcg-44",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 31,
+        "translatedParagraphs": 31,
+        "sourceNumbers": 144,
+        "sourceUrls": 9,
+        "chineseCharacters": 3040,
+        "chineseRatio": 0.662887047535979
+      }
+    },
+    {
+      "id": "bcg-45",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 52,
+        "translatedParagraphs": 52,
+        "sourceNumbers": 331,
+        "sourceUrls": 21,
+        "chineseCharacters": 4427,
+        "chineseRatio": 0.560379746835443
+      }
+    },
+    {
+      "id": "bcg-46",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 40,
+        "translatedParagraphs": 40,
+        "sourceNumbers": 88,
+        "sourceUrls": 11,
+        "chineseCharacters": 2465,
+        "chineseRatio": 0.6660362064306944
+      }
+    },
+    {
+      "id": "bcg-47",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 44,
+        "translatedParagraphs": 44,
+        "sourceNumbers": 8,
+        "sourceUrls": 9,
+        "chineseCharacters": 3545,
+        "chineseRatio": 0.7427194636496962
+      }
+    },
+    {
+      "id": "bcg-48",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 14,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 53,
+        "sourceUrls": 8,
+        "chineseCharacters": 438,
+        "chineseRatio": 0.33307984790874523
+      }
+    },
+    {
+      "id": "bcg-49",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 10,
+        "translationHeadings": 10,
+        "sourceParagraphs": 58,
+        "translatedParagraphs": 58,
+        "sourceNumbers": 128,
+        "sourceUrls": 9,
+        "chineseCharacters": 5355,
+        "chineseRatio": 0.7253149126371393
+      }
+    },
+    {
+      "id": "bcg-50",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 37,
+        "translatedParagraphs": 37,
+        "sourceNumbers": 29,
+        "sourceUrls": 9,
+        "chineseCharacters": 4046,
+        "chineseRatio": 0.7223710051776469
+      }
+    },
+    {
+      "id": "bcg-51",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 31,
+        "translatedParagraphs": 31,
+        "sourceNumbers": 68,
+        "sourceUrls": 8,
+        "chineseCharacters": 2606,
+        "chineseRatio": 0.6546093946244662
+      }
+    },
+    {
+      "id": "bcg-52",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 41,
+        "translatedParagraphs": 41,
+        "sourceNumbers": 40,
+        "sourceUrls": 8,
+        "chineseCharacters": 2830,
+        "chineseRatio": 0.7164556962025317
+      }
+    },
+    {
+      "id": "bcg-53",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 71,
+        "translatedParagraphs": 71,
+        "sourceNumbers": 386,
+        "sourceUrls": 18,
+        "chineseCharacters": 8514,
+        "chineseRatio": 0.6572487262621584
+      }
+    },
+    {
+      "id": "bcg-54",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 36,
+        "translatedParagraphs": 36,
+        "sourceNumbers": 142,
+        "sourceUrls": 22,
+        "chineseCharacters": 3665,
+        "chineseRatio": 0.6274610511898647
+      }
+    },
+    {
+      "id": "bcg-55",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 41,
+        "translatedParagraphs": 41,
+        "sourceNumbers": 102,
+        "sourceUrls": 11,
+        "chineseCharacters": 3435,
+        "chineseRatio": 0.7000203790503362
+      }
+    },
+    {
+      "id": "bcg-56",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 31,
+        "translatedParagraphs": 31,
+        "sourceNumbers": 138,
+        "sourceUrls": 11,
+        "chineseCharacters": 3123,
+        "chineseRatio": 0.6815800960279353
+      }
+    },
+    {
+      "id": "bcg-57",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 14,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 55,
+        "sourceUrls": 8,
+        "chineseCharacters": 302,
+        "chineseRatio": 0.2966601178781925
+      }
+    },
+    {
+      "id": "bcg-58",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 67,
+        "translatedParagraphs": 67,
+        "sourceNumbers": 234,
+        "sourceUrls": 11,
+        "chineseCharacters": 5933,
+        "chineseRatio": 0.7040465171472647
+      }
+    },
+    {
+      "id": "bcg-59",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 34,
+        "translatedParagraphs": 34,
+        "sourceNumbers": 75,
+        "sourceUrls": 10,
+        "chineseCharacters": 3840,
+        "chineseRatio": 0.7684610766459876
+      }
+    },
+    {
+      "id": "bcg-60",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 20,
+        "translatedParagraphs": 20,
+        "sourceNumbers": 27,
+        "sourceUrls": 9,
+        "chineseCharacters": 2063,
+        "chineseRatio": 0.7578986039676708
+      }
+    },
+    {
+      "id": "bcg-61",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 0,
+        "translationHeadings": 0,
+        "sourceParagraphs": 32,
+        "translatedParagraphs": 32,
+        "sourceNumbers": 49,
+        "sourceUrls": 11,
+        "chineseCharacters": 2774,
+        "chineseRatio": 0.6666666666666666
+      }
+    },
+    {
+      "id": "bcg-62",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 21,
+        "translatedParagraphs": 21,
+        "sourceNumbers": 56,
+        "sourceUrls": 7,
+        "chineseCharacters": 1208,
+        "chineseRatio": 0.6107178968655207
+      }
+    },
+    {
+      "id": "bcg-63",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 45,
+        "translatedParagraphs": 45,
+        "sourceNumbers": 135,
+        "sourceUrls": 15,
+        "chineseCharacters": 3994,
+        "chineseRatio": 0.6910034602076125
+      }
+    },
+    {
+      "id": "bcg-64",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 29,
+        "translatedParagraphs": 29,
+        "sourceNumbers": 65,
+        "sourceUrls": 14,
+        "chineseCharacters": 1990,
+        "chineseRatio": 0.6197446278417938
+      }
+    },
+    {
+      "id": "bcg-65",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 46,
+        "translatedParagraphs": 46,
+        "sourceNumbers": 14,
+        "sourceUrls": 11,
+        "chineseCharacters": 3550,
+        "chineseRatio": 0.8028041610131162
+      }
+    },
+    {
+      "id": "bcg-66",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 2,
+        "translationHeadings": 2,
+        "sourceParagraphs": 24,
+        "translatedParagraphs": 24,
+        "sourceNumbers": 4,
+        "sourceUrls": 10,
+        "chineseCharacters": 1377,
+        "chineseRatio": 0.6563393708293613
+      }
+    },
+    {
+      "id": "bcg-67",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 61,
+        "translatedParagraphs": 61,
+        "sourceNumbers": 175,
+        "sourceUrls": 21,
+        "chineseCharacters": 3413,
+        "chineseRatio": 0.5975140056022409
+      }
+    },
+    {
+      "id": "bcg-68",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 10,
+        "translationHeadings": 10,
+        "sourceParagraphs": 50,
+        "translatedParagraphs": 50,
+        "sourceNumbers": 310,
+        "sourceUrls": 15,
+        "chineseCharacters": 3210,
+        "chineseRatio": 0.46226958525345624
+      }
+    },
+    {
+      "id": "bcg-69",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 39,
+        "translatedParagraphs": 39,
+        "sourceNumbers": 43,
+        "sourceUrls": 4,
+        "chineseCharacters": 3972,
+        "chineseRatio": 0.7998389045509464
+      }
+    },
+    {
+      "id": "bcg-70",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 14,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 54,
+        "sourceUrls": 13,
+        "chineseCharacters": 396,
+        "chineseRatio": 0.2603550295857988
+      }
+    },
+    {
+      "id": "bcg-71",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {}
+    },
+    {
+      "id": "bcg-72",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 14,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 57,
+        "sourceUrls": 7,
+        "chineseCharacters": 359,
+        "chineseRatio": 0.3193950177935943
+      }
+    },
+    {
+      "id": "bcg-73",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 44,
+        "translatedParagraphs": 44,
+        "sourceNumbers": 10,
+        "sourceUrls": 10,
+        "chineseCharacters": 3658,
+        "chineseRatio": 0.8253610108303249
+      }
+    },
+    {
+      "id": "bcg-74",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 21,
+        "translatedParagraphs": 21,
+        "sourceNumbers": 54,
+        "sourceUrls": 10,
+        "chineseCharacters": 1849,
+        "chineseRatio": 0.6449250087199163
+      }
+    },
+    {
+      "id": "bcg-75",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 49,
+        "translatedParagraphs": 49,
+        "sourceNumbers": 147,
+        "sourceUrls": 14,
+        "chineseCharacters": 4200,
+        "chineseRatio": 0.6968641114982579
+      }
+    },
+    {
+      "id": "bcg-76",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 39,
+        "translatedParagraphs": 39,
+        "sourceNumbers": 107,
+        "sourceUrls": 12,
+        "chineseCharacters": 3958,
+        "chineseRatio": 0.7185911401597677
+      }
+    },
+    {
+      "id": "bcg-77",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 45,
+        "translatedParagraphs": 45,
+        "sourceNumbers": 0,
+        "sourceUrls": 6,
+        "chineseCharacters": 3434,
+        "chineseRatio": 0.8574282147315855
+      }
+    },
+    {
+      "id": "bcg-78",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 51,
+        "translatedParagraphs": 51,
+        "sourceNumbers": 41,
+        "sourceUrls": 10,
+        "chineseCharacters": 5799,
+        "chineseRatio": 0.8548054245283019
+      }
+    },
+    {
+      "id": "bcg-79",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 12,
+        "translationHeadings": 12,
+        "sourceParagraphs": 53,
+        "translatedParagraphs": 53,
+        "sourceNumbers": 96,
+        "sourceUrls": 12,
+        "chineseCharacters": 6326,
+        "chineseRatio": 0.824127149557061
+      }
+    },
+    {
+      "id": "bcg-80",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 43,
+        "translatedParagraphs": 44,
+        "sourceNumbers": 39,
+        "sourceUrls": 10,
+        "chineseCharacters": 1897,
+        "chineseRatio": 0.6521141285665177
+      }
+    },
+    {
+      "id": "bcg-81",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 10,
+        "translationHeadings": 10,
+        "sourceParagraphs": 48,
+        "translatedParagraphs": 48,
+        "sourceNumbers": 113,
+        "sourceUrls": 13,
+        "chineseCharacters": 4233,
+        "chineseRatio": 0.7017572944297082
+      }
+    },
+    {
+      "id": "bcg-82",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 17,
+        "translatedParagraphs": 17,
+        "sourceNumbers": 43,
+        "sourceUrls": 8,
+        "chineseCharacters": 378,
+        "chineseRatio": 0.30781758957654726
+      }
+    },
+    {
+      "id": "bcg-83",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 2,
+        "translationHeadings": 2,
+        "sourceParagraphs": 39,
+        "translatedParagraphs": 39,
+        "sourceNumbers": 574,
+        "sourceUrls": 30,
+        "chineseCharacters": 1612,
+        "chineseRatio": 0.22771577906483967
+      }
+    },
+    {
+      "id": "bcg-84",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 40,
+        "translatedParagraphs": 40,
+        "sourceNumbers": 113,
+        "sourceUrls": 16,
+        "chineseCharacters": 2335,
+        "chineseRatio": 0.5405092592592593
+      }
+    },
+    {
+      "id": "bcg-85",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 2,
+        "translationHeadings": 2,
+        "sourceParagraphs": 26,
+        "translatedParagraphs": 26,
+        "sourceNumbers": 12,
+        "sourceUrls": 12,
+        "chineseCharacters": 1267,
+        "chineseRatio": 0.5129554655870445
+      }
+    },
+    {
+      "id": "bcg-86",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 54,
+        "translatedParagraphs": 54,
+        "sourceNumbers": 238,
+        "sourceUrls": 19,
+        "chineseCharacters": 5138,
+        "chineseRatio": 0.6596482218513288
+      }
+    },
+    {
+      "id": "bcg-87",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 49,
+        "translatedParagraphs": 49,
+        "sourceNumbers": 116,
+        "sourceUrls": 11,
+        "chineseCharacters": 4174,
+        "chineseRatio": 0.7138703608688216
+      }
+    },
+    {
+      "id": "bcg-88",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 50,
+        "translatedParagraphs": 50,
+        "sourceNumbers": 191,
+        "sourceUrls": 9,
+        "chineseCharacters": 4380,
+        "chineseRatio": 0.6848030018761726
+      }
+    },
+    {
+      "id": "bcg-89",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 39,
+        "translatedParagraphs": 40,
+        "sourceNumbers": 81,
+        "sourceUrls": 12,
+        "chineseCharacters": 2488,
+        "chineseRatio": 0.6044703595724004
+      }
+    },
+    {
+      "id": "bcg-90",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 13,
+        "translationHeadings": 13,
+        "sourceParagraphs": 78,
+        "translatedParagraphs": 78,
+        "sourceNumbers": 186,
+        "sourceUrls": 5,
+        "chineseCharacters": 5459,
+        "chineseRatio": 0.811626523936961
+      }
+    },
+    {
+      "id": "bcg-91",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 34,
+        "translatedParagraphs": 34,
+        "sourceNumbers": 75,
+        "sourceUrls": 13,
+        "chineseCharacters": 1947,
+        "chineseRatio": 0.5848603184139382
+      }
+    },
+    {
+      "id": "bcg-92",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 49,
+        "translatedParagraphs": 49,
+        "sourceNumbers": 196,
+        "sourceUrls": 13,
+        "chineseCharacters": 4762,
+        "chineseRatio": 0.6773826458036984
+      }
+    },
+    {
+      "id": "bcg-93",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 2,
+        "translationHeadings": 2,
+        "sourceParagraphs": 42,
+        "translatedParagraphs": 42,
+        "sourceNumbers": 68,
+        "sourceUrls": 10,
+        "chineseCharacters": 3049,
+        "chineseRatio": 0.7112199673431304
+      }
+    },
+    {
+      "id": "bcg-94",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 50,
+        "translatedParagraphs": 50,
+        "sourceNumbers": 245,
+        "sourceUrls": 19,
+        "chineseCharacters": 1843,
+        "chineseRatio": 0.4257334257334257
+      }
+    },
+    {
+      "id": "bcg-95",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 14,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 51,
+        "sourceUrls": 9,
+        "chineseCharacters": 293,
+        "chineseRatio": 0.2771996215704825
+      }
+    },
+    {
+      "id": "bcg-96",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 66,
+        "translatedParagraphs": 70,
+        "sourceNumbers": 205,
+        "sourceUrls": 11,
+        "chineseCharacters": 4690,
+        "chineseRatio": 0.6349851069591118
+      }
+    },
+    {
+      "id": "bcg-97",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 45,
+        "translatedParagraphs": 45,
+        "sourceNumbers": 9,
+        "sourceUrls": 6,
+        "chineseCharacters": 3616,
+        "chineseRatio": 0.8484279680900986
+      }
+    },
+    {
+      "id": "bcg-98",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 53,
+        "translatedParagraphs": 53,
+        "sourceNumbers": 31,
+        "sourceUrls": 8,
+        "chineseCharacters": 5339,
+        "chineseRatio": 0.8662988804153822
+      }
+    },
+    {
+      "id": "bcg-99",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 4,
+        "sourceParagraphs": 34,
+        "translatedParagraphs": 34,
+        "sourceNumbers": 74,
+        "sourceUrls": 5,
+        "chineseCharacters": 2941,
+        "chineseRatio": 0.7363545317976965
+      }
+    },
+    {
+      "id": "bcg-100",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 51,
+        "translatedParagraphs": 51,
+        "sourceNumbers": 17,
+        "sourceUrls": 8,
+        "chineseCharacters": 4426,
+        "chineseRatio": 0.8617601246105919
+      }
+    },
+    {
+      "id": "bcg-101",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 15,
+        "translatedParagraphs": 15,
+        "sourceNumbers": 51,
+        "sourceUrls": 6,
+        "chineseCharacters": 540,
+        "chineseRatio": 0.4541631623212784
+      }
+    },
+    {
+      "id": "bcg-102",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 59,
+        "translatedParagraphs": 59,
+        "sourceNumbers": 453,
+        "sourceUrls": 24,
+        "chineseCharacters": 3950,
+        "chineseRatio": 0.5133870548479335
+      }
+    },
+    {
+      "id": "bcg-103",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 12,
+        "translatedParagraphs": 12,
+        "sourceNumbers": 58,
+        "sourceUrls": 8,
+        "chineseCharacters": 330,
+        "chineseRatio": 0.3086997193638915
+      }
+    },
+    {
+      "id": "bcg-104",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 68,
+        "translatedParagraphs": 68,
+        "sourceNumbers": 87,
+        "sourceUrls": 11,
+        "chineseCharacters": 6302,
+        "chineseRatio": 0.8132662279003743
+      }
+    },
+    {
+      "id": "bcg-105",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 0,
+        "translationHeadings": 0,
+        "sourceParagraphs": 15,
+        "translatedParagraphs": 15,
+        "sourceNumbers": 25,
+        "sourceUrls": 9,
+        "chineseCharacters": 1588,
+        "chineseRatio": 0.6847779215178956
+      }
+    },
+    {
+      "id": "bcg-106",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 14,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 52,
+        "sourceUrls": 8,
+        "chineseCharacters": 317,
+        "chineseRatio": 0.2976525821596244
+      }
+    },
+    {
+      "id": "bcg-107",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 14,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 53,
+        "sourceUrls": 7,
+        "chineseCharacters": 662,
+        "chineseRatio": 0.4537354352296093
+      }
+    },
+    {
+      "id": "bcg-108",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 58,
+        "translatedParagraphs": 58,
+        "sourceNumbers": 69,
+        "sourceUrls": 9,
+        "chineseCharacters": 4077,
+        "chineseRatio": 0.7724516862447897
+      }
+    },
+    {
+      "id": "bcg-109",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 17,
+        "translatedParagraphs": 17,
+        "sourceNumbers": 72,
+        "sourceUrls": 7,
+        "chineseCharacters": 1148,
+        "chineseRatio": 0.5256410256410257
+      }
+    },
+    {
+      "id": "bcg-110",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 34,
+        "translatedParagraphs": 34,
+        "sourceNumbers": 58,
+        "sourceUrls": 8,
+        "chineseCharacters": 2892,
+        "chineseRatio": 0.7449768160741885
+      }
+    },
+    {
+      "id": "bcg-111",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 45,
+        "translatedParagraphs": 45,
+        "sourceNumbers": 233,
+        "sourceUrls": 15,
+        "chineseCharacters": 4481,
+        "chineseRatio": 0.639960011425307
+      }
+    },
+    {
+      "id": "bcg-112",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 44,
+        "translatedParagraphs": 44,
+        "sourceNumbers": 169,
+        "sourceUrls": 12,
+        "chineseCharacters": 3352,
+        "chineseRatio": 0.6462309620204357
+      }
+    },
+    {
+      "id": "bcg-113",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 0,
+        "translationHeadings": 0,
+        "sourceParagraphs": 28,
+        "translatedParagraphs": 28,
+        "sourceNumbers": 441,
+        "sourceUrls": 18,
+        "chineseCharacters": 1015,
+        "chineseRatio": 0.20190968768649295
+      }
+    },
+    {
+      "id": "bcg-114",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 13,
+        "translatedParagraphs": 13,
+        "sourceNumbers": 25,
+        "sourceUrls": 8,
+        "chineseCharacters": 326,
+        "chineseRatio": 0.3704545454545455
+      }
+    },
+    {
+      "id": "bcg-115",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 47,
+        "translatedParagraphs": 47,
+        "sourceNumbers": 474,
+        "sourceUrls": 20,
+        "chineseCharacters": 2560,
+        "chineseRatio": 0.40062597809076683
+      }
+    },
+    {
+      "id": "bcg-116",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 59,
+        "translatedParagraphs": 59,
+        "sourceNumbers": 965,
+        "sourceUrls": 39,
+        "chineseCharacters": 3388,
+        "chineseRatio": 0.30396554817871885
+      }
+    },
+    {
+      "id": "mckinsey-global-trade-2026",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 40,
+        "translationHeadings": 40,
+        "sourceParagraphs": 56,
+        "translatedParagraphs": 73,
+        "sourceNumbers": 868,
+        "sourceUrls": 0,
+        "chineseCharacters": 25402,
+        "chineseRatio": 0.667051810614217
+      }
+    },
+    {
+      "id": "mckinsey-agentic-economics-operating-model",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 11,
+        "translationHeadings": 11,
+        "sourceParagraphs": 10,
+        "translatedParagraphs": 10,
+        "sourceNumbers": 49,
+        "sourceUrls": 0,
+        "chineseCharacters": 5787,
+        "chineseRatio": 0.7999723527785457
+      }
+    },
+    {
+      "id": "mckinsey-agents-robots-us-europe",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 18,
+        "translationHeadings": 18,
+        "sourceParagraphs": 39,
+        "translatedParagraphs": 71,
+        "sourceNumbers": 220,
+        "sourceUrls": 0,
+        "chineseCharacters": 11819,
+        "chineseRatio": 0.8148224750086177
+      }
+    },
+    {
+      "id": "mckinsey-accelerated-resource-allocation",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 15,
+        "translationHeadings": 15,
+        "sourceParagraphs": 24,
+        "translatedParagraphs": 24,
+        "sourceNumbers": 30,
+        "sourceUrls": 0,
+        "chineseCharacters": 3692,
+        "chineseRatio": 0.947395432383885
+      }
+    },
+    {
+      "id": "mckinsey-state-consumer-2026",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 11,
+        "translationHeadings": 11,
+        "sourceParagraphs": 12,
+        "translatedParagraphs": 30,
+        "sourceNumbers": 123,
+        "sourceUrls": 0,
+        "chineseCharacters": 7948,
+        "chineseRatio": 0.8260236956973602
+      }
+    },
+    {
+      "id": "mckinsey-global-tech-agenda-2026",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 12,
+        "translationHeadings": 12,
+        "sourceParagraphs": 9,
+        "translatedParagraphs": 18,
+        "sourceNumbers": 55,
+        "sourceUrls": 0,
+        "chineseCharacters": 4053,
+        "chineseRatio": 0.867694283879255
+      }
+    },
+    {
+      "id": "mckinsey-symbiotic-enterprise",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 46,
+        "translationHeadings": 46,
+        "sourceParagraphs": 42,
+        "translatedParagraphs": 70,
+        "sourceNumbers": 96,
+        "sourceUrls": 0,
+        "chineseCharacters": 18073,
+        "chineseRatio": 0.8753329781566329
+      }
+    },
+    {
+      "id": "mckinsey-geopolitical-risk-readiness",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 11,
+        "translationHeadings": 11,
+        "sourceParagraphs": 7,
+        "translatedParagraphs": 7,
+        "sourceNumbers": 50,
+        "sourceUrls": 0,
+        "chineseCharacters": 4579,
+        "chineseRatio": 0.8448339483394834
+      }
+    },
+    {
+      "id": "mckinsey-cost-of-intelligence",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 18,
+        "translationHeadings": 18,
+        "sourceParagraphs": 29,
+        "translatedParagraphs": 29,
+        "sourceNumbers": 55,
+        "sourceUrls": 0,
+        "chineseCharacters": 5586,
+        "chineseRatio": 0.7529316619490497
+      }
+    },
+    {
+      "id": "mckinsey-ai-data-readiness",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 18,
+        "translationHeadings": 18,
+        "sourceParagraphs": 20,
+        "translatedParagraphs": 20,
+        "sourceNumbers": 8,
+        "sourceUrls": 0,
+        "chineseCharacters": 6877,
+        "chineseRatio": 0.9497307001795332
+      }
+    },
+    {
+      "id": "mckinsey-operational-excellence-ai",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 16,
+        "translationHeadings": 16,
+        "sourceParagraphs": 12,
+        "translatedParagraphs": 12,
+        "sourceNumbers": 59,
+        "sourceUrls": 0,
+        "chineseCharacters": 7078,
+        "chineseRatio": 0.8753400939896117
+      }
+    },
+    {
+      "id": "mckinsey-state-of-organizations-2026",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 16,
+        "translatedParagraphs": 16,
+        "sourceNumbers": 17,
+        "sourceUrls": 0,
+        "chineseCharacters": 932,
+        "chineseRatio": 0.7174749807544265
+      }
+    },
+    {
+      "id": "mckinsey-marketing-continuous-growth",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 14,
+        "translationHeadings": 14,
+        "sourceParagraphs": 19,
+        "translatedParagraphs": 20,
+        "sourceNumbers": 84,
+        "sourceUrls": 0,
+        "chineseCharacters": 5236,
+        "chineseRatio": 0.78642234905377
+      }
+    },
+    {
+      "id": "mckinsey-state-of-luxury-2026",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 13,
+        "translatedParagraphs": 13,
+        "sourceNumbers": 12,
+        "sourceUrls": 0,
+        "chineseCharacters": 2926,
+        "chineseRatio": 0.9271229404309252
+      }
+    },
+    {
+      "id": "mckinsey-investor-priorities-2026",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 13,
+        "translationHeadings": 13,
+        "sourceParagraphs": 18,
+        "translatedParagraphs": 18,
+        "sourceNumbers": 57,
+        "sourceUrls": 0,
+        "chineseCharacters": 3270,
+        "chineseRatio": 0.8953997809419496
+      }
+    },
+    {
+      "id": "mckinsey-agentic-ai-data-foundations",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 12,
+        "translationHeadings": 12,
+        "sourceParagraphs": 13,
+        "translatedParagraphs": 13,
+        "sourceNumbers": 24,
+        "sourceUrls": 0,
+        "chineseCharacters": 4528,
+        "chineseRatio": 0.8836846213895394
+      }
+    },
+    {
+      "id": "mckinsey-enterprise-architecture-agentic-era",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 13,
+        "translationHeadings": 13,
+        "sourceParagraphs": 10,
+        "translatedParagraphs": 10,
+        "sourceNumbers": 9,
+        "sourceUrls": 0,
+        "chineseCharacters": 4370,
+        "chineseRatio": 0.9473227834381097
+      }
+    },
+    {
+      "id": "mckinsey-continuous-cx-agentic-era",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 4,
+        "translatedParagraphs": 4,
+        "sourceNumbers": 32,
+        "sourceUrls": 0,
+        "chineseCharacters": 5170,
+        "chineseRatio": 0.8836096393778842
+      }
+    },
+    {
+      "id": "mckinsey-europe-ecommerce-ai",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 11,
+        "translationHeadings": 11,
+        "sourceParagraphs": 14,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 23,
+        "sourceUrls": 0,
+        "chineseCharacters": 4376,
+        "chineseRatio": 0.9237914291745831
+      }
+    },
+    {
+      "id": "mckinsey-fashion-2026-outlook",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 6,
+        "translatedParagraphs": 6,
+        "sourceNumbers": 24,
+        "sourceUrls": 0,
+        "chineseCharacters": 4098,
+        "chineseRatio": 0.9118825100133512
+      }
+    },
+    {
+      "id": "mckinsey-agentic-advertising-economy",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 14,
+        "translationHeadings": 14,
+        "sourceParagraphs": 22,
+        "translatedParagraphs": 23,
+        "sourceNumbers": 109,
+        "sourceUrls": 0,
+        "chineseCharacters": 6052,
+        "chineseRatio": 0.7909043387349712
+      }
+    },
+    {
+      "id": "mckinsey-procurement-agentic-ai",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 14,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 27,
+        "sourceUrls": 0,
+        "chineseCharacters": 3344,
+        "chineseRatio": 0.9001345895020189
+      }
+    },
+    {
+      "id": "mckinsey-agentic-enterprise-cybersecurity",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 8,
+        "translatedParagraphs": 8,
+        "sourceNumbers": 40,
+        "sourceUrls": 0,
+        "chineseCharacters": 3960,
+        "chineseRatio": 0.9014340997040746
+      }
+    },
+    {
+      "id": "mckinsey-shopping-age-ai-stores",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 11,
+        "translationHeadings": 11,
+        "sourceParagraphs": 13,
+        "translatedParagraphs": 13,
+        "sourceNumbers": 14,
+        "sourceUrls": 0,
+        "chineseCharacters": 4240,
+        "chineseRatio": 0.9727001605872907
+      }
+    },
+    {
+      "id": "mckinsey-early-career-agentic-organization",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 22,
+        "translatedParagraphs": 21,
+        "sourceNumbers": 4,
+        "sourceUrls": 0,
+        "chineseCharacters": 2285,
+        "chineseRatio": 0.9395559210526315
+      }
+    },
+    {
+      "id": "mckinsey-luxury-agentic-experience",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 12,
+        "translationHeadings": 12,
+        "sourceParagraphs": 18,
+        "translatedParagraphs": 18,
+        "sourceNumbers": 117,
+        "sourceUrls": 0,
+        "chineseCharacters": 8664,
+        "chineseRatio": 0.8566343682024916
+      }
+    },
+    {
+      "id": "mckinsey-powering-supply-chain-agentic-ai",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 13,
+        "translatedParagraphs": 13,
+        "sourceNumbers": 13,
+        "sourceUrls": 0,
+        "chineseCharacters": 4902,
+        "chineseRatio": 0.8556467097224647
+      }
+    },
+    {
+      "id": "mckinsey-asos-agentic-shopper",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 7,
+        "translatedParagraphs": 7,
+        "sourceNumbers": 6,
+        "sourceUrls": 0,
+        "chineseCharacters": 1508,
+        "chineseRatio": 0.8401114206128134
+      }
+    },
+    {
+      "id": "mckinsey-ai-leadership-fluency",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 17,
+        "translatedParagraphs": 17,
+        "sourceNumbers": 3,
+        "sourceUrls": 0,
+        "chineseCharacters": 2127,
+        "chineseRatio": 0.8625304136253041
+      }
+    },
+    {
+      "id": "mit-how-organizations-can-capture-value-digital-colleagues",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 25,
+        "translatedParagraphs": 25,
+        "sourceNumbers": 45,
+        "sourceUrls": 12,
+        "chineseCharacters": 1711,
+        "chineseRatio": 0.540942143534619
+      }
+    },
+    {
+      "id": "mit-seeing-real-value-ai-depends-being-able-to-verify-its-outputs",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 33,
+        "translatedParagraphs": 33,
+        "sourceNumbers": 52,
+        "sourceUrls": 20,
+        "chineseCharacters": 2019,
+        "chineseRatio": 0.45709757754131763
+      }
+    },
+    {
+      "id": "mit-these-are-most-urgent-ai-risks-according-to-272-experts",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 37,
+        "translatedParagraphs": 37,
+        "sourceNumbers": 92,
+        "sourceUrls": 23,
+        "chineseCharacters": 2778,
+        "chineseRatio": 0.5072119773598686
+      }
+    },
+    {
+      "id": "mit-balance-ai-innovation-and-risk-minimum-viable-governance",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 25,
+        "translatedParagraphs": 25,
+        "sourceNumbers": 42,
+        "sourceUrls": 18,
+        "chineseCharacters": 1604,
+        "chineseRatio": 0.42807579396850814
+      }
+    },
+    {
+      "id": "mit-how-ai-reshaping-workflows-and-redefining-jobs",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 35,
+        "translatedParagraphs": 35,
+        "sourceNumbers": 38,
+        "sourceUrls": 21,
+        "chineseCharacters": 1871,
+        "chineseRatio": 0.4414818310523832
+      }
+    },
+    {
+      "id": "mit-where-to-look-generative-ai-risks",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 30,
+        "translatedParagraphs": 30,
+        "sourceNumbers": 46,
+        "sourceUrls": 16,
+        "chineseCharacters": 2043,
+        "chineseRatio": 0.5205095541401273
+      }
+    },
+    {
+      "id": "mit-data-liquidity-leads-to-ai-success",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 31,
+        "translatedParagraphs": 29,
+        "sourceNumbers": 49,
+        "sourceUrls": 21,
+        "chineseCharacters": 1783,
+        "chineseRatio": 0.4153272769624971
+      }
+    },
+    {
+      "id": "mit-what-leaders-still-get-wrong-about-ai",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 36,
+        "translatedParagraphs": 36,
+        "sourceNumbers": 59,
+        "sourceUrls": 35,
+        "chineseCharacters": 2530,
+        "chineseRatio": 0.4329226557152635
+      }
+    },
+    {
+      "id": "mit-5-heavy-lifts-deploying-ai-agents",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 37,
+        "translatedParagraphs": 37,
+        "sourceNumbers": 304,
+        "sourceUrls": 15,
+        "chineseCharacters": 2180,
+        "chineseRatio": 0.37722789409932517
+      }
+    },
+    {
+      "id": "mit-pro-worker-ai-explained",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 38,
+        "translatedParagraphs": 38,
+        "sourceNumbers": 52,
+        "sourceUrls": 21,
+        "chineseCharacters": 3153,
+        "chineseRatio": 0.5269050802139037
+      }
+    },
+    {
+      "id": "mit-generative-ai-changes-how-employees-spend-their-time",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 29,
+        "translatedParagraphs": 29,
+        "sourceNumbers": 49,
+        "sourceUrls": 24,
+        "chineseCharacters": 1680,
+        "chineseRatio": 0.3916083916083916
+      }
+    },
+    {
+      "id": "mit-how-generative-ai-persuasion-bombs-users-and-how-to-fight-back",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 28,
+        "translatedParagraphs": 28,
+        "sourceNumbers": 44,
+        "sourceUrls": 19,
+        "chineseCharacters": 1809,
+        "chineseRatio": 0.4207955338450802
+      }
+    },
+    {
+      "id": "mit-how-to-accelerate-ai-transformation",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 34,
+        "translatedParagraphs": 34,
+        "sourceNumbers": 39,
+        "sourceUrls": 12,
+        "chineseCharacters": 1494,
+        "chineseRatio": 0.4704030226700252
+      }
+    },
+    {
+      "id": "mit-what-2-mit-experts-are-thinking-about-ai-and-work",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 24,
+        "translatedParagraphs": 24,
+        "sourceNumbers": 46,
+        "sourceUrls": 20,
+        "chineseCharacters": 1434,
+        "chineseRatio": 0.4206512173657964
+      }
+    },
+    {
+      "id": "mit-pro-worker-ai-doesnt-just-happen-companies-need-to-act",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 22,
+        "translatedParagraphs": 22,
+        "sourceNumbers": 52,
+        "sourceUrls": 19,
+        "chineseCharacters": 1486,
+        "chineseRatio": 0.3903335960073549
+      }
+    },
+    {
+      "id": "mit-5-ways-to-make-agentic-ai-a-competitive-advantage",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 25,
+        "translatedParagraphs": 25,
+        "sourceNumbers": 42,
+        "sourceUrls": 15,
+        "chineseCharacters": 1579,
+        "chineseRatio": 0.46115654205607476
+      }
+    },
+    {
+      "id": "mit-3-ways-to-use-ai-are-you-a-cyborg-a-centaur-or-a-self-automator",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 33,
+        "translatedParagraphs": 33,
+        "sourceNumbers": 50,
+        "sourceUrls": 21,
+        "chineseCharacters": 2045,
+        "chineseRatio": 0.4194871794871795
+      }
+    },
+    {
+      "id": "mit-6-questions-to-guide-your-ai-strategy",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 31,
+        "translatedParagraphs": 31,
+        "sourceNumbers": 33,
+        "sourceUrls": 12,
+        "chineseCharacters": 1915,
+        "chineseRatio": 0.5515552995391705
+      }
+    },
+    {
+      "id": "mit-ai-gravity-pulling-you-toward-dependency-heres-how-to-push-back",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 23,
+        "translatedParagraphs": 23,
+        "sourceNumbers": 44,
+        "sourceUrls": 13,
+        "chineseCharacters": 1699,
+        "chineseRatio": 0.5165703861356036
+      }
+    },
+    {
+      "id": "mit-agentic-ai-explained",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 55,
+        "translatedParagraphs": 55,
+        "sourceNumbers": 69,
+        "sourceUrls": 27,
+        "chineseCharacters": 3454,
+        "chineseRatio": 0.49662113587347234
+      }
+    },
+    {
+      "id": "mit-who-will-own-ai-agent-economy",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 24,
+        "translatedParagraphs": 24,
+        "sourceNumbers": 35,
+        "sourceUrls": 15,
+        "chineseCharacters": 1786,
+        "chineseRatio": 0.5310734463276836
+      }
+    },
+    {
+      "id": "mit-why-ai-driven-enterprises-are-future-entrepreneurship",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 37,
+        "translatedParagraphs": 37,
+        "sourceNumbers": 47,
+        "sourceUrls": 22,
+        "chineseCharacters": 2170,
+        "chineseRatio": 0.5067725361980383
+      }
+    },
+    {
+      "id": "mit-action-items-ai-decision-makers-2026",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 28,
+        "translatedParagraphs": 28,
+        "sourceNumbers": 60,
+        "sourceUrls": 19,
+        "chineseCharacters": 1511,
+        "chineseRatio": 0.4228939266722642
+      }
+    },
+    {
+      "id": "mit-here-are-ai-developments-finance-pros-should-be-tracking",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 14,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 52,
+        "sourceUrls": 13,
+        "chineseCharacters": 1097,
+        "chineseRatio": 0.36240502147340603
+      }
+    },
+    {
+      "id": "mit-5-things-to-consider-when-working-ai",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 26,
+        "translatedParagraphs": 26,
+        "sourceNumbers": 43,
+        "sourceUrls": 31,
+        "chineseCharacters": 2012,
+        "chineseRatio": 0.4004777070063694
+      }
+    },
+    {
+      "id": "mit-what-senior-leaders-want-to-know-about-ai",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 27,
+        "translatedParagraphs": 27,
+        "sourceNumbers": 38,
+        "sourceUrls": 13,
+        "chineseCharacters": 1742,
+        "chineseRatio": 0.4713203463203463
+      }
+    },
+    {
+      "id": "mit-ai-financial-advice-surprisingly-good-especially-if-you-ask-right-questions",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 43,
+        "translatedParagraphs": 43,
+        "sourceNumbers": 70,
+        "sourceUrls": 14,
+        "chineseCharacters": 2472,
+        "chineseRatio": 0.526517571884984
+      }
+    },
+    {
+      "id": "mit-5-investments-to-close-gap-between-ai-wealth-and-welfare",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 26,
+        "translatedParagraphs": 26,
+        "sourceNumbers": 48,
+        "sourceUrls": 22,
+        "chineseCharacters": 1995,
+        "chineseRatio": 0.4962686567164179
+      }
+    },
+    {
+      "id": "mit-surprising-power-warmth-ai-negotiations",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 31,
+        "translatedParagraphs": 31,
+        "sourceNumbers": 46,
+        "sourceUrls": 29,
+        "chineseCharacters": 1761,
+        "chineseRatio": 0.37797810688989053
+      }
+    },
+    {
+      "id": "mit-4-takeaways-finance-teams-they-implement-ai",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 31,
+        "translatedParagraphs": 31,
+        "sourceNumbers": 63,
+        "sourceUrls": 18,
+        "chineseCharacters": 1710,
+        "chineseRatio": 0.4173785696851355
+      }
+    },
+    {
+      "id": "mit-putting-ai-to-work-latest-mit-sloan-management-review",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 26,
+        "translatedParagraphs": 26,
+        "sourceNumbers": 44,
+        "sourceUrls": 22,
+        "chineseCharacters": 1704,
+        "chineseRatio": 0.4234592445328032
+      }
+    },
+    {
+      "id": "mit-how-learnrights-would-compensate-creators-ai-model-training",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 27,
+        "translatedParagraphs": 27,
+        "sourceNumbers": 52,
+        "sourceUrls": 24,
+        "chineseCharacters": 1735,
+        "chineseRatio": 0.4072769953051643
+      }
+    },
+    {
+      "id": "mit-heeding-popes-call-to-ensure-ai-protects-human-dignity",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 22,
+        "translatedParagraphs": 22,
+        "sourceNumbers": 77,
+        "sourceUrls": 30,
+        "chineseCharacters": 1386,
+        "chineseRatio": 0.2937062937062937
+      }
+    },
+    {
+      "id": "mit-ai-tool-helps-you-ask-better-questions-get-more-authentic-results",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 18,
+        "translatedParagraphs": 18,
+        "sourceNumbers": 63,
+        "sourceUrls": 22,
+        "chineseCharacters": 1320,
+        "chineseRatio": 0.33994334277620397
+      }
+    },
+    {
+      "id": "mit-fed-ai-and-economic-uncertainty-what-investors-need-to-know",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 31,
+        "translatedParagraphs": 31,
+        "sourceNumbers": 59,
+        "sourceUrls": 20,
+        "chineseCharacters": 1890,
+        "chineseRatio": 0.45476419634263715
+      }
+    },
+    {
+      "id": "mit-want-to-use-ai-to-plan-your-retirement-heres-how-to-proceed",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 24,
+        "translatedParagraphs": 30,
+        "sourceNumbers": 57,
+        "sourceUrls": 15,
+        "chineseCharacters": 1871,
+        "chineseRatio": 0.5033629270917407
+      }
+    },
+    {
+      "id": "mit-ai-helped-me-turn-mit-lab-technology-home-product-parents",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 34,
+        "translatedParagraphs": 34,
+        "sourceNumbers": 58,
+        "sourceUrls": 19,
+        "chineseCharacters": 1455,
+        "chineseRatio": 0.36203035580990295
+      }
+    },
+    {
+      "id": "mit-ai-tool-helped-me-define-a-target-customer-my-startup",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 35,
+        "translatedParagraphs": 35,
+        "sourceNumbers": 72,
+        "sourceUrls": 22,
+        "chineseCharacters": 1712,
+        "chineseRatio": 0.3696027633851468
+      }
+    }
+  ]
+}

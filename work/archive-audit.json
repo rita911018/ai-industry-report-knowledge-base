@@ -1,0 +1,15 @@
+{
+  "valid": true,
+  "articles": 418,
+  "uniqueIds": 418,
+  "uniqueUrls": 418,
+  "verifiedTranslations": 418,
+  "byPublisher": {
+    "Anthropic": 25,
+    "BCG": 116,
+    "Bain": 210,
+    "MIT": 38,
+    "McKinsey": 29
+  },
+  "errors": []
+}

@@ -16,6 +16,12 @@ test('rejects numeric drift', () => {
   assert.throws(() => verifyTranslation(source, translation), /17\.5%/);
 });
 
+test('accepts a translated percent word expressed with the percent symbol', () => {
+  const source = 'Eighteen percent of investors selected the option, including 18 percent in the first group.';
+  const translation = '18%的投资者选择了该选项，其中第一组占 18%。';
+  assert.equal(verifyTranslation(source, translation).ok, true);
+});
+
 test('rejects missing headings and source URLs', () => {
   const source = '# Main\n\nText.\n\n## Evidence\n\nSee https://example.com/evidence.';
   const translation = '# 主要内容\n\n中文正文足够长，但删除了证据章节和链接，因此不能算完整翻译。';

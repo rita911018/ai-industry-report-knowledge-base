@@ -32,7 +32,7 @@ export function buildTranslationBatches(entries, { maxCharacters = 100_000, maxI
   return batches;
 }
 
-function parseArguments(argv) {
+export function parseTranslationArguments(argv) {
   const options = { archive: 'work/archive', maxCharacters: 100_000, maxItems: 10, limitBatches: Infinity, model: 'gpt-5.4-mini' };
   for (let index = 0; index < argv.length; index += 1) {
     if (argv[index] === '--archive') options.archive = argv[++index];
@@ -41,8 +41,18 @@ function parseArguments(argv) {
     else if (argv[index] === '--max-items') options.maxItems = Number(argv[++index]);
     else if (argv[index] === '--limit-batches') options.limitBatches = Number(argv[++index]);
     else if (argv[index] === '--model') options.model = argv[++index];
+    else if (argv[index] === '--min-index') options.minIndex = Number(argv[++index]);
+    else if (argv[index] === '--max-index') options.maxIndex = Number(argv[++index]);
   }
   return options;
+}
+
+export function filterTranslationEntries(entries, options = {}) {
+  return entries.filter((entry) =>
+    (!options.publisher || entry.publisher === options.publisher) &&
+    (options.minIndex === undefined || entry.archiveIndex >= options.minIndex) &&
+    (options.maxIndex === undefined || entry.archiveIndex <= options.maxIndex)
+  );
 }
 
 function batchPrompt(batch) {
@@ -96,7 +106,7 @@ async function atomicJson(filePath, value) {
 }
 
 async function main() {
-  const options = parseArguments(process.argv.slice(2));
+  const options = parseTranslationArguments(process.argv.slice(2));
   const projectRoot = process.cwd();
   const archiveRoot = path.resolve(options.archive);
   let entries = await scanTranslationQueue(archiveRoot);
@@ -104,9 +114,15 @@ async function main() {
     await writeFile(entry.targetPath, await readFile(entry.sourcePath, 'utf8'), 'utf8');
   }
   entries = await scanTranslationQueue(archiveRoot);
-  const pending = entries.filter((entry) => entry.sourceLanguage === 'en' && entry.status !== 'complete' && (!options.publisher || entry.publisher === options.publisher));
+  const pending = filterTranslationEntries(
+    entries.filter((entry) => entry.sourceLanguage === 'en' && entry.status !== 'complete'),
+    options,
+  );
   const batches = buildTranslationBatches(pending, options).slice(0, options.limitBatches);
-  const stateSuffix = (options.publisher || 'all').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  const rangeSuffix = options.minIndex !== undefined || options.maxIndex !== undefined
+    ? `-${options.minIndex ?? 'first'}-${options.maxIndex ?? 'last'}`
+    : '';
+  const stateSuffix = `${(options.publisher || 'all').toLowerCase().replace(/[^a-z0-9]+/g, '-')}${rangeSuffix}`;
   const statePath = path.join(projectRoot, 'work', `translation-run-state-${stateSuffix}.json`);
   const state = { startedAt: new Date().toISOString(), model: options.model, plannedBatches: batches.length, completedBatches: 0, translated: 0, records: [] };
 
