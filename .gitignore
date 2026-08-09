@@ -6,4 +6,5 @@ work/translation-logs/
 work/translation-direct-output/
 work/translation-direct-state.json
 work/translation-run-state-*.json
+work/translation-chunked-state-*.json
 .DS_Store

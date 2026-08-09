@@ -32,7 +32,7 @@ async function atomicJson(filePath, value) {
   await rename(temporaryPath, filePath);
 }
 
-async function invokeCodex({ source, model, schemaPath, outputPath, projectRoot, repair }) {
+export async function invokeCodex({ source, model, schemaPath, outputPath, repair }) {
   await mkdir(path.dirname(outputPath), { recursive: true });
   return new Promise((resolve, reject) => {
     const child = spawn('codex', [
