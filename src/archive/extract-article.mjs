@@ -1,8 +1,13 @@
 import { Readability } from '@mozilla/readability';
-import { JSDOM } from 'jsdom';
+import { JSDOM, VirtualConsole } from 'jsdom';
 import TurndownService from 'turndown';
 
 const MINIMUM_VISIBLE_CHARACTERS = 300;
+const quietVirtualConsole = new VirtualConsole();
+
+function createDom(html, url) {
+  return new JSDOM(html, { url, virtualConsole: quietVirtualConsole });
+}
 
 const SOURCE_SELECTORS = {
   BCG: ['main article', '[data-component="article-body"]', 'main'],
@@ -68,11 +73,11 @@ function selectSourceContent(document, publisher, url) {
 }
 
 function readabilityContent(html, url) {
-  const readabilityDocument = new JSDOM(html, { url }).window.document;
+  const readabilityDocument = createDom(html, url).window.document;
   const parsed = new Readability(readabilityDocument).parse();
   if (!parsed?.content) return null;
 
-  const wrapperDocument = new JSDOM(`<main>${parsed.content}</main>`, { url }).window.document;
+  const wrapperDocument = createDom(`<main>${parsed.content}</main>`, url).window.document;
   const node = cleanContent(wrapperDocument.querySelector('main'), url);
   return {
     node,
@@ -102,7 +107,7 @@ function metadata(document) {
 }
 
 export function extractArticle({ html, url, publisher }) {
-  const document = new JSDOM(html, { url }).window.document;
+  const document = createDom(html, url).window.document;
   const pageMetadata = metadata(document);
   let selected = selectSourceContent(document, publisher, url);
 

@@ -43,3 +43,19 @@ test('returns thin when neither selectors nor Readability find enough content', 
   assert.equal(result.status, 'thin');
   assert.ok(result.characterCount < 300);
 });
+
+test('does not forward nonfatal stylesheet parser errors to the archive log', () => {
+  const messages = [];
+  const originalError = console.error;
+  console.error = (...parts) => messages.push(parts.join(' '));
+  try {
+    extractArticle({
+      html: `<html><head><style>:root { @media (min-width: 1px) { --x: 1; } }</style></head><body><main><article><h1>Valid article</h1><p>${'Substantial official article content. '.repeat(20)}</p></article></main></body></html>`,
+      url: 'https://example.com/article',
+      publisher: 'Example',
+    });
+  } finally {
+    console.error = originalError;
+  }
+  assert.deepEqual(messages, []);
+});
