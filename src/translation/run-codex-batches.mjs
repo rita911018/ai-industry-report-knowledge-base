@@ -106,7 +106,8 @@ async function main() {
   entries = await scanTranslationQueue(archiveRoot);
   const pending = entries.filter((entry) => entry.sourceLanguage === 'en' && entry.status !== 'complete' && (!options.publisher || entry.publisher === options.publisher));
   const batches = buildTranslationBatches(pending, options).slice(0, options.limitBatches);
-  const statePath = path.join(projectRoot, 'work', 'translation-run-state.json');
+  const stateSuffix = (options.publisher || 'all').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  const statePath = path.join(projectRoot, 'work', `translation-run-state-${stateSuffix}.json`);
   const state = { startedAt: new Date().toISOString(), model: options.model, plannedBatches: batches.length, completedBatches: 0, translated: 0, records: [] };
 
   for (let index = 0; index < batches.length; index += 1) {
