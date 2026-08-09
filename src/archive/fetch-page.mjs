@@ -65,5 +65,7 @@ export async function fetchPage(
   }
 
   const detail = lastError?.message || 'unknown error';
-  throw new Error(`Fetch failed after ${attempts} attempts: ${url} (${detail})`);
+  const error = new Error(`Fetch failed after ${attempts} attempts: ${url} (${detail})`);
+  error.status = lastError?.status;
+  throw error;
 }
