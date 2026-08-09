@@ -1,0 +1,17 @@
+{
+  "name": "ai-industry-report-archive",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/**/*.test.mjs",
+    "parse": "node src/radar/parse-radars.mjs",
+    "archive": "node src/archive/run-archive.mjs",
+    "audit": "node src/audit/archive-audit.mjs"
+  },
+  "dependencies": {
+    "@mozilla/readability": "^0.6.0",
+    "cheerio": "^1.1.2",
+    "jsdom": "^26.1.0",
+    "turndown": "^7.2.1"
+  }
+}
