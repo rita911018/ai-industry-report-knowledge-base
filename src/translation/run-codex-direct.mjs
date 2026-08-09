@@ -54,9 +54,9 @@ async function main() {
   const archiveRoot = path.resolve(options.archive);
   const schemaPath = path.join(path.dirname(fileURLToPath(import.meta.url)), 'direct-output-schema.json');
   let entries = await scanTranslationQueue(archiveRoot);
-  for (const entry of entries.filter((item) => item.sourceLanguage === 'zh' && item.status === 'pending')) await writeFile(entry.targetPath, await readFile(entry.sourcePath, 'utf8'), 'utf8');
+  for (const entry of entries.filter((item) => item.sourceLanguage === 'zh' && item.status !== 'complete')) await writeFile(entry.targetPath, await readFile(entry.sourcePath, 'utf8'), 'utf8');
   entries = await scanTranslationQueue(archiveRoot);
-  const pending = entries.filter((entry) => entry.sourceLanguage === 'en' && entry.status === 'pending' && (!options.publisher || entry.publisher === options.publisher)).slice(0, options.limit);
+  const pending = entries.filter((entry) => entry.sourceLanguage === 'en' && entry.status !== 'complete' && (!options.publisher || entry.publisher === options.publisher)).slice(0, options.limit);
   const statePath = path.join(projectRoot, 'work', 'translation-direct-state.json');
   const state = { startedAt: new Date().toISOString(), model: options.model, planned: pending.length, complete: 0, records: [] };
   for (let index = 0; index < pending.length; index += 1) {
@@ -79,8 +79,8 @@ async function main() {
     console.log('  verified');
   }
   const refreshed = await scanTranslationQueue(archiveRoot);
-  await atomicJson(path.join(projectRoot, 'work', 'translation-queue.json'), { generatedAt: new Date().toISOString(), total: refreshed.length, pending: refreshed.filter((entry) => entry.status === 'pending').length, complete: refreshed.filter((entry) => entry.status === 'complete').length, entries: refreshed });
-  console.log(JSON.stringify({ translated: state.complete, remaining: refreshed.filter((entry) => entry.status === 'pending').length }, null, 2));
+  await atomicJson(path.join(projectRoot, 'work', 'translation-queue.json'), { generatedAt: new Date().toISOString(), total: refreshed.length, pending: refreshed.filter((entry) => entry.status !== 'complete').length, complete: refreshed.filter((entry) => entry.status === 'complete').length, invalid: refreshed.filter((entry) => entry.status === 'invalid').length, entries: refreshed });
+  console.log(JSON.stringify({ translated: state.complete, remaining: refreshed.filter((entry) => entry.status !== 'complete').length }, null, 2));
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main().catch((error) => { console.error(error); process.exitCode = 1; });

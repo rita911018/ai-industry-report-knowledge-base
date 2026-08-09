@@ -1,6 +1,7 @@
 import { readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { verifyTranslation } from './verify-translation.mjs';
 
 export function detectSourceLanguage(text) {
   const chinese = (text.match(/[\p{Script=Han}]/gu) || []).length;
@@ -28,6 +29,12 @@ export async function scanTranslationQueue(archiveRoot) {
     const source = await readFile(sourcePath, 'utf8');
     let translation = '';
     try { translation = await readFile(targetPath, 'utf8'); } catch (error) { if (error.code !== 'ENOENT') throw error; }
+    let status = 'pending';
+    let validationError = null;
+    if (translation.trim()) {
+      try { verifyTranslation(source, translation); status = 'complete'; }
+      catch (error) { status = 'invalid'; validationError = error.message; }
+    }
     entries.push({
       id: metadata.id,
       radarTitle: metadata.radarTitle,
@@ -40,7 +47,8 @@ export async function scanTranslationQueue(archiveRoot) {
       sourceCharacters: source.length,
       sourcePath,
       targetPath,
-      status: translation.trim() ? 'complete' : 'pending',
+      status,
+      validationError,
     });
   }
   return entries.sort((a, b) => a.radarTitle.localeCompare(b.radarTitle) || a.archiveIndex - b.archiveIndex);
@@ -53,8 +61,9 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     const queue = {
       generatedAt: new Date().toISOString(),
       total: entries.length,
-      pending: entries.filter((entry) => entry.status === 'pending').length,
+      pending: entries.filter((entry) => entry.status !== 'complete').length,
       complete: entries.filter((entry) => entry.status === 'complete').length,
+      invalid: entries.filter((entry) => entry.status === 'invalid').length,
       entries,
     };
     await writeFile(path.join(process.cwd(), 'work', 'translation-queue.json'), `${JSON.stringify(queue, null, 2)}\n`, 'utf8');

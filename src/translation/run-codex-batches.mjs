@@ -100,11 +100,11 @@ async function main() {
   const projectRoot = process.cwd();
   const archiveRoot = path.resolve(options.archive);
   let entries = await scanTranslationQueue(archiveRoot);
-  for (const entry of entries.filter((item) => item.sourceLanguage === 'zh' && item.status === 'pending')) {
+  for (const entry of entries.filter((item) => item.sourceLanguage === 'zh' && item.status !== 'complete')) {
     await writeFile(entry.targetPath, await readFile(entry.sourcePath, 'utf8'), 'utf8');
   }
   entries = await scanTranslationQueue(archiveRoot);
-  const pending = entries.filter((entry) => entry.sourceLanguage === 'en' && entry.status === 'pending' && (!options.publisher || entry.publisher === options.publisher));
+  const pending = entries.filter((entry) => entry.sourceLanguage === 'en' && entry.status !== 'complete' && (!options.publisher || entry.publisher === options.publisher));
   const batches = buildTranslationBatches(pending, options).slice(0, options.limitBatches);
   const statePath = path.join(projectRoot, 'work', 'translation-run-state.json');
   const state = { startedAt: new Date().toISOString(), model: options.model, plannedBatches: batches.length, completedBatches: 0, translated: 0, records: [] };
@@ -114,10 +114,18 @@ async function main() {
     const label = `${String(index + 1).padStart(3, '0')}-${batch[0].publisher.toLowerCase()}-${batch[0].archiveIndex}-${batch.at(-1).archiveIndex}`;
     const logPath = path.join(projectRoot, 'work', 'translation-logs', `${label}.log`);
     console.log(`[${index + 1}/${batches.length}] translating ${batch.length} ${batch[0].publisher} article(s), ${batch.reduce((sum, item) => sum + item.sourceCharacters, 0)} source characters`);
-    await runCodex({ projectRoot, model: options.model, prompt: batchPrompt(batch), logPath });
-    let failures = await validationFailures(batch);
-    if (failures.length) {
-      console.log(`[${index + 1}/${batches.length}] repairing ${failures.length} validation failure(s)`);
+    let failures;
+    if (batch.every((entry) => entry.status === 'invalid')) {
+      failures = await validationFailures(batch);
+      console.log(`[${index + 1}/${batches.length}] resuming ${failures.length} existing invalid translation(s)`);
+      await runCodex({ projectRoot, model: options.model, prompt: repairPrompt(failures), logPath });
+      failures = await validationFailures(batch);
+    } else {
+      await runCodex({ projectRoot, model: options.model, prompt: batchPrompt(batch), logPath });
+      failures = await validationFailures(batch);
+    }
+    for (let repairAttempt = 1; failures.length && repairAttempt <= 3; repairAttempt += 1) {
+      console.log(`[${index + 1}/${batches.length}] repair ${repairAttempt}/3 for ${failures.length} validation failure(s)`);
       await runCodex({ projectRoot, model: options.model, prompt: repairPrompt(failures), logPath });
       failures = await validationFailures(batch);
     }
@@ -133,11 +141,11 @@ async function main() {
   const refreshed = await scanTranslationQueue(archiveRoot);
   await atomicJson(path.join(projectRoot, 'work', 'translation-queue.json'), {
     generatedAt: new Date().toISOString(), total: refreshed.length,
-    pending: refreshed.filter((entry) => entry.status === 'pending').length,
+    pending: refreshed.filter((entry) => entry.status !== 'complete').length,
     complete: refreshed.filter((entry) => entry.status === 'complete').length,
     entries: refreshed,
   });
-  console.log(JSON.stringify({ batches: state.completedBatches, translated: state.translated, remaining: refreshed.filter((entry) => entry.status === 'pending').length }, null, 2));
+  console.log(JSON.stringify({ batches: state.completedBatches, translated: state.translated, remaining: refreshed.filter((entry) => entry.status !== 'complete').length }, null, 2));
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
