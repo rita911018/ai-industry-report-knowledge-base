@@ -42,7 +42,7 @@ export async function loadRadarFile(filePath) {
   const context = vm.createContext({ window: {} });
   new vm.Script(source, { filename: filePath }).runInContext(context, { timeout: 1_000 });
   if (!context.window.OPPORTUNITY_RADAR_DATA) throw new Error(`${filePath} did not assign window.OPPORTUNITY_RADAR_DATA`);
-  return context.window.OPPORTUNITY_RADAR_DATA;
+  return structuredClone(context.window.OPPORTUNITY_RADAR_DATA);
 }
 
 export function validateRadarData(data, options = {}) {
