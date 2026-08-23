@@ -47,7 +47,7 @@ function paragraphCount(text) {
   return text.split(/\n{2,}/).map((block) => block.trim()).filter((block) => block && !/^#{1,6}\s/.test(block)).length;
 }
 
-export function verifyTranslation(source, translation, { minimumChineseRatio = 0.12 } = {}) {
+export function verifyTranslation(source, translation, { minimumChineseRatio = 0.12, excludeUrlsFromChineseRatio = false } = {}) {
   const errors = [];
   const warnings = [];
   const sourceHeadings = headingCount(source);
@@ -70,8 +70,11 @@ export function verifyTranslation(source, translation, { minimumChineseRatio = 0
     errors.push(`Insufficient paragraph coverage: source=${sourceParagraphs}, translation=${translatedParagraphs}, minimum=${minimumParagraphs}`);
   }
 
-  const chineseCharacters = (translation.match(/[\p{Script=Han}]/gu) || []).length;
-  const meaningfulCharacters = (translation.match(/[\p{L}\p{N}]/gu) || []).length;
+  const languageSample = excludeUrlsFromChineseRatio
+    ? translation.replace(/https?:\/\/[^\s)>\]"']+/g, '')
+    : translation;
+  const chineseCharacters = (languageSample.match(/[\p{Script=Han}]/gu) || []).length;
+  const meaningfulCharacters = (languageSample.match(/[\p{L}\p{N}]/gu) || []).length;
   const chineseRatio = meaningfulCharacters ? chineseCharacters / meaningfulCharacters : 0;
   if (chineseRatio < minimumChineseRatio) {
     errors.push(`Chinese-character ratio too low: ${chineseRatio.toFixed(3)} < ${minimumChineseRatio}`);

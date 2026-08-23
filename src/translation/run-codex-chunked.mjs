@@ -15,7 +15,26 @@ export function splitMarkdownForTranslation(source, maxCharacters = 12_000) {
   for (const paragraph of paragraphs) {
     if (paragraph.length > maxCharacters) {
       flush();
-      for (let start = 0; start < paragraph.length; start += maxCharacters) chunks.push(paragraph.slice(start, start + maxCharacters));
+      const protectedSpans = [
+        ...paragraph.matchAll(/https?:\/\/[^\s)>\]"']+/g),
+        ...paragraph.matchAll(/\d+(?:[.,]\d+)*(?:%|‰)?/g),
+      ].map((match) => ({ start: match.index, end: match.index + match[0].length }));
+      let start = 0;
+      while (start < paragraph.length) {
+        let end = Math.min(start + maxCharacters, paragraph.length);
+        let extended = true;
+        while (extended && end < paragraph.length) {
+          extended = false;
+          for (const span of protectedSpans) {
+            if (span.start < end && end < span.end) {
+              end = span.end;
+              extended = true;
+            }
+          }
+        }
+        chunks.push(paragraph.slice(start, end));
+        start = end;
+      }
       continue;
     }
     const candidate = current ? `${current}\n\n${paragraph}` : paragraph;
@@ -27,7 +46,7 @@ export function splitMarkdownForTranslation(source, maxCharacters = 12_000) {
 }
 
 export function verifyChunkTranslation(source, translation) {
-  return verifyTranslation(source, translation, { minimumChineseRatio: 0.05 });
+  return verifyTranslation(source, translation, { minimumChineseRatio: 0.05, excludeUrlsFromChineseRatio: true });
 }
 
 export function parseChunkedArguments(argv) {
