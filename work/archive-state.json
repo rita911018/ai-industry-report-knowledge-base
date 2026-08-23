@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-09T11:33:01.205Z",
+  "updatedAt": "2026-08-23T15:44:05.848Z",
   "records": {
     "bcg-1": {
       "id": "bcg-1",
@@ -1412,7 +1412,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/001-geopolitics-and-the-geometry-of-global-trade-2026-update",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.155Z"
+      "updatedAt": "2026-08-23T15:44:05.718Z"
     },
     "anthropic-open-weights-position": {
       "id": "anthropic-open-weights-position",
@@ -1434,7 +1434,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/003-agents-robots-and-us-how-ai-reshapes-work-and-skills-in-europe",
       "retrievalMethod": "web_index_fallback",
       "coverage": 0.9879032258064516,
-      "updatedAt": "2026-08-09T11:26:07.163Z"
+      "updatedAt": "2026-08-23T15:44:05.729Z"
     },
     "mckinsey-accelerated-resource-allocation": {
       "id": "mckinsey-accelerated-resource-allocation",
@@ -1446,7 +1446,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/004-why-accelerated-resource-allocation-matters-in-the-age-of-ai",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.165Z"
+      "updatedAt": "2026-08-23T15:44:05.732Z"
     },
     "mckinsey-agentic-economics-operating-model": {
       "id": "mckinsey-agentic-economics-operating-model",
@@ -1458,7 +1458,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/002-is-that-ai-agent-worth-it-agentic-economics-and-the-modern-operating-model",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.158Z"
+      "updatedAt": "2026-08-23T15:44:05.723Z"
     },
     "mckinsey-global-tech-agenda-2026": {
       "id": "mckinsey-global-tech-agenda-2026",
@@ -1470,7 +1470,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/006-mckinsey-global-tech-agenda-2026",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.174Z"
+      "updatedAt": "2026-08-23T15:44:05.740Z"
     },
     "mckinsey-state-consumer-2026": {
       "id": "mckinsey-state-consumer-2026",
@@ -1482,7 +1482,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/005-state-of-the-consumer-2026-when-tech-acceleration-and-cost-pressures-collide",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.168Z"
+      "updatedAt": "2026-08-23T15:44:05.735Z"
     },
     "mckinsey-symbiotic-enterprise": {
       "id": "mckinsey-symbiotic-enterprise",
@@ -1494,7 +1494,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/007-the-symbiotic-enterprise",
       "retrievalMethod": "web_index_fallback",
       "coverage": 0.9970326409495549,
-      "updatedAt": "2026-08-09T11:26:07.180Z"
+      "updatedAt": "2026-08-23T15:44:05.746Z"
     },
     "mckinsey-cost-of-intelligence": {
       "id": "mckinsey-cost-of-intelligence",
@@ -1506,7 +1506,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/009-the-cost-of-intelligence-how-cios-can-manage-ai-demand-at-scale",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.186Z"
+      "updatedAt": "2026-08-23T15:44:05.752Z"
     },
     "mckinsey-geopolitical-risk-readiness": {
       "id": "mckinsey-geopolitical-risk-readiness",
@@ -1518,7 +1518,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/008-how-companies-can-strengthen-their-geopolitical-risk-readiness",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.183Z"
+      "updatedAt": "2026-08-23T15:44:05.749Z"
     },
     "mckinsey-ai-data-readiness": {
       "id": "mckinsey-ai-data-readiness",
@@ -1530,7 +1530,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/010-ai-data-readiness-the-key-to-scaling-impact",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.189Z"
+      "updatedAt": "2026-08-23T15:44:05.756Z"
     },
     "mckinsey-state-of-organizations-2026": {
       "id": "mckinsey-state-of-organizations-2026",
@@ -1542,7 +1542,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/012-the-state-of-organizations-2026-three-tectonic-forces-that-are-reshaping-organizations",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.193Z"
+      "updatedAt": "2026-08-23T15:44:05.760Z"
     },
     "mckinsey-operational-excellence-ai": {
       "id": "mckinsey-operational-excellence-ai",
@@ -1554,7 +1554,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/011-putting-ai-to-work-the-operational-excellence-imperative",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.191Z"
+      "updatedAt": "2026-08-23T15:44:05.759Z"
     },
     "mckinsey-marketing-continuous-growth": {
       "id": "mckinsey-marketing-continuous-growth",
@@ -1566,7 +1566,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/013-from-campaigns-to-continuous-growth-ai-capabilities-shaping-marketing",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.195Z"
+      "updatedAt": "2026-08-23T15:44:05.763Z"
     },
     "mckinsey-state-of-luxury-2026": {
       "id": "mckinsey-state-of-luxury-2026",
@@ -1578,7 +1578,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/014-the-state-of-luxury-what-us-and-chinese-clients-reveal-about-the-sector-s-future",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.199Z"
+      "updatedAt": "2026-08-23T15:44:05.765Z"
     },
     "mckinsey-investor-priorities-2026": {
       "id": "mckinsey-investor-priorities-2026",
@@ -1590,7 +1590,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/015-what-matters-most-to-investors-in-2026-and-what-it-means-for-companies",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.201Z"
+      "updatedAt": "2026-08-23T15:44:05.766Z"
     },
     "mckinsey-agentic-ai-data-foundations": {
       "id": "mckinsey-agentic-ai-data-foundations",
@@ -1602,7 +1602,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/016-building-the-foundations-for-agentic-ai-at-scale",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.203Z"
+      "updatedAt": "2026-08-23T15:44:05.769Z"
     },
     "mckinsey-europe-ecommerce-ai": {
       "id": "mckinsey-europe-ecommerce-ai",
@@ -1614,7 +1614,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/019-europe-s-new-e-commerce-agenda-how-ai-is-resetting-growth-and-competition",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.210Z"
+      "updatedAt": "2026-08-23T15:44:05.778Z"
     },
     "mckinsey-continuous-cx-agentic-era": {
       "id": "mckinsey-continuous-cx-agentic-era",
@@ -1626,7 +1626,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/018-rewiring-customer-experience-for-the-agentic-era",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.208Z"
+      "updatedAt": "2026-08-23T15:44:05.776Z"
     },
     "mckinsey-enterprise-architecture-agentic-era": {
       "id": "mckinsey-enterprise-architecture-agentic-era",
@@ -1638,7 +1638,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/017-rethinking-enterprise-architecture-for-the-agentic-era",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.206Z"
+      "updatedAt": "2026-08-23T15:44:05.771Z"
     },
     "mckinsey-fashion-2026-outlook": {
       "id": "mckinsey-fashion-2026-outlook",
@@ -1650,7 +1650,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/020-what-to-expect-in-the-global-fashion-industry-in-2026",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.213Z"
+      "updatedAt": "2026-08-23T15:44:05.780Z"
     },
     "mckinsey-agentic-advertising-economy": {
       "id": "mckinsey-agentic-advertising-economy",
@@ -1662,7 +1662,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/021-the-agentic-advertising-economy-from-attention-to-action",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.215Z"
+      "updatedAt": "2026-08-23T15:44:05.782Z"
     },
     "mckinsey-procurement-agentic-ai": {
       "id": "mckinsey-procurement-agentic-ai",
@@ -1674,7 +1674,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/022-redefining-procurement-performance-in-the-era-of-agentic-ai",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.217Z"
+      "updatedAt": "2026-08-23T15:44:05.784Z"
     },
     "mckinsey-agentic-enterprise-cybersecurity": {
       "id": "mckinsey-agentic-enterprise-cybersecurity",
@@ -1686,7 +1686,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/023-securing-the-agentic-enterprise-opportunities-for-cybersecurity-providers",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.219Z"
+      "updatedAt": "2026-08-23T15:44:05.787Z"
     },
     "mckinsey-shopping-age-ai-stores": {
       "id": "mckinsey-shopping-age-ai-stores",
@@ -1698,7 +1698,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/024-shopping-in-the-age-of-ai-redefining-stores-for-a-new-era",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.221Z"
+      "updatedAt": "2026-08-23T15:44:05.790Z"
     },
     "mckinsey-early-career-agentic-organization": {
       "id": "mckinsey-early-career-agentic-organization",
@@ -1710,7 +1710,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/025-rethinking-early-career-talent-in-the-agentic-organization",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.223Z"
+      "updatedAt": "2026-08-23T15:44:05.792Z"
     },
     "mckinsey-luxury-agentic-experience": {
       "id": "mckinsey-luxury-agentic-experience",
@@ -1722,7 +1722,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/026-when-ai-meets-desire-innovating-human-centered-luxury-experiences-in-the-agentic-age",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.226Z"
+      "updatedAt": "2026-08-23T15:44:05.795Z"
     },
     "mckinsey-powering-supply-chain-agentic-ai": {
       "id": "mckinsey-powering-supply-chain-agentic-ai",
@@ -1734,7 +1734,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/027-powering-supply-chain-with-agentic-ai",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.229Z"
+      "updatedAt": "2026-08-23T15:44:05.797Z"
     },
     "mckinsey-asos-agentic-shopper": {
       "id": "mckinsey-asos-agentic-shopper",
@@ -1746,7 +1746,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/028-the-rise-of-the-agentic-shopper-asos-s-ai-investment",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.231Z"
+      "updatedAt": "2026-08-23T15:44:05.799Z"
     },
     "mckinsey-ai-leadership-fluency": {
       "id": "mckinsey-ai-leadership-fluency",
@@ -1758,7 +1758,7 @@
       "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/029-you-can-t-lead-ai-from-the-sidelines",
       "retrievalMethod": "web_index_fallback",
       "coverage": 1,
-      "updatedAt": "2026-08-09T11:26:07.233Z"
+      "updatedAt": "2026-08-23T15:44:05.801Z"
     },
     "mit-how-organizations-can-capture-value-digital-colleagues": {
       "id": "mit-how-organizations-can-capture-value-digital-colleagues",
@@ -4265,6 +4265,556 @@
       "characterCount": 1371,
       "archiveDirectory": "Bain Six-Month Insight Radar · 2026-08-02/articles/210-spotting-the-downturn-early-and-coming-out-ahead-with-gryphon-s-david-andrews",
       "updatedAt": "2026-08-09T11:19:08.751Z"
+    },
+    "bcg-refresh-ai-in-procurement-drives-competitive-advantage": {
+      "id": "bcg-refresh-ai-in-procurement-drives-competitive-advantage",
+      "sourceUrl": "https://www.bcg.com/publications/2026/ai-in-procurement-drives-competitive-advantage",
+      "status": "downloaded",
+      "snapshotSha256": "8ed8f3003b3d15cda665142061ea43c0eaf819a753204c92aedceab83cce4a9f",
+      "extractionStatus": "extracted",
+      "characterCount": 6120,
+      "archiveDirectory": "BCG Insight Radar · 2026-W31 · Static/articles/118-ai-first-procurement-how-autonomous-agents-drive-competitive-advantage",
+      "updatedAt": "2026-08-23T15:36:54.416Z"
+    },
+    "bcg-refresh-ceos-guide-to-closing-the-ai-knowledge-gap-with-your-board": {
+      "id": "bcg-refresh-ceos-guide-to-closing-the-ai-knowledge-gap-with-your-board",
+      "sourceUrl": "https://www.bcg.com/publications/2026/ceos-guide-to-closing-the-ai-knowledge-gap-with-your-board",
+      "status": "downloaded",
+      "snapshotSha256": "35623f20716a01d2d3a23859c9f6c253f35883a7de1e21988a74b31efd79a9e8",
+      "extractionStatus": "extracted",
+      "characterCount": 6741,
+      "archiveDirectory": "BCG Insight Radar · 2026-W31 · Static/articles/117-the-ceo-s-guide-to-closing-the-ai-knowledge-gap-with-your-board",
+      "updatedAt": "2026-08-23T15:36:55.313Z"
+    },
+    "bcg-refresh-how-ceos-avoid-ai-vendor-lock-in-risk": {
+      "id": "bcg-refresh-how-ceos-avoid-ai-vendor-lock-in-risk",
+      "sourceUrl": "https://www.bcg.com/publications/2026/how-ceos-avoid-ai-vendor-lock-in-risk",
+      "status": "downloaded",
+      "snapshotSha256": "18ac360d95beb1cbf70830f59c6638f5d9e4bcc70ce23a14a03588643036e1cd",
+      "extractionStatus": "extracted",
+      "characterCount": 15626,
+      "archiveDirectory": "BCG Insight Radar · 2026-W31 · Static/articles/120-do-you-own-your-enterprise-cortex-the-ai-strategy-risk-ceos-may-not-see-coming",
+      "updatedAt": "2026-08-23T15:36:55.313Z"
+    },
+    "bcg-refresh-reimagining-asset-management-with-ai": {
+      "id": "bcg-refresh-reimagining-asset-management-with-ai",
+      "sourceUrl": "https://www.bcg.com/publications/2026/reimagining-asset-management-with-ai",
+      "status": "downloaded",
+      "snapshotSha256": "2360d3a018125fc47c336f4a80a1a25790d3e955cc54045d75787be93be2c438",
+      "extractionStatus": "extracted",
+      "characterCount": 6869,
+      "archiveDirectory": "BCG Insight Radar · 2026-W31 · Static/articles/119-the-ai-first-asset-manager",
+      "updatedAt": "2026-08-23T15:36:55.318Z"
+    },
+    "bcg-refresh-digital-infrastructure-playbook": {
+      "id": "bcg-refresh-digital-infrastructure-playbook",
+      "sourceUrl": "https://www.bcg.com/publications/2026/digital-infrastructure-playbook",
+      "status": "downloaded",
+      "snapshotSha256": "01f0473f0e6ad7790a93c4839aa2c1f51d3fed917031db47010c112e0844a6de",
+      "extractionStatus": "extracted",
+      "characterCount": 17403,
+      "archiveDirectory": "BCG Insight Radar · 2026-W31 · Static/articles/122-the-digital-infrastructure-universe-continues-to-expand-here-s-how-to-benefit",
+      "updatedAt": "2026-08-23T15:36:55.318Z"
+    },
+    "bcg-refresh-how-ai-lets-retailers-manage-store-portfolios": {
+      "id": "bcg-refresh-how-ai-lets-retailers-manage-store-portfolios",
+      "sourceUrl": "https://www.bcg.com/publications/2026/how-ai-lets-retailers-manage-store-portfolios",
+      "status": "downloaded",
+      "snapshotSha256": "93a9bf5b68d37177a0beefd82371a2beb801fb284c0187051f2b28f261cde814",
+      "extractionStatus": "extracted",
+      "characterCount": 14951,
+      "archiveDirectory": "BCG Insight Radar · 2026-W31 · Static/articles/121-retailers-need-to-manage-stores-as-a-portfolio-now-ai-lets-you-do-that",
+      "updatedAt": "2026-08-23T15:36:55.313Z"
+    },
+    "bcg-refresh-coo-role-becomes-ai-orchestrator": {
+      "id": "bcg-refresh-coo-role-becomes-ai-orchestrator",
+      "sourceUrl": "https://www.bcg.com/publications/2026/coo-role-becomes-ai-orchestrator",
+      "status": "downloaded",
+      "snapshotSha256": "07071ff3508ffaf0e468cf9c19ad6ccd41530c089de3f9f1013b552146623fe6",
+      "extractionStatus": "extracted",
+      "characterCount": 10173,
+      "archiveDirectory": "BCG Insight Radar · 2026-W31 · Static/articles/123-the-agentic-leadership-playbook-the-coo-as-enterprise-orchestrator",
+      "updatedAt": "2026-08-23T15:36:58.020Z"
+    },
+    "bcg-refresh-how-universities-lead-ai-research": {
+      "id": "bcg-refresh-how-universities-lead-ai-research",
+      "sourceUrl": "https://www.bcg.com/publications/2026/how-universities-lead-ai-research",
+      "status": "downloaded",
+      "snapshotSha256": "0f1f5565c596e7db833ddf43a6d2dcdc1ce99d704439f6ff9982189149327361",
+      "extractionStatus": "extracted",
+      "characterCount": 23077,
+      "archiveDirectory": "BCG Insight Radar · 2026-W31 · Static/articles/124-building-the-ai-forward-research-university",
+      "updatedAt": "2026-08-23T15:36:58.014Z"
+    },
+    "bcg-refresh-how-strategy-leaders-adapt-to-ai": {
+      "id": "bcg-refresh-how-strategy-leaders-adapt-to-ai",
+      "sourceUrl": "https://www.bcg.com/publications/2026/how-strategy-leaders-adapt-to-ai",
+      "status": "downloaded",
+      "snapshotSha256": "ae3ffd7d98d3a7f3289649022ee669e5cc302cb68444219c79821dbbb1eac8ff",
+      "extractionStatus": "extracted",
+      "characterCount": 16283,
+      "archiveDirectory": "BCG Insight Radar · 2026-W31 · Static/articles/125-the-next-gen-strategist-in-the-age-of-ai",
+      "updatedAt": "2026-08-23T15:36:58.025Z"
+    },
+    "bcg-refresh-how-ceos-manage-ai-cybersecurity-risks": {
+      "id": "bcg-refresh-how-ceos-manage-ai-cybersecurity-risks",
+      "sourceUrl": "https://www.bcg.com/publications/2026/how-ceos-manage-ai-cybersecurity-risks",
+      "status": "downloaded",
+      "snapshotSha256": "475c291a9cc33ff616dec85fedf6bcc6cd3d1299deb4426f501d69ccda06956c",
+      "extractionStatus": "extracted",
+      "characterCount": 11810,
+      "archiveDirectory": "BCG Insight Radar · 2026-W31 · Static/articles/126-how-ceos-should-manage-escalating-cybersecurity-risks-in-the-age-of-ai",
+      "updatedAt": "2026-08-23T15:36:57.799Z"
+    },
+    "bcg-refresh-how-cios-govern-ai-agents-at-scale": {
+      "id": "bcg-refresh-how-cios-govern-ai-agents-at-scale",
+      "sourceUrl": "https://www.bcg.com/publications/2026/how-cios-govern-ai-agents-at-scale",
+      "status": "downloaded",
+      "snapshotSha256": "2a39240ebe2f5f8093c30e18e09cbd95a71a92d411d0ed496199a7b68bdfdd26",
+      "extractionStatus": "extracted",
+      "characterCount": 14851,
+      "archiveDirectory": "BCG Insight Radar · 2026-W31 · Static/articles/127-enterprise-ai-control-plane-the-cio-s-guide-to-governing-and-accelerating-ai-agents",
+      "updatedAt": "2026-08-23T15:36:58.029Z"
+    },
+    "bcg-refresh-how-executives-fix-failing-tech-ai-partnerships": {
+      "id": "bcg-refresh-how-executives-fix-failing-tech-ai-partnerships",
+      "sourceUrl": "https://www.bcg.com/publications/2026/how-executives-fix-failing-tech-ai-partnerships",
+      "status": "downloaded",
+      "snapshotSha256": "b9c11ac028a1b3139c7af7d27e9f00944b14ba88699e73b08017730e5e225df9",
+      "extractionStatus": "extracted",
+      "characterCount": 17136,
+      "archiveDirectory": "BCG Insight Radar · 2026-W31 · Static/articles/128-making-tech-industry-partnerships-work-in-the-agentic-era",
+      "updatedAt": "2026-08-23T15:36:56.053Z"
+    },
+    "bcg-refresh-ai-risk-self-assessments-banking": {
+      "id": "bcg-refresh-ai-risk-self-assessments-banking",
+      "sourceUrl": "https://www.bcg.com/publications/2026/ai-risk-self-assessments-banking",
+      "status": "downloaded",
+      "snapshotSha256": "5f82814812b82f097c961995982fb0bba5eb1c50523df6a6b6f4b8c338e99760",
+      "extractionStatus": "extracted",
+      "characterCount": 13631,
+      "archiveDirectory": "BCG Insight Radar · 2026-W31 · Static/articles/129-how-ai-can-transform-risk-self-assessments-in-banking",
+      "updatedAt": "2026-08-23T15:36:58.263Z"
+    },
+    "bcg-refresh-which-companies-capture-value-from-ai": {
+      "id": "bcg-refresh-which-companies-capture-value-from-ai",
+      "sourceUrl": "https://www.bcg.com/publications/2026/which-companies-capture-value-from-ai",
+      "status": "downloaded",
+      "snapshotSha256": "ba4dfb9a29512838989e1ea0db662603d97f14ffde2fa5f41f20994b32036864",
+      "extractionStatus": "extracted",
+      "characterCount": 15754,
+      "archiveDirectory": "BCG Insight Radar · 2026-W31 · Static/articles/130-who-will-win-as-ai-rewrites-competitive-advantage",
+      "updatedAt": "2026-08-23T15:37:00.492Z"
+    },
+    "bcg-refresh-new-zealand-a-destination-for-data": {
+      "id": "bcg-refresh-new-zealand-a-destination-for-data",
+      "sourceUrl": "https://www.bcg.com/publications/2026/new-zealand-a-destination-for-data",
+      "status": "downloaded",
+      "snapshotSha256": "b9067b3d02c01ac5b426474953170c7104c33dc2523f69e31d4f9718ffe96719",
+      "extractionStatus": "extracted",
+      "characterCount": 1963,
+      "archiveDirectory": "BCG Insight Radar · 2026-W31 · Static/articles/131-new-zealand-a-destination-for-data",
+      "updatedAt": "2026-08-23T15:36:59.968Z"
+    },
+    "bcg-refresh-powering-ai-through-grid-positive-data-centers": {
+      "id": "bcg-refresh-powering-ai-through-grid-positive-data-centers",
+      "sourceUrl": "https://www.bcg.com/publications/2026/powering-ai-through-grid-positive-data-centers",
+      "status": "downloaded",
+      "snapshotSha256": "9fdb2a1f985142cd96e4435c0bb5b8cc065ede95536b60cd9aea41a207bc7ef2",
+      "extractionStatus": "extracted",
+      "characterCount": 4291,
+      "archiveDirectory": "BCG Insight Radar · 2026-W31 · Static/articles/132-powering-ai-through-grid-positive-data-centers",
+      "updatedAt": "2026-08-23T15:36:58.681Z"
+    },
+    "anthropic-refresh-discovering-cryptographic-weaknesses": {
+      "id": "anthropic-refresh-discovering-cryptographic-weaknesses",
+      "sourceUrl": "https://www.anthropic.com/research/discovering-cryptographic-weaknesses",
+      "status": "downloaded",
+      "snapshotSha256": "eb88230e69fa1c16d5d37927ba97db8d184b0d4b8aa6abe556adb9a58b58da96",
+      "extractionStatus": "extracted",
+      "characterCount": 25407,
+      "archiveDirectory": "Anthropic 最近半年洞察雷达 | 2026-08-02/articles/026-discovering-cryptographic-weaknesses-with-claude",
+      "updatedAt": "2026-08-23T15:36:59.623Z"
+    },
+    "anthropic-refresh-improving-fable-5-s-biology-safeguards": {
+      "id": "anthropic-refresh-improving-fable-5-s-biology-safeguards",
+      "sourceUrl": "https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards",
+      "status": "downloaded",
+      "snapshotSha256": "53545083f14b327fad97783280b0cccb4d358eaa6f619c241593ea25e429e071",
+      "extractionStatus": "extracted",
+      "characterCount": 9039,
+      "archiveDirectory": "Anthropic 最近半年洞察雷达 | 2026-08-02/articles/027-improving-fable-5-s-biology-safeguards",
+      "updatedAt": "2026-08-23T15:36:59.475Z"
+    },
+    "anthropic-refresh-riemann-zeta": {
+      "id": "anthropic-refresh-riemann-zeta",
+      "sourceUrl": "https://www.anthropic.com/research/riemann-zeta",
+      "status": "downloaded",
+      "snapshotSha256": "88a8c720206802476f254188976686900fcdbe9858790eeca61c0a47566c89ff",
+      "extractionStatus": "extracted",
+      "characterCount": 8622,
+      "archiveDirectory": "Anthropic 最近半年洞察雷达 | 2026-08-02/articles/028-learning-more-about-claude-s-mathematical-capabilities",
+      "updatedAt": "2026-08-23T15:36:59.623Z"
+    },
+    "anthropic-refresh-reviewing-the-evidence-on-worker-retraining-programs": {
+      "id": "anthropic-refresh-reviewing-the-evidence-on-worker-retraining-programs",
+      "sourceUrl": "https://www.anthropic.com/research/reviewing-the-evidence-on-worker-retraining-programs",
+      "status": "downloaded",
+      "snapshotSha256": "428c5d474d70e6031908eb0c73028d31a1a399f1f3eddf57e20567b22f3f6deb",
+      "extractionStatus": "extracted",
+      "characterCount": 3455,
+      "archiveDirectory": "Anthropic 最近半年洞察雷达 | 2026-08-02/articles/029-reviewing-the-evidence-on-worker-retraining-programs",
+      "updatedAt": "2026-08-23T15:36:59.974Z"
+    },
+    "anthropic-refresh-claude-text-watermark": {
+      "id": "anthropic-refresh-claude-text-watermark",
+      "sourceUrl": "https://www.anthropic.com/news/claude-text-watermark",
+      "status": "downloaded",
+      "snapshotSha256": "ab558a7faaf1c85bc5fc345aa774783efd13cceef3d9aa634aba29b4666a82ce",
+      "extractionStatus": "extracted",
+      "characterCount": 13251,
+      "archiveDirectory": "Anthropic 最近半年洞察雷达 | 2026-08-02/articles/030-how-claude-s-text-watermark-works",
+      "updatedAt": "2026-08-23T15:37:00.070Z"
+    },
+    "anthropic-refresh-multiagent-systems": {
+      "id": "anthropic-refresh-multiagent-systems",
+      "sourceUrl": "https://www.anthropic.com/research/multiagent-systems",
+      "status": "downloaded",
+      "snapshotSha256": "f497fba0a6e7d50a7a7f5a9981c9f4d3113c2f98d118226ac8d0648c537424b4",
+      "extractionStatus": "extracted",
+      "characterCount": 27579,
+      "archiveDirectory": "Anthropic 最近半年洞察雷达 | 2026-08-02/articles/031-patterns-and-problems-in-emerging-multiagent-systems",
+      "updatedAt": "2026-08-23T15:37:00.495Z"
+    },
+    "anthropic-refresh-claude-accelerates-protein-design": {
+      "id": "anthropic-refresh-claude-accelerates-protein-design",
+      "sourceUrl": "https://www.anthropic.com/research/Claude-accelerates-protein-design",
+      "status": "downloaded",
+      "snapshotSha256": "efcf37e0d8e7745b717fd77f8eaaa0243ba481b5a709b3f6d81f3ddabd9c050d",
+      "extractionStatus": "extracted",
+      "characterCount": 24567,
+      "archiveDirectory": "Anthropic 最近半年洞察雷达 | 2026-08-02/articles/032-how-claude-is-accelerating-protein-design-and-analytical-chemistry",
+      "updatedAt": "2026-08-23T15:37:00.487Z"
+    },
+    "bain-refresh-how-is-ai-changing-the-way-bain-hires-consultants": {
+      "id": "bain-refresh-how-is-ai-changing-the-way-bain-hires-consultants",
+      "sourceUrl": "https://www.bain.com/insights/How-is-AI-Changing-the-Way-Bain-Hires-Consultants",
+      "status": "downloaded",
+      "snapshotSha256": "2c25c7c54a39c3333356b1b7772a3143aab47038b661e6245bf3e54c38f9c410",
+      "extractionStatus": "extracted",
+      "characterCount": 1514,
+      "archiveDirectory": "Bain Six-Month Insight Radar · 2026-08-02/articles/211-how-is-ai-changing-the-way-bain-hires-consultants",
+      "updatedAt": "2026-08-23T15:37:01.210Z"
+    },
+    "bain-refresh-what-is-an-ai-native-enterprise": {
+      "id": "bain-refresh-what-is-an-ai-native-enterprise",
+      "sourceUrl": "https://www.bain.com/insights/what-is-an-ai-native-enterprise",
+      "status": "downloaded",
+      "snapshotSha256": "12fbbf5eb03cb798b39d34a36a8a88db7df2beff64a9de146bcb830e4000eb5b",
+      "extractionStatus": "extracted",
+      "characterCount": 10977,
+      "archiveDirectory": "Bain Six-Month Insight Radar · 2026-08-02/articles/212-what-is-an-ai-native-enterprise",
+      "updatedAt": "2026-08-23T15:37:01.674Z"
+    },
+    "bain-refresh-what-is-a-modern-data-platform": {
+      "id": "bain-refresh-what-is-a-modern-data-platform",
+      "sourceUrl": "https://www.bain.com/insights/what-is-a-modern-data-platform",
+      "status": "downloaded",
+      "snapshotSha256": "cfd5c8690b768eaa2a6764b0d6c653004a484b605f8685329b83f653839b0f0f",
+      "extractionStatus": "extracted",
+      "characterCount": 8939,
+      "archiveDirectory": "Bain Six-Month Insight Radar · 2026-08-02/articles/213-what-is-a-modern-data-platform",
+      "updatedAt": "2026-08-23T15:37:03.233Z"
+    },
+    "mit-refresh-how-will-ai-automation-hit-a-crashing-wave-or-a-rising-tide": {
+      "id": "mit-refresh-how-will-ai-automation-hit-a-crashing-wave-or-a-rising-tide",
+      "sourceUrl": "https://mitsloan.mit.edu/ideas-made-to-matter/how-will-ai-automation-hit-a-crashing-wave-or-a-rising-tide",
+      "status": "downloaded",
+      "snapshotSha256": "485f7c60e0f22799e45c74823bdd3f7abfd167879c57bce627ebb36e4ff33b66",
+      "extractionStatus": "extracted",
+      "characterCount": 6304,
+      "archiveDirectory": "MIT AI Management Insight Radar · 2026-08-04/articles/039-how-will-ai-automation-hit-like-a-crashing-wave-or-a-rising-tide",
+      "updatedAt": "2026-08-23T15:37:01.566Z"
+    },
+    "mit-refresh-why-a-semantic-layer-pivotal-to-your-ai-strategy": {
+      "id": "mit-refresh-why-a-semantic-layer-pivotal-to-your-ai-strategy",
+      "sourceUrl": "https://mitsloan.mit.edu/ideas-made-to-matter/why-a-semantic-layer-pivotal-to-your-ai-strategy",
+      "status": "downloaded",
+      "snapshotSha256": "185537d1b7ca63ba169b9bf7cf0580074a849349962f326462033cd2392b53ac",
+      "extractionStatus": "extracted",
+      "characterCount": 8408,
+      "archiveDirectory": "MIT AI Management Insight Radar · 2026-08-04/articles/040-why-a-semantic-layer-is-pivotal-to-your-ai-strategy",
+      "updatedAt": "2026-08-23T15:37:01.563Z"
+    },
+    "mit-refresh-can-ais-climate-benefits-outweigh-its-costs": {
+      "id": "mit-refresh-can-ais-climate-benefits-outweigh-its-costs",
+      "sourceUrl": "https://mitsloan.mit.edu/ideas-made-to-matter/can-ais-climate-benefits-outweigh-its-costs",
+      "status": "downloaded",
+      "snapshotSha256": "9c8ac599276537c4db7a1c8df8b2784f36006d9652802310682209cc77a1baea",
+      "extractionStatus": "extracted",
+      "characterCount": 10819,
+      "archiveDirectory": "MIT AI Management Insight Radar · 2026-08-04/articles/041-can-ai-s-climate-benefits-outweigh-its-costs",
+      "updatedAt": "2026-08-23T15:37:01.563Z"
+    },
+    "mit-refresh-ai-ethics-and-governance-where-will-you-draw-line": {
+      "id": "mit-refresh-ai-ethics-and-governance-where-will-you-draw-line",
+      "sourceUrl": "https://mitsloan.mit.edu/ideas-made-to-matter/ai-ethics-and-governance-where-will-you-draw-line",
+      "status": "downloaded",
+      "snapshotSha256": "497e8645fe4a6b91bb3a33d6b37b2cec2fea983c90254fad790625b8410fbeda",
+      "extractionStatus": "extracted",
+      "characterCount": 8221,
+      "archiveDirectory": "MIT AI Management Insight Radar · 2026-08-04/articles/042-ai-ethics-and-governance-where-will-you-draw-the-line",
+      "updatedAt": "2026-08-23T15:37:02.361Z"
+    },
+    "mit-refresh-mit-expert-which-companies-will-succeed-ai-era": {
+      "id": "mit-refresh-mit-expert-which-companies-will-succeed-ai-era",
+      "sourceUrl": "https://mitsloan.mit.edu/ideas-made-to-matter/mit-expert-which-companies-will-succeed-ai-era",
+      "status": "downloaded",
+      "snapshotSha256": "105342c9e31354204f07c2e89567b42eb24dbc0ebe24f9fb8d5fd87eec94ba02",
+      "extractionStatus": "extracted",
+      "characterCount": 6535,
+      "archiveDirectory": "MIT AI Management Insight Radar · 2026-08-04/articles/043-an-mit-expert-on-which-companies-will-succeed-in-the-ai-era",
+      "updatedAt": "2026-08-23T15:37:01.980Z"
+    },
+    "mckinsey-refresh-from-adoption-to-impact-three-horizons-of-ai-transformation": {
+      "id": "mckinsey-refresh-from-adoption-to-impact-three-horizons-of-ai-transformation",
+      "sourceUrl": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/from-adoption-to-impact-three-horizons-of-ai-transformation",
+      "status": "downloaded",
+      "snapshotSha256": "42bed4a160a9c2dc4076458bf7f92a8010e3abd4ff305bbf73ae430adb11fbd5",
+      "extractionStatus": "extracted",
+      "characterCount": 22533,
+      "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/030-from-adoption-to-impact-three-horizons-of-ai-transformation",
+      "retrievalMethod": "web_index_fallback",
+      "coverage": 1,
+      "updatedAt": "2026-08-23T15:44:05.803Z"
+    },
+    "mckinsey-refresh-how-can-the-public-sector-meet-the-ai-moment": {
+      "id": "mckinsey-refresh-how-can-the-public-sector-meet-the-ai-moment",
+      "sourceUrl": "https://www.mckinsey.com/industries/public-sector/our-insights/rewiring-public-sector",
+      "status": "downloaded",
+      "snapshotSha256": "bb396d189df525bd27e71c12cb1efba1bdfc7549d015ac0c304098bdc8ccc076",
+      "extractionStatus": "extracted",
+      "characterCount": 46685,
+      "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/031-how-can-the-public-sector-meet-the-ai-moment",
+      "retrievalMethod": "web_index_fallback",
+      "coverage": 0.996,
+      "updatedAt": "2026-08-23T15:44:05.807Z"
+    },
+    "mckinsey-refresh-the-future-of-b2b-sales-how-growth-champions-rewire-their-playbooks-with-ai": {
+      "id": "mckinsey-refresh-the-future-of-b2b-sales-how-growth-champions-rewire-their-playbooks-with-ai",
+      "sourceUrl": "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/the-future-of-b2b-sales-how-growth-champions-rewire-their-playbooks-with-ai",
+      "status": "downloaded",
+      "snapshotSha256": "bbe8a460df2311386dd73fced15898393978f323ee3ca785530e29585e76d255",
+      "extractionStatus": "extracted",
+      "characterCount": 37543,
+      "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/032-the-future-of-b2b-sales-how-growth-champions-rewire-their-playbooks-with-ai",
+      "retrievalMethod": "web_index_fallback",
+      "coverage": 1,
+      "updatedAt": "2026-08-23T15:44:05.810Z"
+    },
+    "mckinsey-refresh-how-ai-will-reshape-the-economics-of-insurance-a-ceos-guide-to-strategy": {
+      "id": "mckinsey-refresh-how-ai-will-reshape-the-economics-of-insurance-a-ceos-guide-to-strategy",
+      "sourceUrl": "https://www.mckinsey.com/industries/financial-services/our-insights/how-ai-will-reshape-the-economics-of-insurance-a-ceos-guide-to-strategy",
+      "status": "downloaded",
+      "snapshotSha256": "db91e4b20ef0b3f0c8443a50158e833b2d83cc6fcd88939ae8597e8028a29557",
+      "extractionStatus": "extracted",
+      "characterCount": 30277,
+      "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/033-how-ai-will-reshape-the-economics-of-insurance-a-ceo-s-guide-to-strategy",
+      "retrievalMethod": "web_index_fallback",
+      "coverage": 1,
+      "updatedAt": "2026-08-23T15:44:05.814Z"
+    },
+    "mckinsey-refresh-how-socar-transformed-a-fertilizer-leader-in-azerbaijan-with-industrial-ai": {
+      "id": "mckinsey-refresh-how-socar-transformed-a-fertilizer-leader-in-azerbaijan-with-industrial-ai",
+      "sourceUrl": "https://www.mckinsey.com/industries/chemicals/how-we-help-clients/how-socar-transformed-a-fertilizer-leader-in-azerbaijan-with-industrial-ai",
+      "status": "downloaded",
+      "snapshotSha256": "7f741e9f8f1374920de2c02fb2ce484d3603376405f1989622cdb1c00d52a3a1",
+      "extractionStatus": "extracted",
+      "characterCount": 11050,
+      "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/034-how-socar-transformed-a-fertilizer-leader-in-azerbaijan-with-industrial-ai",
+      "retrievalMethod": "web_index_fallback",
+      "coverage": 1,
+      "updatedAt": "2026-08-23T15:44:05.816Z"
+    },
+    "mckinsey-refresh-rewired-takes-how-ai-is-unlocking-creativity-and-heralding-the-rise-of-the-agent-manager": {
+      "id": "mckinsey-refresh-rewired-takes-how-ai-is-unlocking-creativity-and-heralding-the-rise-of-the-agent-manager",
+      "sourceUrl": "https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/rewired-takes-how-ai-is-unlocking-creativity-and-heralding-the-rise-of-the-agent-manager",
+      "status": "downloaded",
+      "snapshotSha256": "785a5205bac9f3c11879142dd25c35f21505b1c5c89c5f7094db39fba6cde2c5",
+      "extractionStatus": "extracted",
+      "characterCount": 5084,
+      "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/035-rewired-takes-how-ai-is-unlocking-creativity-and-heralding-the-rise-of-the-agent-manager",
+      "retrievalMethod": "web_index_fallback",
+      "coverage": 1,
+      "updatedAt": "2026-08-23T15:44:05.817Z"
+    },
+    "mckinsey-refresh-is-the-ai-productivity-story-at-a-turning-point": {
+      "id": "mckinsey-refresh-is-the-ai-productivity-story-at-a-turning-point",
+      "sourceUrl": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/is-the-ai-productivity-story-at-a-turning-point",
+      "status": "downloaded",
+      "snapshotSha256": "de00c35f2070aeeb81c9ddee3cdf0ff797f64a7d2cc2ba96a538c060af5331ce",
+      "extractionStatus": "extracted",
+      "characterCount": 22979,
+      "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/036-is-the-ai-productivity-story-at-a-turning-point",
+      "retrievalMethod": "web_index_fallback",
+      "coverage": 1,
+      "updatedAt": "2026-08-23T15:44:05.821Z"
+    },
+    "mckinsey-refresh-escaping-the-pilot-trap-building-hr-for-the-agentic-era": {
+      "id": "mckinsey-refresh-escaping-the-pilot-trap-building-hr-for-the-agentic-era",
+      "sourceUrl": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/escaping-the-pilot-trap-building-hr-for-the-agentic-era",
+      "status": "downloaded",
+      "snapshotSha256": "ef4fd95441ff4b4c1cf1785a2d51ba02d5b19c368ea9dfbd8a4c7d67e90428f6",
+      "extractionStatus": "extracted",
+      "characterCount": 22256,
+      "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/037-escaping-the-pilot-trap-building-hr-for-the-agentic-era",
+      "retrievalMethod": "web_index_fallback",
+      "coverage": 1,
+      "updatedAt": "2026-08-23T15:44:05.823Z"
+    },
+    "mckinsey-refresh-how-ai-is-redefining-category-management-in-distribution": {
+      "id": "mckinsey-refresh-how-ai-is-redefining-category-management-in-distribution",
+      "sourceUrl": "https://www.mckinsey.com/industries/industrials/our-insights/how-ai-is-redefining-category-management-in-distribution",
+      "status": "downloaded",
+      "snapshotSha256": "d917da1f202347dbf5d250512cd7edd95d4ddd707c27277337b204923e7b5712",
+      "extractionStatus": "extracted",
+      "characterCount": 15226,
+      "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/038-how-ai-is-redefining-category-management-in-distribution",
+      "retrievalMethod": "web_index_fallback",
+      "coverage": 1,
+      "updatedAt": "2026-08-23T15:44:05.825Z"
+    },
+    "mckinsey-refresh-growth-favors-the-bold-ai-as-force-multiplier": {
+      "id": "mckinsey-refresh-growth-favors-the-bold-ai-as-force-multiplier",
+      "sourceUrl": "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/growth-favors-the-bold-ai-as-force-multiplier",
+      "status": "downloaded",
+      "snapshotSha256": "8dc0bfc17cd42a9241341262a58754ffc289d39479891ab0791d7de4d7fd9d2f",
+      "extractionStatus": "extracted",
+      "characterCount": 15996,
+      "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/039-growth-favors-the-bold-ai-as-force-multiplier",
+      "retrievalMethod": "web_index_fallback",
+      "coverage": 1,
+      "updatedAt": "2026-08-23T15:44:05.827Z"
+    },
+    "mckinsey-refresh-how-ai-enabled-execution-became-reckitts-tenfold-game-changer": {
+      "id": "mckinsey-refresh-how-ai-enabled-execution-became-reckitts-tenfold-game-changer",
+      "sourceUrl": "https://www.mckinsey.com/industries/consumer-packaged-goods/how-we-help-clients/how-ai-enabled-execution-became-reckitts-tenfold-game-changer",
+      "status": "downloaded",
+      "snapshotSha256": "1d42a852be678bb47cc0155d800b2b09099f70767d6814dc45c0dc586732cb79",
+      "extractionStatus": "extracted",
+      "characterCount": 11380,
+      "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/040-how-ai-enabled-execution-became-reckitt-s-tenfold-game-changer",
+      "retrievalMethod": "web_index_fallback",
+      "coverage": 1,
+      "updatedAt": "2026-08-23T15:44:05.829Z"
+    },
+    "mckinsey-refresh-ai-fluency-the-next-foundation-of-us-economic-competitiveness": {
+      "id": "mckinsey-refresh-ai-fluency-the-next-foundation-of-us-economic-competitiveness",
+      "sourceUrl": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/ai-fluency-the-next-foundation-of-us-economic-competitiveness",
+      "status": "downloaded",
+      "snapshotSha256": "3ddcecbd788915a4e396a4d27b9611a2ecf6d0220a3b9690142748cfe874420b",
+      "extractionStatus": "extracted",
+      "characterCount": 14569,
+      "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/041-ai-fluency-the-next-foundation-of-us-economic-competitiveness",
+      "retrievalMethod": "web_index_fallback",
+      "coverage": 1,
+      "updatedAt": "2026-08-23T15:44:05.831Z"
+    },
+    "mckinsey-refresh-how-to-close-the-agentic-adoption-gap": {
+      "id": "mckinsey-refresh-how-to-close-the-agentic-adoption-gap",
+      "sourceUrl": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/how-to-close-the-agentic-adoption-gap",
+      "status": "downloaded",
+      "snapshotSha256": "2716d56d91f22bbfd5c30f3a16e28ff9e6e77ec16af297fa26edc8886fff5fd0",
+      "extractionStatus": "extracted",
+      "characterCount": 20680,
+      "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/042-how-to-close-the-agentic-adoption-gap",
+      "retrievalMethod": "web_index_fallback",
+      "coverage": 1,
+      "updatedAt": "2026-08-23T15:44:05.833Z"
+    },
+    "mckinsey-refresh-agentic-ai-and-the-future-of-global-business-services": {
+      "id": "mckinsey-refresh-agentic-ai-and-the-future-of-global-business-services",
+      "sourceUrl": "https://www.mckinsey.com/capabilities/operations/our-insights/agentic-ai-and-the-future-of-global-business-services",
+      "status": "downloaded",
+      "snapshotSha256": "1b2613ea1e38c204a5c214bfb8c8966c1728aa3631034251e2ea5655b78abd04",
+      "extractionStatus": "extracted",
+      "characterCount": 15821,
+      "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/043-agentic-ai-and-the-future-of-global-business-services",
+      "retrievalMethod": "web_index_fallback",
+      "coverage": 1,
+      "updatedAt": "2026-08-23T15:44:05.835Z"
+    },
+    "mckinsey-refresh-how-ai-led-commercial-transformation-can-power-industrial-growth": {
+      "id": "mckinsey-refresh-how-ai-led-commercial-transformation-can-power-industrial-growth",
+      "sourceUrl": "https://www.mckinsey.com/capabilities/transformation/our-insights/how-ai-led-commercial-transformation-can-power-industrial-growth",
+      "status": "downloaded",
+      "snapshotSha256": "42bc28fcdd7c5956fddcbe062ff689a2a614c77ba7337d880d65dad5ee6e7728",
+      "extractionStatus": "extracted",
+      "characterCount": 18081,
+      "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/044-how-ai-led-commercial-transformation-can-power-industrial-growth",
+      "retrievalMethod": "web_index_fallback",
+      "coverage": 1,
+      "updatedAt": "2026-08-23T15:44:05.838Z"
+    },
+    "mckinsey-refresh-ai-transformations-run-on-trust": {
+      "id": "mckinsey-refresh-ai-transformations-run-on-trust",
+      "sourceUrl": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/ai-transformations-run-on-trust",
+      "status": "downloaded",
+      "snapshotSha256": "81c691c21b7b6fac962502a1287032153210496bac9a7bf093420f6e99895ced",
+      "extractionStatus": "extracted",
+      "characterCount": 16095,
+      "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/045-ai-transformations-run-on-trust",
+      "retrievalMethod": "web_index_fallback",
+      "coverage": 1,
+      "updatedAt": "2026-08-23T15:44:05.840Z"
+    },
+    "mckinsey-refresh-a-new-era-for-procurement-in-financial-services": {
+      "id": "mckinsey-refresh-a-new-era-for-procurement-in-financial-services",
+      "sourceUrl": "https://www.mckinsey.com/industries/financial-services/our-insights/banking-matters/a-new-era-for-procurement-in-financial-services",
+      "status": "downloaded",
+      "snapshotSha256": "6608f3015ba9274d8e5f938cc78a8345f8b80560f4805ef6f0f7f7a7ad3d32b0",
+      "extractionStatus": "extracted",
+      "characterCount": 8455,
+      "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/046-a-new-era-for-procurement-in-financial-services",
+      "retrievalMethod": "web_index_fallback",
+      "coverage": 1,
+      "updatedAt": "2026-08-23T15:44:05.842Z"
+    },
+    "mckinsey-refresh-colos-from-builders-to-coshapers-of-asia-pacifics-ai-infrastructure": {
+      "id": "mckinsey-refresh-colos-from-builders-to-coshapers-of-asia-pacifics-ai-infrastructure",
+      "sourceUrl": "https://www.mckinsey.com/featured-insights/future-of-asia/countries-and-regions/southeast-asia/southeast-asia-perspectives/colos-from-builders-to-coshapers-of-asia-pacifics-ai-infrastructure",
+      "status": "downloaded",
+      "snapshotSha256": "38adcc3b01187ec78f86b5595bcfd946fd635b13fe831b65eca36f4a607a2aca",
+      "extractionStatus": "extracted",
+      "characterCount": 12457,
+      "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/047-colos-from-builders-to-coshapers-of-asia-pacific-s-ai-infrastructure",
+      "retrievalMethod": "web_index_fallback",
+      "coverage": 1,
+      "updatedAt": "2026-08-23T15:44:05.844Z"
+    },
+    "mckinsey-refresh-governing-ai-with-intention-in-the-social-impact-sector": {
+      "id": "mckinsey-refresh-governing-ai-with-intention-in-the-social-impact-sector",
+      "sourceUrl": "https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/governing-ai-with-intention-in-the-social-impact-sector",
+      "status": "downloaded",
+      "snapshotSha256": "c934d92136347b98c5f4e1009f2994acabcdca6ed238a9b7bd0a6fc28b022dd7",
+      "extractionStatus": "extracted",
+      "characterCount": 11854,
+      "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/048-governing-ai-with-intention-in-the-social-impact-sector",
+      "retrievalMethod": "web_index_fallback",
+      "coverage": 1,
+      "updatedAt": "2026-08-23T15:44:05.846Z"
+    },
+    "mckinsey-refresh-lessons-from-our-alliances-what-aws-agentic-journey-can-teach-ceo-about-rewiring-for-ai": {
+      "id": "mckinsey-refresh-lessons-from-our-alliances-what-aws-agentic-journey-can-teach-ceo-about-rewiring-for-ai",
+      "sourceUrl": "https://www.mckinsey.com/about-us/new-at-mckinsey-blog/lessons-from-our-alliances-what-aws-agentic-journey-can-teach-ceo-about-rewiring-for-ai",
+      "status": "downloaded",
+      "snapshotSha256": "6df287e5d9c41c8376190e3e89c054d9e15f6157c0cb0992b1cb671bd5dae7cd",
+      "extractionStatus": "extracted",
+      "characterCount": 26231,
+      "archiveDirectory": "McKinsey 最近半年洞察雷达 | 2026-08-02/articles/049-lessons-from-our-alliances-what-aws-s-agentic-journey-can-teach-ceos-about-rewiring-for-ai",
+      "retrievalMethod": "web_index_fallback",
+      "coverage": 1,
+      "updatedAt": "2026-08-23T15:44:05.848Z"
     }
   }
 }

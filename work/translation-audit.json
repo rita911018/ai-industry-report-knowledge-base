@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-09T16:50:54.945Z",
-  "total": 418,
-  "passed": 418,
+  "generatedAt": "2026-08-23T17:16:45.472Z",
+  "total": 469,
+  "passed": 469,
   "failed": 0,
   "records": [
     {
@@ -402,6 +402,118 @@
         "sourceUrls": 24,
         "chineseCharacters": 2555,
         "chineseRatio": 0.5757097791798107
+      }
+    },
+    {
+      "id": "anthropic-refresh-discovering-cryptographic-weaknesses",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 16,
+        "translationHeadings": 16,
+        "sourceParagraphs": 65,
+        "translatedParagraphs": 65,
+        "sourceNumbers": 101,
+        "sourceUrls": 40,
+        "chineseCharacters": 6328,
+        "chineseRatio": 0.6270934496085621
+      }
+    },
+    {
+      "id": "anthropic-refresh-improving-fable-5-s-biology-safeguards",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 27,
+        "translatedParagraphs": 27,
+        "sourceNumbers": 93,
+        "sourceUrls": 12,
+        "chineseCharacters": 2370,
+        "chineseRatio": 0.6330128205128205
+      }
+    },
+    {
+      "id": "anthropic-refresh-riemann-zeta",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 11,
+        "translationHeadings": 11,
+        "sourceParagraphs": 31,
+        "translatedParagraphs": 31,
+        "sourceNumbers": 190,
+        "sourceUrls": 31,
+        "chineseCharacters": 2114,
+        "chineseRatio": 0.45866782382295507
+      }
+    },
+    {
+      "id": "anthropic-refresh-reviewing-the-evidence-on-worker-retraining-programs",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 17,
+        "translatedParagraphs": 17,
+        "sourceNumbers": 30,
+        "sourceUrls": 11,
+        "chineseCharacters": 905,
+        "chineseRatio": 0.4907809110629067
+      }
+    },
+    {
+      "id": "anthropic-refresh-claude-text-watermark",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 24,
+        "translationHeadings": 24,
+        "sourceParagraphs": 39,
+        "translatedParagraphs": 39,
+        "sourceNumbers": 51,
+        "sourceUrls": 10,
+        "chineseCharacters": 3399,
+        "chineseRatio": 0.7130270610446822
+      }
+    },
+    {
+      "id": "anthropic-refresh-multiagent-systems",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 10,
+        "translationHeadings": 10,
+        "sourceParagraphs": 68,
+        "translatedParagraphs": 68,
+        "sourceNumbers": 231,
+        "sourceUrls": 14,
+        "chineseCharacters": 7579,
+        "chineseRatio": 0.71784428869104
+      }
+    },
+    {
+      "id": "anthropic-refresh-claude-accelerates-protein-design",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 17,
+        "translationHeadings": 17,
+        "sourceParagraphs": 62,
+        "translatedParagraphs": 62,
+        "sourceNumbers": 350,
+        "sourceUrls": 37,
+        "chineseCharacters": 6267,
+        "chineseRatio": 0.573166270349369
       }
     },
     {
@@ -3765,6 +3877,54 @@
       }
     },
     {
+      "id": "bain-refresh-how-is-ai-changing-the-way-bain-hires-consultants",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 11,
+        "translatedParagraphs": 11,
+        "sourceNumbers": 13,
+        "sourceUrls": 7,
+        "chineseCharacters": 407,
+        "chineseRatio": 0.3800186741363212
+      }
+    },
+    {
+      "id": "bain-refresh-what-is-an-ai-native-enterprise",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 48,
+        "translatedParagraphs": 48,
+        "sourceNumbers": 43,
+        "sourceUrls": 28,
+        "chineseCharacters": 2895,
+        "chineseRatio": 0.5299286106534871
+      }
+    },
+    {
+      "id": "bain-refresh-what-is-a-modern-data-platform",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 44,
+        "translatedParagraphs": 45,
+        "sourceNumbers": 13,
+        "sourceUrls": 8,
+        "chineseCharacters": 2363,
+        "chineseRatio": 0.7775584073708457
+      }
+    },
+    {
       "id": "bcg-1",
       "ok": true,
       "errors": [],
@@ -5612,6 +5772,262 @@
       }
     },
     {
+      "id": "bcg-refresh-ceos-guide-to-closing-the-ai-knowledge-gap-with-your-board",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 10,
+        "translationHeadings": 10,
+        "sourceParagraphs": 30,
+        "translatedParagraphs": 30,
+        "sourceNumbers": 9,
+        "sourceUrls": 9,
+        "chineseCharacters": 1697,
+        "chineseRatio": 0.7035655058043118
+      }
+    },
+    {
+      "id": "bcg-refresh-ai-in-procurement-drives-competitive-advantage",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 2,
+        "translationHeadings": 2,
+        "sourceParagraphs": 28,
+        "translatedParagraphs": 28,
+        "sourceNumbers": 55,
+        "sourceUrls": 8,
+        "chineseCharacters": 1545,
+        "chineseRatio": 0.618742490989187
+      }
+    },
+    {
+      "id": "bcg-refresh-reimagining-asset-management-with-ai",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 24,
+        "translatedParagraphs": 24,
+        "sourceNumbers": 32,
+        "sourceUrls": 9,
+        "chineseCharacters": 1843,
+        "chineseRatio": 0.6696947674418605
+      }
+    },
+    {
+      "id": "bcg-refresh-how-ceos-avoid-ai-vendor-lock-in-risk",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 44,
+        "translatedParagraphs": 44,
+        "sourceNumbers": 29,
+        "sourceUrls": 7,
+        "chineseCharacters": 4183,
+        "chineseRatio": 0.8457339264051759
+      }
+    },
+    {
+      "id": "bcg-refresh-how-ai-lets-retailers-manage-store-portfolios",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 38,
+        "translatedParagraphs": 38,
+        "sourceNumbers": 104,
+        "sourceUrls": 11,
+        "chineseCharacters": 3995,
+        "chineseRatio": 0.7272892772619698
+      }
+    },
+    {
+      "id": "bcg-refresh-digital-infrastructure-playbook",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 34,
+        "translatedParagraphs": 34,
+        "sourceNumbers": 115,
+        "sourceUrls": 11,
+        "chineseCharacters": 4589,
+        "chineseRatio": 0.740519606261094
+      }
+    },
+    {
+      "id": "bcg-refresh-coo-role-becomes-ai-orchestrator",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 0,
+        "translationHeadings": 0,
+        "sourceParagraphs": 41,
+        "translatedParagraphs": 41,
+        "sourceNumbers": 13,
+        "sourceUrls": 6,
+        "chineseCharacters": 2741,
+        "chineseRatio": 0.8743221690590112
+      }
+    },
+    {
+      "id": "bcg-refresh-how-universities-lead-ai-research",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 52,
+        "translatedParagraphs": 53,
+        "sourceNumbers": 341,
+        "sourceUrls": 13,
+        "chineseCharacters": 5082,
+        "chineseRatio": 0.48865384615384616
+      }
+    },
+    {
+      "id": "bcg-refresh-how-strategy-leaders-adapt-to-ai",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 40,
+        "translatedParagraphs": 40,
+        "sourceNumbers": 31,
+        "sourceUrls": 11,
+        "chineseCharacters": 4357,
+        "chineseRatio": 0.7971094035858032
+      }
+    },
+    {
+      "id": "bcg-refresh-how-ceos-manage-ai-cybersecurity-risks",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 43,
+        "translatedParagraphs": 43,
+        "sourceNumbers": 34,
+        "sourceUrls": 10,
+        "chineseCharacters": 3050,
+        "chineseRatio": 0.7506768397735664
+      }
+    },
+    {
+      "id": "bcg-refresh-how-cios-govern-ai-agents-at-scale",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 43,
+        "translatedParagraphs": 43,
+        "sourceNumbers": 67,
+        "sourceUrls": 9,
+        "chineseCharacters": 4088,
+        "chineseRatio": 0.7831417624521073
+      }
+    },
+    {
+      "id": "bcg-refresh-how-executives-fix-failing-tech-ai-partnerships",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 14,
+        "translationHeadings": 14,
+        "sourceParagraphs": 47,
+        "translatedParagraphs": 47,
+        "sourceNumbers": 101,
+        "sourceUrls": 10,
+        "chineseCharacters": 4614,
+        "chineseRatio": 0.7485399091499026
+      }
+    },
+    {
+      "id": "bcg-refresh-ai-risk-self-assessments-banking",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 41,
+        "translatedParagraphs": 41,
+        "sourceNumbers": 61,
+        "sourceUrls": 10,
+        "chineseCharacters": 3612,
+        "chineseRatio": 0.7487562189054726
+      }
+    },
+    {
+      "id": "bcg-refresh-which-companies-capture-value-from-ai",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 45,
+        "translatedParagraphs": 46,
+        "sourceNumbers": 128,
+        "sourceUrls": 11,
+        "chineseCharacters": 4478,
+        "chineseRatio": 0.71648
+      }
+    },
+    {
+      "id": "bcg-refresh-new-zealand-a-destination-for-data",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 1,
+        "translationHeadings": 1,
+        "sourceParagraphs": 18,
+        "translatedParagraphs": 18,
+        "sourceNumbers": 95,
+        "sourceUrls": 8,
+        "chineseCharacters": 490,
+        "chineseRatio": 0.32907991940899933
+      }
+    },
+    {
+      "id": "bcg-refresh-powering-ai-through-grid-positive-data-centers",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 0,
+        "translationHeadings": 0,
+        "sourceParagraphs": 16,
+        "translatedParagraphs": 16,
+        "sourceNumbers": 17,
+        "sourceUrls": 4,
+        "chineseCharacters": 1170,
+        "chineseRatio": 0.7271597265382225
+      }
+    },
+    {
       "id": "mckinsey-global-trade-2026",
       "ok": true,
       "errors": [],
@@ -6073,6 +6489,326 @@
         "sourceUrls": 0,
         "chineseCharacters": 2127,
         "chineseRatio": 0.8625304136253041
+      }
+    },
+    {
+      "id": "mckinsey-refresh-from-adoption-to-impact-three-horizons-of-ai-transformation",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 15,
+        "translationHeadings": 15,
+        "sourceParagraphs": 20,
+        "translatedParagraphs": 31,
+        "sourceNumbers": 69,
+        "sourceUrls": 0,
+        "chineseCharacters": 6726,
+        "chineseRatio": 0.8937018336433696
+      }
+    },
+    {
+      "id": "mckinsey-refresh-how-can-the-public-sector-meet-the-ai-moment",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 21,
+        "translationHeadings": 21,
+        "sourceParagraphs": 29,
+        "translatedParagraphs": 63,
+        "sourceNumbers": 104,
+        "sourceUrls": 0,
+        "chineseCharacters": 14295,
+        "chineseRatio": 0.8939962476547842
+      }
+    },
+    {
+      "id": "mckinsey-refresh-the-future-of-b2b-sales-how-growth-champions-rewire-their-playbooks-with-ai",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 27,
+        "translationHeadings": 27,
+        "sourceParagraphs": 23,
+        "translatedParagraphs": 47,
+        "sourceNumbers": 103,
+        "sourceUrls": 0,
+        "chineseCharacters": 11406,
+        "chineseRatio": 0.8607652252660176
+      }
+    },
+    {
+      "id": "mckinsey-refresh-how-ai-will-reshape-the-economics-of-insurance-a-ceos-guide-to-strategy",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 13,
+        "translationHeadings": 13,
+        "sourceParagraphs": 21,
+        "translatedParagraphs": 22,
+        "sourceNumbers": 84,
+        "sourceUrls": 0,
+        "chineseCharacters": 9384,
+        "chineseRatio": 0.8819548872180452
+      }
+    },
+    {
+      "id": "mckinsey-refresh-how-socar-transformed-a-fertilizer-leader-in-azerbaijan-with-industrial-ai",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 16,
+        "translationHeadings": 16,
+        "sourceParagraphs": 43,
+        "translatedParagraphs": 43,
+        "sourceNumbers": 27,
+        "sourceUrls": 0,
+        "chineseCharacters": 3180,
+        "chineseRatio": 0.7910447761194029
+      }
+    },
+    {
+      "id": "mckinsey-refresh-rewired-takes-how-ai-is-unlocking-creativity-and-heralding-the-rise-of-the-agent-manager",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 7,
+        "translationHeadings": 7,
+        "sourceParagraphs": 10,
+        "translatedParagraphs": 10,
+        "sourceNumbers": 4,
+        "sourceUrls": 0,
+        "chineseCharacters": 1594,
+        "chineseRatio": 0.9267441860465117
+      }
+    },
+    {
+      "id": "mckinsey-refresh-is-the-ai-productivity-story-at-a-turning-point",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 15,
+        "translationHeadings": 15,
+        "sourceParagraphs": 33,
+        "translatedParagraphs": 33,
+        "sourceNumbers": 14,
+        "sourceUrls": 0,
+        "chineseCharacters": 7383,
+        "chineseRatio": 0.8402185046090817
+      }
+    },
+    {
+      "id": "mckinsey-refresh-escaping-the-pilot-trap-building-hr-for-the-agentic-era",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 12,
+        "translationHeadings": 12,
+        "sourceParagraphs": 11,
+        "translatedParagraphs": 11,
+        "sourceNumbers": 24,
+        "sourceUrls": 0,
+        "chineseCharacters": 6839,
+        "chineseRatio": 0.8963302752293578
+      }
+    },
+    {
+      "id": "mckinsey-refresh-how-ai-is-redefining-category-management-in-distribution",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 10,
+        "translationHeadings": 10,
+        "sourceParagraphs": 4,
+        "translatedParagraphs": 4,
+        "sourceNumbers": 58,
+        "sourceUrls": 0,
+        "chineseCharacters": 4615,
+        "chineseRatio": 0.9111549851924975
+      }
+    },
+    {
+      "id": "mckinsey-refresh-growth-favors-the-bold-ai-as-force-multiplier",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 14,
+        "translationHeadings": 14,
+        "sourceParagraphs": 23,
+        "translatedParagraphs": 22,
+        "sourceNumbers": 92,
+        "sourceUrls": 0,
+        "chineseCharacters": 4750,
+        "chineseRatio": 0.8447447981504534
+      }
+    },
+    {
+      "id": "mckinsey-refresh-how-ai-enabled-execution-became-reckitts-tenfold-game-changer",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 16,
+        "translationHeadings": 16,
+        "sourceParagraphs": 37,
+        "translatedParagraphs": 38,
+        "sourceNumbers": 27,
+        "sourceUrls": 0,
+        "chineseCharacters": 3409,
+        "chineseRatio": 0.7983606557377049
+      }
+    },
+    {
+      "id": "mckinsey-refresh-ai-fluency-the-next-foundation-of-us-economic-competitiveness",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 11,
+        "translatedParagraphs": 11,
+        "sourceNumbers": 29,
+        "sourceUrls": 0,
+        "chineseCharacters": 4316,
+        "chineseRatio": 0.8522906793048973
+      }
+    },
+    {
+      "id": "mckinsey-refresh-how-to-close-the-agentic-adoption-gap",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 14,
+        "translationHeadings": 14,
+        "sourceParagraphs": 19,
+        "translatedParagraphs": 19,
+        "sourceNumbers": 25,
+        "sourceUrls": 0,
+        "chineseCharacters": 6550,
+        "chineseRatio": 0.891156462585034
+      }
+    },
+    {
+      "id": "mckinsey-refresh-agentic-ai-and-the-future-of-global-business-services",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 5,
+        "translatedParagraphs": 6,
+        "sourceNumbers": 10,
+        "sourceUrls": 0,
+        "chineseCharacters": 4697,
+        "chineseRatio": 0.8077386070507309
+      }
+    },
+    {
+      "id": "mckinsey-refresh-how-ai-led-commercial-transformation-can-power-industrial-growth",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 15,
+        "translatedParagraphs": 42,
+        "sourceNumbers": 40,
+        "sourceUrls": 0,
+        "chineseCharacters": 5323,
+        "chineseRatio": 0.9105371193978788
+      }
+    },
+    {
+      "id": "mckinsey-refresh-ai-transformations-run-on-trust",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 9,
+        "translationHeadings": 9,
+        "sourceParagraphs": 11,
+        "translatedParagraphs": 30,
+        "sourceNumbers": 20,
+        "sourceUrls": 0,
+        "chineseCharacters": 4896,
+        "chineseRatio": 0.8786791098348887
+      }
+    },
+    {
+      "id": "mckinsey-refresh-a-new-era-for-procurement-in-financial-services",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 8,
+        "translationHeadings": 8,
+        "sourceParagraphs": 14,
+        "translatedParagraphs": 14,
+        "sourceNumbers": 13,
+        "sourceUrls": 0,
+        "chineseCharacters": 2453,
+        "chineseRatio": 0.948936170212766
+      }
+    },
+    {
+      "id": "mckinsey-refresh-colos-from-builders-to-coshapers-of-asia-pacifics-ai-infrastructure",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 6,
+        "translationHeadings": 6,
+        "sourceParagraphs": 22,
+        "translatedParagraphs": 22,
+        "sourceNumbers": 68,
+        "sourceUrls": 0,
+        "chineseCharacters": 3237,
+        "chineseRatio": 0.626839659178931
+      }
+    },
+    {
+      "id": "mckinsey-refresh-governing-ai-with-intention-in-the-social-impact-sector",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 10,
+        "translationHeadings": 10,
+        "sourceParagraphs": 16,
+        "translatedParagraphs": 23,
+        "sourceNumbers": 7,
+        "sourceUrls": 0,
+        "chineseCharacters": 3624,
+        "chineseRatio": 0.8659498207885304
+      }
+    },
+    {
+      "id": "mckinsey-refresh-lessons-from-our-alliances-what-aws-agentic-journey-can-teach-ceo-about-rewiring-for-ai",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 16,
+        "translationHeadings": 16,
+        "sourceParagraphs": 31,
+        "translatedParagraphs": 31,
+        "sourceNumbers": 52,
+        "sourceUrls": 0,
+        "chineseCharacters": 7658,
+        "chineseRatio": 0.7913609589748889
       }
     },
     {
@@ -6681,6 +7417,86 @@
         "sourceUrls": 22,
         "chineseCharacters": 1712,
         "chineseRatio": 0.3696027633851468
+      }
+    },
+    {
+      "id": "mit-refresh-how-will-ai-automation-hit-a-crashing-wave-or-a-rising-tide",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 5,
+        "translationHeadings": 5,
+        "sourceParagraphs": 29,
+        "translatedParagraphs": 29,
+        "sourceNumbers": 57,
+        "sourceUrls": 16,
+        "chineseCharacters": 1504,
+        "chineseRatio": 0.3989389920424403
+      }
+    },
+    {
+      "id": "mit-refresh-why-a-semantic-layer-pivotal-to-your-ai-strategy",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 24,
+        "translatedParagraphs": 24,
+        "sourceNumbers": 39,
+        "sourceUrls": 20,
+        "chineseCharacters": 1916,
+        "chineseRatio": 0.4483969108354786
+      }
+    },
+    {
+      "id": "mit-refresh-can-ais-climate-benefits-outweigh-its-costs",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 35,
+        "translatedParagraphs": 35,
+        "sourceNumbers": 75,
+        "sourceUrls": 25,
+        "chineseCharacters": 2826,
+        "chineseRatio": 0.5361411496869665
+      }
+    },
+    {
+      "id": "mit-refresh-ai-ethics-and-governance-where-will-you-draw-line",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 3,
+        "translationHeadings": 3,
+        "sourceParagraphs": 25,
+        "translatedParagraphs": 25,
+        "sourceNumbers": 45,
+        "sourceUrls": 13,
+        "chineseCharacters": 2104,
+        "chineseRatio": 0.5149290259422418
+      }
+    },
+    {
+      "id": "mit-refresh-mit-expert-which-companies-will-succeed-ai-era",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "metrics": {
+        "sourceHeadings": 4,
+        "translationHeadings": 4,
+        "sourceParagraphs": 25,
+        "translatedParagraphs": 25,
+        "sourceNumbers": 83,
+        "sourceUrls": 21,
+        "chineseCharacters": 1596,
+        "chineseRatio": 0.42356687898089174
       }
     }
   ]

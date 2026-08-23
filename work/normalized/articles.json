@@ -26201,5 +26201,3207 @@
       "elementId": "article-spotting-the-downturn-early-and-coming-out-ahead-with-gryphons-david-andrews-podcast",
       "extractionBasis": "radar_html"
     }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "bcg-refresh-ceos-guide-to-closing-the-ai-knowledge-gap-with-your-board",
+    "radarTitle": "BCG Insight Radar · 2026-W31 · Static",
+    "publisher": "BCG",
+    "sourceUrl": "https://www.bcg.com/publications/2026/ceos-guide-to-closing-the-ai-knowledge-gap-with-your-board",
+    "canonicalUrl": "https://www.bcg.com/publications/2026/ceos-guide-to-closing-the-ai-knowledge-gap-with-your-board",
+    "titleOriginal": "The CEO’s Guide to Closing the AI-Knowledge Gap with Your Board",
+    "titleZh": "CEO 缩小董事会 AI 认知差距指南",
+    "publishedAt": "2026-08-04",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 75,
+      "dimensions": {
+        "content": 25,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：CEO 缩小董事会 AI 认知差距指南。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 117,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; CEO-board AI alignment"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "bcg-refresh-ai-in-procurement-drives-competitive-advantage",
+    "radarTitle": "BCG Insight Radar · 2026-W31 · Static",
+    "publisher": "BCG",
+    "sourceUrl": "https://www.bcg.com/publications/2026/ai-in-procurement-drives-competitive-advantage",
+    "canonicalUrl": "https://www.bcg.com/publications/2026/ai-in-procurement-drives-competitive-advantage",
+    "titleOriginal": "AI-First Procurement: How Autonomous Agents Drive Competitive Advantage",
+    "titleZh": "AI 优先采购：自主智能体如何创造竞争优势",
+    "publishedAt": "2026-08-07",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation",
+        "Operating Model"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 75,
+      "dimensions": {
+        "content": 25,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：AI 优先采购：自主智能体如何创造竞争优势。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 118,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; agentic procurement operating model"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "bcg-refresh-reimagining-asset-management-with-ai",
+    "radarTitle": "BCG Insight Radar · 2026-W31 · Static",
+    "publisher": "BCG",
+    "sourceUrl": "https://www.bcg.com/publications/2026/reimagining-asset-management-with-ai",
+    "canonicalUrl": "https://www.bcg.com/publications/2026/reimagining-asset-management-with-ai",
+    "titleOriginal": "The AI-First Asset Manager",
+    "titleZh": "AI 优先的资产管理公司",
+    "publishedAt": "2026-08-06",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation"
+      ]
+    },
+    "priority": "reference",
+    "score": {
+      "total": 71,
+      "dimensions": {
+        "content": 23,
+        "impact": 19,
+        "relevance": 20,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：AI 优先的资产管理公司。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 119,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; AI-first asset management"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "bcg-refresh-how-ceos-avoid-ai-vendor-lock-in-risk",
+    "radarTitle": "BCG Insight Radar · 2026-W31 · Static",
+    "publisher": "BCG",
+    "sourceUrl": "https://www.bcg.com/publications/2026/how-ceos-avoid-ai-vendor-lock-in-risk",
+    "canonicalUrl": "https://www.bcg.com/publications/2026/how-ceos-avoid-ai-vendor-lock-in-risk",
+    "titleOriginal": "Do You Own Your Enterprise Cortex? The AI Strategy Risk CEOs May Not See Coming.",
+    "titleZh": "你的“企业大脑”属于谁？CEO 可能忽视的 AI 战略风险",
+    "publishedAt": "2026-08-06",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "治理、风险与安全",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "治理、风险与安全"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Governance",
+        "Cybersecurity"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 75,
+      "dimensions": {
+        "content": 25,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：你的“企业大脑”属于谁？CEO 可能忽视的 AI 战略风险。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响治理、风险与安全，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 120,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; enterprise AI architecture risk"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "bcg-refresh-how-ai-lets-retailers-manage-store-portfolios",
+    "radarTitle": "BCG Insight Radar · 2026-W31 · Static",
+    "publisher": "BCG",
+    "sourceUrl": "https://www.bcg.com/publications/2026/how-ai-lets-retailers-manage-store-portfolios",
+    "canonicalUrl": "https://www.bcg.com/publications/2026/how-ai-lets-retailers-manage-store-portfolios",
+    "titleOriginal": "Retailers Need to Manage Stores as a Portfolio Now. AI Lets You Do That.",
+    "titleZh": "零售商现在必须把门店当作投资组合管理，AI 让这成为可能",
+    "publishedAt": "2026-08-11",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "客户、增长与商业模式",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "客户、增长与商业模式"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "Growth",
+        "Customer Experience"
+      ]
+    },
+    "priority": "reference",
+    "score": {
+      "total": 71,
+      "dimensions": {
+        "content": 23,
+        "impact": 19,
+        "relevance": 20,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：零售商现在必须把门店当作投资组合管理，AI 让这成为可能。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响客户、增长与商业模式，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 121,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; retail portfolio decisions"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "bcg-refresh-digital-infrastructure-playbook",
+    "radarTitle": "BCG Insight Radar · 2026-W31 · Static",
+    "publisher": "BCG",
+    "sourceUrl": "https://www.bcg.com/publications/2026/digital-infrastructure-playbook",
+    "canonicalUrl": "https://www.bcg.com/publications/2026/digital-infrastructure-playbook",
+    "titleOriginal": "The Digital Infrastructure Universe Continues to Expand. Here's How to Benefit.",
+    "titleZh": "数字基础设施版图持续扩张：如何从中获益",
+    "publishedAt": "2026-08-11",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "数据、平台与基础设施",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "数据、平台与基础设施"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "Enterprise Architecture",
+        "AI Infrastructure"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 75,
+      "dimensions": {
+        "content": 25,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：数字基础设施版图持续扩张：如何从中获益。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响数据、平台与基础设施，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 122,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; AI-era digital infrastructure"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "bcg-refresh-coo-role-becomes-ai-orchestrator",
+    "radarTitle": "BCG Insight Radar · 2026-W31 · Static",
+    "publisher": "BCG",
+    "sourceUrl": "https://www.bcg.com/publications/2026/coo-role-becomes-ai-orchestrator",
+    "canonicalUrl": "https://www.bcg.com/publications/2026/coo-role-becomes-ai-orchestrator",
+    "titleOriginal": "The Agentic Leadership Playbook: The COO as Enterprise Orchestrator",
+    "titleZh": "智能体领导力手册：COO 如何成为企业级编排者",
+    "publishedAt": "2026-08-12",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation",
+        "Operating Model"
+      ]
+    },
+    "priority": "reference",
+    "score": {
+      "total": 71,
+      "dimensions": {
+        "content": 23,
+        "impact": 19,
+        "relevance": 20,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：智能体领导力手册：COO 如何成为企业级编排者。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 123,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; COO agentic operating model"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "bcg-refresh-how-universities-lead-ai-research",
+    "radarTitle": "BCG Insight Radar · 2026-W31 · Static",
+    "publisher": "BCG",
+    "sourceUrl": "https://www.bcg.com/publications/2026/how-universities-lead-ai-research",
+    "canonicalUrl": "https://www.bcg.com/publications/2026/how-universities-lead-ai-research",
+    "titleOriginal": "Building the AI-Forward Research University",
+    "titleZh": "建设面向 AI 的研究型大学",
+    "publishedAt": "2026-08-12",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation",
+        "Operating Model"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 80,
+      "dimensions": {
+        "content": 27,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 12
+      },
+      "sourceScale": 100,
+      "tier": "high"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：建设面向 AI 的研究型大学。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 124,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; AI research operating model"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "bcg-refresh-how-strategy-leaders-adapt-to-ai",
+    "radarTitle": "BCG Insight Radar · 2026-W31 · Static",
+    "publisher": "BCG",
+    "sourceUrl": "https://www.bcg.com/publications/2026/how-strategy-leaders-adapt-to-ai",
+    "canonicalUrl": "https://www.bcg.com/publications/2026/how-strategy-leaders-adapt-to-ai",
+    "titleOriginal": "The Next-Gen Strategist in the Age of AI",
+    "titleZh": "AI 时代的新一代战略负责人",
+    "publishedAt": "2026-08-13",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 75,
+      "dimensions": {
+        "content": 25,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：AI 时代的新一代战略负责人。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 125,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; strategy function redesign"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "bcg-refresh-how-ceos-manage-ai-cybersecurity-risks",
+    "radarTitle": "BCG Insight Radar · 2026-W31 · Static",
+    "publisher": "BCG",
+    "sourceUrl": "https://www.bcg.com/publications/2026/how-ceos-manage-ai-cybersecurity-risks",
+    "canonicalUrl": "https://www.bcg.com/publications/2026/how-ceos-manage-ai-cybersecurity-risks",
+    "titleOriginal": "How CEOs Should Manage Escalating Cybersecurity Risks in the Age of AI",
+    "titleZh": "AI 时代 CEO 如何管理不断升级的网络安全风险",
+    "publishedAt": "2026-08-14",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "治理、风险与安全",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "治理、风险与安全"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Governance",
+        "Cybersecurity"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 75,
+      "dimensions": {
+        "content": 25,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：AI 时代 CEO 如何管理不断升级的网络安全风险。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响治理、风险与安全，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 126,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; CEO cyber accountability"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "bcg-refresh-how-cios-govern-ai-agents-at-scale",
+    "radarTitle": "BCG Insight Radar · 2026-W31 · Static",
+    "publisher": "BCG",
+    "sourceUrl": "https://www.bcg.com/publications/2026/how-cios-govern-ai-agents-at-scale",
+    "canonicalUrl": "https://www.bcg.com/publications/2026/how-cios-govern-ai-agents-at-scale",
+    "titleOriginal": "Enterprise AI Control Plane: The CIO’s Guide to Governing and Accelerating AI Agents",
+    "titleZh": "企业 AI 控制平面：CIO 治理并加速 AI 智能体的指南",
+    "publishedAt": "2026-08-14",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "治理、风险与安全",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "治理、风险与安全"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Governance",
+        "Cybersecurity"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 75,
+      "dimensions": {
+        "content": 25,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：企业 AI 控制平面：CIO 治理并加速 AI 智能体的指南。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响治理、风险与安全，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 127,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; scaled agent governance"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "bcg-refresh-how-executives-fix-failing-tech-ai-partnerships",
+    "radarTitle": "BCG Insight Radar · 2026-W31 · Static",
+    "publisher": "BCG",
+    "sourceUrl": "https://www.bcg.com/publications/2026/how-executives-fix-failing-tech-ai-partnerships",
+    "canonicalUrl": "https://www.bcg.com/publications/2026/how-executives-fix-failing-tech-ai-partnerships",
+    "titleOriginal": "Making Tech-Industry Partnerships Work in the Agentic Era",
+    "titleZh": "让科技—行业合作在智能体时代真正奏效",
+    "publishedAt": "2026-08-14",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation",
+        "Operating Model"
+      ]
+    },
+    "priority": "reference",
+    "score": {
+      "total": 71,
+      "dimensions": {
+        "content": 23,
+        "impact": 19,
+        "relevance": 20,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：让科技—行业合作在智能体时代真正奏效。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 128,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; business-technology partnership"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "bcg-refresh-ai-risk-self-assessments-banking",
+    "radarTitle": "BCG Insight Radar · 2026-W31 · Static",
+    "publisher": "BCG",
+    "sourceUrl": "https://www.bcg.com/publications/2026/ai-risk-self-assessments-banking",
+    "canonicalUrl": "https://www.bcg.com/publications/2026/ai-risk-self-assessments-banking",
+    "titleOriginal": "How AI Can Transform Risk Self-Assessments in Banking",
+    "titleZh": "AI 如何变革银行风险与控制自评",
+    "publishedAt": "2026-08-10",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "治理、风险与安全",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "治理、风险与安全"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Governance",
+        "Cybersecurity"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 75,
+      "dimensions": {
+        "content": 25,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：AI 如何变革银行风险与控制自评。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响治理、风险与安全，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 129,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; banking AI risk assessment"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "bcg-refresh-which-companies-capture-value-from-ai",
+    "radarTitle": "BCG Insight Radar · 2026-W31 · Static",
+    "publisher": "BCG",
+    "sourceUrl": "https://www.bcg.com/publications/2026/which-companies-capture-value-from-ai",
+    "canonicalUrl": "https://www.bcg.com/publications/2026/which-companies-capture-value-from-ai",
+    "titleOriginal": "Who Will Win as AI Rewrites Competitive Advantage?",
+    "titleZh": "当 AI 重写竞争优势，谁会胜出？",
+    "publishedAt": "2026-08-13",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation",
+        "Operating Model"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 80,
+      "dimensions": {
+        "content": 27,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 12
+      },
+      "sourceScale": 100,
+      "tier": "high"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：当 AI 重写竞争优势，谁会胜出？。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 130,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; enterprise AI value evidence"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "bcg-refresh-new-zealand-a-destination-for-data",
+    "radarTitle": "BCG Insight Radar · 2026-W31 · Static",
+    "publisher": "BCG",
+    "sourceUrl": "https://www.bcg.com/publications/2026/new-zealand-a-destination-for-data",
+    "canonicalUrl": "https://www.bcg.com/publications/2026/new-zealand-a-destination-for-data",
+    "titleOriginal": "New Zealand: A Destination for Data",
+    "titleZh": "新西兰：数据产业的新目的地",
+    "publishedAt": "2026-08-20",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 80,
+      "dimensions": {
+        "content": 27,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 12
+      },
+      "sourceScale": 100,
+      "tier": "high"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：新西兰：数据产业的新目的地。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 131,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; AI data-center ecosystem"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "bcg-refresh-powering-ai-through-grid-positive-data-centers",
+    "radarTitle": "BCG Insight Radar · 2026-W31 · Static",
+    "publisher": "BCG",
+    "sourceUrl": "https://www.bcg.com/publications/2026/powering-ai-through-grid-positive-data-centers",
+    "canonicalUrl": "https://www.bcg.com/publications/2026/powering-ai-through-grid-positive-data-centers",
+    "titleOriginal": "Powering AI Through Grid-Positive Data Centers",
+    "titleZh": "用“电网友好型”数据中心为 AI 供能",
+    "publishedAt": "2026-08-18",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "数据、平台与基础设施",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "数据、平台与基础设施"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "Enterprise Architecture",
+        "AI Infrastructure"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 80,
+      "dimensions": {
+        "content": 27,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 12
+      },
+      "sourceScale": 100,
+      "tier": "high"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：用“电网友好型”数据中心为 AI 供能。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响数据、平台与基础设施，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 132,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_insights_index",
+      "discoveryReason": "New in window; AI infrastructure and power"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "anthropic-refresh-discovering-cryptographic-weaknesses",
+    "radarTitle": "Anthropic 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "Anthropic",
+    "sourceUrl": "https://www.anthropic.com/research/discovering-cryptographic-weaknesses",
+    "canonicalUrl": "https://www.anthropic.com/research/discovering-cryptographic-weaknesses",
+    "titleOriginal": "Discovering cryptographic weaknesses with Claude",
+    "titleZh": "Claude 如何发现密码学弱点",
+    "publishedAt": "2026-07-28",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "治理、风险与安全",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "治理、风险与安全"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Governance",
+        "Cybersecurity"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 80,
+      "dimensions": {
+        "content": 27,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 12
+      },
+      "sourceScale": 100,
+      "tier": "high"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：Claude 如何发现密码学弱点。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响治理、风险与安全，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 26,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New research in window; AI-assisted security research"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "anthropic-refresh-improving-fable-5-s-biology-safeguards",
+    "radarTitle": "Anthropic 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "Anthropic",
+    "sourceUrl": "https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards",
+    "canonicalUrl": "https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards",
+    "titleOriginal": "Improving Fable 5's biology safeguards",
+    "titleZh": "改进 Claude Fable 5 的生物安全防护",
+    "publishedAt": "2026-08-07",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "治理、风险与安全",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "治理、风险与安全"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Governance",
+        "Cybersecurity"
+      ]
+    },
+    "priority": "reference",
+    "score": {
+      "total": 71,
+      "dimensions": {
+        "content": 23,
+        "impact": 19,
+        "relevance": 20,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：改进 Claude Fable 5 的生物安全防护。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响治理、风险与安全，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 27,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; model biology safeguards"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "anthropic-refresh-riemann-zeta",
+    "radarTitle": "Anthropic 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "Anthropic",
+    "sourceUrl": "https://www.anthropic.com/research/riemann-zeta",
+    "canonicalUrl": "https://www.anthropic.com/research/riemann-zeta",
+    "titleOriginal": "Learning more about Claude's mathematical capabilities",
+    "titleZh": "进一步了解 Claude 的数学能力",
+    "publishedAt": "2026-08-10",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "前沿研究与技术",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "前沿研究与技术"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Research",
+        "Science"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 80,
+      "dimensions": {
+        "content": 27,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 12
+      },
+      "sourceScale": 100,
+      "tier": "high"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：进一步了解 Claude 的数学能力。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响前沿研究与技术，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 28,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New research in window; frontier mathematical reasoning"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "anthropic-refresh-reviewing-the-evidence-on-worker-retraining-programs",
+    "radarTitle": "Anthropic 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "Anthropic",
+    "sourceUrl": "https://www.anthropic.com/research/reviewing-the-evidence-on-worker-retraining-programs",
+    "canonicalUrl": "https://www.anthropic.com/research/reviewing-the-evidence-on-worker-retraining-programs",
+    "titleOriginal": "Reviewing the evidence on worker retraining programs",
+    "titleZh": "再培训项目真的有效吗？证据综述",
+    "publishedAt": "2026-08-12",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "组织、人才与变革",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "组织、人才与变革"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "Workforce Transformation",
+        "Change Management"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 80,
+      "dimensions": {
+        "content": 27,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 12
+      },
+      "sourceScale": 100,
+      "tier": "high"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：再培训项目真的有效吗？证据综述。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响组织、人才与变革，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 29,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New research in window; workforce transition evidence"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "anthropic-refresh-claude-text-watermark",
+    "radarTitle": "Anthropic 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "Anthropic",
+    "sourceUrl": "https://www.anthropic.com/news/claude-text-watermark",
+    "canonicalUrl": "https://www.anthropic.com/news/claude-text-watermark",
+    "titleOriginal": "How Claude’s text watermark works",
+    "titleZh": "Claude 的文本水印如何工作",
+    "publishedAt": "2026-08-15",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 75,
+      "dimensions": {
+        "content": 25,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：Claude 的文本水印如何工作。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 30,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; AI provenance and watermarking"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "anthropic-refresh-multiagent-systems",
+    "radarTitle": "Anthropic 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "Anthropic",
+    "sourceUrl": "https://www.anthropic.com/research/multiagent-systems",
+    "canonicalUrl": "https://www.anthropic.com/research/multiagent-systems",
+    "titleOriginal": "Patterns and problems in emerging multiagent systems",
+    "titleZh": "新兴多智能体系统中的模式与问题",
+    "publishedAt": "2026-08-15",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation",
+        "Operating Model"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 80,
+      "dimensions": {
+        "content": 27,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 12
+      },
+      "sourceScale": 100,
+      "tier": "high"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：新兴多智能体系统中的模式与问题。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 31,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New research in window; multiagent coordination"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "anthropic-refresh-claude-accelerates-protein-design",
+    "radarTitle": "Anthropic 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "Anthropic",
+    "sourceUrl": "https://www.anthropic.com/research/Claude-accelerates-protein-design",
+    "canonicalUrl": "https://www.anthropic.com/research/Claude-accelerates-protein-design",
+    "titleOriginal": "How Claude is accelerating protein design and analytical chemistry",
+    "titleZh": "Claude 如何加速蛋白质设计与分析化学",
+    "publishedAt": "2026-08-20",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "前沿研究与技术",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "前沿研究与技术"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Research",
+        "Science"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 80,
+      "dimensions": {
+        "content": 27,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 12
+      },
+      "sourceScale": 100,
+      "tier": "high"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：Claude 如何加速蛋白质设计与分析化学。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响前沿研究与技术，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 32,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New research in window; scientific AI workflow evidence"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "bain-refresh-how-is-ai-changing-the-way-bain-hires-consultants",
+    "radarTitle": "Bain Six-Month Insight Radar · 2026-08-02",
+    "publisher": "Bain",
+    "sourceUrl": "https://www.bain.com/insights/How-is-AI-Changing-the-Way-Bain-Hires-Consultants",
+    "canonicalUrl": "https://www.bain.com/insights/How-is-AI-Changing-the-Way-Bain-Hires-Consultants",
+    "titleOriginal": "How is AI Changing the Way Bain Hires Consultants?",
+    "titleZh": "AI 正如何改变贝恩招聘顾问的方式？",
+    "publishedAt": "2026-08-03",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 75,
+      "dimensions": {
+        "content": 25,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：AI 正如何改变贝恩招聘顾问的方式？。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 211,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; AI in recruiting"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "bain-refresh-what-is-an-ai-native-enterprise",
+    "radarTitle": "Bain Six-Month Insight Radar · 2026-08-02",
+    "publisher": "Bain",
+    "sourceUrl": "https://www.bain.com/insights/what-is-an-ai-native-enterprise",
+    "canonicalUrl": "https://www.bain.com/insights/what-is-an-ai-native-enterprise",
+    "titleOriginal": "What Is an AI-Native Enterprise?",
+    "titleZh": "什么是 AI 原生企业？",
+    "publishedAt": "2026-08-06",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation",
+        "Operating Model"
+      ]
+    },
+    "priority": "reference",
+    "score": {
+      "total": 71,
+      "dimensions": {
+        "content": 23,
+        "impact": 19,
+        "relevance": 20,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：什么是 AI 原生企业？。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 212,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; AI-native operating model"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "bain-refresh-what-is-a-modern-data-platform",
+    "radarTitle": "Bain Six-Month Insight Radar · 2026-08-02",
+    "publisher": "Bain",
+    "sourceUrl": "https://www.bain.com/insights/what-is-a-modern-data-platform",
+    "canonicalUrl": "https://www.bain.com/insights/what-is-a-modern-data-platform",
+    "titleOriginal": "What Is A Modern Data Platform?",
+    "titleZh": "什么是现代数据平台？",
+    "publishedAt": "2026-08-19",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 80,
+      "dimensions": {
+        "content": 27,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 12
+      },
+      "sourceScale": 100,
+      "tier": "high"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：什么是现代数据平台？。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 213,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; AI data platform"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mit-refresh-how-will-ai-automation-hit-a-crashing-wave-or-a-rising-tide",
+    "radarTitle": "MIT AI Management Insight Radar · 2026-08-04",
+    "publisher": "MIT",
+    "sourceUrl": "https://mitsloan.mit.edu/ideas-made-to-matter/how-will-ai-automation-hit-a-crashing-wave-or-a-rising-tide",
+    "canonicalUrl": "https://mitsloan.mit.edu/ideas-made-to-matter/how-will-ai-automation-hit-a-crashing-wave-or-a-rising-tide",
+    "titleOriginal": "How will AI automation hit — like a crashing wave or a rising tide?",
+    "titleZh": "AI 自动化会像冲击波，还是渐进潮汐？",
+    "publishedAt": "2026-08-05",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 75,
+      "dimensions": {
+        "content": 25,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：AI 自动化会像冲击波，还是渐进潮汐？。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 39,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; automation scenarios"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mit-refresh-why-a-semantic-layer-pivotal-to-your-ai-strategy",
+    "radarTitle": "MIT AI Management Insight Radar · 2026-08-04",
+    "publisher": "MIT",
+    "sourceUrl": "https://mitsloan.mit.edu/ideas-made-to-matter/why-a-semantic-layer-pivotal-to-your-ai-strategy",
+    "canonicalUrl": "https://mitsloan.mit.edu/ideas-made-to-matter/why-a-semantic-layer-pivotal-to-your-ai-strategy",
+    "titleOriginal": "Why a semantic layer is pivotal to your AI strategy",
+    "titleZh": "为什么语义层是 AI 战略的关键",
+    "publishedAt": "2026-08-10",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "数据、平台与基础设施",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "数据、平台与基础设施"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "Enterprise Architecture",
+        "AI Infrastructure"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 75,
+      "dimensions": {
+        "content": 25,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：为什么语义层是 AI 战略的关键。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响数据、平台与基础设施，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 40,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; semantic layer architecture"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mit-refresh-can-ais-climate-benefits-outweigh-its-costs",
+    "radarTitle": "MIT AI Management Insight Radar · 2026-08-04",
+    "publisher": "MIT",
+    "sourceUrl": "https://mitsloan.mit.edu/ideas-made-to-matter/can-ais-climate-benefits-outweigh-its-costs",
+    "canonicalUrl": "https://mitsloan.mit.edu/ideas-made-to-matter/can-ais-climate-benefits-outweigh-its-costs",
+    "titleOriginal": "Can AI’s climate benefits outweigh its costs?",
+    "titleZh": "AI 的气候收益能否超过其成本？",
+    "publishedAt": "2026-08-12",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "前沿研究与技术",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "前沿研究与技术"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Research",
+        "Science"
+      ]
+    },
+    "priority": "reference",
+    "score": {
+      "total": 71,
+      "dimensions": {
+        "content": 23,
+        "impact": 19,
+        "relevance": 20,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：AI 的气候收益能否超过其成本？。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响前沿研究与技术，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 41,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; AI climate cost-benefit"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mit-refresh-ai-ethics-and-governance-where-will-you-draw-line",
+    "radarTitle": "MIT AI Management Insight Radar · 2026-08-04",
+    "publisher": "MIT",
+    "sourceUrl": "https://mitsloan.mit.edu/ideas-made-to-matter/ai-ethics-and-governance-where-will-you-draw-line",
+    "canonicalUrl": "https://mitsloan.mit.edu/ideas-made-to-matter/ai-ethics-and-governance-where-will-you-draw-line",
+    "titleOriginal": "AI ethics and governance: Where will you draw the line?",
+    "titleZh": "AI 伦理与治理：你的边界画在哪里？",
+    "publishedAt": "2026-08-17",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "治理、风险与安全",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "治理、风险与安全"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Governance",
+        "Cybersecurity"
+      ]
+    },
+    "priority": "reference",
+    "score": {
+      "total": 71,
+      "dimensions": {
+        "content": 23,
+        "impact": 19,
+        "relevance": 20,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：AI 伦理与治理：你的边界画在哪里？。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响治理、风险与安全，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 42,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; AI ethics and governance"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mit-refresh-mit-expert-which-companies-will-succeed-ai-era",
+    "radarTitle": "MIT AI Management Insight Radar · 2026-08-04",
+    "publisher": "MIT",
+    "sourceUrl": "https://mitsloan.mit.edu/ideas-made-to-matter/mit-expert-which-companies-will-succeed-ai-era",
+    "canonicalUrl": "https://mitsloan.mit.edu/ideas-made-to-matter/mit-expert-which-companies-will-succeed-ai-era",
+    "titleOriginal": "An MIT expert on which companies will succeed in the AI era",
+    "titleZh": "MIT 专家谈哪些公司会在 AI 时代胜出",
+    "publishedAt": "2026-08-18",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation"
+      ]
+    },
+    "priority": "reference",
+    "score": {
+      "total": 71,
+      "dimensions": {
+        "content": 23,
+        "impact": 19,
+        "relevance": 20,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "官方来源页面已验证；具体证据与业务含义将在全文归档后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：MIT 专家谈哪些公司会在 AI 时代胜出。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 43,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_page_verified",
+      "discoveryMethod": "official_sitemap",
+      "discoveryReason": "New in window; AI-era competitive advantage"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mckinsey-refresh-from-adoption-to-impact-three-horizons-of-ai-transformation",
+    "radarTitle": "McKinsey 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "McKinsey",
+    "sourceUrl": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/from-adoption-to-impact-three-horizons-of-ai-transformation",
+    "canonicalUrl": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/from-adoption-to-impact-three-horizons-of-ai-transformation",
+    "titleOriginal": "From adoption to impact: Three horizons of AI transformation",
+    "titleZh": "从采用走向影响：AI 转型的三个阶段",
+    "publishedAt": "2026-07-08",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "组织、人才与变革",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "组织、人才与变革"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "Workforce Transformation",
+        "Change Management"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 75,
+      "dimensions": {
+        "content": 25,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "middle",
+      "reason": "官方页面直连受限，标题与日期经官方索引核验；具体证据将在全文导入后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：从采用走向影响：AI 转型的三个阶段。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响组织、人才与变革，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 30,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_index_verified",
+      "discoveryMethod": "official_insights_index",
+      "discoveryReason": "High-value July gap; original radar omitted it"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mckinsey-refresh-how-can-the-public-sector-meet-the-ai-moment",
+    "radarTitle": "McKinsey 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "McKinsey",
+    "sourceUrl": "https://www.mckinsey.com/industries/public-sector/our-insights/rewiring-public-sector",
+    "canonicalUrl": "https://www.mckinsey.com/industries/public-sector/our-insights/rewiring-public-sector",
+    "titleOriginal": "How can the public sector meet the AI moment?",
+    "titleZh": "公共部门如何把握 AI 时刻？",
+    "publishedAt": "2026-07-15",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation",
+        "Operating Model"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 75,
+      "dimensions": {
+        "content": 25,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "middle",
+      "reason": "官方页面直连受限，标题与日期经官方索引核验；具体证据将在全文导入后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：公共部门如何把握 AI 时刻？。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 31,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_index_verified",
+      "discoveryMethod": "official_insights_index",
+      "discoveryReason": "High-value July gap; public-sector AI transformation"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mckinsey-refresh-the-future-of-b2b-sales-how-growth-champions-rewire-their-playbooks-with-ai",
+    "radarTitle": "McKinsey 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "McKinsey",
+    "sourceUrl": "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/the-future-of-b2b-sales-how-growth-champions-rewire-their-playbooks-with-ai",
+    "canonicalUrl": "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/the-future-of-b2b-sales-how-growth-champions-rewire-their-playbooks-with-ai",
+    "titleOriginal": "The future of B2B sales: How growth champions rewire their playbooks with AI",
+    "titleZh": "B2B 销售的未来：增长领先者如何用 AI 重构打法",
+    "publishedAt": "2026-07-16",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "客户、增长与商业模式",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "客户、增长与商业模式"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "Growth",
+        "Customer Experience"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 75,
+      "dimensions": {
+        "content": 25,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "middle",
+      "reason": "官方页面直连受限，标题与日期经官方索引核验；具体证据将在全文导入后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：B2B 销售的未来：增长领先者如何用 AI 重构打法。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响客户、增长与商业模式，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 32,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_index_verified",
+      "discoveryMethod": "official_insights_index",
+      "discoveryReason": "High-value July gap; AI-enabled B2B sales"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mckinsey-refresh-how-ai-will-reshape-the-economics-of-insurance-a-ceos-guide-to-strategy",
+    "radarTitle": "McKinsey 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "McKinsey",
+    "sourceUrl": "https://www.mckinsey.com/industries/financial-services/our-insights/how-ai-will-reshape-the-economics-of-insurance-a-ceos-guide-to-strategy",
+    "canonicalUrl": "https://www.mckinsey.com/industries/financial-services/our-insights/how-ai-will-reshape-the-economics-of-insurance-a-ceos-guide-to-strategy",
+    "titleOriginal": "How AI will reshape the economics of insurance: A CEO’s guide to strategy",
+    "titleZh": "AI 将如何重塑保险业经济结构：CEO 战略指南",
+    "publishedAt": "2026-07-23",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 75,
+      "dimensions": {
+        "content": 25,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "middle",
+      "reason": "官方页面直连受限，标题与日期经官方索引核验；具体证据将在全文导入后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：AI 将如何重塑保险业经济结构：CEO 战略指南。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 33,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_index_verified",
+      "discoveryMethod": "official_insights_index",
+      "discoveryReason": "New after prior cutoff; insurance AI economics"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mckinsey-refresh-how-socar-transformed-a-fertilizer-leader-in-azerbaijan-with-industrial-ai",
+    "radarTitle": "McKinsey 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "McKinsey",
+    "sourceUrl": "https://www.mckinsey.com/industries/chemicals/how-we-help-clients/how-socar-transformed-a-fertilizer-leader-in-azerbaijan-with-industrial-ai",
+    "canonicalUrl": "https://www.mckinsey.com/industries/chemicals/how-we-help-clients/how-socar-transformed-a-fertilizer-leader-in-azerbaijan-with-industrial-ai",
+    "titleOriginal": "How SOCAR transformed a fertilizer leader in Azerbaijan with industrial AI",
+    "titleZh": "SOCAR 如何用工业 AI 改造阿塞拜疆化肥龙头",
+    "publishedAt": "2026-07-24",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 80,
+      "dimensions": {
+        "content": 27,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 12
+      },
+      "sourceScale": 100,
+      "tier": "high"
+    },
+    "confidence": {
+      "level": "middle",
+      "reason": "官方页面直连受限，标题与日期经官方索引核验；具体证据将在全文导入后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：SOCAR 如何用工业 AI 改造阿塞拜疆化肥龙头。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 34,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_index_verified",
+      "discoveryMethod": "official_insights_index",
+      "discoveryReason": "New after prior cutoff; measured industrial AI case"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mckinsey-refresh-rewired-takes-how-ai-is-unlocking-creativity-and-heralding-the-rise-of-the-agent-manager",
+    "radarTitle": "McKinsey 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "McKinsey",
+    "sourceUrl": "https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/rewired-takes-how-ai-is-unlocking-creativity-and-heralding-the-rise-of-the-agent-manager",
+    "canonicalUrl": "https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/rewired-takes-how-ai-is-unlocking-creativity-and-heralding-the-rise-of-the-agent-manager",
+    "titleOriginal": "Rewired takes: How AI is unlocking creativity and heralding the rise of the agent manager",
+    "titleZh": "Rewired 观点：AI 如何释放创造力并催生“智能体经理”",
+    "publishedAt": "2026-07-27",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation",
+        "Operating Model"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 75,
+      "dimensions": {
+        "content": 25,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "middle",
+      "reason": "官方页面直连受限，标题与日期经官方索引核验；具体证据将在全文导入后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：Rewired 观点：AI 如何释放创造力并催生“智能体经理”。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 35,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_index_verified",
+      "discoveryMethod": "official_insights_index",
+      "discoveryReason": "New after prior cutoff; agent manager role"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mckinsey-refresh-is-the-ai-productivity-story-at-a-turning-point",
+    "radarTitle": "McKinsey 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "McKinsey",
+    "sourceUrl": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/is-the-ai-productivity-story-at-a-turning-point",
+    "canonicalUrl": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/is-the-ai-productivity-story-at-a-turning-point",
+    "titleOriginal": "Is the AI productivity story at a turning point?",
+    "titleZh": "AI 生产率是否正迎来转折点？",
+    "publishedAt": "2026-07-31",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "组织、人才与变革",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "组织、人才与变革"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "Workforce Transformation",
+        "Change Management"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 80,
+      "dimensions": {
+        "content": 27,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 12
+      },
+      "sourceScale": 100,
+      "tier": "high"
+    },
+    "confidence": {
+      "level": "middle",
+      "reason": "官方页面直连受限，标题与日期经官方索引核验；具体证据将在全文导入后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：AI 生产率是否正迎来转折点？。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响组织、人才与变革，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 36,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_index_verified",
+      "discoveryMethod": "official_insights_index",
+      "discoveryReason": "New after prior cutoff; productivity evidence"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mckinsey-refresh-escaping-the-pilot-trap-building-hr-for-the-agentic-era",
+    "radarTitle": "McKinsey 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "McKinsey",
+    "sourceUrl": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/escaping-the-pilot-trap-building-hr-for-the-agentic-era",
+    "canonicalUrl": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/escaping-the-pilot-trap-building-hr-for-the-agentic-era",
+    "titleOriginal": "Escaping the pilot trap: Building HR for the agentic era",
+    "titleZh": "走出试点陷阱：为智能体时代重塑 HR",
+    "publishedAt": "2026-08-04",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "组织、人才与变革",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "组织、人才与变革"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "Workforce Transformation",
+        "Change Management"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 75,
+      "dimensions": {
+        "content": 25,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "middle",
+      "reason": "官方页面直连受限，标题与日期经官方索引核验；具体证据将在全文导入后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：走出试点陷阱：为智能体时代重塑 HR。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响组织、人才与变革，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 37,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_index_verified",
+      "discoveryMethod": "official_insights_index",
+      "discoveryReason": "New in window; agentic HR operating model"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mckinsey-refresh-how-ai-is-redefining-category-management-in-distribution",
+    "radarTitle": "McKinsey 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "McKinsey",
+    "sourceUrl": "https://www.mckinsey.com/industries/industrials/our-insights/how-ai-is-redefining-category-management-in-distribution",
+    "canonicalUrl": "https://www.mckinsey.com/industries/industrials/our-insights/how-ai-is-redefining-category-management-in-distribution",
+    "titleOriginal": "How AI is redefining category management in distribution",
+    "titleZh": "AI 如何重新定义分销行业的品类管理",
+    "publishedAt": "2026-08-05",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "客户、增长与商业模式",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "客户、增长与商业模式"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "Growth",
+        "Customer Experience"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 80,
+      "dimensions": {
+        "content": 27,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 12
+      },
+      "sourceScale": 100,
+      "tier": "high"
+    },
+    "confidence": {
+      "level": "middle",
+      "reason": "官方页面直连受限，标题与日期经官方索引核验；具体证据将在全文导入后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：AI 如何重新定义分销行业的品类管理。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响客户、增长与商业模式，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 38,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_index_verified",
+      "discoveryMethod": "official_insights_index",
+      "discoveryReason": "New in window; measured category-management use cases"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mckinsey-refresh-growth-favors-the-bold-ai-as-force-multiplier",
+    "radarTitle": "McKinsey 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "McKinsey",
+    "sourceUrl": "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/growth-favors-the-bold-ai-as-force-multiplier",
+    "canonicalUrl": "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/growth-favors-the-bold-ai-as-force-multiplier",
+    "titleOriginal": "Growth favors the bold: AI as force multiplier",
+    "titleZh": "增长青睐勇者：AI 作为新型力量倍增器",
+    "publishedAt": "2026-08-06",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation",
+        "Operating Model"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 75,
+      "dimensions": {
+        "content": 25,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "middle",
+      "reason": "官方页面直连受限，标题与日期经官方索引核验；具体证据将在全文导入后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：增长青睐勇者：AI 作为新型力量倍增器。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 39,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_index_verified",
+      "discoveryMethod": "official_insights_index",
+      "discoveryReason": "New in window; AI growth operating model"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mckinsey-refresh-how-ai-enabled-execution-became-reckitts-tenfold-game-changer",
+    "radarTitle": "McKinsey 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "McKinsey",
+    "sourceUrl": "https://www.mckinsey.com/industries/consumer-packaged-goods/how-we-help-clients/how-ai-enabled-execution-became-reckitts-tenfold-game-changer",
+    "canonicalUrl": "https://www.mckinsey.com/industries/consumer-packaged-goods/how-we-help-clients/how-ai-enabled-execution-became-reckitts-tenfold-game-changer",
+    "titleOriginal": "How AI-enabled execution became Reckitt’s ‘tenfold game changer’",
+    "titleZh": "AI 驱动的执行如何成为利洁时的“十倍级改变者”",
+    "publishedAt": "2026-08-06",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "客户、增长与商业模式",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "客户、增长与商业模式"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "Growth",
+        "Customer Experience"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 80,
+      "dimensions": {
+        "content": 27,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 12
+      },
+      "sourceScale": 100,
+      "tier": "high"
+    },
+    "confidence": {
+      "level": "middle",
+      "reason": "官方页面直连受限，标题与日期经官方索引核验；具体证据将在全文导入后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：AI 驱动的执行如何成为利洁时的“十倍级改变者”。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响客户、增长与商业模式，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 40,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_index_verified",
+      "discoveryMethod": "official_insights_index",
+      "discoveryReason": "New in window; measured retail execution case"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mckinsey-refresh-ai-fluency-the-next-foundation-of-us-economic-competitiveness",
+    "radarTitle": "McKinsey 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "McKinsey",
+    "sourceUrl": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/ai-fluency-the-next-foundation-of-us-economic-competitiveness",
+    "canonicalUrl": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/ai-fluency-the-next-foundation-of-us-economic-competitiveness",
+    "titleOriginal": "AI fluency: The next foundation of US economic competitiveness",
+    "titleZh": "AI 素养：美国经济竞争力的下一项基础能力",
+    "publishedAt": "2026-08-07",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "组织、人才与变革",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "组织、人才与变革"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "Workforce Transformation",
+        "Change Management"
+      ]
+    },
+    "priority": "reference",
+    "score": {
+      "total": 71,
+      "dimensions": {
+        "content": 23,
+        "impact": 19,
+        "relevance": 20,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "middle",
+      "reason": "官方页面直连受限，标题与日期经官方索引核验；具体证据将在全文导入后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：AI 素养：美国经济竞争力的下一项基础能力。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响组织、人才与变革，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 41,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_index_verified",
+      "discoveryMethod": "official_insights_index",
+      "discoveryReason": "New in window; workforce AI fluency"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mckinsey-refresh-how-to-close-the-agentic-adoption-gap",
+    "radarTitle": "McKinsey 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "McKinsey",
+    "sourceUrl": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/how-to-close-the-agentic-adoption-gap",
+    "canonicalUrl": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/how-to-close-the-agentic-adoption-gap",
+    "titleOriginal": "How to close the agentic adoption gap",
+    "titleZh": "如何弥合智能体 AI 的采用鸿沟",
+    "publishedAt": "2026-08-07",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "组织、人才与变革",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "组织、人才与变革"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "Workforce Transformation",
+        "Change Management"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 75,
+      "dimensions": {
+        "content": 25,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "middle",
+      "reason": "官方页面直连受限，标题与日期经官方索引核验；具体证据将在全文导入后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：如何弥合智能体 AI 的采用鸿沟。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响组织、人才与变革，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 42,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_index_verified",
+      "discoveryMethod": "official_insights_index",
+      "discoveryReason": "New in window; agentic change leadership"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mckinsey-refresh-agentic-ai-and-the-future-of-global-business-services",
+    "radarTitle": "McKinsey 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "McKinsey",
+    "sourceUrl": "https://www.mckinsey.com/capabilities/operations/our-insights/agentic-ai-and-the-future-of-global-business-services",
+    "canonicalUrl": "https://www.mckinsey.com/capabilities/operations/our-insights/agentic-ai-and-the-future-of-global-business-services",
+    "titleOriginal": "Agentic AI and the future of global business services",
+    "titleZh": "智能体 AI 与全球业务服务的未来",
+    "publishedAt": "2026-08-11",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation",
+        "Operating Model"
+      ]
+    },
+    "priority": "reference",
+    "score": {
+      "total": 71,
+      "dimensions": {
+        "content": 23,
+        "impact": 19,
+        "relevance": 20,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "middle",
+      "reason": "官方页面直连受限，标题与日期经官方索引核验；具体证据将在全文导入后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：智能体 AI 与全球业务服务的未来。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 43,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_index_verified",
+      "discoveryMethod": "official_insights_index",
+      "discoveryReason": "New in window; agentic GBS"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mckinsey-refresh-how-ai-led-commercial-transformation-can-power-industrial-growth",
+    "radarTitle": "McKinsey 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "McKinsey",
+    "sourceUrl": "https://www.mckinsey.com/capabilities/transformation/our-insights/how-ai-led-commercial-transformation-can-power-industrial-growth",
+    "canonicalUrl": "https://www.mckinsey.com/capabilities/transformation/our-insights/how-ai-led-commercial-transformation-can-power-industrial-growth",
+    "titleOriginal": "How AI-led commercial transformation can power industrial growth",
+    "titleZh": "AI 主导的商业转型如何推动工业增长",
+    "publishedAt": "2026-08-11",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation",
+        "Operating Model"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 75,
+      "dimensions": {
+        "content": 25,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "middle",
+      "reason": "官方页面直连受限，标题与日期经官方索引核验；具体证据将在全文导入后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：AI 主导的商业转型如何推动工业增长。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 44,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_index_verified",
+      "discoveryMethod": "official_insights_index",
+      "discoveryReason": "New in window; industrial commercial transformation"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mckinsey-refresh-ai-transformations-run-on-trust",
+    "radarTitle": "McKinsey 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "McKinsey",
+    "sourceUrl": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/ai-transformations-run-on-trust",
+    "canonicalUrl": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/ai-transformations-run-on-trust",
+    "titleOriginal": "AI transformations run on trust",
+    "titleZh": "AI 转型以信任为驱动力",
+    "publishedAt": "2026-08-12",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "治理、风险与安全",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "治理、风险与安全"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Governance",
+        "Cybersecurity"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 75,
+      "dimensions": {
+        "content": 25,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "middle",
+      "reason": "官方页面直连受限，标题与日期经官方索引核验；具体证据将在全文导入后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：AI 转型以信任为驱动力。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响治理、风险与安全，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 45,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_index_verified",
+      "discoveryMethod": "official_insights_index",
+      "discoveryReason": "New in window; workforce trust and adoption"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mckinsey-refresh-a-new-era-for-procurement-in-financial-services",
+    "radarTitle": "McKinsey 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "McKinsey",
+    "sourceUrl": "https://www.mckinsey.com/industries/financial-services/our-insights/banking-matters/a-new-era-for-procurement-in-financial-services",
+    "canonicalUrl": "https://www.mckinsey.com/industries/financial-services/our-insights/banking-matters/a-new-era-for-procurement-in-financial-services",
+    "titleOriginal": "A new era for procurement in financial services",
+    "titleZh": "金融服务采购的新纪元",
+    "publishedAt": "2026-08-13",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation",
+        "Operating Model"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 80,
+      "dimensions": {
+        "content": 27,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 12
+      },
+      "sourceScale": 100,
+      "tier": "high"
+    },
+    "confidence": {
+      "level": "middle",
+      "reason": "官方页面直连受限，标题与日期经官方索引核验；具体证据将在全文导入后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：金融服务采购的新纪元。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 46,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_index_verified",
+      "discoveryMethod": "official_insights_index",
+      "discoveryReason": "New in window; AI-enabled procurement evidence"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mckinsey-refresh-colos-from-builders-to-coshapers-of-asia-pacifics-ai-infrastructure",
+    "radarTitle": "McKinsey 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "McKinsey",
+    "sourceUrl": "https://www.mckinsey.com/featured-insights/future-of-asia/countries-and-regions/southeast-asia/southeast-asia-perspectives/colos-from-builders-to-coshapers-of-asia-pacifics-ai-infrastructure",
+    "canonicalUrl": "https://www.mckinsey.com/featured-insights/future-of-asia/countries-and-regions/southeast-asia/southeast-asia-perspectives/colos-from-builders-to-coshapers-of-asia-pacifics-ai-infrastructure",
+    "titleOriginal": "Colos: From builders to coshapers of Asia–Pacific’s AI infrastructure",
+    "titleZh": "托管数据中心：从建设者到亚太 AI 基础设施的共同塑造者",
+    "publishedAt": "2026-08-13",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "数据、平台与基础设施",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "数据、平台与基础设施"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "Enterprise Architecture",
+        "AI Infrastructure"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 80,
+      "dimensions": {
+        "content": 27,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 12
+      },
+      "sourceScale": 100,
+      "tier": "high"
+    },
+    "confidence": {
+      "level": "middle",
+      "reason": "官方页面直连受限，标题与日期经官方索引核验；具体证据将在全文导入后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：托管数据中心：从建设者到亚太 AI 基础设施的共同塑造者。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响数据、平台与基础设施，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 47,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_index_verified",
+      "discoveryMethod": "official_insights_index",
+      "discoveryReason": "New in window; APAC AI infrastructure"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mckinsey-refresh-governing-ai-with-intention-in-the-social-impact-sector",
+    "radarTitle": "McKinsey 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "McKinsey",
+    "sourceUrl": "https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/governing-ai-with-intention-in-the-social-impact-sector",
+    "canonicalUrl": "https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/governing-ai-with-intention-in-the-social-impact-sector",
+    "titleOriginal": "Governing AI with intention in the social impact sector",
+    "titleZh": "社会影响领域如何有意识地治理 AI",
+    "publishedAt": "2026-08-17",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "治理、风险与安全",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "治理、风险与安全"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Governance",
+        "Cybersecurity"
+      ]
+    },
+    "priority": "reference",
+    "score": {
+      "total": 71,
+      "dimensions": {
+        "content": 23,
+        "impact": 19,
+        "relevance": 20,
+        "evidence": 9
+      },
+      "sourceScale": 100,
+      "tier": "medium"
+    },
+    "confidence": {
+      "level": "middle",
+      "reason": "官方页面直连受限，标题与日期经官方索引核验；具体证据将在全文导入后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：社会影响领域如何有意识地治理 AI。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响治理、风险与安全，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 48,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_index_verified",
+      "discoveryMethod": "official_insights_index",
+      "discoveryReason": "New in window; responsible AI governance"
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "mckinsey-refresh-lessons-from-our-alliances-what-aws-agentic-journey-can-teach-ceo-about-rewiring-for-ai",
+    "radarTitle": "McKinsey 最近半年洞察雷达 | 2026-08-02",
+    "publisher": "McKinsey",
+    "sourceUrl": "https://www.mckinsey.com/about-us/new-at-mckinsey-blog/lessons-from-our-alliances-what-aws-agentic-journey-can-teach-ceo-about-rewiring-for-ai",
+    "canonicalUrl": "https://www.mckinsey.com/about-us/new-at-mckinsey-blog/lessons-from-our-alliances-what-aws-agentic-journey-can-teach-ceo-about-rewiring-for-ai",
+    "titleOriginal": "Lessons from our alliances: What AWS’s agentic journey can teach CEOs about rewiring for AI",
+    "titleZh": "联盟经验：AWS 的智能体之旅给 CEO 的 AI 重构启示",
+    "publishedAt": "2026-08-17",
+    "documentType": "Article",
+    "authorRaw": null,
+    "category": {
+      "primary": "AI战略与价值",
+      "secondary": []
+    },
+    "tags": {
+      "topics": [
+        "AI战略与价值"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "AI Transformation",
+        "Operating Model"
+      ]
+    },
+    "priority": "track",
+    "score": {
+      "total": 80,
+      "dimensions": {
+        "content": 27,
+        "impact": 20,
+        "relevance": 21,
+        "evidence": 12
+      },
+      "sourceScale": 100,
+      "tier": "high"
+    },
+    "confidence": {
+      "level": "middle",
+      "reason": "官方页面直连受限，标题与日期经官方索引核验；具体证据将在全文导入后复核。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "该文位于本次 2026-07-08 至 2026-08-23 更新窗口，主题为：联盟经验：AWS 的智能体之旅给 CEO 的 AI 重构启示。"
+    },
+    "evidence": [],
+    "impactZh": "该主题主要影响AI战略与价值，可作为近期管理议程与应用机会判断的输入。",
+    "implicationZh": "归档全文后，应结合可量化证据、实施条件和风险边界决定是否纳入试点或跟踪清单。",
+    "archiveIndex": 49,
+    "provenance": {
+      "sourceFile": "work/refresh/2026-08-23/candidates.json",
+      "elementId": null,
+      "extractionBasis": "official_index_verified",
+      "discoveryMethod": "official_insights_index",
+      "discoveryReason": "New in window; named enterprise agentic case"
+    }
   }
 ]
