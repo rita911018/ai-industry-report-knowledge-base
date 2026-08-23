@@ -18,14 +18,15 @@
 
   function renderHero(data) {
     const action = createElement('a', { className: 'radar-hero-action', text: '查看优先级矩阵 ↓', attrs: { href: '#priority-matrix' } });
+    const companyCaseCount = data.scenarios.reduce((total, scenario) => total + scenario.companyCases.length, 0);
     const stats = createElement('div', { className: 'radar-hero-stats', attrs: { 'aria-label': '核心数字' } }, [
       createElement('div', { className: 'radar-stat' }, [createElement('strong', { text: String(data.p0Count).padStart(2, '0') }), createElement('span', { text: '个 P0 场景立即立项' })]),
       createElement('div', { className: 'radar-stat' }, [createElement('strong', { text: String(data.scenarioCount) }), createElement('span', { text: '个场景完成排序' })]),
-      createElement('div', { className: 'radar-stat' }, [createElement('strong', { text: String(data.horizonDays) }), createElement('span', { text: '天形成首轮结果' })]),
+      createElement('div', { className: 'radar-stat' }, [createElement('strong', { text: String(companyCaseCount).padStart(2, '0') }), createElement('span', { text: '条可核验公司实践' })]),
     ]);
     return createElement('section', { className: 'radar-hero', attrs: { 'aria-labelledby': 'radar-title' } }, [
       createElement('div', { className: 'radar-shell radar-hero-grid' }, [
-        createElement('div', { className: 'radar-hero-copy' }, [createElement('p', { className: 'radar-eyebrow', text: data.eyebrow }), createElement('h1', { text: data.title, attrs: { id: 'radar-title' } }), createElement('p', { className: 'radar-hero-lede', text: data.goal90Days }), action]),
+        createElement('div', { className: 'radar-hero-copy' }, [createElement('p', { className: 'radar-eyebrow', text: data.eyebrow }), createElement('h1', { text: data.title, attrs: { id: 'radar-title' } }), createElement('p', { className: 'radar-hero-lede', text: '从业务问题出发，逐项查看 AI 能做什么、主要风险、证据和已有公司实践。' }), action]),
         stats,
       ]),
       createElement('div', { className: 'decision-strip' }, [createElement('div', { className: 'radar-shell' }, [createElement('strong', { text: '核心判断' }), createElement('p', { text: data.coreJudgment })])]),
@@ -62,8 +63,47 @@
     ]);
   }
 
-  function detailBlock(label, text, full = false) {
-    return createElement('div', { className: `detail-block${full ? ' detail-full' : ''}` }, [createElement('h4', { text: label }), createElement('p', { text })]);
+  function detailBlock(label, content, full = false, className = '') {
+    const body = typeof content === 'string' ? createElement('p', { text: content }) : content;
+    return createElement('div', { className: `detail-block${full ? ' detail-full' : ''}${className ? ` ${className}` : ''}` }, [createElement('h4', { text: label }), body]);
+  }
+
+  function sourceLink(source, className) {
+    return createElement('a', { className, attrs: { href: source.url, target: '_blank', rel: 'noreferrer' } }, [
+      createElement('span', { className: 'decision-link-meta', text: `${source.publisher} · ${source.evidenceType}` }),
+      createElement('strong', { text: source.title }),
+      createElement('small', { text: source.limitation }),
+      createElement('span', { className: 'decision-link-action', text: '查看原文 ↗' }),
+    ]);
+  }
+
+  function renderEvidence(scenario, data) {
+    const list = createElement('div', { className: 'evidence-links' });
+    for (const id of scenario.evidenceIds) {
+      const source = data.sources.find((item) => item.id === id);
+      if (source) list.append(sourceLink(source, 'evidence-link decision-link'));
+    }
+    return list;
+  }
+
+  function renderCompanyCases(scenario, data) {
+    const list = createElement('div', { className: 'company-cases' });
+    if (scenario.companyCases.length === 0) {
+      list.append(createElement('p', { className: 'company-case-empty', text: '暂无公开可核验案例' }));
+      return list;
+    }
+    for (const companyCase of scenario.companyCases) {
+      const source = data.sources.find((item) => item.id === companyCase.sourceId);
+      const card = createElement('a', { className: 'company-case-link decision-link', attrs: { href: source.url, target: '_blank', rel: 'noreferrer' } }, [
+        createElement('span', { className: 'decision-link-meta', text: companyCase.caseType }),
+        createElement('strong', { text: companyCase.company }),
+        createElement('span', { className: 'company-case-summary', text: companyCase.summary }),
+        createElement('small', { text: `证据局限：${companyCase.caveat}` }),
+        createElement('span', { className: 'decision-link-action', text: '查看案例 ↗' }),
+      ]);
+      list.append(card);
+    }
+    return list;
   }
 
   function renderScenario(scenario, data, state) {
@@ -78,13 +118,13 @@
       createElement('span', { className: 'scenario-scores' }, [createElement('span', { text: `价值 ${scenario.value.toFixed(1)}` }), createElement('span', { text: `可行性 ${scenario.feasibility.toFixed(1)}` })]),
       createElement('span', { className: 'scenario-chevron', text: '＋', attrs: { 'aria-hidden': 'true' } }),
     ]);
-    const evidence = scenario.evidenceIds.map((id) => data.sources.find((source) => source.id === id)?.title).filter(Boolean).join('；');
     const detail = createElement('div', { className: 'scenario-detail', attrs: { id: detailId } }, [
       createElement('div', { className: 'detail-grid' }, [
-        detailBlock('代表实践', scenario.examples || '—'), detailBlock('业务痛点', scenario.problem),
-        detailBlock('AI 作用', scenario.aiRole), detailBlock('价值依据', scenario.valueCase),
-        detailBlock('可行性判断', scenario.feasibilityCase), detailBlock('主要风险', scenario.risk),
-        detailBlock('人工责任', scenario.humanOwner, true), detailBlock('证据锚点', evidence || '来源见页面末尾', true),
+        detailBlock('业务痛点', scenario.problem),
+        detailBlock('AI 价值｜可以做什么', scenario.aiValue),
+        detailBlock('主要风险', scenario.risk, true, 'risk-detail'),
+        detailBlock('证据锚点', renderEvidence(scenario, data), true, 'evidence-detail'),
+        detailBlock('哪些公司做过', renderCompanyCases(scenario, data), true, 'company-detail'),
       ]),
     ]);
     detail.hidden = true;
@@ -127,7 +167,7 @@
     state.empty = empty;
     state.filterPanel = controls;
     return createElement('section', { className: 'radar-section portfolio-section', attrs: { id: 'scenario-portfolio' } }, [
-      createElement('div', { className: 'radar-shell' }, [sectionHead('02', 'PORTFOLIO', '场景组合', '优先级与类别采用 AND 逻辑；展开查看价值、风险、人工责任和证据。'), controls, createElement('div', { className: 'result-line' }, [count, createElement('button', { className: 'text-reset', text: '重置筛选', attrs: { type: 'button' } })]), list, empty]),
+      createElement('div', { className: 'radar-shell' }, [sectionHead('02', 'BUSINESS PROBLEMS', 'AI 能解决哪些业务问题', '按优先级与类别筛选；点开后只看痛点、AI 价值、风险、证据和公司实践。'), controls, createElement('div', { className: 'result-line' }, [count, createElement('button', { className: 'text-reset', text: '重置筛选', attrs: { type: 'button' } })]), list, empty]),
     ]);
   }
 
@@ -137,35 +177,7 @@
       createElement('p', { className: 'pilot-label', text: pilot.label }), createElement('h3', { text: pilot.title }),
       createElement('div', { className: 'pilot-copy' }, [detailBlock('范围与方案', pilot.scope), detailBlock('验收', pilot.acceptance)]),
     ]));
-    return createElement('section', { className: 'radar-section roadmap-section', attrs: { id: 'roadmap' } }, [createElement('div', { className: 'radar-shell' }, [sectionHead('03', '90 DAYS', data.goal90Days, '每个试点先明确范围、人工决策点、金标准和停止条件。'), flow])]);
-  }
-
-  function renderGovernance(data) {
-    const gates = createElement('div', { className: 'gate-list' });
-    data.governanceGates.forEach((gate, index) => gates.append(createElement('div', { className: 'gate-item' }, [createElement('span', { text: String(index + 1).padStart(2, '0') }), createElement('p', { text: gate })])));
-    const kpis = createElement('div', { className: 'kpi-list' });
-    data.kpis.forEach((kpi) => kpis.append(createElement('div', { className: 'kpi-group' }, [createElement('strong', { text: kpi.label }), createElement('p', { text: kpi.metrics })])));
-    return createElement('section', { className: 'radar-section governance-section', attrs: { id: 'governance' } }, [createElement('div', { className: 'radar-shell' }, [sectionHead('04', 'CONTROL', '规模化之前，先建立可追溯的控制链', '数据、权限、证据、评测、人工责任和审计共同决定能否上线。'), createElement('div', { className: 'governance-grid' }, [createElement('div', {}, [createElement('h3', { text: '六项准入门槛' }), gates]), createElement('div', {}, [createElement('h3', { text: '五组核心 KPI' }), kpis])])])]);
-  }
-
-  function renderCalibrations(data) {
-    const list = createElement('div', { className: 'calibration-list' });
-    data.sourceCalibrations.forEach((item) => list.append(createElement('article', { className: 'calibration-item' }, [createElement('strong', { text: item.publisher }), createElement('p', { text: item.insight })])));
-    return createElement('section', { className: 'radar-section calibration-section' }, [createElement('div', { className: 'radar-shell' }, [sectionHead('05', 'RADARS', '五家 Insight Radar 的治理校准'), list, createElement('div', { className: 'evidence-boundary' }, [createElement('strong', { text: '证据边界' }), createElement('p', { text: data.evidenceBoundary })])])]);
-  }
-
-  function renderSources(data) {
-    const list = createElement('div', { className: 'source-list' });
-    data.sources.forEach((source, index) => {
-      const external = source.url.startsWith('https:');
-      const link = createElement('a', { className: 'source-card', attrs: { href: source.url, ...(external ? { target: '_blank', rel: 'noreferrer' } : {}) } }, [
-        createElement('span', { className: 'source-number', text: String(index + 1).padStart(2, '0') }),
-        createElement('span', { className: 'source-copy' }, [createElement('strong', { text: source.title }), createElement('small', { text: `${source.evidenceType} · ${source.limitation}` })]),
-        createElement('span', { className: 'source-arrow', text: '↗', attrs: { 'aria-hidden': 'true' } }),
-      ]);
-      list.append(link);
-    });
-    return createElement('section', { className: 'radar-section sources-section', attrs: { id: 'sources' } }, [createElement('div', { className: 'radar-shell' }, [sectionHead('06', 'SOURCES', '来源与证据局限', '官网链接在新标签打开；采购或立项前重新核验能力、数据和结果。'), list])]);
+    return createElement('section', { className: 'radar-section roadmap-section', attrs: { id: 'priority-starts' } }, [createElement('div', { className: 'radar-shell' }, [sectionHead('03', 'START HERE', '建议优先启动的 3 个场景', '范围要小、证据要清楚、人工责任和停止条件要先写明。'), flow])]);
   }
 
   function toggleScenario(card, expanded) {
@@ -203,7 +215,7 @@
 
   function renderRadar(root, data) {
     const state = { data, cards: new Map(), points: new Map(), filters: { priority: 'all', category: 'all' }, count: null, empty: null, filterPanel: null };
-    root.replaceChildren(renderHero(data), renderMatrix(data, state), renderPortfolio(data, state), renderRoadmap(data), renderGovernance(data), renderCalibrations(data), renderSources(data));
+    root.replaceChildren(renderHero(data), renderMatrix(data, state), renderPortfolio(data, state), renderRoadmap(data));
     root.querySelector('.text-reset').addEventListener('click', () => resetFilters(state));
     return state;
   }
