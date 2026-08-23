@@ -20,7 +20,7 @@
     },
     scenarios: [
       {
-        id: 'legal-01', number: '01', title: '用 AI 审查标准合同、生成条款并标出偏离', priority: 'P0', category: 'contract', value: 5, feasibility: 5, matrix: { x: 91, y: 8 },
+        id: 'legal-01', number: '01', title: '用 AI 审查标准合同、生成条款并标出偏离', priority: 'P0', category: 'contract', value: 5, feasibility: 5, matrix: { x: 90, y: 8 },
         problem: 'NDA、采购合同和 DPA 数量大，逐条审查慢、标准不一致，法务容易成为销售和采购流程的瓶颈。',
         aiValue: '识别条款并按法务 Playbook 做风险分级，生成替代条款和红线建议，把高风险内容升级人工。供应商案例显示，它能显著缩短首审时间并减少重复外部支出。',
         risk: '错误红线可能形成重大合同风险；案例成效多为供应商自报，不能直接当作本企业 ROI。法务负责人批准 Playbook，高风险条款、重大承诺和最终签署必须由具名律师确认。',
@@ -32,7 +32,7 @@
         ],
       },
       {
-        id: 'legal-02', number: '02', title: '用 AI 回答法务常见问题并自动分流复杂请求', priority: 'P0', category: 'service', value: 4.5, feasibility: 5, matrix: { x: 86, y: 18 },
+        id: 'legal-02', number: '02', title: '用 AI 回答法务常见问题并自动分流复杂请求', priority: 'P0', category: 'service', value: 4.5, feasibility: 5, matrix: { x: 80, y: 20 },
         problem: '请求散落在邮件和即时通信里，重复问题多，业务找不到有效政策，法务也无法量化需求与周转。',
         aiValue: '用对话入口识别意图、检索已批准政策和 Playbook、自动创建事项，并把复杂或高风险请求转给合适的法务人员。',
         risk: '过期政策、权限穿透和无依据回答会把服务效率问题升级为合规问题。只允许引用已批准且生效的内容，并显示来源和版本。',
@@ -42,7 +42,7 @@
         ],
       },
       {
-        id: 'legal-03', number: '03', title: '用 AI 盘点存量合同并提醒续约与履约风险', priority: 'P0', category: 'contract', value: 5, feasibility: 4, matrix: { x: 72, y: 11 },
+        id: 'legal-03', number: '03', title: '用 AI 盘点存量合同并提醒续约与履约风险', priority: 'P0', category: 'contract', value: 5, feasibility: 4, matrix: { x: 68, y: 8 },
         problem: '合同分散在不同系统，续约、责任上限、排他和违约金等义务难以盘点，容易造成到期遗漏和收入泄漏。',
         aiValue: '集中合同并抽取条款和元数据，支持语义搜索、续约提醒和风险看板，让团队能按主题快速盘点合同组合。',
         risk: '合同全集、版本唯一性或字段金标准不完整时，系统会遗漏义务并制造“已经盘清”的错觉。预警只能触发人工工作流，不能自动改变合同状态。',
@@ -53,7 +53,7 @@
         ],
       },
       {
-        id: 'legal-04', number: '04', title: '用 AI 查法规和案例并起草法律文件初稿', priority: 'P1', category: 'service', value: 4, feasibility: 4.5, matrix: { x: 81, y: 29 },
+        id: 'legal-04', number: '04', title: '用 AI 查法规和案例并起草法律文件初稿', priority: 'P1', category: 'service', value: 4, feasibility: 4.5, matrix: { x: 84, y: 32 },
         problem: '法源检索耗时，跨法域研究困难，备忘录和法律文书重复起草，引用容易遗漏或失效。',
         aiValue: '在专业法律数据库中检索并定位引用，按模板生成研究摘要和文书初稿，让律师把时间集中在判断与复核。',
         risk: '幻觉、法域混淆、失效法条和遗漏引用可能造成貌似可信的错误意见。具名律师必须核对法源、适用法域和引用后才能发布。',
@@ -65,7 +65,7 @@
         ],
       },
       {
-        id: 'legal-05', number: '05', title: '用 AI 处理隐私请求并维护数据合规记录', priority: 'P1', category: 'compliance', value: 4.5, feasibility: 4, matrix: { x: 68, y: 20 },
+        id: 'legal-05', number: '05', title: '用 AI 处理隐私请求并维护数据合规记录', priority: 'P1', category: 'compliance', value: 4.5, feasibility: 4, matrix: { x: 58, y: 20 },
         problem: '数据主体请求需要跨系统找数、核验身份、删除或脱敏并完整留痕，还要满足法定时限。',
         aiValue: '把身份核验、数据发现、法律保留检查、脱敏和审计日志串成工作流，减少人工追踪和遗漏。',
         risk: '身份核验、法律保留或删除范围出错会造成隐私泄露、证据灭失或违规删除。隐私负责人必须批准检索、豁免、脱敏和删除规则。',
@@ -75,7 +75,7 @@
         ],
       },
       {
-        id: 'legal-06', number: '06', title: '用 AI 审核外部律师账单并辅助选择律所', priority: 'P1', category: 'operations', value: 4, feasibility: 4.5, matrix: { x: 76, y: 34 },
+        id: 'legal-06', number: '06', title: '用 AI 审核外部律师账单并辅助选择律所', priority: 'P1', category: 'operations', value: 4, feasibility: 4.5, matrix: { x: 90, y: 44 },
         problem: '账单逐行核对慢，收费规则执行不一致，律所报价难比较，预算和团队表现缺少透明度。',
         aiValue: '自动分类账单行、校验费率和计费指南、发现异常，并把 RFP 报价和历史表现放到同一比较视图。',
         risk: '费用异常不等于不当收费，历史数据还可能固化对律所的偏见。法务运营人员复核扣减、评价和最终律所选择。',
@@ -86,7 +86,7 @@
         ],
       },
       {
-        id: 'legal-07', number: '07', title: '用 AI 从海量材料中找出诉讼和调查关键证据', priority: 'P2', category: 'disputes', value: 5, feasibility: 3.5, matrix: { x: 58, y: 9 },
+        id: 'legal-07', number: '07', title: '用 AI 从海量材料中找出诉讼和调查关键证据', priority: 'P2', category: 'disputes', value: 5, feasibility: 3.5, matrix: { x: 46, y: 8 },
         problem: '邮件、聊天和附件量巨大，人工首轮审阅昂贵且期限紧，同时还要保持低漏检和程序可辩护性。',
         aiValue: '按相关性和议题分类材料，配合聚类、分层抽样、统计验证和律师质检，缩小需要人工深审的范围。',
         risk: '漏检、特权材料泄露、不可复现筛选和证据链断裂会破坏可辩护性。eDiscovery 专家负责抽样验证，承办律师对提交和结论负责。',
@@ -96,7 +96,7 @@
         ],
       },
       {
-        id: 'legal-08', number: '08', title: '用 AI 追踪法规变化并映射到内部控制', priority: 'P2', category: 'compliance', value: 4.5, feasibility: 3.5, matrix: { x: 62, y: 23 },
+        id: 'legal-08', number: '08', title: '用 AI 追踪法规变化并映射到内部控制', priority: 'P2', category: 'compliance', value: 4.5, feasibility: 3.5, matrix: { x: 68, y: 44 },
         problem: '跨地区监管变化快，从新规到法人、政策、流程和控制项的影响映射高度依赖人工。',
         aiValue: '持续监测权威法规源、做差异摘要并生成影响清单，帮助专家更快判断适用范围和需要调整的控制。',
         risk: '发布日期、适用范围和实施细则变化会造成误报、漏报或错误映射。系统只做发现和初筛，合规专家批准最终适用性与控制变更。',
@@ -104,7 +104,7 @@
         companyCases: [],
       },
       {
-        id: 'legal-09', number: '09', title: '用 AI 审阅并购材料并快速发现交易风险', priority: 'P2', category: 'transaction', value: 4.5, feasibility: 3.5, matrix: { x: 55, y: 27 },
+        id: 'legal-09', number: '09', title: '用 AI 审阅并购材料并快速发现交易风险', priority: 'P2', category: 'transaction', value: 4.5, feasibility: 3.5, matrix: { x: 60, y: 32 },
         problem: '数据室文件多、尽调时间短，合同、知识产权、合规和收入风险分散在不同工作流中，关键问题容易遗漏。',
         aiValue: '批量抽取条款、聚类风险、关联跨文件信息并生成红旗清单，让交易律师更快聚焦高影响问题和整合事项。',
         risk: '不完整数据室、实体解析错误和权限穿透会遗漏风险或泄露敏感信息。交易律师定义范围、复核红旗并对交易建议负责。',
@@ -114,7 +114,7 @@
         ],
       },
       {
-        id: 'legal-10', number: '10', title: '用 AI 管理专利商标组合、申请材料和期限', priority: 'P2', category: 'transaction', value: 4, feasibility: 3.5, matrix: { x: 60, y: 39 },
+        id: 'legal-10', number: '10', title: '用 AI 管理专利商标组合、申请材料和期限', priority: 'P2', category: 'transaction', value: 4, feasibility: 3.5, matrix: { x: 46, y: 44 },
         problem: '专利和商标资料分散，申请、续展、期限和费用管理繁重，行政工作挤压组合战略判断。',
         aiValue: '自动归类文档、监控期限、辅助检索和起草，并用组合分析帮助专业人员决定申请、续展或放弃。',
         risk: '期限、权属、近似检索或分类错误可能直接造成权利损失。IP 专业人员必须批准申请、续展、放弃和组合价值判断。',
@@ -124,7 +124,7 @@
         ],
       },
       {
-        id: 'legal-11', number: '11', title: '用 AI 辅助诉讼策略和谈判，但不替律师判断', priority: 'P3', category: 'disputes', value: 4, feasibility: 3, matrix: { x: 48, y: 31 },
+        id: 'legal-11', number: '11', title: '用 AI 辅助诉讼策略和谈判，但不替律师判断', priority: 'P3', category: 'disputes', value: 4, feasibility: 3, matrix: { x: 38, y: 32 },
         problem: '法官、法院、对手方和历史案件规律难以整理，策略压力测试和相似案件研究耗时。',
         aiValue: '检索相似案件、整理数据模式、模拟反方论点并提示盲点，为承办律师提供更多情景而不是给出确定预测。',
         risk: '历史数据偏差和小样本会把相关性包装成确定性，诱导错误诉讼或和解策略。承办律师必须结合事实、法域和客户目标作最终判断。',
@@ -134,7 +134,7 @@
         ],
       },
       {
-        id: 'legal-12', number: '12', title: '让 AI 自主谈判或签合同（禁止）', priority: 'P3', category: 'transaction', value: 4.5, feasibility: 1.5, matrix: { x: 20, y: 19 },
+        id: 'legal-12', number: '12', title: '让 AI 自主谈判或签合同（禁止）', priority: 'P3', category: 'transaction', value: 4.5, feasibility: 1.5, matrix: { x: 12, y: 20 },
         problem: '看似能减少谈判往返和加快签约，但一个错误就可能直接形成价格、责任、赔偿或终止等不可逆承诺。',
         aiValue: '可以准备谈判方案、比较条款和生成草案，但不应代替企业接受条件、作出授权承诺或完成签署。',
         risk: '禁止 AI 自主接受条款或签署。所有价格、责任、赔偿、终止和签署必须由具名授权人员确认；模型升级还可能悄然改变谈判行为。',

@@ -280,10 +280,13 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .radar-section { padding-block: 70px; }
   .radar-section-head h2 { font-size: 40px; }
   .matrix-wrap { padding-left: 38px; }
-  .matrix { height: 390px; }
-  .matrix-point { min-width: 72px; max-width: 82px; min-height: 38px; grid-template-columns: 20px 1fr; gap: 4px; padding: 4px; }
-  .matrix-point-number { min-height: 20px; font-size: 8px; }
-  .matrix-point-title { font-size: 8px; }
+  .matrix-wrap { padding: 0 0 34px; }
+  .axis { display: none; }
+  .matrix { height: auto; min-height: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 10px; border: 1px solid var(--ink); background-image: none; }
+  .matrix-point { position: static; width: 100%; min-width: 0; max-width: none; min-height: 46px; grid-template-columns: 24px 1fr; gap: 6px; padding: 6px; transform: none; }
+  .matrix-point:hover, .matrix-point:focus-visible, .matrix-point[aria-pressed="true"] { transform: translateY(-2px); }
+  .matrix-point-number { min-height: 24px; font-size: 9px; }
+  .matrix-point-title { font-size: 10px; }
   .filter-panel { grid-template-columns: 1fr; }
   .filter-panel > span { padding-top: 4px; }
   .scenario-header { min-height: 82px; }

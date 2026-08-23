@@ -20,7 +20,7 @@
     },
     scenarios: [
       {
-        id: 'hr-01', number: '01', title: '用 AI 即时回答 HR 政策问题，并把复杂个案转给对的人', priority: 'P0', category: 'service', value: 5, feasibility: 5, matrix: { x: 91, y: 8 },
+        id: 'hr-01', number: '01', title: '用 AI 即时回答 HR 政策问题，并把复杂个案转给对的人', priority: 'P0', category: 'service', value: 5, feasibility: 5, matrix: { x: 90, y: 8 },
         problem: '政策问题和服务请求分散在邮件、即时通信和多个入口，回答口径不一致，复杂个案转交缓慢。',
         aiValue: '基于已批准政策回答高频问题，显示来源、版本和生效日期；识别请求类型、创建工单，并把敏感或例外个案转给具名 HR 负责人。',
         risk: '过期政策、权限错误或忽略地区和员工类型差异，会产生错误承诺。复杂个案不能被“高自助率”目标拦在人工服务之外。',
@@ -31,7 +31,7 @@
         ],
       },
       {
-        id: 'hr-02', number: '02', title: '用 AI 看清员工技能，并匹配内部岗位和项目', priority: 'P0', category: 'skills', value: 5, feasibility: 4, matrix: { x: 72, y: 10 },
+        id: 'hr-02', number: '02', title: '用 AI 看清员工技能，并匹配内部岗位和项目', priority: 'P0', category: 'skills', value: 5, feasibility: 4, matrix: { x: 68, y: 8 },
         problem: '职位名称不能反映真实技能，员工能力和内部机会不可见，关键技能供需难以量化。',
         aiValue: '从岗位、项目和员工自述中提取技能，建立可校正的技能画像，解释为什么某人适合某个岗位、项目或导师机会。',
         risk: '不完整经历、代理变量和历史机会差异会形成错误画像并固化不公平。员工必须能查看和纠正画像，经理与 HR 复核匹配。',
@@ -41,7 +41,7 @@
         ],
       },
       {
-        id: 'hr-03', number: '03', title: '用 AI 为不同岗位定制学习路径和工作辅导', priority: 'P0', category: 'skills', value: 4.5, feasibility: 4.5, matrix: { x: 82, y: 19 },
+        id: 'hr-03', number: '03', title: '用 AI 为不同岗位定制学习路径和工作辅导', priority: 'P0', category: 'skills', value: 4.5, feasibility: 4.5, matrix: { x: 82, y: 20 },
         problem: '统一课程难对应岗位任务和能力缺口，员工会使用工具却不一定具备委派、判断和验证能力。',
         aiValue: '诊断岗位任务和学习需要，推荐微课程、练习和任务内辅导，跟踪技能迁移而不是只记录“课程完成”。',
         risk: '把使用频率当能力、把个性化建议直接用于绩效会扭曲学习行为并损害信任。员工与经理共同确认发展目标，学习数据不得自动决定晋升。',
@@ -51,7 +51,7 @@
         ],
       },
       {
-        id: 'hr-04', number: '04', title: '用 AI 自动准备入职、调岗、离职和证明文件', priority: 'P1', category: 'lifecycle', value: 4.5, feasibility: 4.5, matrix: { x: 77, y: 25 },
+        id: 'hr-04', number: '04', title: '用 AI 自动准备入职、调岗、离职和证明文件', priority: 'P1', category: 'lifecycle', value: 4.5, feasibility: 4.5, matrix: { x: 66, y: 32 },
         problem: '员工生命周期文件重复、字段多且跨系统，漏项会影响薪酬、权限、合规和员工体验。',
         aiValue: '按受控模板准备文件、抽取并校验字段、提醒审批和归档；系统写入或流程生效前保留人工确认。',
         risk: '身份、薪酬、日期或地域条款错误会产生工资、税务、权限和劳动风险。关键变动必须由具名 HR 审批后生效。',
@@ -62,7 +62,7 @@
         ],
       },
       {
-        id: 'hr-05', number: '05', title: '用 AI 起草职位、寻找候选人并辅助结构化面试', priority: 'P1', category: 'lifecycle', value: 4.5, feasibility: 3.5, matrix: { x: 60, y: 22 },
+        id: 'hr-05', number: '05', title: '用 AI 起草职位、寻找候选人并辅助结构化面试', priority: 'P1', category: 'lifecycle', value: 4.5, feasibility: 3.5, matrix: { x: 58, y: 20 },
         problem: '职位描述沿用历史要求，寻源和沟通耗时，面试标准不一致且证据分散。',
         aiValue: '按岗位任务生成职位和结构化问题草案，辅助候选人触达、安排和初筛，并把录音、文字和量表证据交给招聘人员复核。',
         risk: '历史数据、学校或经历等代理变量可能造成群体不利影响。AI 不得直接发出录用决定，候选人应知情并能选择替代流程，具名招聘负责人作最终判断。',
@@ -73,7 +73,7 @@
         ],
       },
       {
-        id: 'hr-06', number: '06', title: '用 AI 拆解岗位任务，预测人力和技能缺口', priority: 'P1', category: 'planning', value: 5, feasibility: 3.5, matrix: { x: 56, y: 7 },
+        id: 'hr-06', number: '06', title: '用 AI 拆解岗位任务，预测人力和技能缺口', priority: 'P1', category: 'planning', value: 5, feasibility: 3.5, matrix: { x: 46, y: 8 },
         problem: '传统编制按岗位和历史比例外推，难以反映 AI 对任务组合、技能需求和管理跨度的变化。',
         aiValue: '拆解岗位任务，模拟增强与自动化情景，连接人才供给、技能缺口和转岗路径，帮助领导看到工作如何重构。',
         risk: '把情景当预测、忽略采用摩擦和业务增长会导致过度裁减或技能断层。必须显示假设和误差，由业务与 HR 共同批准资源决定。',
@@ -83,7 +83,7 @@
         ],
       },
       {
-        id: 'hr-07', number: '07', title: '用 AI 帮助经理重组团队工作并推动员工采用', priority: 'P1', category: 'planning', value: 4.5, feasibility: 3.5, matrix: { x: 63, y: 30 },
+        id: 'hr-07', number: '07', title: '用 AI 帮助经理重组团队工作并推动员工采用', priority: 'P1', category: 'planning', value: 4.5, feasibility: 3.5, matrix: { x: 88, y: 32 },
         problem: '管理者缺少时间和方法把 AI 转化为团队工作设计，工具部署与真实采用、角色和责任脱节。',
         aiValue: '让经理用自然语言查询组织数据，识别团队任务、角色接口和采用障碍，并把建议转成可验证的工作重构实验。',
         risk: '模型建议会忽略关系、权力和本地背景，也可能被误作个体监控或绩效证据。人员沟通、团队设计和资源配置由具名经理负责。',
@@ -93,7 +93,7 @@
         ],
       },
       {
-        id: 'hr-08', number: '08', title: '用 AI 读懂员工反馈，找出敬业度和体验问题', priority: 'P2', category: 'listening', value: 4, feasibility: 3.5, matrix: { x: 58, y: 39 },
+        id: 'hr-08', number: '08', title: '用 AI 读懂员工反馈，找出敬业度和体验问题', priority: 'P2', category: 'listening', value: 4, feasibility: 3.5, matrix: { x: 68, y: 44 },
         problem: '员工反馈量大且非结构化，人工编码慢，跨时间和团队的主题变化不容易发现。',
         aiValue: '在匿名、聚合前提下归纳主题和情绪，抽样展示代表性原文，并把趋势和行动项连接起来。',
         risk: '小群体切片、原文访问和个人情绪推断会造成重识别、报复担忧和寒蝉效应。必须设最小样本，不得把个人情绪标签用于人员决定。',
@@ -101,7 +101,7 @@
         companyCases: [],
       },
       {
-        id: 'hr-09', number: '09', title: '用 AI 整理绩效证据并给出职业发展选项', priority: 'P2', category: 'lifecycle', value: 4.5, feasibility: 3, matrix: { x: 49, y: 26 },
+        id: 'hr-09', number: '09', title: '用 AI 整理绩效证据并给出职业发展选项', priority: 'P2', category: 'lifecycle', value: 4.5, feasibility: 3, matrix: { x: 44, y: 32 },
         problem: '绩效反馈受近因和主观偏差影响，职业路径不透明，经理难持续给出高质量发展建议。',
         aiValue: '整理已批准的工作证据，提示反馈结构和缺失信息，并推荐透明的岗位、项目、学习和导师选项。',
         risk: '证据不全、经理偏见和语言风格差异会被模型放大成貌似客观的评价。员工需要查看和申诉渠道，具名经理对绩效和发展决定负责。',
@@ -111,7 +111,7 @@
         ],
       },
       {
-        id: 'hr-10', number: '10', title: '用 AI 预警团队流失和关键人才短缺', priority: 'P2', category: 'planning', value: 4, feasibility: 3, matrix: { x: 45, y: 43 },
+        id: 'hr-10', number: '10', title: '用 AI 预警团队流失和关键人才短缺', priority: 'P2', category: 'planning', value: 4, feasibility: 3, matrix: { x: 46, y: 44 },
         problem: '组织问题常在离职后才暴露，关键岗位、技能和人才供需缺口缺少前瞻信号。',
         aiValue: '在群体层面解释流失和供需驱动，连接组织、财务与技能信号，为岗位、管理、学习和保留行动提供预警。',
         risk: '相关性被误当因果，个人风险分数会触发隐性惩罚和自证循环。HR 只在聚合层面制定干预，并验证行动是否改善结果。',
@@ -121,7 +121,7 @@
         ],
       },
       {
-        id: 'hr-11', number: '11', title: '用 AI 监测员工行为与情绪（高风险，默认不做）', priority: 'P3', category: 'highrisk', value: 3.5, feasibility: 2, matrix: { x: 28, y: 50 },
+        id: 'hr-11', number: '11', title: '用 AI 监测员工行为与情绪（高风险，默认不做）', priority: 'P3', category: 'highrisk', value: 3.5, feasibility: 2, matrix: { x: 24, y: 56 },
         problem: '远程和数字化工作让管理者希望获得更细信号，但“能测量”不等于“有意义、合法或合理”。',
         aiValue: '在极少数明确、合法且比例适当的安全或流程诊断中，聚合信号可能有有限价值；个人级情绪或生产率推断不稳定。',
         risk: '默认不立项。持续监控会侵犯隐私、误判残障或文化差异，改变员工行为并削弱心理安全；不得用于个体惩罚。',
@@ -129,7 +129,7 @@
         companyCases: [],
       },
       {
-        id: 'hr-12', number: '12', title: '让 AI 决定录用、晋升、调薪或解雇（禁止）', priority: 'P3', category: 'highrisk', value: 4.5, feasibility: 1, matrix: { x: 14, y: 20 },
+        id: 'hr-12', number: '12', title: '让 AI 决定录用、晋升、调薪或解雇（禁止）', priority: 'P3', category: 'highrisk', value: 4.5, feasibility: 1, matrix: { x: 12, y: 26 },
         problem: '组织希望提高决定速度和一致性，但错误会直接影响个人权利、生计和组织信任。',
         aiValue: '只能整理经授权的证据、显示缺失信息和提出待核问题，不能执行或作最终就业决定。',
         risk: '禁止 AI 自主录用、晋升、调薪或解雇。偏差、代理变量和不可解释推断会造成系统性不利影响；必须由具名人员作最终决定、记录依据并提供申诉。',
