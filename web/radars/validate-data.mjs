@@ -4,9 +4,11 @@ import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 
 const REQUIRED_TEXT = ['id', 'title', 'eyebrow', 'updatedAt', 'coreJudgment'];
-const SCENARIO_TEXT = ['id', 'number', 'title', 'priority', 'category', 'problem', 'aiValue', 'risk'];
-const CASE_TEXT = ['company', 'summary', 'sourceId', 'caseType', 'caveat'];
+const SCENARIO_TEXT = ['id', 'number', 'title', 'shortTitle', 'priority', 'category', 'risk'];
+const CASE_TEXT = ['company', 'summary', 'sourceId', 'caseType', 'caveat', 'market'];
 const CASE_TYPES = new Set(['客户案例', '公司披露', '研究案例', '警示案例']);
+const CASE_MARKETS = new Set(['中国', '国际']);
+const SCORE_MAXIMUMS = Object.freeze({ businessValue: 30, processFit: 20, readiness: 15, evidence: 15, riskControl: 20 });
 
 function nonEmpty(value) {
   return typeof value === 'string' && value.trim().length > 0;
@@ -18,6 +20,49 @@ function pushMissing(errors, object, fields, prefix) {
 
 function uniqueCount(items, key) {
   return new Set(items.map((item) => item?.[key])).size;
+}
+
+function validateTextArray(value, minimum, prefix, errors) {
+  if (!Array.isArray(value) || value.length < minimum) {
+    errors.push(`${prefix} must contain at least ${minimum} entries`);
+    return;
+  }
+  value.forEach((item, index) => {
+    if (!nonEmpty(item)) errors.push(`${prefix}[${index}] must be non-empty text`);
+  });
+}
+
+function validateScorecard(scenario, prefix, errors) {
+  const scorecard = scenario?.scorecard;
+  if (!scorecard || typeof scorecard !== 'object') {
+    errors.push(`${prefix}.scorecard must be an object`);
+    return;
+  }
+  pushMissing(errors, scorecard, ['rationale', 'prerequisite'], `${prefix}.scorecard`);
+  if (typeof scorecard.redLine !== 'boolean') errors.push(`${prefix}.scorecard.redLine must be boolean`);
+
+  const dimensions = scorecard.dimensions;
+  if (!dimensions || typeof dimensions !== 'object') {
+    errors.push(`${prefix}.scorecard.dimensions must be an object`);
+    return;
+  }
+  let calculatedTotal = 0;
+  for (const [dimension, maximum] of Object.entries(SCORE_MAXIMUMS)) {
+    const score = dimensions[dimension];
+    if (!Number.isInteger(score) || score < 0 || score > maximum) {
+      errors.push(`${prefix}.scorecard.dimensions.${dimension} must be an integer in [0,${maximum}]`);
+    } else {
+      calculatedTotal += score;
+    }
+  }
+  if (!Number.isInteger(scorecard.total) || scorecard.total !== calculatedTotal) {
+    errors.push(`${prefix}.scorecard.total must equal the five dimension scores`);
+  }
+
+  if (scenario.priority === 'P0' && (scorecard.total < 80 || scorecard.redLine)) errors.push(`${prefix} P0 requires total >= 80 and no red line`);
+  if (scenario.priority === 'P1' && (scorecard.total < 65 || scorecard.total > 79 || scorecard.redLine)) errors.push(`${prefix} P1 requires total 65-79 and no red line`);
+  if (scenario.priority === 'P2' && (scorecard.total < 50 || scorecard.redLine || (scorecard.total > 64 && !nonEmpty(scorecard.prerequisite)))) errors.push(`${prefix} P2 requires total 50-64 or a documented prerequisite, without a red line`);
+  if (scenario.priority === 'P3' && !scorecard.redLine) errors.push(`${prefix} P3 requires a risk red line`);
 }
 
 function validSourceUrl(value) {
@@ -63,8 +108,12 @@ export function validateRadarData(data, options = {}) {
     const prefix = `scenarios[${index}]`;
     pushMissing(errors, scenario, SCENARIO_TEXT, prefix);
     if (!/^(用 AI|让 AI)/.test(scenario?.title || '')) errors.push(`${prefix}.title must start with 用 AI or 让 AI`);
+    if (nonEmpty(scenario?.shortTitle) && (scenario.shortTitle.length < 4 || scenario.shortTitle.length > 14)) errors.push(`${prefix}.shortTitle must contain 4-14 characters`);
     if (!/^\d{2}$/.test(scenario?.number || '')) errors.push(`${prefix}.number must contain two digits`);
     if (!['P0', 'P1', 'P2', 'P3'].includes(scenario?.priority)) errors.push(`${prefix}.priority is invalid`);
+    validateTextArray(scenario?.problem, 3, `${prefix}.problem`, errors);
+    validateTextArray(scenario?.aiValue, 4, `${prefix}.aiValue`, errors);
+    validateScorecard(scenario, prefix, errors);
     for (const field of ['value', 'feasibility']) if (typeof scenario?.[field] !== 'number' || scenario[field] < 1 || scenario[field] > 5) errors.push(`${prefix}.${field} must be in [1,5]`);
     for (const field of ['x', 'y']) if (typeof scenario?.matrix?.[field] !== 'number' || scenario.matrix[field] < 0 || scenario.matrix[field] > 100) errors.push(`${prefix}.matrix.${field} must be in [0,100]`);
     if (!Array.isArray(scenario?.evidenceIds) || scenario.evidenceIds.length === 0) errors.push(`${prefix}.evidenceIds must be non-empty`);
@@ -74,9 +123,13 @@ export function validateRadarData(data, options = {}) {
       const casePrefix = `${prefix}.companyCases[${caseIndex}]`;
       pushMissing(errors, companyCase, CASE_TEXT, casePrefix);
       if (!CASE_TYPES.has(companyCase?.caseType)) errors.push(`${casePrefix}.caseType is invalid`);
+      if (!CASE_MARKETS.has(companyCase?.market)) errors.push(`${casePrefix}.market is invalid`);
       if (nonEmpty(companyCase?.sourceId) && !sourceIds.has(companyCase.sourceId)) errors.push(`${casePrefix}.sourceId contains unknown source ${companyCase.sourceId}`);
     });
   });
+
+  const chinaCompanies = new Set(scenarios.flatMap((scenario) => scenario.companyCases || []).filter((companyCase) => companyCase?.market === '中国').map((companyCase) => companyCase.company));
+  if (chinaCompanies.size < 2) errors.push('radar must contain at least two different Chinese company cases');
 
   if (pilots.length !== 3) errors.push('radar.pilots must contain exactly 3 entries');
   pilots.forEach((pilot, index) => pushMissing(errors, pilot, ['id', 'label', 'title', 'scope', 'acceptance'], `pilots[${index}]`));
@@ -87,7 +140,7 @@ export function validateRadarData(data, options = {}) {
     if (!validSourceUrl(source?.url)) errors.push(`sources[${index}].url must be an HTTPS or /archive/ URL`);
     validateLocalSource(source, options, errors);
   });
-  if (data?.id === 'legal' && sources.length !== 16) errors.push('legal radar must contain exactly 16 sources');
+  if (data?.id === 'legal' && sources.length < 16) errors.push('legal radar must contain at least 16 sources');
   if (data?.id === 'hr') {
     const boundary = scenarios.find((item) => item.id === 'hr-12')?.risk || '';
     if (!boundary.includes('禁止') || !boundary.includes('具名人员')) errors.push('hr-12 risk must prohibit autonomous action and require a named human owner');

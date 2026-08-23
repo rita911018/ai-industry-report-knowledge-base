@@ -14,17 +14,28 @@ for (const domain of ['legal', 'hr']) {
     const data = await loadRadarFile(`${radarRoot}/data/${domain}.js`);
     const result = validateRadarData(data, { radarRoot });
     assert.deepEqual(result, { id: domain, scenarios: 12, p0: 3, pilots: 3 });
+    const sourceIds = new Set(data.sources.map((source) => source.id));
     for (const scenario of data.scenarios) {
       assert.match(scenario.title, /^(用 AI|让 AI)/);
-      assert.equal(typeof scenario.aiValue, 'string');
-      assert.ok(scenario.aiValue.trim());
+      assert.ok(scenario.shortTitle.length >= 4 && scenario.shortTitle.length <= 14, `${scenario.id}.shortTitle`);
+      assert.ok(Array.isArray(scenario.problem) && scenario.problem.length >= 3, `${scenario.id}.problem`);
+      assert.ok(Array.isArray(scenario.aiValue) && scenario.aiValue.length >= 4, `${scenario.id}.aiValue`);
+      assert.ok(scenario.problem.every((item) => item.trim()), `${scenario.id}.problem entries`);
+      assert.ok(scenario.aiValue.every((item) => item.trim()), `${scenario.id}.aiValue entries`);
+      assert.deepEqual(Object.keys(scenario.scorecard.dimensions).sort(), ['businessValue', 'evidence', 'processFit', 'readiness', 'riskControl']);
+      assert.equal(Object.values(scenario.scorecard.dimensions).reduce((sum, score) => sum + score, 0), scenario.scorecard.total);
+      assert.ok(scenario.scorecard.rationale.trim(), `${scenario.id}.scorecard.rationale`);
+      assert.ok(scenario.scorecard.prerequisite.trim(), `${scenario.id}.scorecard.prerequisite`);
+      assert.equal(typeof scenario.scorecard.redLine, 'boolean');
       assert.ok(Array.isArray(scenario.companyCases));
-      const sourceIds = new Set(data.sources.map((source) => source.id));
       for (const companyCase of scenario.companyCases) {
-        for (const field of ['company', 'summary', 'sourceId', 'caseType', 'caveat']) assert.ok(companyCase[field]?.trim(), `${scenario.id}.${field}`);
+        for (const field of ['company', 'summary', 'sourceId', 'caseType', 'caveat', 'market']) assert.ok(companyCase[field]?.trim(), `${scenario.id}.${field}`);
+        assert.ok(['中国', '国际'].includes(companyCase.market), `${scenario.id}.${companyCase.company}.market`);
         assert.ok(sourceIds.has(companyCase.sourceId), `${scenario.id} references ${companyCase.sourceId}`);
       }
     }
+    const chinaCases = data.scenarios.flatMap((scenario) => scenario.companyCases).filter((item) => item.market === '中国');
+    assert.ok(new Set(chinaCases.map((item) => item.company)).size >= 2, `${domain} needs at least two Chinese companies`);
   });
 }
 
