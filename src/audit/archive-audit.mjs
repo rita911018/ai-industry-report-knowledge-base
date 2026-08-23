@@ -2,6 +2,7 @@ import { readFile, readdir, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { verifyTranslation } from '../translation/verify-translation.mjs';
+import { validateChineseReader } from '../readers/generate-chinese-html.mjs';
 
 async function collectMetadata(directory) {
   const found = [];
@@ -17,7 +18,7 @@ async function nonempty(filePath) {
   try { return (await stat(filePath)).size > 0; } catch { return false; }
 }
 
-export async function auditArchive(root, { expected, verifyTranslations = false } = {}) {
+export async function auditArchive(root, { expected, verifyTranslations = false, verifyReaders = false } = {}) {
   const errors = [];
   let metadataPaths = [];
   try { metadataPaths = await collectMetadata(root); }
@@ -27,6 +28,7 @@ export async function auditArchive(root, { expected, verifyTranslations = false 
   const urls = new Set();
   const byPublisher = {};
   let verifiedTranslations = 0;
+  let verifiedReaders = 0;
   for (const metadataPath of metadataPaths) {
     let metadata;
     try { metadata = JSON.parse(await readFile(metadataPath, 'utf8')); }
@@ -49,8 +51,16 @@ export async function auditArchive(root, { expected, verifyTranslations = false 
         verifiedTranslations += 1;
       } catch (error) { errors.push(`Translation validation failed for ${label}: ${error.message}`); }
     }
+    if (verifyReaders) {
+      const readerPath = path.join(directory, '中文全文.html');
+      if (!await nonempty(readerPath)) errors.push(`Missing or empty 中文全文.html: ${label}`);
+      else {
+        try { await validateChineseReader(readerPath, metadata); verifiedReaders += 1; }
+        catch (error) { errors.push(`Chinese reader validation failed for ${label}: ${error.message}`); }
+      }
+    }
   }
-  return { valid: errors.length === 0, articles: metadataPaths.length, uniqueIds: ids.size, uniqueUrls: urls.size, verifiedTranslations, byPublisher, errors };
+  return { valid: errors.length === 0, articles: metadataPaths.length, uniqueIds: ids.size, uniqueUrls: urls.size, verifiedTranslations, verifiedReaders, byPublisher, errors };
 }
 
 function parseArgs(argv) {
@@ -60,6 +70,7 @@ function parseArgs(argv) {
     else if (argv[i] === '--expected') options.expected = Number(argv[++i]);
     else if (argv[i] === '--out') options.out = argv[++i];
     else if (argv[i] === '--no-translation-check') options.verifyTranslations = false;
+    else if (argv[i] === '--verify-readers') options.verifyReaders = true;
   }
   return options;
 }

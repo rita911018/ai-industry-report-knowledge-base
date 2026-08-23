@@ -136,7 +136,8 @@ export async function loadArchiveRecords({ ledgerPath, archiveRoot }) {
       ...saved.metadata,
       translationMarkdown: await readFile(translationPath, 'utf8'),
       localPaths: {
-        chinese: `/archive/${relativeDirectory}/中文全文.md`,
+        chinese: `/archive/${relativeDirectory}/中文全文.html`,
+        chineseMarkdown: `/archive/${relativeDirectory}/中文全文.md`,
         original: `/archive/${relativeDirectory}/英文原文.md`,
         snapshot: `/archive/${relativeDirectory}/原始网页.html`,
       },
