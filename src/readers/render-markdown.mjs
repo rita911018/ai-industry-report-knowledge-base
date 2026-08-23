@@ -22,6 +22,7 @@ export function renderInline(source) {
     return token;
   });
   value = value.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+&quot;[^&]*&quot;)?\)/g, (_, alt) => `<span class="image-alt">图：${alt}</span>`);
+  value = value.replace(/\[\]\(([^)\s]+)(?:\s+&quot;[^&]*&quot;)?\)/g, '');
   value = value.replace(/\[([^\]]+)\]\(([^)\s]+)(?:\s+&quot;[^&]*&quot;)?\)/g, (_, label, href) => {
     if (!isSafeHref(href)) return label;
     const external = /^https?:/i.test(href);
@@ -41,7 +42,8 @@ function startsBlock(line) {
 
 export function renderMarkdown(markdown) {
   if (typeof markdown !== 'string' || !markdown.trim()) throw new Error('Chinese Markdown rendered empty');
-  const lines = markdown.replace(/\r\n?/g, '\n').split('\n');
+  const normalized = markdown.replace(/\r\n?/g, '\n').replace(/\[\s*\n\s*\n([^\n[\]]+)\]\((https?:\/\/[^)\n]+)\)/g, '\n\n[$1]($2)');
+  const lines = normalized.split('\n');
   const output = [];
   let index = 0;
   while (index < lines.length) {
@@ -82,10 +84,11 @@ export function renderMarkdown(markdown) {
       while (index < lines.length) {
         const item = lines[index].match(/^\s*([-+*]|\d+\.)\s+(.+)$/);
         if (!item || /\d+\./.test(item[1]) !== ordered) break;
-        items.push(`<li>${renderInline(item[2].trim())}</li>`);
+        const renderedItem = renderInline(item[2].trim()).trim();
+        if (renderedItem) items.push(`<li>${renderedItem}</li>`);
         index += 1;
       }
-      output.push(`<${tag}>${items.join('')}</${tag}>`);
+      if (items.length) output.push(`<${tag}>${items.join('')}</${tag}>`);
       continue;
     }
 

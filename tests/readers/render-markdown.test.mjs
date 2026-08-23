@@ -45,3 +45,15 @@ test('escapes hostile raw HTML and rejects blank input', () => {
   assert.doesNotMatch(hostile, /onclick=|onerror=/i);
   assert.throws(() => renderMarkdown('  \n\n '), /Chinese Markdown rendered empty/);
 });
+
+test('cleans common extraction noise without changing the Markdown source', () => {
+  const html = renderMarkdown(`- [](https://example.com/# "Share")
+
+已保存到 [个人收藏](https://example.com/saved)[
+
+下载报告](https://example.com/report.pdf)`);
+  assert.doesNotMatch(html, /\[\]\(|Share/);
+  assert.doesNotMatch(html, /<li>\s*<\/li>/);
+  assert.doesNotMatch(html, /收藏<\/a>\[/);
+  assert.match(html, /<a href="https:\/\/example\.com\/report\.pdf"[^>]*>下载报告<\/a>/);
+});
