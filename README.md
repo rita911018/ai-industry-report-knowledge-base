@@ -11,6 +11,14 @@ DEEPSEEK_API_KEY="你的密钥" npm start
 
 浏览器打开 <http://127.0.0.1:4318>。不配置 API Key 时，文章浏览与本地检索仍然可用，只有生成式问答不可用。密钥只由本机 Node 服务读取，不会进入浏览器代码或归档文件。
 
+机会雷达入口：
+
+- 雷达目录：<http://127.0.0.1:4318/radars/>
+- 企业法务：<http://127.0.0.1:4318/radars/legal.html>
+- 人力资源：<http://127.0.0.1:4318/radars/hr.html>
+
+两个雷达均为离线静态决策工具，不需要 API Key。它们不会采集员工或法务数据，也不会代替具名专业人员作法律承诺、录用、晋升、调薪、纪律或解雇决定。
+
 可通过 `DEEPSEEK_MODEL=deepseek-v4-pro` 改用 Pro；默认使用 `deepseek-v4-flash`。
 
 ## 数据目录

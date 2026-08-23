@@ -23,6 +23,10 @@ button, select, input, textarea, a { -webkit-tap-highlight-color: transparent; }
 .masthead { min-height: 76px; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 14px clamp(22px, 5vw, 76px); border-bottom: 1px solid var(--line); }
 .brand { display: inline-flex; align-items: center; gap: 13px; text-decoration: none; font-weight: 700; letter-spacing: -.02em; }
 .brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid var(--ink); font: 700 13px/1 var(--serif); }
+.main-nav { display: flex; align-items: center; gap: 7px; margin-right: auto; }
+.main-nav a { min-height: 38px; display: inline-flex; align-items: center; padding: 5px 12px; color: var(--muted); font-size: 12px; font-weight: 700; text-decoration: none; border-bottom: 1px solid transparent; }
+.main-nav a:hover { color: var(--accent-deep); border-color: var(--accent); }
+.main-nav a[aria-current="page"] { color: var(--ink); border-color: var(--ink); }
 .mast-meta { display: flex; align-items: center; gap: clamp(14px, 3vw, 38px); color: var(--muted); font-size: 13px; }
 .mast-meta strong { color: var(--ink); font-size: 16px; }
 .status { display: inline-flex; align-items: center; gap: 8px; }
@@ -114,7 +118,9 @@ footer p:first-child { max-width: 70em; }
   .keyword-label { grid-column: span 2; }
 }
 @media (max-width: 768px) {
-  .masthead { align-items: flex-start; }
+  .masthead { align-items: flex-start; flex-wrap: wrap; }
+  .main-nav { order: 3; width: 100%; margin: 0; border-top: 1px solid var(--line); }
+  .main-nav a { flex: 1; justify-content: center; }
   .mast-meta { flex-wrap: wrap; justify-content: flex-end; gap: 5px 15px; }
   .ask-workspace { grid-template-columns: 1fr; min-height: 0; }
   .ask-workspace > .section-index { display: none; }
@@ -132,6 +138,7 @@ footer p:first-child { max-width: 70em; }
   .masthead { min-height: 68px; padding: 13px 16px; }
   .brand > span:last-child { max-width: 105px; line-height: 1.2; }
   .mast-meta span:not(.status) { display: none; }
+  .main-nav { padding-top: 4px; }
   .ask-workspace { padding: 44px 16px 55px; }
   h1 { font-size: 58px; }
   .ask-actions { align-items: stretch; flex-direction: column; }
