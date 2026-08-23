@@ -53,3 +53,24 @@ test('legal radar preserves the attachment scenarios, scores, and sources', asyn
     'https://www.litera.com/newslinks/litera-cvent-case-study',
   ]);
 });
+
+test('hr radar preserves the approved scenarios and high-impact decision boundary', async () => {
+  const hr = await loadRadarFile(`${radarRoot}/data/hr.js`);
+  const expectedScenarios = [
+    ['HR 政策问答、统一入口与服务分流', 'P0', 5, 5],
+    ['技能画像、岗位技能图谱与内部人才匹配', 'P0', 5, 4],
+    ['个性化学习、岗位辅导与 AI 素养提升', 'P0', 4.5, 4.5],
+    ['入转调离、证明与 HR 文档自动化', 'P1', 4.5, 4.5],
+    ['招聘需求、职位描述、寻源与面试辅助', 'P1', 4.5, 3.5],
+    ['战略人力规划、岗位拆解与容量模拟', 'P1', 5, 3.5],
+    ['管理者 Copilot、团队设计与变革采用', 'P1', 4.5, 3.5],
+    ['员工倾听、主题归纳与敬业度诊断', 'P2', 4, 3.5],
+    ['绩效反馈、职业路径与发展建议', 'P2', 4.5, 3],
+    ['流失风险、组织健康与人才供需分析', 'P2', 4, 3],
+    ['员工行为、情绪与生产率监测', 'P3', 3.5, 2],
+    ['AI 自主录用、晋升、调薪或解雇', 'P3', 4.5, 1],
+  ];
+  assert.deepEqual(hr.scenarios.map(({ title, priority, value, feasibility }) => [title, priority, value, feasibility]), expectedScenarios);
+  assert.match(hr.scenarios[11].humanOwner, /禁止.*自主.*具名人员/);
+  assert.equal(new Set(hr.scenarios.flatMap((item) => item.evidenceIds)).size >= 10, true);
+});
