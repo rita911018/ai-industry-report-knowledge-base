@@ -7,6 +7,7 @@ import { loadRadarFile } from '../../web/radars/validate-data.mjs';
 
 const rendererUrl = new URL('../../web/radars/radar.js', import.meta.url);
 const legalPath = new URL('../../web/radars/data/legal.js', import.meta.url);
+const hrPath = new URL('../../web/radars/data/hr.js', import.meta.url);
 
 async function setup(data) {
   const dom = new JSDOM('<!doctype html><div id="radar-error" aria-live="assertive" hidden></div><main id="radar-app"></main>', {
@@ -107,6 +108,40 @@ test('priority method exposes the five weights, thresholds, and risk red line', 
   for (const item of ['业务价值 30', '流程适配度 20', '数据与系统准备度 15', '证据与可验收性 15', '风险可控性 20']) assert.match(text, new RegExp(item));
   for (const item of ['P0', '80', 'P1', '65–79', 'P2', '50–64', 'P3', '风险红线']) assert.match(text, new RegExp(item));
   assert.doesNotMatch(dom.window.document.body.textContent, /业务价值 55%/);
+});
+
+test('standalone export contains the complete current-domain report and no secrets', async () => {
+  const legal = await loadRadarFile(fileURLToPath(legalPath));
+  const dom = await setup(legal);
+  const report = dom.window.OpportunityRadar.buildStandaloneReport(legal, new Date('2026-08-24T08:00:00+08:00'));
+  assert.match(report, /<!doctype html>/i);
+  assert.match(report, /企业法务 AI 机会雷达/);
+  assert.match(report, /哪些 AI 场景应该优先启动/);
+  assert.equal((report.match(/class="export-scenario"/g) || []).length, 12);
+  for (const heading of ['业务痛点', 'AI 价值｜可以做什么', '主要风险', '证据锚点', '哪些公司做过']) assert.match(report, new RegExp(heading));
+  for (const item of ['业务价值', '流程适配度', '数据与系统准备度', '证据与可验收性', '风险可控性']) assert.match(report, new RegExp(item));
+  assert.match(report, /中国建设科技集团/);
+  assert.match(report, /https:\/\//);
+  assert.match(report, /data-export-target="legal-07"/);
+  assert.match(report, /<script>/);
+  assert.doesNotMatch(report, /file:\/\/|DEEPSEEK[_ -]?API|API[_ -]?KEY|人力资源 AI 机会雷达/i);
+
+  const hr = await loadRadarFile(fileURLToPath(hrPath));
+  const hrReport = dom.window.OpportunityRadar.buildStandaloneReport(hr, new Date('2026-08-24T08:00:00+08:00'));
+  assert.match(hrReport, /人力资源 AI 机会雷达/);
+  assert.doesNotMatch(hrReport, /企业法务 AI 机会雷达/);
+});
+
+test('export button downloads a UTF-8 HTML blob with the current domain filename', async () => {
+  const dom = await setup(await loadRadarFile(fileURLToPath(legalPath)));
+  let capturedBlob;
+  let capturedDownload;
+  dom.window.URL.createObjectURL = (blob) => { capturedBlob = blob; return 'blob:radar-report'; };
+  dom.window.URL.revokeObjectURL = () => {};
+  dom.window.HTMLAnchorElement.prototype.click = function click() { capturedDownload = this.download; };
+  dom.window.document.querySelector('.radar-export-button').click();
+  assert.equal(capturedBlob.type, 'text/html;charset=utf-8');
+  assert.match(capturedDownload, /^企业法务-AI机会雷达-\d{4}-\d{2}-\d{2}\.html$/);
 });
 
 test('missing data displays an explicit error instead of a blank page', async () => {
