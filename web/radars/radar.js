@@ -16,6 +16,11 @@
     return createElement('header', { className: 'radar-section-head' }, [createElement('span', { className: 'section-number', text: index }), copy]);
   }
 
+  function renderTextList(content) {
+    if (!Array.isArray(content)) return createElement('p', { text: content || '' });
+    return createElement('ul', { className: 'detail-list' }, content.map((item) => createElement('li', { text: item })));
+  }
+
   function renderHero(data) {
     const action = createElement('a', { className: 'radar-hero-action', text: '查看优先级矩阵 ↓', attrs: { href: '#priority-matrix' } });
     const companyCaseCount = data.scenarios.reduce((total, scenario) => total + scenario.companyCases.length, 0);
@@ -38,9 +43,8 @@
     for (const scenario of data.scenarios) {
       const point = createElement('button', {
         className: `matrix-point ${scenario.priority.toLowerCase()}`,
-        text: scenario.number,
-        attrs: { type: 'button', 'data-scenario-target': scenario.id, 'aria-label': `${scenario.title}，${scenario.priority}，价值 ${scenario.value}，可行性 ${scenario.feasibility}` },
-      });
+        attrs: { type: 'button', 'data-scenario-target': scenario.id, 'aria-label': `${scenario.title}，${scenario.priority}，价值 ${scenario.value}，可行性 ${scenario.feasibility}`, 'aria-pressed': 'false' },
+      }, [createElement('span', { className: 'matrix-point-number', text: scenario.number }), createElement('span', { className: 'matrix-point-title', text: scenario.shortTitle })]);
       point.style.setProperty('--x', `${scenario.matrix.x}%`);
       point.style.setProperty('--y', `${scenario.matrix.y}%`);
       point.addEventListener('click', () => activateMatrixPoint(state, scenario.id));
@@ -52,20 +56,45 @@
       createElement('span', { className: 'axis axis-x', text: '落地可行性 →' }),
       matrix,
     ]);
-    const note = createElement('aside', { className: 'matrix-note' }, [
-      createElement('p', { className: 'section-kicker', text: 'DECISION RULE' }),
-      createElement('h3', { text: '高价值，不等于可直接自动化' }),
-      createElement('p', { text: '综合优先级采用业务价值 55% + 落地可行性 45%。涉及不可逆结果或高风险最终意见时，风险门槛优先于分数。' }),
-      createElement('p', { className: 'risk-rule', text: 'P0 立即试点 · P1 第二批扩展 · P2 按条件启用 · P3 只作辅助或暂缓' }),
-    ]);
+    const inspectorContent = createElement('div', { className: 'matrix-inspector-content', attrs: { 'aria-live': 'polite' } });
+    state.inspectorContent = inspectorContent;
+    const inspector = createElement('aside', { className: 'matrix-inspector' }, [inspectorContent]);
     return createElement('section', { className: 'radar-section matrix-section', attrs: { id: 'priority-matrix' } }, [
-      createElement('div', { className: 'radar-shell' }, [sectionHead('01', 'PRIORITY', '价值越高，越要先问：能否被可靠验证？', '点击矩阵点位，可直接定位并展开对应场景。'), createElement('div', { className: 'matrix-layout' }, [matrixWrap, note])]),
+      createElement('div', { className: 'radar-shell' }, [sectionHead('01', 'PRIORITY', '哪些 AI 场景应该优先启动？', '先看业务价值和落地可行性，再通过证据与风险门槛。点击点位，在右侧查看完整判断。'), createElement('div', { className: 'matrix-layout' }, [matrixWrap, inspector])]),
     ]);
   }
 
   function detailBlock(label, content, full = false, className = '') {
-    const body = typeof content === 'string' ? createElement('p', { text: content }) : content;
+    const body = content && typeof content.nodeType === 'number' ? content : renderTextList(content);
     return createElement('div', { className: `detail-block${full ? ' detail-full' : ''}${className ? ` ${className}` : ''}` }, [createElement('h4', { text: label }), body]);
+  }
+
+  const SCORE_DIMENSIONS = [
+    ['businessValue', '业务价值', 30],
+    ['processFit', '流程适配度', 20],
+    ['readiness', '数据与系统准备度', 15],
+    ['evidence', '证据与可验收性', 15],
+    ['riskControl', '风险可控性', 20],
+  ];
+
+  function renderScorecard(scenario, compact = false) {
+    const rows = createElement('div', { className: 'scorecard-rows' });
+    for (const [key, label, maximum] of SCORE_DIMENSIONS) {
+      const score = scenario.scorecard.dimensions[key];
+      rows.append(createElement('div', { className: 'scorecard-row' }, [
+        createElement('span', { text: label }),
+        createElement('span', { className: 'scorecard-track' }, [createElement('i', { attrs: { style: `--score-width:${(score / maximum) * 100}%` } })]),
+        createElement('strong', { text: `${score}/${maximum}` }),
+      ]));
+    }
+    const card = createElement('div', { className: `scorecard${compact ? ' scorecard-compact' : ''}` }, [
+      createElement('div', { className: 'scorecard-total' }, [createElement('span', { text: `${scenario.priority} · 五维总分` }), createElement('strong', { text: String(scenario.scorecard.total) })]),
+      rows,
+      createElement('p', { className: 'scorecard-rationale', text: scenario.scorecard.rationale }),
+      createElement('p', { className: 'scorecard-prerequisite', text: `关键前提：${scenario.scorecard.prerequisite}` }),
+    ]);
+    if (scenario.scorecard.redLine) card.prepend(createElement('p', { className: 'scorecard-redline', text: '风险红线：不得让 AI 作最终决定或执行不可逆动作。' }));
+    return card;
   }
 
   function sourceLink(source, className) {
@@ -95,7 +124,7 @@
     for (const companyCase of scenario.companyCases) {
       const source = data.sources.find((item) => item.id === companyCase.sourceId);
       const card = createElement('a', { className: 'company-case-link decision-link', attrs: { href: source.url, target: '_blank', rel: 'noreferrer' } }, [
-        createElement('span', { className: 'decision-link-meta', text: companyCase.caseType }),
+        createElement('span', { className: 'decision-link-meta', text: `${companyCase.caseType} · ${companyCase.market}${companyCase.market === '中国' ? '企业' : ''}` }),
         createElement('strong', { text: companyCase.company }),
         createElement('span', { className: 'company-case-summary', text: companyCase.summary }),
         createElement('small', { text: `证据局限：${companyCase.caveat}` }),
@@ -104,6 +133,27 @@
       list.append(card);
     }
     return list;
+  }
+
+  function renderInspectorScenario(scenario, data, state) {
+    const jump = createElement('button', { className: 'matrix-inspector-jump', text: '查看全部详情 ↓', attrs: { type: 'button' } });
+    jump.addEventListener('click', () => jumpToScenario(state, scenario.id));
+    return createElement('div', { className: 'matrix-inspector-scenario' }, [
+      createElement('div', { className: 'matrix-inspector-head' }, [
+        createElement('span', { className: `priority ${scenario.priority.toLowerCase()}`, text: scenario.priority }),
+        createElement('span', { className: 'matrix-inspector-number', text: scenario.number }),
+        createElement('h3', { text: scenario.title }),
+      ]),
+      renderScorecard(scenario, true),
+      createElement('div', { className: 'matrix-inspector-details' }, [
+        detailBlock('业务痛点', scenario.problem),
+        detailBlock('AI 价值｜可以做什么', scenario.aiValue),
+        detailBlock('主要风险', scenario.risk, true, 'risk-detail'),
+        detailBlock('证据锚点', renderEvidence(scenario, data), true, 'evidence-detail'),
+        detailBlock('哪些公司做过', renderCompanyCases(scenario, data), true, 'company-detail'),
+      ]),
+      jump,
+    ]);
   }
 
   function renderScenario(scenario, data, state) {
@@ -171,13 +221,25 @@
     ]);
   }
 
+  function renderPriorityMethod() {
+    const dimensions = createElement('div', { className: 'priority-method-dimensions' }, SCORE_DIMENSIONS.map(([, label, maximum]) => createElement('span', {}, [createElement('strong', { text: `${label} ${maximum}%` }), createElement('small', { text: '纳入五维总分' })])));
+    return createElement('aside', { className: 'priority-method' }, [
+      createElement('p', { className: 'section-kicker', text: 'SCORING METHOD' }),
+      createElement('h3', { text: '五维评分决定顺序，风险红线可以覆盖总分' }),
+      dimensions,
+      createElement('p', { className: 'priority-thresholds', text: 'P0：≥80 且无红线 · P1：65–79 · P2：50–64 或仍有关键前置条件 · P3：触发风险红线，只作辅助或禁止' }),
+      createElement('p', { className: 'priority-redline', text: '风险红线包括：AI 自主录用、解雇、晋升、调薪、签约或给出最终法律意见；无人复核；输出不可追溯；结果不可撤销；敏感数据没有合法目的与最小权限。' }),
+    ]);
+  }
+
   function renderRoadmap(data) {
     const flow = createElement('div', { className: 'roadmap-flow' });
-    for (const pilot of data.pilots) flow.append(createElement('article', { className: 'pilot' }, [
+    const priorityScenarios = data.scenarios.filter((scenario) => scenario.priority === 'P0');
+    data.pilots.forEach((pilot, index) => flow.append(createElement('article', { className: 'pilot' }, [
       createElement('p', { className: 'pilot-label', text: pilot.label }), createElement('h3', { text: pilot.title }),
-      createElement('div', { className: 'pilot-copy' }, [detailBlock('范围与方案', pilot.scope), detailBlock('验收', pilot.acceptance)]),
-    ]));
-    return createElement('section', { className: 'radar-section roadmap-section', attrs: { id: 'priority-starts' } }, [createElement('div', { className: 'radar-shell' }, [sectionHead('03', 'START HERE', '建议优先启动的 3 个场景', '范围要小、证据要清楚、人工责任和停止条件要先写明。'), flow])]);
+      createElement('div', { className: 'pilot-copy' }, [detailBlock('推荐理由', priorityScenarios[index].scorecard.rationale), detailBlock('关键前提', priorityScenarios[index].scorecard.prerequisite), detailBlock('范围与方案', pilot.scope), detailBlock('验收', pilot.acceptance)]),
+    ])));
+    return createElement('section', { className: 'radar-section roadmap-section', attrs: { id: 'priority-starts' } }, [createElement('div', { className: 'radar-shell' }, [sectionHead('03', 'START HERE', '建议优先启动的 3 个场景', '先按五维分数排序，再检查风险红线、关键前提和 8–12 周内是否能够验收。'), renderPriorityMethod(), flow])]);
   }
 
   function toggleScenario(card, expanded) {
@@ -205,6 +267,14 @@
   }
 
   function activateMatrixPoint(state, scenarioId) {
+    const scenario = state.data.scenarios.find((item) => item.id === scenarioId);
+    if (!scenario || !state.inspectorContent) return;
+    state.selectedScenarioId = scenarioId;
+    for (const [id, point] of state.points) point.setAttribute('aria-pressed', String(id === scenarioId));
+    state.inspectorContent.replaceChildren(renderInspectorScenario(scenario, state.data, state));
+  }
+
+  function jumpToScenario(state, scenarioId) {
     resetFilters(state);
     const card = state.cards.get(scenarioId);
     if (!card) return;
@@ -214,9 +284,10 @@
   }
 
   function renderRadar(root, data) {
-    const state = { data, cards: new Map(), points: new Map(), filters: { priority: 'all', category: 'all' }, count: null, empty: null, filterPanel: null };
+    const state = { data, cards: new Map(), points: new Map(), filters: { priority: 'all', category: 'all' }, count: null, empty: null, filterPanel: null, inspectorContent: null, selectedScenarioId: null };
     root.replaceChildren(renderHero(data), renderMatrix(data, state), renderPortfolio(data, state), renderRoadmap(data));
     root.querySelector('.text-reset').addEventListener('click', () => resetFilters(state));
+    activateMatrixPoint(state, data.scenarios.find((scenario) => scenario.priority === 'P0')?.id || data.scenarios[0]?.id);
     return state;
   }
 
@@ -234,7 +305,7 @@
     return renderRadar(root, data);
   }
 
-  window.OpportunityRadar = Object.freeze({ createElement, renderRadar, filterScenarios, toggleScenario, activateMatrixPoint, initRadar });
+  window.OpportunityRadar = Object.freeze({ createElement, renderRadar, filterScenarios, toggleScenario, activateMatrixPoint, jumpToScenario, initRadar });
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => initRadar(document), { once: true });
   else initRadar(document);
 })();
