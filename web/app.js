@@ -198,7 +198,7 @@
     $('#filter-form').addEventListener('reset', () => setTimeout(filterArticles));
   }
 
-  $('#article-count').textContent = String(articles.length || 418);
+  $('#article-count').textContent = String(articles.length || 469);
   $('#question-form').addEventListener('submit', (event) => { event.preventDefault(); const question = $('#question').value.trim(); if (question) ask(question); });
   $('#load-more').addEventListener('click', () => { state.visible += 30; renderArticles(); });
   $('#close-drawer').addEventListener('click', closeSources);

@@ -7,8 +7,8 @@
     "parse": "node src/radar/parse-radars.mjs",
     "archive": "node src/archive/run-archive.mjs",
     "audit": "node src/audit/archive-audit.mjs",
-    "readers": "node src/readers/generate-chinese-html.mjs --ledger work/normalized/articles.json --archive work/archive --expected 418",
-    "verify:readers": "node src/readers/generate-chinese-html.mjs --ledger work/normalized/articles.json --archive work/archive --expected 418 --verify",
+    "readers": "node src/readers/generate-chinese-html.mjs --ledger work/normalized/articles.json --archive work/archive --expected 469",
+    "verify:readers": "node src/readers/generate-chinese-html.mjs --ledger work/normalized/articles.json --archive work/archive --expected 469 --verify",
     "corpus": "node src/knowledge/build-corpus.mjs --ledger work/normalized/articles.json --archive work/archive --out work/knowledge/corpus.json --browser web/data/articles.js",
     "validate:radars": "node web/radars/validate-data.mjs",
     "start": "node src/server/app-server.mjs"

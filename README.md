@@ -1,6 +1,6 @@
 # AI 行业报告知识库
 
-本项目归档五份洞察雷达中的 418 篇官方文章，保存原始网页、英文原文、完整中文翻译与结构化元数据，并提供本地全文检索及带来源校验的 DeepSeek V4 问答。每篇中文全文同时生成排版友好的 `中文全文.html`；`中文全文.md` 保留为 AI 检索与审计的内容源。
+本项目归档五份洞察雷达及 2026 年 7–8 月增量更新中的 469 篇官方文章，保存原始网页、英文原文、完整中文翻译与结构化元数据，并提供本地全文检索及带来源校验的 DeepSeek V4 问答。每篇中文全文同时生成排版友好的 `中文全文.html`；`中文全文.md` 保留为 AI 检索与审计的内容源。
 
 ## 本地使用
 
@@ -33,7 +33,7 @@ DEEPSEEK_API_KEY="你的密钥" npm start
 ```bash
 npm test
 npm run verify:readers
-node src/audit/archive-audit.mjs --root work/archive --expected 418 --verify-readers
+node src/audit/archive-audit.mjs --root work/archive --expected 469 --verify-readers
 node src/translation/verify-translation.mjs --all work/archive
 node src/knowledge/build-corpus.mjs --verify work/knowledge/corpus.json
 ```
