@@ -21,16 +21,39 @@ async function setup(data) {
   return dom;
 }
 
-test('shared renderer builds all decision sections from one data object', async () => {
+test('shared renderer builds only the four approved decision sections', async () => {
   const dom = await setup(await loadRadarFile(fileURLToPath(legalPath)));
   const { document } = dom.window;
   assert.equal(document.querySelectorAll('.matrix-point').length, 12);
   assert.equal(document.querySelectorAll('.scenario').length, 12);
   assert.equal(document.querySelectorAll('.pilot').length, 3);
-  assert.equal(document.querySelectorAll('.gate-item').length, 6);
-  assert.equal(document.querySelectorAll('.kpi-group').length, 5);
-  assert.equal(document.querySelectorAll('.source-card').length, 16);
-  assert.equal(document.querySelectorAll('.calibration-item').length, 5);
+  assert.equal(document.querySelectorAll('.governance-section').length, 0);
+  assert.equal(document.querySelectorAll('.calibration-section').length, 0);
+  assert.equal(document.querySelectorAll('.sources-section').length, 0);
+  assert.match(document.querySelector('.portfolio-section h2').textContent, /AI 能解决哪些业务问题/);
+  assert.match(document.querySelector('.roadmap-section h2').textContent, /建议优先启动的 3 个场景/);
+});
+
+test('each scenario contains only five linked decision blocks', async () => {
+  const dom = await setup(await loadRadarFile(fileURLToPath(legalPath)));
+  const { document } = dom.window;
+  const first = document.querySelector('#legal-01');
+  first.querySelector('.scenario-header').click();
+  assert.deepEqual(
+    [...first.querySelectorAll('.detail-block > h4')].map((heading) => heading.textContent),
+    ['业务痛点', 'AI 价值｜可以做什么', '主要风险', '证据锚点', '哪些公司做过'],
+  );
+  const evidenceLink = first.querySelector('.evidence-link');
+  assert.ok(evidenceLink);
+  assert.equal(evidenceLink.target, '_blank');
+  assert.equal(evidenceLink.rel, 'noreferrer');
+  const caseLink = first.querySelector('.company-case-link');
+  assert.ok(caseLink);
+  assert.equal(caseLink.target, '_blank');
+  assert.equal(caseLink.rel, 'noreferrer');
+
+  const prohibited = document.querySelector('#legal-12');
+  assert.match(prohibited.querySelector('.company-cases').textContent, /暂无公开可核验案例/);
 });
 
 test('filters, expands, resets, and jumps from matrix to scenario', async () => {

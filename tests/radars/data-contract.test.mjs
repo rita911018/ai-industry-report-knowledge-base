@@ -13,25 +13,36 @@ for (const domain of ['legal', 'hr']) {
   test(`${domain} radar satisfies the shared contract`, async () => {
     const data = await loadRadarFile(`${radarRoot}/data/${domain}.js`);
     const result = validateRadarData(data, { radarRoot });
-    assert.deepEqual(result, { id: domain, scenarios: 12, p0: 3, pilots: 3, gates: 6, kpis: 5, calibrations: 5 });
+    assert.deepEqual(result, { id: domain, scenarios: 12, p0: 3, pilots: 3 });
+    for (const scenario of data.scenarios) {
+      assert.match(scenario.title, /^(用 AI|让 AI)/);
+      assert.equal(typeof scenario.aiValue, 'string');
+      assert.ok(scenario.aiValue.trim());
+      assert.ok(Array.isArray(scenario.companyCases));
+      const sourceIds = new Set(data.sources.map((source) => source.id));
+      for (const companyCase of scenario.companyCases) {
+        for (const field of ['company', 'summary', 'sourceId', 'caseType', 'caveat']) assert.ok(companyCase[field]?.trim(), `${scenario.id}.${field}`);
+        assert.ok(sourceIds.has(companyCase.sourceId), `${scenario.id} references ${companyCase.sourceId}`);
+      }
+    }
   });
 }
 
 test('legal radar preserves the attachment scenarios, scores, and sources', async () => {
   const legal = await loadRadarFile(`${radarRoot}/data/legal.js`);
   const expectedScenarios = [
-    ['标准合同审查、生成与红线比对', 'P0', 5, 5],
-    ['法务统一入口、自动分流与知识问答', 'P0', 4.5, 5],
-    ['存量合同搜索、条款抽取与履约预警', 'P0', 5, 4],
-    ['法律检索、法规问答与文书初稿', 'P1', 4, 4.5],
-    ['隐私权请求、数据映射与合规工作流', 'P1', 4.5, 4],
-    ['外部律师账单审核与律所选择', 'P1', 4, 4.5],
-    ['诉讼取证、内部调查与批量文档审阅', 'P2', 5, 3.5],
-    ['法规变化监测、适用性判断与控制映射', 'P2', 4.5, 3.5],
-    ['并购尽调与交易文件分析', 'P2', 4.5, 3.5],
-    ['知识产权组合、申请与期限管理', 'P2', 4, 3.5],
-    ['诉讼策略、结果预测与谈判辅助', 'P3', 4, 3],
-    ['AI 自主谈判、接受条款或签署', 'P3', 4.5, 1.5],
+    ['用 AI 审查标准合同、生成条款并标出偏离', 'P0', 5, 5],
+    ['用 AI 回答法务常见问题并自动分流复杂请求', 'P0', 4.5, 5],
+    ['用 AI 盘点存量合同并提醒续约与履约风险', 'P0', 5, 4],
+    ['用 AI 查法规和案例并起草法律文件初稿', 'P1', 4, 4.5],
+    ['用 AI 处理隐私请求并维护数据合规记录', 'P1', 4.5, 4],
+    ['用 AI 审核外部律师账单并辅助选择律所', 'P1', 4, 4.5],
+    ['用 AI 从海量材料中找出诉讼和调查关键证据', 'P2', 5, 3.5],
+    ['用 AI 追踪法规变化并映射到内部控制', 'P2', 4.5, 3.5],
+    ['用 AI 审阅并购材料并快速发现交易风险', 'P2', 4.5, 3.5],
+    ['用 AI 管理专利商标组合、申请材料和期限', 'P2', 4, 3.5],
+    ['用 AI 辅助诉讼策略和谈判，但不替律师判断', 'P3', 4, 3],
+    ['让 AI 自主谈判或签合同（禁止）', 'P3', 4.5, 1.5],
   ];
   assert.deepEqual(legal.scenarios.map(({ title, priority, value, feasibility }) => [title, priority, value, feasibility]), expectedScenarios);
   assert.deepEqual(legal.sources.map((source) => source.url), [
@@ -57,20 +68,20 @@ test('legal radar preserves the attachment scenarios, scores, and sources', asyn
 test('hr radar preserves the approved scenarios and high-impact decision boundary', async () => {
   const hr = await loadRadarFile(`${radarRoot}/data/hr.js`);
   const expectedScenarios = [
-    ['HR 政策问答、统一入口与服务分流', 'P0', 5, 5],
-    ['技能画像、岗位技能图谱与内部人才匹配', 'P0', 5, 4],
-    ['个性化学习、岗位辅导与 AI 素养提升', 'P0', 4.5, 4.5],
-    ['入转调离、证明与 HR 文档自动化', 'P1', 4.5, 4.5],
-    ['招聘需求、职位描述、寻源与面试辅助', 'P1', 4.5, 3.5],
-    ['战略人力规划、岗位拆解与容量模拟', 'P1', 5, 3.5],
-    ['管理者 Copilot、团队设计与变革采用', 'P1', 4.5, 3.5],
-    ['员工倾听、主题归纳与敬业度诊断', 'P2', 4, 3.5],
-    ['绩效反馈、职业路径与发展建议', 'P2', 4.5, 3],
-    ['流失风险、组织健康与人才供需分析', 'P2', 4, 3],
-    ['员工行为、情绪与生产率监测', 'P3', 3.5, 2],
-    ['AI 自主录用、晋升、调薪或解雇', 'P3', 4.5, 1],
+    ['用 AI 即时回答 HR 政策问题，并把复杂个案转给对的人', 'P0', 5, 5],
+    ['用 AI 看清员工技能，并匹配内部岗位和项目', 'P0', 5, 4],
+    ['用 AI 为不同岗位定制学习路径和工作辅导', 'P0', 4.5, 4.5],
+    ['用 AI 自动准备入职、调岗、离职和证明文件', 'P1', 4.5, 4.5],
+    ['用 AI 起草职位、寻找候选人并辅助结构化面试', 'P1', 4.5, 3.5],
+    ['用 AI 拆解岗位任务，预测人力和技能缺口', 'P1', 5, 3.5],
+    ['用 AI 帮助经理重组团队工作并推动员工采用', 'P1', 4.5, 3.5],
+    ['用 AI 读懂员工反馈，找出敬业度和体验问题', 'P2', 4, 3.5],
+    ['用 AI 整理绩效证据并给出职业发展选项', 'P2', 4.5, 3],
+    ['用 AI 预警团队流失和关键人才短缺', 'P2', 4, 3],
+    ['用 AI 监测员工行为与情绪（高风险，默认不做）', 'P3', 3.5, 2],
+    ['让 AI 决定录用、晋升、调薪或解雇（禁止）', 'P3', 4.5, 1],
   ];
   assert.deepEqual(hr.scenarios.map(({ title, priority, value, feasibility }) => [title, priority, value, feasibility]), expectedScenarios);
-  assert.match(hr.scenarios[11].humanOwner, /禁止.*自主.*具名人员/);
+  assert.match(hr.scenarios[11].risk, /禁止.*具名人员/);
   assert.equal(new Set(hr.scenarios.flatMap((item) => item.evidenceIds)).size >= 10, true);
 });

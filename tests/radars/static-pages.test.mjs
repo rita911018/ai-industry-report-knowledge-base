@@ -22,7 +22,8 @@ for (const domain of ['legal', 'hr']) {
     assert.match(html, /返回知识库/);
     assert.match(html, new RegExp(`data/${domain}\\.js`));
     assert.match(html, /radar\.js/);
-    assert.match(html, /<noscript>[\s\S]+核心判断[\s\S]+场景[\s\S]+90 天[\s\S]+来源/);
+    assert.match(html, /<noscript>[\s\S]+核心判断[\s\S]+AI 能解决哪些业务问题[\s\S]+建议优先启动的 3 个场景[\s\S]+证据/);
+    assert.doesNotMatch(html, /90 天路线图|治理门槛|五家 Insight Radar/);
     assert.doesNotMatch(html, /iframe|DEEPSEEK|api\/ask/i);
   });
 }
