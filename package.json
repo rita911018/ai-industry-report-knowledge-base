@@ -8,6 +8,7 @@
     "archive": "node src/archive/run-archive.mjs",
     "audit": "node src/audit/archive-audit.mjs",
     "corpus": "node src/knowledge/build-corpus.mjs --ledger work/normalized/articles.json --archive work/archive --out work/knowledge/corpus.json --browser web/data/articles.js",
+    "validate:radars": "node web/radars/validate-data.mjs",
     "start": "node src/server/app-server.mjs"
   },
   "dependencies": {
