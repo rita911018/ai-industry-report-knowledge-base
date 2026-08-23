@@ -3,9 +3,10 @@ import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 
-const REQUIRED_TEXT = ['id', 'title', 'eyebrow', 'updatedAt', 'coreJudgment', 'goal90Days'];
-const SCENARIO_TEXT = ['id', 'number', 'title', 'priority', 'category', 'problem', 'aiRole', 'valueCase', 'feasibilityCase', 'risk', 'humanOwner'];
-const CALIBRATION_PUBLISHERS = ['BCG', 'Anthropic', 'McKinsey', 'MIT Sloan', 'Bain'];
+const REQUIRED_TEXT = ['id', 'title', 'eyebrow', 'updatedAt', 'coreJudgment'];
+const SCENARIO_TEXT = ['id', 'number', 'title', 'priority', 'category', 'problem', 'aiValue', 'risk'];
+const CASE_TEXT = ['company', 'summary', 'sourceId', 'caseType', 'caveat'];
+const CASE_TYPES = new Set(['客户案例', '公司披露', '研究案例', '警示案例']);
 
 function nonEmpty(value) {
   return typeof value === 'string' && value.trim().length > 0;
@@ -51,38 +52,34 @@ export function validateRadarData(data, options = {}) {
 
   const scenarios = Array.isArray(data?.scenarios) ? data.scenarios : [];
   const pilots = Array.isArray(data?.pilots) ? data.pilots : [];
-  const gates = Array.isArray(data?.governanceGates) ? data.governanceGates : [];
-  const kpis = Array.isArray(data?.kpis) ? data.kpis : [];
-  const calibrations = Array.isArray(data?.sourceCalibrations) ? data.sourceCalibrations : [];
   const sources = Array.isArray(data?.sources) ? data.sources : [];
 
   if (data?.scenarioCount !== 12 || scenarios.length !== 12) errors.push('radar.scenarioCount and scenarios.length must both equal 12');
   if (data?.p0Count !== 3 || scenarios.filter((item) => item.priority === 'P0').length !== 3) errors.push('radar.p0Count and actual P0 count must both equal 3');
-  if (data?.horizonDays !== 90) errors.push('radar.horizonDays must equal 90');
   if (uniqueCount(scenarios, 'id') !== scenarios.length) errors.push('scenario IDs must be unique');
 
   const sourceIds = new Set(sources.map((source) => source?.id));
   scenarios.forEach((scenario, index) => {
     const prefix = `scenarios[${index}]`;
     pushMissing(errors, scenario, SCENARIO_TEXT, prefix);
+    if (!/^(用 AI|让 AI)/.test(scenario?.title || '')) errors.push(`${prefix}.title must start with 用 AI or 让 AI`);
     if (!/^\d{2}$/.test(scenario?.number || '')) errors.push(`${prefix}.number must contain two digits`);
     if (!['P0', 'P1', 'P2', 'P3'].includes(scenario?.priority)) errors.push(`${prefix}.priority is invalid`);
     for (const field of ['value', 'feasibility']) if (typeof scenario?.[field] !== 'number' || scenario[field] < 1 || scenario[field] > 5) errors.push(`${prefix}.${field} must be in [1,5]`);
     for (const field of ['x', 'y']) if (typeof scenario?.matrix?.[field] !== 'number' || scenario.matrix[field] < 0 || scenario.matrix[field] > 100) errors.push(`${prefix}.matrix.${field} must be in [0,100]`);
     if (!Array.isArray(scenario?.evidenceIds) || scenario.evidenceIds.length === 0) errors.push(`${prefix}.evidenceIds must be non-empty`);
     else for (const id of scenario.evidenceIds) if (!sourceIds.has(id)) errors.push(`${prefix}.evidenceIds contains unknown source ${id}`);
+    if (!Array.isArray(scenario?.companyCases)) errors.push(`${prefix}.companyCases must be an array`);
+    else scenario.companyCases.forEach((companyCase, caseIndex) => {
+      const casePrefix = `${prefix}.companyCases[${caseIndex}]`;
+      pushMissing(errors, companyCase, CASE_TEXT, casePrefix);
+      if (!CASE_TYPES.has(companyCase?.caseType)) errors.push(`${casePrefix}.caseType is invalid`);
+      if (nonEmpty(companyCase?.sourceId) && !sourceIds.has(companyCase.sourceId)) errors.push(`${casePrefix}.sourceId contains unknown source ${companyCase.sourceId}`);
+    });
   });
 
   if (pilots.length !== 3) errors.push('radar.pilots must contain exactly 3 entries');
   pilots.forEach((pilot, index) => pushMissing(errors, pilot, ['id', 'label', 'title', 'scope', 'acceptance'], `pilots[${index}]`));
-  if (gates.length !== 6 || gates.some((gate) => !nonEmpty(gate))) errors.push('radar.governanceGates must contain exactly 6 non-empty entries');
-  if (kpis.length !== 5) errors.push('radar.kpis must contain exactly 5 entries');
-  kpis.forEach((kpi, index) => pushMissing(errors, kpi, ['id', 'label', 'metrics'], `kpis[${index}]`));
-  if (calibrations.length !== 5) errors.push('radar.sourceCalibrations must contain exactly 5 entries');
-  const calibrationNames = calibrations.map((item) => item?.publisher).sort();
-  if (JSON.stringify(calibrationNames) !== JSON.stringify([...CALIBRATION_PUBLISHERS].sort())) errors.push('radar.sourceCalibrations publishers must match the five approved sources');
-  calibrations.forEach((item, index) => pushMissing(errors, item, ['publisher', 'insight'], `sourceCalibrations[${index}]`));
-
   if (sources.length === 0) errors.push('radar.sources must be non-empty');
   if (uniqueCount(sources, 'id') !== sources.length) errors.push('source IDs must be unique');
   sources.forEach((source, index) => {
@@ -92,12 +89,12 @@ export function validateRadarData(data, options = {}) {
   });
   if (data?.id === 'legal' && sources.length !== 16) errors.push('legal radar must contain exactly 16 sources');
   if (data?.id === 'hr') {
-    const boundary = scenarios.find((item) => item.id === 'hr-12')?.humanOwner || '';
-    if (!boundary.includes('禁止') || !boundary.includes('具名人员')) errors.push('hr-12 must prohibit autonomous action and require a named human owner');
+    const boundary = scenarios.find((item) => item.id === 'hr-12')?.risk || '';
+    if (!boundary.includes('禁止') || !boundary.includes('具名人员')) errors.push('hr-12 risk must prohibit autonomous action and require a named human owner');
   }
 
   if (errors.length) throw new Error(errors.join('\n'));
-  return { id: data.id, scenarios: scenarios.length, p0: scenarios.filter((item) => item.priority === 'P0').length, pilots: pilots.length, gates: gates.length, kpis: kpis.length, calibrations: calibrations.length };
+  return { id: data.id, scenarios: scenarios.length, p0: scenarios.filter((item) => item.priority === 'P0').length, pilots: pilots.length };
 }
 
 export function validateRadarCollection(radars, options = {}) {
@@ -113,7 +110,7 @@ export function validateRadarCollection(radars, options = {}) {
 async function main() {
   const radarRoot = path.dirname(fileURLToPath(import.meta.url));
   const radars = await Promise.all(['legal', 'hr'].map((domain) => loadRadarFile(path.join(radarRoot, 'data', `${domain}.js`))));
-  for (const summary of validateRadarCollection(radars, { radarRoot })) console.log(`${summary.id}: ${summary.scenarios} scenarios, ${summary.p0} P0, ${summary.pilots} pilots, ${summary.gates} gates, ${summary.kpis} KPI groups, ${summary.calibrations} calibrations`);
+  for (const summary of validateRadarCollection(radars, { radarRoot })) console.log(`${summary.id}: ${summary.scenarios} scenarios, ${summary.p0} P0, ${summary.pilots} priority starts`);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main().catch((error) => { console.error(error.message); process.exitCode = 1; });
