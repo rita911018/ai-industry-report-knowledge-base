@@ -43,10 +43,15 @@ function safePath(root, relative) {
 }
 
 async function serveFile(res, root, relative) {
-  const target = safePath(root, relative);
+  let target = safePath(root, relative);
   if (!target) return json(res, 403, { error: 'Forbidden path' });
   try {
-    const info = await stat(target);
+    let info = await stat(target);
+    if (info.isDirectory()) {
+      target = safePath(root, path.join(relative, 'index.html'));
+      if (!target) return json(res, 403, { error: 'Forbidden path' });
+      info = await stat(target);
+    }
     if (!info.isFile()) throw new Error('not a file');
     res.writeHead(200, { 'content-type': MIME.get(path.extname(target).toLowerCase()) || 'application/octet-stream', 'content-length': info.size, 'x-content-type-options': 'nosniff' });
     createReadStream(target).pipe(res);

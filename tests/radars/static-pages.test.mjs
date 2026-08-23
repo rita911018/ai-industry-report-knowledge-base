@@ -4,6 +4,11 @@ import { readFile } from 'node:fs/promises';
 
 const root = new URL('../../web/radars/', import.meta.url);
 
+test('knowledge homepage links to the explicit radar directory index', async () => {
+  const html = await readFile(new URL('../../web/index.html', import.meta.url), 'utf8');
+  assert.match(html, /href="radars\/index\.html"[^>]*>AI机会雷达<\/a>/);
+});
+
 test('radar directory exposes exactly Legal and HR as full-page destinations', async () => {
   const html = await readFile(new URL('index.html', root), 'utf8');
   assert.equal((html.match(/<main\b/g) || []).length, 1);
