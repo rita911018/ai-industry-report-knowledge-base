@@ -73,6 +73,8 @@ test('legal radar preserves the attachment scenarios, scores, and sources', asyn
     'https://enablement.microsoft.com/en-gb/scenario-library/legal/',
     'https://www.bcg.com/publications/2026/ai-is-turning-m-and-a-into-a-high-impact-learning-machine',
     'https://www.litera.com/newslinks/litera-cvent-case-study',
+    'https://www-file.huawei.com/admin/asset/v1/pro/view/289d675031044bf7adc1ca35f2225e03.pdf',
+    'https://www.cctc.cn/xwzx/qydt/2025/104301.shtml',
   ]);
 });
 
