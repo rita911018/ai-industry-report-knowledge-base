@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="整合 BCG、Anthropic、McKinsey、MIT 与 Bain 的 418 篇 AI 管理洞察，支持带来源的知识问答。">
+  <title>AI 行业报告知识库</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="masthead">
+    <a class="brand" href="#top" aria-label="AI 行业报告知识库首页">
+      <span class="brand-mark" aria-hidden="true">IR</span>
+      <span>AI 行业报告知识库</span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="#top" aria-current="page">知识库</a>
+      <a href="radars/">AI机会雷达</a>
+    </nav>
+    <div class="mast-meta">
+      <span><strong id="article-count">418</strong> 篇归档</span>
+      <span><strong>5</strong> 个来源</span>
+      <span id="api-status" class="status" aria-live="polite">正在检查 DeepSeek…</span>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="ask-workspace" aria-labelledby="ask-heading">
+      <div class="section-index" aria-hidden="true">01 / ASK</div>
+      <div class="ask-copy">
+        <p class="eyebrow">Grounded research assistant</p>
+        <h1 id="ask-heading">问报告，<br>也问证据。</h1>
+        <p>答案只基于已归档全文，并逐条标注出处。没有足够证据时，系统会明确说明。</p>
+      </div>
+      <div class="ask-console">
+        <form id="question-form">
+          <label for="question">你想从这 418 篇报告中了解什么？</label>
+          <textarea id="question" name="question" rows="4" maxlength="1200" placeholder="例如：企业部署 AI Agent 时，治理重点和组织变化分别是什么？" required></textarea>
+          <div class="ask-actions">
+            <span class="privacy-note">API Key 仅保存在本机服务器环境中</span>
+            <button id="ask-button" type="submit">基于全文回答</button>
+          </div>
+        </form>
+        <div id="answer" class="answer" aria-live="polite" aria-atomic="false">
+          <p class="answer-placeholder">提出问题后，答案与经过校验的来源会显示在这里。</p>
+        </div>
+        <div id="question-history" class="history" aria-label="最近问题"></div>
+      </div>
+    </section>
+
+    <section class="library" aria-labelledby="library-heading">
+      <div class="library-heading-row">
+        <div>
+          <div class="section-index" aria-hidden="true">02 / LIBRARY</div>
+          <h2 id="library-heading">文章索引</h2>
+        </div>
+        <p id="result-count">正在载入资料…</p>
+      </div>
+
+      <form id="filter-form" class="filters" aria-label="筛选文章">
+        <label>来源
+          <select id="publisher-filter" name="publisher"><option value="">全部来源</option></select>
+        </label>
+        <label>时间
+          <select id="date-filter" name="date"><option value="">全部时间</option><option value="2026">2026</option><option value="2025">2025</option></select>
+        </label>
+        <label>主题
+          <select id="category-filter" name="category"><option value="">全部主题</option></select>
+        </label>
+        <label>优先级
+          <select id="priority-filter" name="priority"><option value="">全部等级</option></select>
+        </label>
+        <label class="keyword-label">关键词
+          <input id="keyword-filter" name="q" type="search" placeholder="标题、摘要或标签">
+        </label>
+        <button class="text-button" type="reset">清除</button>
+      </form>
+
+      <div class="article-table-head" aria-hidden="true">
+        <span>来源 / 日期</span><span>文章与核心观点</span><span>评分</span>
+      </div>
+      <div id="article-results" class="article-results" aria-live="polite"></div>
+      <button id="load-more" class="load-more" type="button" hidden>显示更多</button>
+    </section>
+  </main>
+
+  <aside id="source-drawer" class="source-drawer" aria-labelledby="source-heading" aria-hidden="true">
+    <div class="drawer-head">
+      <div><span class="eyebrow">Cited evidence</span><h2 id="source-heading">本次回答来源</h2></div>
+      <button class="icon-button" id="close-drawer" type="button" aria-label="关闭来源面板">×</button>
+    </div>
+    <div id="source-list" class="source-list"></div>
+  </aside>
+  <div id="drawer-backdrop" class="backdrop" hidden></div>
+
+  <dialog id="article-dialog" aria-labelledby="dialog-title">
+    <button class="icon-button dialog-close" type="button" aria-label="关闭文章详情">×</button>
+    <p id="dialog-publisher" class="eyebrow"></p>
+    <h2 id="dialog-title"></h2>
+    <p id="dialog-original" class="original-title"></p>
+    <div id="dialog-meta" class="dialog-meta"></div>
+    <p id="dialog-summary" class="dialog-summary"></p>
+    <div class="dialog-links">
+      <a data-link="chinese" target="_blank">查看中文全文</a>
+      <a data-link="original" target="_blank">查看原文归档</a>
+      <a data-link="official" target="_blank" rel="noreferrer">打开官方原文</a>
+    </div>
+  </dialog>
+
+  <footer>
+    <p><strong>方法说明</strong>　网页先在本地全文中检索证据，再把有限证据片段发送给 DeepSeek V4。每个模型引用都必须与实际检索片段匹配后才会展示。</p>
+    <p>归档来源：BCG · Anthropic · McKinsey · MIT · Bain</p>
+  </footer>
+
+  <script src="data/articles.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
