@@ -208,7 +208,7 @@ export function validateRadarCollection(radars, options = {}) {
 
 async function main() {
   const radarRoot = path.dirname(fileURLToPath(import.meta.url));
-  const radars = await Promise.all(['legal', 'hr'].map((domain) => loadRadarFile(path.join(radarRoot, 'data', `${domain}.js`))));
+  const radars = await Promise.all(['legal', 'hr', 'retail', 'supply-chain', 'finance', 'marketing'].map((domain) => loadRadarFile(path.join(radarRoot, 'data', `${domain}.js`))));
   for (const summary of validateRadarCollection(radars, { radarRoot })) console.log(`${summary.id}: ${summary.scenarios} scenarios, ${summary.p0} P0, ${summary.pilots} priority starts`);
 }
 

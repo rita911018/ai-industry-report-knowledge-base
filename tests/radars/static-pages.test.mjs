@@ -9,16 +9,17 @@ test('knowledge homepage links to the explicit radar directory index', async () 
   assert.match(html, /href="radars\/index\.html"[^>]*>AI机会雷达<\/a>/);
 });
 
-test('radar directory exposes exactly Legal and HR as full-page destinations', async () => {
+const domains = ['legal', 'hr', 'retail', 'supply-chain', 'finance', 'marketing'];
+
+test('radar directory exposes all six domains as full-page destinations', async () => {
   const html = await readFile(new URL('index.html', root), 'utf8');
   assert.equal((html.match(/<main\b/g) || []).length, 1);
-  assert.equal((html.match(/class="radar-directory-link"/g) || []).length, 2);
-  assert.match(html, /href="legal\.html"/);
-  assert.match(html, /href="hr\.html"/);
+  assert.equal((html.match(/class="radar-directory-link"/g) || []).length, domains.length);
+  for (const domain of domains) assert.match(html, new RegExp(`href="${domain}\\.html"`));
   assert.match(html, /返回知识库/);
 });
 
-for (const domain of ['legal', 'hr']) {
+for (const domain of domains) {
   test(`${domain} page is offline, accessible, and has a useful no-script fallback`, async () => {
     const html = await readFile(new URL(`${domain}.html`, root), 'utf8');
     assert.match(html, /id="radar-app"/);
@@ -26,6 +27,7 @@ for (const domain of ['legal', 'hr']) {
     assert.match(html, /返回雷达目录/);
     assert.match(html, /返回知识库/);
     assert.match(html, new RegExp(`data/${domain}\\.js`));
+    if (!['legal', 'hr'].includes(domain)) assert.match(html, /data\/extended-builder\.js/);
     assert.match(html, /radar\.js/);
     assert.match(html, /<noscript>[\s\S]+核心判断[\s\S]+AI 能解决哪些业务问题[\s\S]+建议优先启动的 3 个场景[\s\S]+证据/);
     assert.doesNotMatch(html, /90 天路线图|治理门槛|五家 Insight Radar/);
