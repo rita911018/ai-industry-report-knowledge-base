@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0",
+  "domain": "retail",
+  "generatedAt": "2026-08-24T02:36:49.381Z",
+  "sources": [
+    {
+      "id": "retail-store-ai",
+      "title": "AI 购物时代：重新定义门店",
+      "publisher": "McKinsey",
+      "publishedAt": "2026-04-27",
+      "evidenceType": "消费者研究",
+      "language": "en",
+      "url": "https://www.mckinsey.com/industries/retail/our-insights/shopping-in-the-age-of-ai-redefining-stores-for-a-new-era",
+      "fact": "研究与 ICSC 联合调查 3,004 名美国消费者，并认为未来三到五年的门店组合决策会影响实体空间能否继续获得访问。",
+      "locator": "Research methodology；Executive introduction",
+      "limitation": "美国消费者调查与管理判断，迁移到中国和具体业态前需重做样本与门店基线。"
+    },
+    {
+      "id": "retail-ecommerce-ai",
+      "title": "欧洲新电商议程：AI 如何重置增长与竞争",
+      "publisher": "McKinsey",
+      "publishedAt": "2026-06-10",
+      "evidenceType": "行业研究",
+      "language": "en",
+      "url": "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/europes-new-ecommerce-agenda-how-ai-is-resetting-growth-and-competition",
+      "fact": "研究预计欧洲电商年增 5%–7%，并将 Agentic Commerce 视为会改变搜索、比较与交易编排的重要情景。",
+      "locator": "Opening and Exhibit 1；Section on agentic shopping",
+      "limitation": "包含市场预测与情景估计，不等于单一零售商可直接实现的收入。"
+    },
+    {
+      "id": "retail-agentic-commerce",
+      "title": "智能体 AI 商务：下一场零售革命已经到来",
+      "publisher": "Bain",
+      "publishedAt": "2026-03-02",
+      "evidenceType": "消费者研究",
+      "language": "en",
+      "url": "https://www.bain.com/insights/agentic-ai-commerce-the-next-retail-revolution-is-here/",
+      "fact": "Bain Consumer Lab 调查称，30%–45% 的美国消费者已使用生成式 AI 研究和比较产品，部分早期用户开始在助手中购物与结账。",
+      "locator": "Official page section: Opening section",
+      "limitation": "调查覆盖早期使用者且以美国市场为主；采用率不能直接代表中国消费者。"
+    },
+    {
+      "id": "retail-pricing-bots",
+      "title": "在线零售定价：同时服务人类与机器顾客",
+      "publisher": "Bain",
+      "publishedAt": "2026-06-16",
+      "evidenceType": "管理观点",
+      "language": "en",
+      "url": "https://www.bain.com/insights/online-grocery-pricing-for-both-humans-and-bots/",
+      "fact": "文章指出，AI 购物代理会跨多家零售商比价，从而检验只围绕人类心理设计的定价策略。",
+      "locator": "Official page hero summary；Opening section",
+      "limitation": "主要是战略判断，不提供定价模型效果的独立对照实验。"
+    },
+    {
+      "id": "retail-alibaba-1111",
+      "title": "AI 首次全面落地天猫双 11，创造实质价值",
+      "publisher": "阿里巴巴集团",
+      "publishedAt": "2025-10-16",
+      "evidenceType": "公司披露",
+      "language": "zh",
+      "url": "https://home.alibabagroup.com/zh-HK/document-1915930722120499200",
+      "fact": "阿里巴巴披露：生成式 AI 接入搜索与推荐后，复杂查询相关性和部分推荐场景点击率取得双位数改善，并向商家提供内容、经营分析和客服工具。",
+      "locator": "“AI 首次全面落地天猫双 11”正文：电商效率、商家 AI 团队、智能购物体验",
+      "limitation": "平台自报且发生在大促期，指标可能受流量、补贴与品类结构共同影响，未披露独立增量实验。"
+    },
+    {
+      "id": "retail-haier-digital",
+      "title": "海尔智家 2025 半年报：AI 与数字化嵌入全流程",
+      "publisher": "海尔集团",
+      "publishedAt": "2025-08-29",
+      "evidenceType": "公司披露",
+      "language": "zh",
+      "url": "https://www.haier.com/about_haier/xinwen/20250829_270448.shtml",
+      "fact": "海尔披露通过 AI 订单预测优化布货并把 AI 与数字化嵌入研发、生产、销售和物流；自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元。",
+      "locator": "正文：“海尔智家通过把 AI 和数字化工具嵌入全流程”段落",
+      "limitation": "公司新闻基于半年报摘要，多个经营动作同时发生，不能把全部改善归因于 AI。"
+    }
+  ]
+}

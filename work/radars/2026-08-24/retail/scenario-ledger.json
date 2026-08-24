@@ -1,0 +1,873 @@
+{
+  "schemaVersion": "1.0",
+  "domain": "retail",
+  "generatedAt": "2026-08-24T02:36:49.381Z",
+  "scenarioCount": 24,
+  "scenarios": [
+    {
+      "id": "retail-01",
+      "title": "用 AI 预测 SKU×门店需求并提前生成补货建议",
+      "priority": "P0",
+      "matrixEligible": true,
+      "matrixRank": 1,
+      "evidenceIds": [
+        "retail-ecommerce-ai",
+        "retail-agentic-commerce",
+        "retail-haier-digital"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-ecommerce-ai",
+          "text": "研究预计欧洲电商年增 5%–7%，并将 Agentic Commerce 视为会改变搜索、比较与交易编排的重要情景。",
+          "locator": "Opening and Exhibit 1；Section on agentic shopping"
+        },
+        {
+          "sourceId": "retail-haier-digital",
+          "text": "海尔披露通过 AI 订单预测优化布货并把 AI 与数字化嵌入研发、生产、销售和物流；自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元。",
+          "locator": "正文：“海尔智家通过把 AI 和数字化工具嵌入全流程”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "retail-haier-digital",
+          "market": "中国",
+          "caveat": "半年报摘要为公司自报，未公开模型对照组，需按场景分别验证。"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "reason": "研究依据与企业公开实践相互补充，但收益仍需用本企业基线复验。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-02",
+      "title": "用 AI 即时回答售前售后问题并把复杂工单转给人工",
+      "priority": "P0",
+      "matrixEligible": true,
+      "matrixRank": 2,
+      "evidenceIds": [
+        "retail-agentic-commerce",
+        "retail-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-agentic-commerce",
+          "text": "Bain Consumer Lab 调查称，30%–45% 的美国消费者已使用生成式 AI 研究和比较产品，部分早期用户开始在助手中购物与结账。",
+          "locator": "Official page section: Opening section"
+        },
+        {
+          "sourceId": "retail-alibaba-1111",
+          "text": "阿里巴巴披露：生成式 AI 接入搜索与推荐后，复杂查询相关性和部分推荐场景点击率取得双位数改善，并向商家提供内容、经营分析和客服工具。",
+          "locator": "“AI 首次全面落地天猫双 11”正文：电商效率、商家 AI 团队、智能购物体验"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "retail-alibaba-1111",
+          "market": "中国",
+          "caveat": "阿里巴巴自报，活动期结果不能直接外推到常态经营或其他零售商。"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "reason": "研究依据与企业公开实践相互补充，但收益仍需用本企业基线复验。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-03",
+      "title": "用 AI 理解复杂购物需求并给出可解释的商品推荐",
+      "priority": "P0",
+      "matrixEligible": true,
+      "matrixRank": 3,
+      "evidenceIds": [
+        "retail-agentic-commerce",
+        "retail-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-agentic-commerce",
+          "text": "Bain Consumer Lab 调查称，30%–45% 的美国消费者已使用生成式 AI 研究和比较产品，部分早期用户开始在助手中购物与结账。",
+          "locator": "Official page section: Opening section"
+        },
+        {
+          "sourceId": "retail-alibaba-1111",
+          "text": "阿里巴巴披露：生成式 AI 接入搜索与推荐后，复杂查询相关性和部分推荐场景点击率取得双位数改善，并向商家提供内容、经营分析和客服工具。",
+          "locator": "“AI 首次全面落地天猫双 11”正文：电商效率、商家 AI 团队、智能购物体验"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "retail-alibaba-1111",
+          "market": "中国",
+          "caveat": "阿里巴巴自报，活动期结果不能直接外推到常态经营或其他零售商。"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "reason": "研究依据与企业公开实践相互补充，但收益仍需用本企业基线复验。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-04",
+      "title": "用 AI 发现区域趋势并为不同商圈调整商品组合",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 4,
+      "evidenceIds": [
+        "retail-store-ai",
+        "retail-haier-digital"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-store-ai",
+          "text": "研究与 ICSC 联合调查 3,004 名美国消费者，并认为未来三到五年的门店组合决策会影响实体空间能否继续获得访问。",
+          "locator": "Research methodology；Executive introduction"
+        },
+        {
+          "sourceId": "retail-haier-digital",
+          "text": "海尔披露通过 AI 订单预测优化布货并把 AI 与数字化嵌入研发、生产、销售和物流；自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元。",
+          "locator": "正文：“海尔智家通过把 AI 和数字化工具嵌入全流程”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "retail-haier-digital",
+          "market": "中国",
+          "caveat": "半年报摘要为公司自报，未公开模型对照组，需按场景分别验证。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-05",
+      "title": "用 AI 模拟价格调整并给出毛利与销量的权衡方案",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 5,
+      "evidenceIds": [
+        "retail-pricing-bots",
+        "retail-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-pricing-bots",
+          "text": "文章指出，AI 购物代理会跨多家零售商比价，从而检验只围绕人类心理设计的定价策略。",
+          "locator": "Official page hero summary；Opening section"
+        },
+        {
+          "sourceId": "retail-alibaba-1111",
+          "text": "阿里巴巴披露：生成式 AI 接入搜索与推荐后，复杂查询相关性和部分推荐场景点击率取得双位数改善，并向商家提供内容、经营分析和客服工具。",
+          "locator": "“AI 首次全面落地天猫双 11”正文：电商效率、商家 AI 团队、智能购物体验"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "retail-alibaba-1111",
+          "market": "中国",
+          "caveat": "阿里巴巴自报，活动期结果不能直接外推到常态经营或其他零售商。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-06",
+      "title": "用 AI 模拟促销方案并识别真正带来增量的活动",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 6,
+      "evidenceIds": [
+        "retail-pricing-bots",
+        "retail-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-pricing-bots",
+          "text": "文章指出，AI 购物代理会跨多家零售商比价，从而检验只围绕人类心理设计的定价策略。",
+          "locator": "Official page hero summary；Opening section"
+        },
+        {
+          "sourceId": "retail-alibaba-1111",
+          "text": "阿里巴巴披露：生成式 AI 接入搜索与推荐后，复杂查询相关性和部分推荐场景点击率取得双位数改善，并向商家提供内容、经营分析和客服工具。",
+          "locator": "“AI 首次全面落地天猫双 11”正文：电商效率、商家 AI 团队、智能购物体验"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "retail-alibaba-1111",
+          "market": "中国",
+          "caveat": "阿里巴巴自报，活动期结果不能直接外推到常态经营或其他零售商。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-07",
+      "title": "用 AI 识别补货异常并协调跨仓跨店库存调拨",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 7,
+      "evidenceIds": [
+        "retail-ecommerce-ai",
+        "retail-haier-digital"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-ecommerce-ai",
+          "text": "研究预计欧洲电商年增 5%–7%，并将 Agentic Commerce 视为会改变搜索、比较与交易编排的重要情景。",
+          "locator": "Opening and Exhibit 1；Section on agentic shopping"
+        },
+        {
+          "sourceId": "retail-haier-digital",
+          "text": "海尔披露通过 AI 订单预测优化布货并把 AI 与数字化嵌入研发、生产、销售和物流；自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元。",
+          "locator": "正文：“海尔智家通过把 AI 和数字化工具嵌入全流程”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "retail-haier-digital",
+          "market": "中国",
+          "caveat": "半年报摘要为公司自报，未公开模型对照组，需按场景分别验证。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-08",
+      "title": "用 AI 识别货架缺货并生成门店补架任务",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 8,
+      "evidenceIds": [
+        "retail-store-ai",
+        "retail-haier-digital"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-store-ai",
+          "text": "研究与 ICSC 联合调查 3,004 名美国消费者，并认为未来三到五年的门店组合决策会影响实体空间能否继续获得访问。",
+          "locator": "Research methodology；Executive introduction"
+        },
+        {
+          "sourceId": "retail-haier-digital",
+          "text": "海尔披露通过 AI 订单预测优化布货并把 AI 与数字化嵌入研发、生产、销售和物流；自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元。",
+          "locator": "正文：“海尔智家通过把 AI 和数字化工具嵌入全流程”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "retail-haier-digital",
+          "market": "中国",
+          "caveat": "半年报摘要为公司自报，未公开模型对照组，需按场景分别验证。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-09",
+      "title": "用 AI 按客流和任务负荷编排门店工作",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 9,
+      "evidenceIds": [
+        "retail-store-ai",
+        "retail-haier-digital"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-store-ai",
+          "text": "研究与 ICSC 联合调查 3,004 名美国消费者，并认为未来三到五年的门店组合决策会影响实体空间能否继续获得访问。",
+          "locator": "Research methodology；Executive introduction"
+        },
+        {
+          "sourceId": "retail-haier-digital",
+          "text": "海尔披露通过 AI 订单预测优化布货并把 AI 与数字化嵌入研发、生产、销售和物流；自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元。",
+          "locator": "正文：“海尔智家通过把 AI 和数字化工具嵌入全流程”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "retail-haier-digital",
+          "market": "中国",
+          "caveat": "半年报摘要为公司自报，未公开模型对照组，需按场景分别验证。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-10",
+      "title": "用 AI 预测客流并辅助生成公平可调整的排班",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 10,
+      "evidenceIds": [
+        "retail-store-ai",
+        "retail-haier-digital"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-store-ai",
+          "text": "研究与 ICSC 联合调查 3,004 名美国消费者，并认为未来三到五年的门店组合决策会影响实体空间能否继续获得访问。",
+          "locator": "Research methodology；Executive introduction"
+        },
+        {
+          "sourceId": "retail-haier-digital",
+          "text": "海尔披露通过 AI 订单预测优化布货并把 AI 与数字化嵌入研发、生产、销售和物流；自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元。",
+          "locator": "正文：“海尔智家通过把 AI 和数字化工具嵌入全流程”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "retail-haier-digital",
+          "market": "中国",
+          "caveat": "半年报摘要为公司自报，未公开模型对照组，需按场景分别验证。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-11",
+      "title": "用 AI 给店员实时提供商品知识和服务建议",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 11,
+      "evidenceIds": [
+        "retail-store-ai",
+        "retail-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-store-ai",
+          "text": "研究与 ICSC 联合调查 3,004 名美国消费者，并认为未来三到五年的门店组合决策会影响实体空间能否继续获得访问。",
+          "locator": "Research methodology；Executive introduction"
+        },
+        {
+          "sourceId": "retail-alibaba-1111",
+          "text": "阿里巴巴披露：生成式 AI 接入搜索与推荐后，复杂查询相关性和部分推荐场景点击率取得双位数改善，并向商家提供内容、经营分析和客服工具。",
+          "locator": "“AI 首次全面落地天猫双 11”正文：电商效率、商家 AI 团队、智能购物体验"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "retail-alibaba-1111",
+          "market": "中国",
+          "caveat": "阿里巴巴自报，活动期结果不能直接外推到常态经营或其他零售商。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-12",
+      "title": "用 AI 为会员生成下一最佳行动并控制触达频率",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 12,
+      "evidenceIds": [
+        "retail-agentic-commerce",
+        "retail-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-agentic-commerce",
+          "text": "Bain Consumer Lab 调查称，30%–45% 的美国消费者已使用生成式 AI 研究和比较产品，部分早期用户开始在助手中购物与结账。",
+          "locator": "Official page section: Opening section"
+        },
+        {
+          "sourceId": "retail-alibaba-1111",
+          "text": "阿里巴巴披露：生成式 AI 接入搜索与推荐后，复杂查询相关性和部分推荐场景点击率取得双位数改善，并向商家提供内容、经营分析和客服工具。",
+          "locator": "“AI 首次全面落地天猫双 11”正文：电商效率、商家 AI 团队、智能购物体验"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "retail-alibaba-1111",
+          "market": "中国",
+          "caveat": "阿里巴巴自报，活动期结果不能直接外推到常态经营或其他零售商。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-13",
+      "title": "用 AI 为商品生成可审核的标题、卖点、图片与视频",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "retail-ecommerce-ai",
+        "retail-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-ecommerce-ai",
+          "text": "研究预计欧洲电商年增 5%–7%，并将 Agentic Commerce 视为会改变搜索、比较与交易编排的重要情景。",
+          "locator": "Opening and Exhibit 1；Section on agentic shopping"
+        },
+        {
+          "sourceId": "retail-alibaba-1111",
+          "text": "阿里巴巴披露：生成式 AI 接入搜索与推荐后，复杂查询相关性和部分推荐场景点击率取得双位数改善，并向商家提供内容、经营分析和客服工具。",
+          "locator": "“AI 首次全面落地天猫双 11”正文：电商效率、商家 AI 团队、智能购物体验"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "retail-alibaba-1111",
+          "market": "中国",
+          "caveat": "阿里巴巴自报，活动期结果不能直接外推到常态经营或其他零售商。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-14",
+      "title": "用 AI 汇总评价和客服对话并识别产品体验问题",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "retail-ecommerce-ai",
+        "retail-haier-digital"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-ecommerce-ai",
+          "text": "研究预计欧洲电商年增 5%–7%，并将 Agentic Commerce 视为会改变搜索、比较与交易编排的重要情景。",
+          "locator": "Opening and Exhibit 1；Section on agentic shopping"
+        },
+        {
+          "sourceId": "retail-haier-digital",
+          "text": "海尔披露通过 AI 订单预测优化布货并把 AI 与数字化嵌入研发、生产、销售和物流；自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元。",
+          "locator": "正文：“海尔智家通过把 AI 和数字化工具嵌入全流程”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "retail-haier-digital",
+          "market": "中国",
+          "caveat": "半年报摘要为公司自报，未公开模型对照组，需按场景分别验证。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-15",
+      "title": "用 AI 识别退货根因并提出商品与流程改进建议",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "retail-ecommerce-ai",
+        "retail-haier-digital"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-ecommerce-ai",
+          "text": "研究预计欧洲电商年增 5%–7%，并将 Agentic Commerce 视为会改变搜索、比较与交易编排的重要情景。",
+          "locator": "Opening and Exhibit 1；Section on agentic shopping"
+        },
+        {
+          "sourceId": "retail-haier-digital",
+          "text": "海尔披露通过 AI 订单预测优化布货并把 AI 与数字化嵌入研发、生产、销售和物流；自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元。",
+          "locator": "正文：“海尔智家通过把 AI 和数字化工具嵌入全流程”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "retail-haier-digital",
+          "market": "中国",
+          "caveat": "半年报摘要为公司自报，未公开模型对照组，需按场景分别验证。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-16",
+      "title": "用 AI 识别支付、优惠券和退货欺诈线索供人工调查",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "retail-agentic-commerce",
+        "retail-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-agentic-commerce",
+          "text": "Bain Consumer Lab 调查称，30%–45% 的美国消费者已使用生成式 AI 研究和比较产品，部分早期用户开始在助手中购物与结账。",
+          "locator": "Official page section: Opening section"
+        },
+        {
+          "sourceId": "retail-alibaba-1111",
+          "text": "阿里巴巴披露：生成式 AI 接入搜索与推荐后，复杂查询相关性和部分推荐场景点击率取得双位数改善，并向商家提供内容、经营分析和客服工具。",
+          "locator": "“AI 首次全面落地天猫双 11”正文：电商效率、商家 AI 团队、智能购物体验"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "retail-alibaba-1111",
+          "market": "中国",
+          "caveat": "阿里巴巴自报，活动期结果不能直接外推到常态经营或其他零售商。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-17",
+      "title": "用 AI 发现损耗异常并安排可审计的门店调查",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "retail-store-ai",
+        "retail-haier-digital"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-store-ai",
+          "text": "研究与 ICSC 联合调查 3,004 名美国消费者，并认为未来三到五年的门店组合决策会影响实体空间能否继续获得访问。",
+          "locator": "Research methodology；Executive introduction"
+        },
+        {
+          "sourceId": "retail-haier-digital",
+          "text": "海尔披露通过 AI 订单预测优化布货并把 AI 与数字化嵌入研发、生产、销售和物流；自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元。",
+          "locator": "正文：“海尔智家通过把 AI 和数字化工具嵌入全流程”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "retail-haier-digital",
+          "market": "中国",
+          "caveat": "半年报摘要为公司自报，未公开模型对照组，需按场景分别验证。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-18",
+      "title": "用 AI 评估新店、关店与店网调整的多情景影响",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "retail-store-ai",
+        "retail-haier-digital"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-store-ai",
+          "text": "研究与 ICSC 联合调查 3,004 名美国消费者，并认为未来三到五年的门店组合决策会影响实体空间能否继续获得访问。",
+          "locator": "Research methodology；Executive introduction"
+        },
+        {
+          "sourceId": "retail-haier-digital",
+          "text": "海尔披露通过 AI 订单预测优化布货并把 AI 与数字化嵌入研发、生产、销售和物流；自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元。",
+          "locator": "正文：“海尔智家通过把 AI 和数字化工具嵌入全流程”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "retail-haier-digital",
+          "market": "中国",
+          "caveat": "半年报摘要为公司自报，未公开模型对照组，需按场景分别验证。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-19",
+      "title": "用 AI 诊断电商漏斗并提出可实验的转化改进",
+      "priority": "P2",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "retail-ecommerce-ai",
+        "retail-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-ecommerce-ai",
+          "text": "研究预计欧洲电商年增 5%–7%，并将 Agentic Commerce 视为会改变搜索、比较与交易编排的重要情景。",
+          "locator": "Opening and Exhibit 1；Section on agentic shopping"
+        },
+        {
+          "sourceId": "retail-alibaba-1111",
+          "text": "阿里巴巴披露：生成式 AI 接入搜索与推荐后，复杂查询相关性和部分推荐场景点击率取得双位数改善，并向商家提供内容、经营分析和客服工具。",
+          "locator": "“AI 首次全面落地天猫双 11”正文：电商效率、商家 AI 团队、智能购物体验"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "retail-alibaba-1111",
+          "market": "中国",
+          "caveat": "阿里巴巴自报，活动期结果不能直接外推到常态经营或其他零售商。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-20",
+      "title": "用 AI 预测履约中断并主动给客户可选解决方案",
+      "priority": "P2",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "retail-ecommerce-ai",
+        "retail-haier-digital"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-ecommerce-ai",
+          "text": "研究预计欧洲电商年增 5%–7%，并将 Agentic Commerce 视为会改变搜索、比较与交易编排的重要情景。",
+          "locator": "Opening and Exhibit 1；Section on agentic shopping"
+        },
+        {
+          "sourceId": "retail-haier-digital",
+          "text": "海尔披露通过 AI 订单预测优化布货并把 AI 与数字化嵌入研发、生产、销售和物流；自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元。",
+          "locator": "正文：“海尔智家通过把 AI 和数字化工具嵌入全流程”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "retail-haier-digital",
+          "market": "中国",
+          "caveat": "半年报摘要为公司自报，未公开模型对照组，需按场景分别验证。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-21",
+      "title": "用 AI 优化忠诚度权益组合并测量真实增量",
+      "priority": "P2",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "retail-agentic-commerce",
+        "retail-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-agentic-commerce",
+          "text": "Bain Consumer Lab 调查称，30%–45% 的美国消费者已使用生成式 AI 研究和比较产品，部分早期用户开始在助手中购物与结账。",
+          "locator": "Official page section: Opening section"
+        },
+        {
+          "sourceId": "retail-alibaba-1111",
+          "text": "阿里巴巴披露：生成式 AI 接入搜索与推荐后，复杂查询相关性和部分推荐场景点击率取得双位数改善，并向商家提供内容、经营分析和客服工具。",
+          "locator": "“AI 首次全面落地天猫双 11”正文：电商效率、商家 AI 团队、智能购物体验"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "retail-alibaba-1111",
+          "market": "中国",
+          "caveat": "阿里巴巴自报，活动期结果不能直接外推到常态经营或其他零售商。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-22",
+      "title": "用 AI 比较同类商品并自动生成采购与买手简报",
+      "priority": "P2",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "retail-ecommerce-ai",
+        "retail-haier-digital"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-ecommerce-ai",
+          "text": "研究预计欧洲电商年增 5%–7%，并将 Agentic Commerce 视为会改变搜索、比较与交易编排的重要情景。",
+          "locator": "Opening and Exhibit 1；Section on agentic shopping"
+        },
+        {
+          "sourceId": "retail-haier-digital",
+          "text": "海尔披露通过 AI 订单预测优化布货并把 AI 与数字化嵌入研发、生产、销售和物流；自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元。",
+          "locator": "正文：“海尔智家通过把 AI 和数字化工具嵌入全流程”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "retail-haier-digital",
+          "market": "中国",
+          "caveat": "半年报摘要为公司自报，未公开模型对照组，需按场景分别验证。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-23",
+      "title": "用 AI 汇总商圈和竞品信号并生成周度经营简报",
+      "priority": "P2",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "retail-pricing-bots",
+        "retail-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-pricing-bots",
+          "text": "文章指出，AI 购物代理会跨多家零售商比价，从而检验只围绕人类心理设计的定价策略。",
+          "locator": "Official page hero summary；Opening section"
+        },
+        {
+          "sourceId": "retail-alibaba-1111",
+          "text": "阿里巴巴披露：生成式 AI 接入搜索与推荐后，复杂查询相关性和部分推荐场景点击率取得双位数改善，并向商家提供内容、经营分析和客服工具。",
+          "locator": "“AI 首次全面落地天猫双 11”正文：电商效率、商家 AI 团队、智能购物体验"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "retail-alibaba-1111",
+          "market": "中国",
+          "caveat": "阿里巴巴自报，活动期结果不能直接外推到常态经营或其他零售商。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "retail-24",
+      "title": "让 AI 按敏感属性自主差别定价或做人脸监控（禁止）",
+      "priority": "P3",
+      "matrixEligible": false,
+      "matrixRank": null,
+      "evidenceIds": [
+        "retail-pricing-bots",
+        "retail-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "retail-pricing-bots",
+          "text": "文章指出，AI 购物代理会跨多家零售商比价，从而检验只围绕人类心理设计的定价策略。",
+          "locator": "Official page hero summary；Opening section"
+        },
+        {
+          "sourceId": "retail-alibaba-1111",
+          "text": "阿里巴巴披露：生成式 AI 接入搜索与推荐后，复杂查询相关性和部分推荐场景点击率取得双位数改善，并向商家提供内容、经营分析和客服工具。",
+          "locator": "“AI 首次全面落地天猫双 11”正文：电商效率、商家 AI 团队、智能购物体验"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "retail-alibaba-1111",
+          "market": "中国",
+          "caveat": "阿里巴巴自报，活动期结果不能直接外推到常态经营或其他零售商。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "风险边界有明确治理依据，但不同司法辖区和业务情境仍需专项评估。"
+      },
+      "evidenceWindow": "current"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "domain": "retail",
+  "discoveredAt": "2026-08-24T00:00:00+08:00",
+  "coverage": { "discovered": 8, "included": 6, "excluded": 2, "failed": 0 },
+  "candidates": [
+    { "id": "retail-store-ai", "url": "https://www.mckinsey.com/industries/retail/our-insights/shopping-in-the-age-of-ai-redefining-stores-for-a-new-era", "status": "included", "discovery": "existing_local_archive", "reason": "2026 consumer research and store portfolio implications" },
+    { "id": "retail-ecommerce-ai", "url": "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/europes-new-ecommerce-agenda-how-ai-is-resetting-growth-and-competition", "status": "included", "discovery": "existing_local_archive", "reason": "2026 ecommerce and agentic commerce research" },
+    { "id": "retail-agentic-commerce", "url": "https://www.bain.com/insights/agentic-ai-commerce-the-next-retail-revolution-is-here/", "status": "included", "discovery": "existing_local_archive", "reason": "2026 consumer adoption and retail strategy evidence" },
+    { "id": "retail-pricing-bots", "url": "https://www.bain.com/insights/online-grocery-pricing-for-both-humans-and-bots/", "status": "included", "discovery": "existing_local_archive", "reason": "2026 pricing boundary for human and agent shoppers" },
+    { "id": "retail-alibaba-1111", "url": "https://home.alibabagroup.com/zh-HK/document-1915930722120499200", "status": "included", "discovery": "official_web_search", "reason": "2025 official Chinese company disclosure with operational metrics" },
+    { "id": "retail-haier-digital", "url": "https://www.haier.com/about_haier/xinwen/20250829_270448.shtml", "status": "included", "discovery": "official_web_search", "reason": "2025 official Chinese company disclosure covering inventory and marketing" },
+    { "id": "retail-alibaba-2024-tools", "url": "https://home.alibabagroup.com/zh-HK/document-1738398759789789184", "status": "excluded", "discovery": "official_web_search", "reason": "older and superseded by the 2025 large-scale deployment disclosure" },
+    { "id": "retail-baidu-unmanned-store", "url": "https://ai.baidu.com/customer/bailiantongcheng", "status": "excluded", "discovery": "official_vendor_case_search", "reason": "undated legacy biometric case; retained only as a research lead, not evidence" }
+  ]
+}
