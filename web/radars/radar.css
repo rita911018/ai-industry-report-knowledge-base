@@ -356,6 +356,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .radar-masthead, .radar-hero-actions, .radar-export-note, .filter-panel, .result-line, .matrix-point, .scenario-chevron, .radar-empty { display: none !important; }
   .radar-toc-panel, .radar-toc-trigger, .radar-toc-backdrop { display: none !important; }
   .radar-shell { width: 100%; }
+  .radar-detail-page #radar-app .radar-shell { width: 100% !important; margin-inline: auto !important; }
   .radar-hero-grid { min-height: auto; padding-block: 30px; }
   .radar-hero h1 { color: #111; font-size: 54px; }
   .radar-hero-lede, .decision-strip p, .portfolio-section .section-description, .source-copy small { color: #333 !important; }

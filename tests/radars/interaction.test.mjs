@@ -441,6 +441,40 @@ test('scenario TOC links remove background inertness before focusing the expande
   assert.equal(dom.window.location.hash, '#legal-07');
 });
 
+test('live TOC encodes opaque scenario hashes once across HTTP and file URLs and restores deep links', async () => {
+  const legal = structuredClone(await loadRadarFile(fileURLToPath(legalPath)));
+  const percentId = 'legal%2F01';
+  const reservedId = 'legal/07?view=all';
+  legal.scenarios[0].id = percentId;
+  legal.scenarios[6].id = reservedId;
+  const encodedPercentId = encodeURIComponent(percentId);
+  const encodedReservedId = encodeURIComponent(reservedId);
+
+  const httpDom = await setup(legal);
+  const httpPercentLink = [...httpDom.window.document.querySelectorAll('[data-toc-scenario]')]
+    .find((link) => link.dataset.tocScenario === percentId);
+  const httpReservedLink = [...httpDom.window.document.querySelectorAll('[data-toc-scenario]')]
+    .find((link) => link.dataset.tocScenario === reservedId);
+  httpPercentLink.click();
+  assert.equal(httpDom.window.location.hash, `#${encodedPercentId}`);
+  httpPercentLink.click();
+  assert.equal(httpDom.window.location.hash, `#${encodedPercentId}`);
+  httpReservedLink.click();
+  assert.equal(httpDom.window.location.hash, `#${encodedReservedId}`);
+
+  const fileDom = await setup(legal, 'file:///tmp/legal.html');
+  const fileReservedLink = [...fileDom.window.document.querySelectorAll('[data-toc-scenario]')]
+    .find((link) => link.dataset.tocScenario === reservedId);
+  fileReservedLink.click();
+  assert.equal(fileDom.window.location.hash, `#${encodedReservedId}`);
+
+  const deepLinkDom = await setup(legal, `http://127.0.0.1/radars/legal.html#${encodedPercentId}`);
+  const deepLinkCard = deepLinkDom.window.document.getElementById(percentId);
+  assert.equal(deepLinkCard.querySelector('.scenario-header').getAttribute('aria-expanded'), 'true');
+  assert.equal(deepLinkDom.window.document.activeElement, deepLinkCard.querySelector('.scenario-header'));
+  assert.equal(deepLinkDom.window.location.hash, `#${encodedPercentId}`);
+});
+
 test('active-reading observer tracks partial batches, retains the strongest target, and synchronizes hash', async () => {
   const observedIds = [];
   let observerCallback;

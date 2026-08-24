@@ -452,11 +452,12 @@
 
   function setLocationHash(state, targetId) {
     const view = state.root?.ownerDocument?.defaultView || window;
-    if (view.location.hash === `#${targetId}`) return;
+    const hash = `#${encodeURIComponent(targetId)}`;
+    if (view.location.hash === hash) return;
     try {
-      view.history.replaceState(view.history.state, '', `#${targetId}`);
+      view.history.replaceState(view.history.state, '', hash);
     } catch {
-      view.location.hash = targetId;
+      view.location.hash = hash;
     }
   }
 

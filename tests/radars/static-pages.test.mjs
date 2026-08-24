@@ -54,6 +54,7 @@ test('shared radar styles cover focus, mobile, reduced motion, and print', async
   assert.match(css, /@media\s*\(max-width:\s*1099px\)[\s\S]*\.radar-toc-panel[^}]*transform:\s*translateX\(-/s);
   assert.match(css, /body\.radar-toc-open[\s\S]*overflow:\s*hidden/s);
   assert.match(css, /@media\s+print[\s\S]*\.radar-toc-panel[\s\S]*display:\s*none\s*!important/s);
+  assert.match(css, /@media\s+print[\s\S]*\.radar-detail-page #radar-app \.radar-shell\s*\{[^}]*width:\s*100%\s*!important[^}]*margin-inline:\s*auto\s*!important/s);
   assert.match(css, /@media\s*\(max-width:\s*1099px\)[\s\S]*\.radar-toc-panel\s*\{[^}]*height:\s*100vh[^}]*height:\s*100dvh[^}]*visibility:\s*hidden[^}]*pointer-events:\s*none/s);
   assert.match(css, /body\.radar-toc-open \.radar-toc-panel\s*\{[^}]*visibility:\s*visible[^}]*pointer-events:\s*auto/s);
   assert.match(css, /@media\s*\(min-width:\s*1100px\)[\s\S]*\.radar-toc-panel\s*\{[^}]*transform:\s*none[^}]*visibility:\s*visible[^}]*pointer-events:\s*auto/s);
