@@ -215,8 +215,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .noscript-radar h1 { font: 500 52px/1 var(--serif); }
 
 .directory-hero { padding: clamp(90px, 15vh, 180px) 0; background: var(--ink); color: white; }
-.directory-hero h1 { max-width: none; }
-.directory-lede { max-width: 52em; margin: 38px 0 0; color: #b7c5bc; font-size: 19px; }
+.directory-hero h1 { max-width: none; font-size: clamp(56px, 6.5vw, 96px); }
+.directory-lede { max-width: 52em; margin: 38px 0 0; color: #b7c5bc; font-size: 24px; }
 .directory-list { padding: clamp(70px, 10vw, 130px) 0; }
 .directory-heading { display: grid; grid-template-columns: 160px 1fr; align-items: end; padding-bottom: 28px; border-bottom: 1px solid var(--ink); }
 .directory-heading span { color: var(--forest); font-size: 11px; font-weight: 800; letter-spacing: .12em; }
@@ -309,7 +309,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .calibration-list { grid-template-columns: 1fr; }
   .calibration-item, .calibration-item + .calibration-item { padding: 22px 0; border-right: 0; }
   .evidence-boundary { grid-template-columns: 1fr; gap: 8px; }
-  .directory-hero h1 { font-size: 56px; }
+  .directory-hero h1 { font-size: 48px; }
+  .directory-lede { font-size: 18px; }
   .radar-directory-link { grid-template-columns: 42px 1fr 22px; gap: 12px; }
   .directory-domain strong { font-size: 34px; }
   .radar-footer .radar-shell { flex-direction: column; gap: 4px; }

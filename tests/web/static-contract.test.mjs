@@ -8,6 +8,8 @@ test('unified page exposes an accessible cited research workspace', async () => 
   const html = await readFile(new URL('index.html', root), 'utf8');
   assert.equal((html.match(/<main\b/g) || []).length, 1);
   assert.doesNotMatch(html, /class="ask-console"/);
+  assert.match(html, /<h1 id="knowledge-heading">AI 行业报告知识库，<br>洞察皆有出处。<\/h1>/);
+  assert.doesNotMatch(html, /问报告，也问证据。/);
   assert.doesNotMatch(html, /问报告，<br>/);
   assert.match(html, /<form[^>]+id="question-form"/);
   assert.match(html, /<label[^>]+for="question"/);

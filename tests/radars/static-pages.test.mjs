@@ -17,6 +17,8 @@ test('radar directory exposes all six domains as full-page destinations', async 
   assert.equal((html.match(/class="radar-directory-link"/g) || []).length, domains.length);
   for (const domain of domains) assert.match(html, new RegExp(`href="${domain}\\.html"`));
   assert.match(html, /返回知识库/);
+  assert.match(html, /<p class="directory-lede">在你的行业，发现 AI 机会。<\/p>/);
+  assert.doesNotMatch(html, /完整场景库用于发现机会/);
 });
 
 for (const domain of domains) {
@@ -43,4 +45,8 @@ test('shared radar styles cover focus, mobile, reduced motion, and print', async
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
   assert.match(css, /@media\s+print/);
   assert.match(css, /\.scenario-detail[^{]*\{[^}]*display:\s*block\s*!important/);
+  assert.match(css, /\.directory-hero h1\s*\{[^}]*font-size:\s*clamp\(56px,\s*6\.5vw,\s*96px\)/s);
+  assert.match(css, /\.directory-lede\s*\{[^}]*font-size:\s*24px/s);
+  assert.match(css, /@media\s*\(max-width:\s*390px\)[\s\S]*\.directory-hero h1\s*\{[^}]*font-size:\s*48px/s);
+  assert.match(css, /@media\s*\(max-width:\s*390px\)[\s\S]*\.directory-lede\s*\{[^}]*font-size:\s*18px/s);
 });
