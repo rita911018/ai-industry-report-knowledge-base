@@ -2,7 +2,7 @@
   'use strict';
   const articles = Array.isArray(window.ARTICLE_INDEX) ? window.ARTICLE_INDEX : [];
   const byId = new Map(articles.map((article) => [article.id, article]));
-  const state = { visible: 30, filtered: articles, sources: [] };
+  const state = { visible: 30, filtered: articles };
   const $ = (selector) => document.querySelector(selector);
 
   function node(tag, options = {}, children = []) {
@@ -87,104 +87,6 @@
     dialog.showModal();
   }
 
-  function saveQuestion(question) {
-    const old = JSON.parse(localStorage.getItem('ai-report-questions') || '[]');
-    localStorage.setItem('ai-report-questions', JSON.stringify([question, ...old.filter((item) => item !== question)].slice(0, 5)));
-    renderHistory();
-  }
-  function renderHistory() {
-    const historyBox = $('#question-history');
-    historyBox.replaceChildren();
-    for (const question of JSON.parse(localStorage.getItem('ai-report-questions') || '[]')) {
-      const button = node('button', { text: question, attrs: { type: 'button' } });
-      button.addEventListener('click', () => { $('#question').value = question; $('#question').focus(); });
-      historyBox.append(button);
-    }
-  }
-
-  function sourceButton(id) {
-    const source = state.sources.find((item) => item.chunkId === id);
-    const button = node('button', { className: 'source-chip', text: source ? `${source.publisher} · ${source.sectionPath || '正文'}` : id, attrs: { type: 'button' } });
-    button.addEventListener('click', openSources);
-    return button;
-  }
-  function renderAnswer(payload) {
-    const answer = $('#answer');
-    answer.replaceChildren(node('h2', { text: payload.insufficient ? '资料范围说明' : '基于归档全文的回答' }), node('p', { className: 'answer-lead', text: payload.answer }));
-    state.sources = payload.sources || [];
-    for (const claim of payload.claims || []) {
-      const block = node('div', { className: `claim ${claim.kind === 'analysis' ? 'analysis' : ''}` }, [node('p', { text: claim.text })]);
-      const chips = node('div');
-      for (const id of claim.citations || []) chips.append(sourceButton(id));
-      block.append(chips);
-      answer.append(block);
-    }
-    if (payload.limitations?.length) answer.append(node('p', { className: 'limitations', text: `边界：${payload.limitations.join('；')}` }));
-    if (state.sources.length) {
-      const button = node('button', { className: 'text-button', text: `查看全部 ${state.sources.length} 个来源`, attrs: { type: 'button' } });
-      button.addEventListener('click', openSources);
-      answer.append(button);
-    }
-  }
-
-  function openSources() {
-    const list = $('#source-list');
-    list.replaceChildren();
-    for (const source of state.sources) {
-      const links = node('div', { className: 'source-links' });
-      for (const [label, href] of [['中文全文', source.localPaths?.chinese], ['原文归档', source.localPaths?.original], ['官方原文', source.sourceUrl]]) {
-        if (href) links.append(node('a', { text: label, attrs: { href, target: '_blank', rel: 'noreferrer' } }));
-      }
-      list.append(node('article', { className: 'source-item' }, [
-        node('span', { className: 'eyebrow', text: `${source.publisher} · ${source.chunkId}` }),
-        node('h3', { text: source.titleZh || source.titleOriginal }),
-        node('p', { text: source.sectionPath || '正文' }), links,
-      ]));
-    }
-    if (!state.sources.length) list.append(node('p', { text: '当前回答没有可展示的来源。' }));
-    $('#drawer-backdrop').hidden = false;
-    $('#source-drawer').classList.add('open');
-    $('#source-drawer').setAttribute('aria-hidden', 'false');
-    $('#close-drawer').focus();
-  }
-  function closeSources() {
-    $('#source-drawer').classList.remove('open');
-    $('#source-drawer').setAttribute('aria-hidden', 'true');
-    $('#drawer-backdrop').hidden = true;
-  }
-
-  async function ask(question) {
-    const button = $('#ask-button');
-    button.disabled = true;
-    button.textContent = '正在检索全文…';
-    $('#answer').replaceChildren(node('p', { className: 'answer-placeholder', text: '正在查找相关证据并校验来源，请稍候。' }));
-    try {
-      const response = await fetch('/api/ask', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ question }) });
-      const payload = await response.json();
-      if (!response.ok) throw Object.assign(new Error(payload.error || '问答服务暂不可用'), { code: payload.code });
-      renderAnswer(payload);
-      saveQuestion(question);
-    } catch (error) {
-      const guidance = error.code === 'MISSING_API_KEY' ? '尚未配置 DeepSeek API Key。请在启动服务的终端设置 DEEPSEEK_API_KEY 后重新启动。' : error.message;
-      $('#answer').replaceChildren(node('h2', { text: '暂时无法生成回答' }), node('p', { className: 'answer-placeholder', text: guidance }));
-    } finally {
-      button.disabled = false;
-      button.textContent = '基于全文回答';
-    }
-  }
-
-  async function checkHealth() {
-    const status = $('#api-status');
-    try {
-      const health = await (await fetch('/api/health')).json();
-      status.textContent = health.deepseekConfigured ? `${health.model} 已连接` : 'DeepSeek 待配置';
-      status.classList.add(health.deepseekConfigured ? 'online' : 'offline');
-    } catch {
-      status.textContent = '请通过本地服务启动';
-      status.classList.add('offline');
-    }
-  }
-
   function initFilters() {
     fillSelect('#publisher-filter', unique(articles.map((item) => item.publisher)));
     fillSelect('#category-filter', Array.isArray(window.ARTICLE_TOPICS) ? window.ARTICLE_TOPICS : unique(articles.map((item) => item.category?.primary)));
@@ -198,14 +100,9 @@
   }
 
   $('#article-count').textContent = String(articles.length || 469);
-  $('#question-form').addEventListener('submit', (event) => { event.preventDefault(); const question = $('#question').value.trim(); if (question) ask(question); });
   $('#load-more').addEventListener('click', () => { state.visible += 30; renderArticles(); });
-  $('#close-drawer').addEventListener('click', closeSources);
-  $('#drawer-backdrop').addEventListener('click', closeSources);
   $('#article-dialog .dialog-close').addEventListener('click', () => $('#article-dialog').close());
-  document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeSources(); });
   initFilters();
   filterArticles();
-  renderHistory();
-  checkHealth();
+  window.KnowledgeChat.init({ endpoint: '/api/ask' });
 })();

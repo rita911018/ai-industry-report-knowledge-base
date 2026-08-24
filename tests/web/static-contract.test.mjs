@@ -14,7 +14,7 @@ test('unified page exposes an accessible cited research workspace', async () => 
   for (const id of ['publisher-filter', 'date-filter', 'category-filter', 'priority-filter']) assert.match(html, new RegExp(`id="${id}"`));
   assert.match(html, /id="answer"[^>]+aria-live="polite"/);
   assert.match(html, /id="article-results"/);
-  assert.match(html, /id="source-drawer"/);
+  assert.doesNotMatch(html, /id="source-drawer"/);
   assert.match(html, /id="article-dialog"/);
   assert.match(html, /id="api-status"/);
   assert.match(html, /id="knowledge-chat-button"[^>]+aria-label="问整个知识库"/);
@@ -36,13 +36,17 @@ test('unified page exposes an accessible cited research workspace', async () => 
 });
 
 test('assets include responsive, accessible and safe rendering contracts', async () => {
-  const [css, js] = await Promise.all([readFile(new URL('styles.css', root), 'utf8'), readFile(new URL('app.js', root), 'utf8')]);
+  const [css, js, chat] = await Promise.all([readFile(new URL('styles.css', root), 'utf8'), readFile(new URL('app.js', root), 'utf8'), readFile(new URL('chat-widget.js', root), 'utf8')]);
   assert.match(css, /@media\s*\(max-width:\s*390px\)/);
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
   assert.match(css, /:focus-visible/);
   assert.doesNotMatch(js, /\.innerHTML\s*=/);
-  assert.match(js, /localStorage/);
-  assert.match(js, /\/api\/ask/);
+  assert.doesNotMatch(js, /localStorage/);
+  assert.doesNotMatch(js, /fetch\(['"]\/api\/ask/);
+  assert.match(js, /KnowledgeChat\.init/);
+  assert.doesNotMatch(chat, /\.innerHTML\s*=/);
+  assert.match(chat, /localStorage/);
+  assert.match(chat, /\/api\/health/);
   assert.match(js, /ArticleUtils\.sortArticles/);
   assert.match(js, /params\.set\('sort'/);
   assert.match(js, /window\.ARTICLE_TOPICS/);
