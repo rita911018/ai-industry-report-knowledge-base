@@ -28,6 +28,27 @@
     return '问答模型';
   }
 
+  function normalizeMessage(value) {
+    return String(value || '').trim().toLowerCase().replace(/[\s，。！？!?、,.]+/g, '');
+  }
+
+  function smallTalkReply(value) {
+    const message = normalizeMessage(value);
+    if (/^(你好|您好|嗨|hi|hello|早上好|下午好|晚上好)$/.test(message)) {
+      return { title: '你好', text: '你好！我可以检索 469 篇归档文章、比较不同机构观点、解释 AI 机会场景，并提供文章来源与原文链接。' };
+    }
+    if (/^(你是谁|你能干什么|你会什么|能做什么|怎么用|如何使用)$/.test(message)) {
+      return { title: '我能帮你做什么', text: '我可以检索 469 篇归档文章、比较不同机构观点、解释 AI 机会场景，并在知识回答中标注文章来源与原文链接。' };
+    }
+    if (/^(谢谢|感谢|多谢|辛苦了|thankyou|thanks)$/.test(message)) {
+      return { title: '不客气', text: '不客气。你可以继续追问某篇文章、某个机构观点，或一个具体 AI 机会场景。' };
+    }
+    if (/^(再见|拜拜|回头见|bye|goodbye)$/.test(message)) {
+      return { title: '再见', text: '再见。下次可以直接问我报告观点、证据来源或行业 AI 机会。' };
+    }
+    return null;
+  }
+
   function init({ endpoint = '/api/ask' } = {}) {
     const button = $('#knowledge-chat-button');
     const drawer = $('#knowledge-chat-drawer');
@@ -52,7 +73,15 @@
     if (!button || !drawer || drawer.dataset.initialized === 'true') return;
     drawer.dataset.initialized = 'true';
 
-    const state = { sources: [], returnFocus: null };
+    const state = { sources: [], returnFocus: null, busy: false };
+
+    function renderTextAnswer(title, text) {
+      state.sources = [];
+      answer.replaceChildren(
+        node('h2', { text: title }),
+        node('p', { className: 'answer-lead', text }),
+      );
+    }
 
     function closeReader({ restoreFocus = true } = {}) {
       reader.hidden = true;
@@ -170,6 +199,13 @@
     }
 
     async function ask(question) {
+      const localReply = smallTalkReply(question);
+      if (localReply) {
+        renderTextAnswer(localReply.title, localReply.text);
+        return;
+      }
+      if (state.busy) return;
+      state.busy = true;
       askButton.disabled = true;
       askButton.textContent = '正在检索全文…';
       answer.replaceChildren(node('p', { className: 'answer-placeholder', text: '正在查找相关证据并校验来源，请稍候。' }));
@@ -192,6 +228,7 @@
           node('p', { className: 'answer-placeholder', text: guidance }),
         );
       } finally {
+        state.busy = false;
         askButton.disabled = false;
         askButton.textContent = '基于全文回答';
       }
@@ -234,12 +271,18 @@
       const question = questionInput.value.trim();
       if (question) ask(question);
     });
+    questionInput.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' || event.shiftKey || event.isComposing) return;
+      event.preventDefault();
+      if (!state.busy) form.requestSubmit();
+    });
     document.addEventListener('keydown', (event) => {
       if (event.key !== 'Escape') return;
       if (!reader.hidden) closeReader();
       else if (!drawer.hidden) setDrawerOpen(false);
     });
 
+    renderTextAnswer('你好', '你好！我可以检索 469 篇归档文章、比较不同机构观点、解释 AI 机会场景，并提供文章来源与原文链接。');
     renderHistory();
     checkHealth();
   }
