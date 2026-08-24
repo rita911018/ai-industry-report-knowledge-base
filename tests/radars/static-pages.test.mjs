@@ -4,6 +4,79 @@ import { readFile } from 'node:fs/promises';
 
 const root = new URL('../../web/radars/', import.meta.url);
 
+function stripCssComments(css) {
+  return css.replace(/\/\*[\s\S]*?\*\//g, '');
+}
+
+function cssBlock(css, blockStart, description) {
+  if (blockStart === -1) assert.fail(`Missing opening brace for ${description}`);
+  let depth = 0;
+  for (let index = blockStart; index < css.length; index += 1) {
+    if (css[index] === '{') depth += 1;
+    if (css[index] === '}') depth -= 1;
+    if (depth === 0) return { body: css.slice(blockStart + 1, index), end: index };
+  }
+  assert.fail(`Unclosed ${description}`);
+}
+
+function atRuleBlock(css, atRule) {
+  const source = stripCssComments(css);
+  const ruleStart = source.indexOf(atRule);
+  assert.notEqual(ruleStart, -1, `Missing ${atRule}`);
+  const blockStart = source.indexOf('{', ruleStart);
+  return cssBlock(source, blockStart, atRule).body;
+}
+
+function topLevelRules(css) {
+  const source = stripCssComments(css);
+  const rules = [];
+  let searchFrom = 0;
+  while (searchFrom < source.length) {
+    const blockStart = source.indexOf('{', searchFrom);
+    if (blockStart === -1) {
+      assert.equal(source.slice(searchFrom).trim(), '', 'Malformed CSS rule without an opening brace');
+      break;
+    }
+    const selector = source.slice(searchFrom, blockStart).trim();
+    const block = cssBlock(source, blockStart, selector || 'CSS rule');
+    if (selector && !selector.startsWith('@')) rules.push({ selector, declarations: block.body });
+    searchFrom = block.end + 1;
+  }
+  return rules;
+}
+
+function matchingRuleDeclarations(css, selector) {
+  return topLevelRules(css)
+    .filter((rule) => rule.selector.split(',').map((item) => item.trim()).includes(selector))
+    .map((rule) => rule.declarations);
+}
+
+function ruleDeclarations(css, selector) {
+  const matches = matchingRuleDeclarations(css, selector);
+  assert.notEqual(matches.length, 0, `Missing ${selector} rule`);
+  return matches;
+}
+
+function declarationMap(declarations) {
+  const properties = new Map();
+  for (const declaration of declarations.split(';')) {
+    const separator = declaration.indexOf(':');
+    if (separator === -1) continue;
+    const property = declaration.slice(0, separator).trim();
+    if (property) properties.set(property, declaration.slice(separator + 1).trim());
+  }
+  return properties;
+}
+
+function ruleHasDeclaration(css, selector, property, value) {
+  return matchingRuleDeclarations(css, selector)
+    .some((declarations) => value.test(declarationMap(declarations).get(property) || ''));
+}
+
+function assertRuleDeclaration(css, selector, property, value) {
+  assert.ok(ruleHasDeclaration(css, selector, property, value), `${selector} is missing ${property}: ${value}`);
+}
+
 test('knowledge homepage links to the explicit radar directory index', async () => {
   const html = await readFile(new URL('../../web/index.html', import.meta.url), 'utf8');
   assert.match(html, /href="radars\/index\.html"[^>]*>AI机会雷达<\/a>/);
@@ -37,8 +110,14 @@ for (const domain of domains) {
   });
 }
 
-test('shared radar styles cover focus, mobile, reduced motion, and print', async () => {
+test('shared radar styles cover focus, mobile, reduced motion, print, and readable sage', async () => {
   const css = await readFile(new URL('radar.css', root), 'utf8');
+  const printStyles = atRuleBlock(css, '@media print');
+  assert.throws(() => atRuleBlock('@media print', '@media print'), /Missing opening brace/);
+  assert.throws(() => atRuleBlock('@media print{body{color:#111}', '@media print'), /Unclosed/);
+  const declarationBoundaryFixture = '.fixture{border-color:red;max-width:100px}';
+  assert.equal(ruleHasDeclaration(declarationBoundaryFixture, '.fixture', 'color', /^red$/), false);
+  assert.equal(ruleHasDeclaration(declarationBoundaryFixture, '.fixture', 'width', /^100px$/), false);
   assert.match(css, /:focus-visible/);
   assert.match(css, /@media\s*\(max-width:\s*390px\)/);
   assert.match(css, /@media\s*\(max-width:\s*768px\)/);
@@ -53,10 +132,25 @@ test('shared radar styles cover focus, mobile, reduced motion, and print', async
   assert.match(css, /@media\s*\(min-width:\s*1100px\)[\s\S]*\.radar-toc-trigger[^}]*display:\s*none/s);
   assert.match(css, /@media\s*\(max-width:\s*1099px\)[\s\S]*\.radar-toc-panel[^}]*transform:\s*translateX\(-/s);
   assert.match(css, /body\.radar-toc-open[\s\S]*overflow:\s*hidden/s);
-  assert.match(css, /@media\s+print[\s\S]*\.radar-toc-panel[\s\S]*display:\s*none\s*!important/s);
-  assert.match(css, /@media\s+print[\s\S]*\.radar-detail-page #radar-app \.radar-shell\s*\{[^}]*width:\s*100%\s*!important[^}]*margin-inline:\s*auto\s*!important/s);
   assert.match(css, /@media\s*\(max-width:\s*1099px\)[\s\S]*\.radar-toc-panel\s*\{[^}]*height:\s*100vh[^}]*height:\s*100dvh[^}]*visibility:\s*hidden[^}]*pointer-events:\s*none/s);
   assert.match(css, /body\.radar-toc-open \.radar-toc-panel\s*\{[^}]*visibility:\s*visible[^}]*pointer-events:\s*auto/s);
   assert.match(css, /@media\s*\(min-width:\s*1100px\)[\s\S]*\.radar-toc-panel\s*\{[^}]*transform:\s*none[^}]*visibility:\s*visible[^}]*pointer-events:\s*auto/s);
-  assert.match(css, /@media\s+print[\s\S]*body\s*\{[^}]*overflow:\s*visible\s*!important/s);
+  assertRuleDeclaration(printStyles, '.radar-toc-panel', 'display', /^none\s*!important$/);
+  assertRuleDeclaration(printStyles, '.radar-detail-page #radar-app .radar-shell', 'width', /^100%\s*!important$/);
+  assertRuleDeclaration(printStyles, '.radar-detail-page #radar-app .radar-shell', 'margin-inline', /^auto\s*!important$/);
+  assertRuleDeclaration(printStyles, 'body', 'overflow', /^visible\s*!important$/);
+  const [rootDeclarations] = ruleDeclarations(css, ':root');
+  assert.match(rootDeclarations, /--signal:\s*#a9b77a/);
+  assert.match(rootDeclarations, /--signal-strong:\s*#718052/);
+  assert.match(rootDeclarations, /--text-on-dark:\s*#edf2ee/);
+  assert.match(rootDeclarations, /--text-muted-dark:\s*#c1ccc5/);
+  assert.doesNotMatch(stripCssComments(css), /#c9ff47/i);
+  assertRuleDeclaration(css, '.decision-link strong', 'color', /^var\(--text-on-dark\)$/);
+  assertRuleDeclaration(css, '.decision-link small', 'color', /^var\(--text-muted-dark\)$/);
+  assertRuleDeclaration(css, '.company-case-summary', 'color', /^var\(--text-muted-dark\)$/);
+  assertRuleDeclaration(css, '.source-fact p', 'color', /^var\(--text-muted-dark\)$/);
+  assertRuleDeclaration(css, '.evidence-confidence', 'background', /^rgba\(169,\s*183,\s*122,\s*(?:0?\.1|\.10)\)$/);
+  for (const selector of ['.detail-block p', '.detail-list', '.decision-link strong', '.decision-link small', '.company-case-summary', '.source-fact p', '.calibration-item p']) {
+    assertRuleDeclaration(printStyles, selector, 'color', /^#222\s*!important$/);
+  }
 });

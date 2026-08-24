@@ -10,6 +10,91 @@ const legalPath = new URL('../../web/radars/data/legal.js', import.meta.url);
 const hrPath = new URL('../../web/radars/data/hr.js', import.meta.url);
 const extendedPath = new URL('./fixtures/extended-radar.js', import.meta.url);
 
+function stripCssComments(css) {
+  return css.replace(/\/\*[\s\S]*?\*\//g, '');
+}
+
+function cssBlock(css, blockStart, description) {
+  if (blockStart === -1) assert.fail(`Missing opening brace for ${description}`);
+  let depth = 0;
+  for (let index = blockStart; index < css.length; index += 1) {
+    if (css[index] === '{') depth += 1;
+    if (css[index] === '}') depth -= 1;
+    if (depth === 0) return { body: css.slice(blockStart + 1, index), end: index };
+  }
+  assert.fail(`Unclosed ${description}`);
+}
+
+function atRuleBlocks(css, atRule) {
+  const source = stripCssComments(css);
+  const blocks = [];
+  let searchFrom = 0;
+  while (searchFrom < source.length) {
+    const ruleStart = source.indexOf(atRule, searchFrom);
+    if (ruleStart === -1) break;
+    const blockStart = source.indexOf('{', ruleStart);
+    const block = cssBlock(source, blockStart, atRule);
+    blocks.push(block.body);
+    searchFrom = block.end + 1;
+  }
+  assert.notEqual(blocks.length, 0, `Missing ${atRule}`);
+  return blocks;
+}
+
+function topLevelRules(css) {
+  const source = stripCssComments(css);
+  const rules = [];
+  let searchFrom = 0;
+  while (searchFrom < source.length) {
+    const blockStart = source.indexOf('{', searchFrom);
+    if (blockStart === -1) {
+      assert.equal(source.slice(searchFrom).trim(), '', 'Malformed CSS rule without an opening brace');
+      break;
+    }
+    const selector = source.slice(searchFrom, blockStart).trim();
+    const block = cssBlock(source, blockStart, selector || 'CSS rule');
+    if (selector && !selector.startsWith('@')) rules.push({ selector, declarations: block.body });
+    searchFrom = block.end + 1;
+  }
+  return rules;
+}
+
+function matchingRuleDeclarations(css, selector) {
+  return topLevelRules(css)
+    .filter((rule) => rule.selector.split(',').map((item) => item.trim()).includes(selector))
+    .map((rule) => rule.declarations);
+}
+
+function ruleDeclarations(css, selector) {
+  const matches = matchingRuleDeclarations(css, selector);
+  assert.notEqual(matches.length, 0, `Missing ${selector} rule`);
+  return matches;
+}
+
+function declarationMap(declarations) {
+  const properties = new Map();
+  for (const declaration of declarations.split(';')) {
+    const separator = declaration.indexOf(':');
+    if (separator === -1) continue;
+    const property = declaration.slice(0, separator).trim();
+    if (property) properties.set(property, declaration.slice(separator + 1).trim());
+  }
+  return properties;
+}
+
+function ruleHasDeclaration(css, selector, property, value) {
+  return matchingRuleDeclarations(css, selector)
+    .some((declarations) => value.test(declarationMap(declarations).get(property) || ''));
+}
+
+function assertRuleDeclaration(css, selector, property, value) {
+  assert.ok(ruleHasDeclaration(css, selector, property, value), `${selector} is missing ${property}: ${value}`);
+}
+
+function assertAnyPrintRuleDeclaration(blocks, selector, property, value) {
+  assert.ok(blocks.some((styles) => ruleHasDeclaration(styles, selector, property, value)), `${selector} is missing ${property}: ${value} in @media print`);
+}
+
 async function setup(data, url = 'http://127.0.0.1/radars/legal.html', options = {}) {
   const dom = new JSDOM('<!doctype html><div id="radar-error" aria-live="assertive" hidden></div><main id="radar-app"></main>', {
     url,
@@ -179,9 +264,34 @@ test('standalone export contains the complete current-domain report and no secre
   assert.equal((report.match(/data-export-toc-scenario=/g) || []).length, 12);
   for (const id of ['export-priority-matrix', 'export-scenario-portfolio', 'export-priority-starts']) assert.match(report, new RegExp(`id="${id}"`));
   assert.doesNotMatch(report, /<summary tabindex=/);
-  const printStyles = report.slice(report.indexOf('@media print{'), report.indexOf('</style>'));
-  assert.match(printStyles, /\.export-toc\{display:none!important\}/);
-  assert.match(printStyles, /body>\.hero \.shell,body>main \.shell,body>\.footer \.shell\{width:100%!important;max-width:none!important;margin-left:auto!important;margin-right:auto!important\}/);
+  const reportCss = report.match(/<style>([\s\S]*?)<\/style>/)?.[1];
+  assert.ok(reportCss, 'Standalone report contains its stylesheet');
+  const printStyleBlocks = atRuleBlocks(reportCss, '@media print');
+  assert.throws(() => atRuleBlocks('@media print', '@media print'), /Missing opening brace/);
+  assert.throws(() => atRuleBlocks('@media print{body{color:#111}', '@media print'), /Unclosed/);
+  const declarationBoundaryFixture = '.fixture{border-color:red;max-width:100px}';
+  assert.equal(ruleHasDeclaration(declarationBoundaryFixture, '.fixture', 'color', /^red$/), false);
+  assert.equal(ruleHasDeclaration(declarationBoundaryFixture, '.fixture', 'width', /^100px$/), false);
+  assertRuleDeclaration(printStyleBlocks[0], '.export-toc', 'display', /^none\s*!important$/);
+  for (const selector of ['body>.hero .shell', 'body>main .shell', 'body>.footer .shell']) {
+    for (const [property, value] of [['width', /^100%\s*!important$/], ['max-width', /^none\s*!important$/], ['margin-left', /^auto\s*!important$/], ['margin-right', /^auto\s*!important$/]]) {
+      assertAnyPrintRuleDeclaration(printStyleBlocks, selector, property, value);
+    }
+  }
+  const [rootDeclarations] = ruleDeclarations(reportCss, ':root');
+  assert.match(rootDeclarations, /--signal:\s*#a9b77a/);
+  assert.match(rootDeclarations, /--signal-strong:\s*#718052/);
+  assert.match(rootDeclarations, /--text-on-dark:\s*#edf2ee/);
+  assert.match(rootDeclarations, /--text-muted-dark:\s*#c1ccc5/);
+  assert.doesNotMatch(stripCssComments(reportCss), /#c9ff47/i);
+  assertRuleDeclaration(reportCss, '.evidence', 'color', /^var\(--text-on-dark\)$/);
+  assertRuleDeclaration(reportCss, '.evidence span', 'color', /^var\(--text-on-dark\)$/);
+  assertRuleDeclaration(reportCss, '.evidence small', 'color', /^var\(--text-muted-dark\)$/);
+  assertRuleDeclaration(reportCss, '.export-scenario details>.export-score header strong', 'color', /^var\(--signal-strong\)$/);
+  assertRuleDeclaration(reportCss, '.export-scenario details>.export-score .score-row em', 'background', /^var\(--signal-strong\)$/);
+  for (const selector of ['.evidence', '.evidence span', '.evidence small']) {
+    assertAnyPrintRuleDeclaration(printStyleBlocks, selector, 'color', /^#111$/);
+  }
   for (const heading of ['业务痛点', 'AI 价值｜可以做什么', '主要风险', '证据锚点', '哪些公司做过']) assert.match(report, new RegExp(heading));
   for (const item of ['业务价值', '流程适配度', '数据与系统准备度', '证据与可验收性', '风险可控性']) assert.match(report, new RegExp(item));
   assert.match(report, /中国建设科技集团/);
