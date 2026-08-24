@@ -95,3 +95,40 @@ test('shows generic model setup guidance without breaking article browsing', asy
   assert.ok(document.querySelector('#article-results'));
   dom.window.close();
 });
+
+test('welcomes the user and answers supported small talk without calling the model', async () => {
+  const { dom, document, calls } = await bootWidget();
+  document.querySelector('#knowledge-chat-button').click();
+  assert.match(document.querySelector('#answer').textContent, /你好.*469 篇归档文章/s);
+
+  await submitQuestion(dom, document, '你好');
+  assert.match(document.querySelector('#answer').textContent, /文章来源.*原文链接/s);
+
+  await submitQuestion(dom, document, '你能干什么？');
+  assert.match(document.querySelector('#answer').textContent, /比较不同机构观点/);
+  assert.equal(calls.filter((call) => call.url === '/api/ask').length, 0);
+  dom.window.close();
+});
+
+test('Enter submits once while Shift+Enter and composing Enter preserve editing', async () => {
+  const first = await bootWidget();
+  first.document.querySelector('#question').value = '如何治理智能体？';
+  first.document.querySelector('#question').dispatchEvent(new first.dom.window.KeyboardEvent('keydown', {
+    key: 'Enter', bubbles: true, cancelable: true,
+  }));
+  await new Promise((resolve) => first.dom.window.setTimeout(resolve, 0));
+  await new Promise((resolve) => first.dom.window.setTimeout(resolve, 0));
+  assert.equal(first.calls.filter((call) => call.url === '/api/ask').length, 1);
+  first.dom.window.close();
+
+  for (const eventInit of [{ key: 'Enter', shiftKey: true }, { key: 'Enter', isComposing: true }]) {
+    const current = await bootWidget();
+    current.document.querySelector('#question').value = '保留输入';
+    current.document.querySelector('#question').dispatchEvent(new current.dom.window.KeyboardEvent('keydown', {
+      ...eventInit, bubbles: true, cancelable: true,
+    }));
+    await new Promise((resolve) => current.dom.window.setTimeout(resolve, 0));
+    assert.equal(current.calls.filter((call) => call.url === '/api/ask').length, 0);
+    current.dom.window.close();
+  }
+});
