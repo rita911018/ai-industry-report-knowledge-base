@@ -256,6 +256,7 @@ test('standalone export TOC opens and focuses filtered scenarios on file URLs', 
 
 test('standalone export TOC handles punctuation scenario IDs on file URLs', async () => {
   const legal = structuredClone(await loadRadarFile(fileURLToPath(legalPath)));
+  legal.scenarios[0].id = 'legal:01';
   legal.scenarios[6].id = 'legal:07';
   const sourceDom = await setup(legal);
   const report = sourceDom.window.OpportunityRadar.buildStandaloneReport(legal, new Date('2026-08-24T08:00:00+08:00'));
@@ -266,6 +267,12 @@ test('standalone export TOC handles punctuation scenario IDs on file URLs', asyn
     beforeParse(window) { window.HTMLElement.prototype.scrollIntoView = () => {}; },
   });
   const { document } = dom.window;
+  assert.match(document.querySelector('#export-inspector').textContent, new RegExp(legal.scenarios[0].title));
+  const matrixButton = document.querySelector('[data-export-target="legal:07"]');
+  assert.doesNotThrow(() => matrixButton.click());
+  assert.match(document.querySelector('#export-inspector').textContent, new RegExp(legal.scenarios[6].title));
+  assert.equal(matrixButton.getAttribute('aria-pressed'), 'true');
+  assert.equal(document.querySelector('[data-export-target="legal:01"]').getAttribute('aria-pressed'), 'false');
   const target = document.getElementById('export-legal:07');
   const targetDetails = target.querySelector('details');
   targetDetails.open = false;
