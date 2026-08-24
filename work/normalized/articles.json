@@ -12,11 +12,13 @@
     "documentType": "Article",
     "authorRaw": "作者未列出",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "组织、人才与变革",
         "治理、风险与安全"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -80,8 +82,10 @@
     "documentType": "Article",
     "authorRaw": "Fanny Potier, Brittany Heflin",
     "category": {
-      "primary": "组织、人才与变革",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "组织、人才与变革",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -141,10 +145,12 @@
     "documentType": "Article",
     "authorRaw": "Jacopo Brunelli, Paari Rajendran, Abhinav Verma, Geraldine Rhodes 等 6 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "运营、供应链与成本"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -205,10 +211,12 @@
     "documentType": "Article",
     "authorRaw": "Decker Walker, Mike Quinn, Steven Greene, Julia Dhar 等 9 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "消费者、品牌与营销"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -270,10 +278,12 @@
     "documentType": "Article",
     "authorRaw": "Decker Walker, Andy Lin, Hunkar Toyoglu, Mohammed Omar 等 9 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "运营、供应链与成本"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -337,7 +347,9 @@
       "primary": "技术、数据与架构",
       "secondary": [
         "治理、风险与安全"
-      ]
+      ],
+      "sourcePrimary": "技术、数据与架构",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -399,11 +411,13 @@
     "documentType": "Local Article",
     "authorRaw": "作者未列出",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "技术、数据与架构",
         "运营、供应链与成本"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -467,10 +481,12 @@
     "documentType": "Article",
     "authorRaw": "Jeff Kotzen, Julien Ghesquieres, Jody Foldesy, Callan Sainsbury 等 10 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "财务、投资与资本"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -531,10 +547,12 @@
     "documentType": "Article",
     "authorRaw": "Simon Weinstein, Christian Gruß, Riddhish Dubal, Paul Catchlove 等 8 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "组织、人才与变革"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -597,7 +615,9 @@
     "authorRaw": "Akram Awad, Rami Mourtada, Cecilia Bousoño, Suresh Subudhi 等 7 人",
     "category": {
       "primary": "治理、风险与安全",
-      "secondary": []
+      "secondary": [],
+      "sourcePrimary": "治理、风险与安全",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -658,7 +678,9 @@
     "authorRaw": "Joonho Lee, Ichiro Kaku, Seoha Kim, Kyungjae Lee",
     "category": {
       "primary": "财务、投资与资本",
-      "secondary": []
+      "secondary": [],
+      "sourcePrimary": "财务、投资与资本",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -717,8 +739,10 @@
     "documentType": "Article",
     "authorRaw": "Ketil Gjerstad, Justin Manly, Gerry Hansell, Cornelia Ernst 等 8 人",
     "category": {
-      "primary": "战略与行业观察",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "战略与行业观察",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -777,8 +801,10 @@
     "documentType": "Article",
     "authorRaw": "Antti Belt, Allen Thomas",
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -838,8 +864,10 @@
     "documentType": "Article",
     "authorRaw": "Tuukka Seppä, Matthieu Berthion, Dominic C. Klemmer, Tomas Nordahl 等 6 人",
     "category": {
-      "primary": "组织、人才与变革",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "组织、人才与变革",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -899,10 +927,12 @@
     "documentType": "Article",
     "authorRaw": "Nathalia Bellizia, Isabelle Cox, Megan Mirabella, Nadine Moore",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "组织、人才与变革"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -964,10 +994,12 @@
     "documentType": "Article",
     "authorRaw": "Hamid Maher, Patrick Dupoux, Ali Ziat, Ghita Alami Chantoufi 等 5 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "技术、数据与架构"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -1030,11 +1062,13 @@
     "documentType": "Article",
     "authorRaw": "Heiner Himmelreich, Ilan Oshri, Sven Brüggeboes, Anas Zaidani 等 6 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "组织、人才与变革",
         "运营、供应链与成本"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -1097,10 +1131,12 @@
     "documentType": "Interactive",
     "authorRaw": "Miguel Carrasco, Lars Littig, Heidi Kim, Rami Mourtada 等 5 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "组织、人才与变革"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -1162,8 +1198,10 @@
     "documentType": "Local Article",
     "authorRaw": "作者未列出",
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -1223,11 +1261,13 @@
     "documentType": "Article",
     "authorRaw": "Daniel Martines, Cullen Breithaupt, Drew Ingalls, Sawan Ruparel 等 5 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "技术、数据与架构",
         "治理、风险与安全"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -1295,7 +1335,9 @@
       "primary": "技术、数据与架构",
       "secondary": [
         "财务、投资与资本"
-      ]
+      ],
+      "sourcePrimary": "技术、数据与架构",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -1359,7 +1401,9 @@
       "primary": "技术、数据与架构",
       "secondary": [
         "运营、供应链与成本"
-      ]
+      ],
+      "sourcePrimary": "技术、数据与架构",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -1422,11 +1466,13 @@
     "documentType": "Article",
     "authorRaw": "Judith Wallenstein",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "组织、人才与变革",
         "治理、风险与安全"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -1490,10 +1536,12 @@
     "documentType": "Article",
     "authorRaw": "Lacy Ketzner, Doug Peck, Adi Zolotov",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "运营、供应链与成本"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -1554,10 +1602,12 @@
     "documentType": "Article",
     "authorRaw": "Ravi Dhar, Jon Iwata, Jennie Liu, Lauren Taylor 等 5 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "消费者、品牌与营销"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -1619,8 +1669,10 @@
     "documentType": "Article",
     "authorRaw": "Jean-Paul Petranca, Thomas Hosking, Conor McCleary, Tyler Uffindell 等 5 人",
     "category": {
-      "primary": "组织、人才与变革",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "组织、人才与变革",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -1680,8 +1732,10 @@
     "documentType": "Article",
     "authorRaw": "Wade Barnes, Sébastien Rexhausen, Antti Belt, Matthew Abel 等 6 人",
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -1741,10 +1795,12 @@
     "documentType": "Article",
     "authorRaw": "Jens Kengelbach, Daniel Friedman, Dominik Degen",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "财务、投资与资本"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -1805,12 +1861,14 @@
     "documentType": "Article",
     "authorRaw": "Natasha Taylor, Matthew Huddle, MD, Luke Purcell, Ryan Shain 等 7 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "技术、数据与架构",
         "组织、人才与变革",
         "消费者、品牌与营销"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -1876,11 +1934,13 @@
     "documentType": "Article",
     "authorRaw": "Steven Alexander Kok, Jon Brock, David Knott, Marc Schuuring 等 6 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "技术、数据与架构",
         "治理、风险与安全"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -1945,10 +2005,12 @@
     "documentType": "Article",
     "authorRaw": "Silvio Palumbo, Yun Lim, Megha Ramanuja",
     "category": {
-      "primary": "组织、人才与变革",
+      "primary": "组织、人才与工作",
       "secondary": [
         "消费者、品牌与营销"
-      ]
+      ],
+      "sourcePrimary": "组织、人才与变革",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -2013,7 +2075,9 @@
       "primary": "技术、数据与架构",
       "secondary": [
         "运营、供应链与成本"
-      ]
+      ],
+      "sourcePrimary": "技术、数据与架构",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -2076,8 +2140,10 @@
     "documentType": "Article",
     "authorRaw": "Terence Smith, James Gott, Trap Yates, Kathleen Polsinello 等 5 人",
     "category": {
-      "primary": "战略与行业观察",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "战略与行业观察",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -2136,8 +2202,10 @@
     "documentType": "Article",
     "authorRaw": "Doug Peck, Brian Hirshman, Lacy Ketzner, Diana Dimitrova 等 6 人",
     "category": {
-      "primary": "战略与行业观察",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "战略与行业观察",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -2199,7 +2267,9 @@
       "primary": "技术、数据与架构",
       "secondary": [
         "组织、人才与变革"
-      ]
+      ],
+      "sourcePrimary": "技术、数据与架构",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -2262,10 +2332,12 @@
     "documentType": "Local Article",
     "authorRaw": "作者未列出",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "技术、数据与架构"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -2328,8 +2400,10 @@
     "documentType": "Local Article",
     "authorRaw": "作者未列出",
     "category": {
-      "primary": "可持续与韧性",
-      "secondary": []
+      "primary": "可持续发展与韧性",
+      "secondary": [],
+      "sourcePrimary": "可持续与韧性",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -2388,8 +2462,10 @@
     "documentType": "Article",
     "authorRaw": "Vinay Shandal, Konark Singh, Terence Smith, Eric Sullivan 等 7 人",
     "category": {
-      "primary": "战略与行业观察",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "战略与行业观察",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -2448,10 +2524,12 @@
     "documentType": "Article",
     "authorRaw": "Terence Smith, James Gott, Trap Yates, Kathleen Polsinello 等 5 人",
     "category": {
-      "primary": "消费者、品牌与营销",
+      "primary": "客户、品牌与零售",
       "secondary": [
         "可持续与韧性"
-      ]
+      ],
+      "sourcePrimary": "消费者、品牌与营销",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -2512,10 +2590,12 @@
     "documentType": "Article",
     "authorRaw": "Ulrich Pidun, Adam Job, Tania Wang, Matthew Molloy 等 7 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "财务、投资与资本"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -2576,8 +2656,10 @@
     "documentType": "Article",
     "authorRaw": "Tom Rapp, Cate Wood, Kalane Abbey",
     "category": {
-      "primary": "战略与行业观察",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "战略与行业观察",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -2636,11 +2718,13 @@
     "documentType": "Article",
     "authorRaw": "Mark Abraham, Neveen Awad",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "技术、数据与架构",
         "组织、人才与变革"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -2710,7 +2794,9 @@
         "财务、投资与资本",
         "治理、风险与安全",
         "可持续与韧性"
-      ]
+      ],
+      "sourcePrimary": "运营、供应链与成本",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -2775,11 +2861,13 @@
     "documentType": "Article",
     "authorRaw": "Vinay Shandal, Konark Singh, Terence Smith, Eric Sullivan 等 7 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "技术、数据与架构",
         "财务、投资与资本"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -2843,8 +2931,10 @@
     "documentType": "Article",
     "authorRaw": "Rebecca Fitz, Ketil Gjerstad, Jaime Ruiz-Cabrero, Pattabi Seshadri 等 7 人",
     "category": {
-      "primary": "战略与行业观察",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "战略与行业观察",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -2903,10 +2993,12 @@
     "documentType": "Local Article",
     "authorRaw": "作者未列出",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "消费者、品牌与营销"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -2968,11 +3060,13 @@
     "documentType": "Article",
     "authorRaw": "Tobias Schmidt, Christoph Heuser, Nino Mori, Luis Jäger",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "运营、供应链与成本",
         "治理、风险与安全"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -3036,8 +3130,10 @@
     "documentType": "Local Article",
     "authorRaw": "作者未列出",
     "category": {
-      "primary": "可持续与韧性",
-      "secondary": []
+      "primary": "可持续发展与韧性",
+      "secondary": [],
+      "sourcePrimary": "可持续与韧性",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -3096,11 +3192,13 @@
     "documentType": "Article",
     "authorRaw": "Lorenzo Fantini, Vuk Trifkovic, Jannik Leiendecker, Eleonora Tieri 等 6 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "治理、风险与安全",
         "可持续与韧性"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -3168,7 +3266,9 @@
       "secondary": [
         "组织、人才与变革",
         "消费者、品牌与营销"
-      ]
+      ],
+      "sourcePrimary": "技术、数据与架构",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -3232,8 +3332,10 @@
     "documentType": "Article",
     "authorRaw": "Joppe Bijlsma, Djon Kleine, Filippo Scognamiglio",
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -3293,11 +3395,13 @@
     "documentType": "Article",
     "authorRaw": "Joppe Bijlsma, Djon Kleine, Filippo Scognamiglio",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "技术、数据与架构",
         "财务、投资与资本"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -3361,10 +3465,12 @@
     "documentType": "Article",
     "authorRaw": "Nikolaus Lang, Sylvain Duranton, Vladimir Lukic, Matt Langione 等 7 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "技术、数据与架构"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -3432,7 +3538,9 @@
       "secondary": [
         "财务、投资与资本",
         "治理、风险与安全"
-      ]
+      ],
+      "sourcePrimary": "技术、数据与架构",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -3495,8 +3603,10 @@
     "documentType": "Article",
     "authorRaw": "Erdem Altay, Semih Durmus, Nadine Moore, Michael Schachtner 等 5 人",
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -3557,7 +3667,9 @@
     "authorRaw": "Antti Belt, Allen Thomas, Olaf Rehse, Mark Harris",
     "category": {
       "primary": "财务、投资与资本",
-      "secondary": []
+      "secondary": [],
+      "sourcePrimary": "财务、投资与资本",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -3616,8 +3728,10 @@
     "documentType": "Local Article",
     "authorRaw": "作者未列出",
     "category": {
-      "primary": "组织、人才与变革",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "组织、人才与变革",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -3678,7 +3792,9 @@
     "authorRaw": "Nathalia Bellizia, Nadine Moore, Paul Nelson",
     "category": {
       "primary": "治理、风险与安全",
-      "secondary": []
+      "secondary": [],
+      "sourcePrimary": "治理、风险与安全",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -3738,8 +3854,10 @@
     "documentType": "Article",
     "authorRaw": "David Potere, Sonya Hoo, Michael Glotter, Emily Wu 等 5 人",
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -3799,10 +3917,12 @@
     "documentType": "Article",
     "authorRaw": "Mai-Britt Poulsen, Nicolas de Bellefonds, Yotam Ariav, Nate Shenck 等 6 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "消费者、品牌与营销"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -3864,8 +3984,10 @@
     "documentType": "Article",
     "authorRaw": "Matthew Kropp, Julie Bedard, Clark O’Niell, Sylvain Duranton 等 5 人",
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -3926,7 +4048,9 @@
     "authorRaw": "作者未列出",
     "category": {
       "primary": "运营、供应链与成本",
-      "secondary": []
+      "secondary": [],
+      "sourcePrimary": "运营、供应链与成本",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -3986,12 +4110,14 @@
     "documentType": "Article",
     "authorRaw": "Thomas Gratowski, Kasey Maggard, Chafic Mourad, Rami Rafih 等 5 人",
     "category": {
-      "primary": "组织、人才与变革",
+      "primary": "组织、人才与工作",
       "secondary": [
         "运营、供应链与成本",
         "财务、投资与资本",
         "可持续与韧性"
-      ]
+      ],
+      "sourcePrimary": "组织、人才与变革",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -4055,11 +4181,13 @@
     "documentType": "Article",
     "authorRaw": "Aftab Hussain, Claire Peters, Elizabeth Kragie, Allison Zeller 等 5 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "技术、数据与架构",
         "消费者、品牌与营销"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -4123,10 +4251,12 @@
     "documentType": "Article",
     "authorRaw": "Christine Barton, Julie Bedard, Nicolas de Bellefonds, Judith Wallenstein",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "技术、数据与架构"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -4189,10 +4319,12 @@
     "documentType": "Update",
     "authorRaw": "作者未列出",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "组织、人才与变革"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -4254,10 +4386,12 @@
     "documentType": "Article",
     "authorRaw": "Jean-François Bobier, Gildas Bouteiller, Vladimir Lukic, Michael Grebe",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "技术、数据与架构"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -4320,12 +4454,14 @@
     "documentType": "Article",
     "authorRaw": "Filippo Scognamiglio, Amir Alsbih, Michael Engelhardt, Walter Diaz 等 8 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "技术、数据与架构",
         "运营、供应链与成本",
         "治理、风险与安全"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -4391,10 +4527,12 @@
     "documentType": "Article",
     "authorRaw": "Gavin Parker, Caryn Katsikogianis, Alan Wong, Simon Murphy 等 5 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "组织、人才与变革"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -4456,8 +4594,10 @@
     "documentType": "Local Article",
     "authorRaw": "作者未列出",
     "category": {
-      "primary": "战略与行业观察",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "战略与行业观察",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -4516,8 +4656,10 @@
     "documentType": "Local Article",
     "authorRaw": "作者未列出",
     "category": {
-      "primary": "战略与行业观察",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "战略与行业观察",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -4577,7 +4719,9 @@
     "authorRaw": "作者未列出",
     "category": {
       "primary": "财务、投资与资本",
-      "secondary": []
+      "secondary": [],
+      "sourcePrimary": "财务、投资与资本",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -4639,7 +4783,9 @@
       "primary": "技术、数据与架构",
       "secondary": [
         "消费者、品牌与营销"
-      ]
+      ],
+      "sourcePrimary": "技术、数据与架构",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -4701,11 +4847,13 @@
     "documentType": "Article",
     "authorRaw": "Nipun Kalra, Sweta Jayasankar",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "消费者、品牌与营销",
         "财务、投资与资本"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -4771,7 +4919,9 @@
       "primary": "技术、数据与架构",
       "secondary": [
         "治理、风险与安全"
-      ]
+      ],
+      "sourcePrimary": "技术、数据与架构",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -4833,12 +4983,14 @@
     "documentType": "Article",
     "authorRaw": "Christopher Tuot, Anita Oh, Frank Klose, Andrej Levin 等 6 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "技术、数据与架构",
         "运营、供应链与成本",
         "可持续与韧性"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -4903,11 +5055,13 @@
     "documentType": "Article",
     "authorRaw": "Björn Ingenleuf, Vladimir Lukic",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "组织、人才与变革",
         "治理、风险与安全"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -4971,11 +5125,13 @@
     "documentType": "Article",
     "authorRaw": "Sagar Goel, David Martin, Charikleia Kaffe",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "组织、人才与变革",
         "治理、风险与安全"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -5042,7 +5198,9 @@
       "primary": "技术、数据与架构",
       "secondary": [
         "组织、人才与变革"
-      ]
+      ],
+      "sourcePrimary": "技术、数据与架构",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -5105,11 +5263,13 @@
     "documentType": "Article",
     "authorRaw": "James Tucker, Michael Demyttenaere, Laurin Henderson Menton, Edoardo Palmisani 等 7 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "组织、人才与变革",
         "财务、投资与资本"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -5172,8 +5332,10 @@
     "documentType": "Article",
     "authorRaw": "Gaby Barrios, Rodolphe Mouvet, Lauren Taylor, Jessica Apotheker 等 6 人",
     "category": {
-      "primary": "消费者、品牌与营销",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "消费者、品牌与营销",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -5233,8 +5395,10 @@
     "documentType": "Local Article",
     "authorRaw": "作者未列出",
     "category": {
-      "primary": "战略与行业观察",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "战略与行业观察",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -5293,10 +5457,12 @@
     "documentType": "Article",
     "authorRaw": "Christophe Haesler, Johann Harnoss, Upasana Dey, Viacheslav Romanov 等 6 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "组织、人才与变革"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -5358,10 +5524,12 @@
     "documentType": "Article",
     "authorRaw": "Dylan Bolden, Michael Demyttenaere, Edoardo Palmisani, James Tucker",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "财务、投资与资本"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -5422,10 +5590,12 @@
     "documentType": "Update",
     "authorRaw": "作者未列出",
     "category": {
-      "primary": "组织、人才与变革",
+      "primary": "组织、人才与工作",
       "secondary": [
         "治理、风险与安全"
-      ]
+      ],
+      "sourcePrimary": "组织、人才与变革",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -5487,11 +5657,13 @@
     "documentType": "Article",
     "authorRaw": "Mark Abraham, Lauren Wiener, Silvio Palumbo, Jessica Apotheker 等 8 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "组织、人才与变革",
         "消费者、品牌与营销"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -5555,10 +5727,12 @@
     "documentType": "Article",
     "authorRaw": "Stephen Robnett, Matthew Kropp, Vladimir Lukic, Carey Leigh Crews 等 7 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "技术、数据与架构"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -5621,11 +5795,13 @@
     "documentType": "Article",
     "authorRaw": "Nikolaus Lang, Rami Rafih, Giancarlo Tassi, Jona Lampert 等 5 人",
     "category": {
-      "primary": "组织、人才与变革",
+      "primary": "组织、人才与工作",
       "secondary": [
         "财务、投资与资本",
         "治理、风险与安全"
-      ]
+      ],
+      "sourcePrimary": "组织、人才与变革",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -5688,11 +5864,13 @@
     "documentType": "Article",
     "authorRaw": "Marcus Wittig, Alfonso Abella, Olivier Bouffault, Robin Anders 等 11 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "组织、人才与变革",
         "运营、供应链与成本"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -5755,10 +5933,12 @@
     "documentType": "Article",
     "authorRaw": "Rémi Seners, Alan Wong, Simon Murphy, Sanjay Chari 等 7 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "消费者、品牌与营销"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -5820,11 +6000,13 @@
     "documentType": "Article",
     "authorRaw": "作者未列出",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "组织、人才与变革",
         "运营、供应链与成本"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -5887,8 +6069,10 @@
     "documentType": "Article",
     "authorRaw": "Alejandro Navarro, Brad Jakeman, Geraldine Rhodes, Ezgi Sonmez 等 5 人",
     "category": {
-      "primary": "消费者、品牌与营销",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "消费者、品牌与营销",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -5948,11 +6132,13 @@
     "documentType": "Article",
     "authorRaw": "Edzard Wesselink, Anjali Narendra, Stiene Riemer, Brian O’Malley 等 6 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "财务、投资与资本",
         "治理、风险与安全"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -6016,10 +6202,12 @@
     "documentType": "Article",
     "authorRaw": "作者未列出",
     "category": {
-      "primary": "组织、人才与变革",
+      "primary": "组织、人才与工作",
       "secondary": [
         "运营、供应链与成本"
-      ]
+      ],
+      "sourcePrimary": "组织、人才与变革",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -6081,8 +6269,10 @@
     "documentType": "Local Article",
     "authorRaw": "作者未列出",
     "category": {
-      "primary": "战略与行业观察",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "战略与行业观察",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -6141,12 +6331,14 @@
     "documentType": "Article",
     "authorRaw": "Akash Bhatia, Clark O’Niell, Udit Pandey, Brianna Ficcadenti 等 8 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "技术、数据与架构",
         "消费者、品牌与营销",
         "财务、投资与资本"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -6211,11 +6403,13 @@
     "documentType": "Article",
     "authorRaw": "Allison Bailey, Hean-Ho Loh, Elizabeth Lyle, Julie Bedard 等 6 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "技术、数据与架构",
         "组织、人才与变革"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -6280,11 +6474,13 @@
     "documentType": "Article",
     "authorRaw": "Jens Kengelbach, Daniel Friedman, Anant Shivraj, Yiran Wang 等 6 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "组织、人才与变革",
         "财务、投资与资本"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -6347,11 +6543,13 @@
     "documentType": "Article",
     "authorRaw": "Maria Barisano, Federico Fabbri, Adriana Dahik, Julie Bedard 等 6 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "技术、数据与架构",
         "组织、人才与变革"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -6416,10 +6614,12 @@
     "documentType": "Article",
     "authorRaw": "Florian Kahn, Ihab Khalil, Karin von Funck, Ahsan Ali 等 6 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "财务、投资与资本"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -6481,7 +6681,9 @@
     "authorRaw": "作者未列出",
     "category": {
       "primary": "治理、风险与安全",
-      "secondary": []
+      "secondary": [],
+      "sourcePrimary": "治理、风险与安全",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -6541,10 +6743,12 @@
     "documentType": "Article",
     "authorRaw": "Andreas Malby, Nicolas de Bellefonds, Rohan Sajdeh, Vishakha Chopra",
     "category": {
-      "primary": "消费者、品牌与营销",
+      "primary": "客户、品牌与零售",
       "secondary": [
         "治理、风险与安全"
-      ]
+      ],
+      "sourcePrimary": "消费者、品牌与营销",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -6607,10 +6811,12 @@
     "documentType": "Local Article",
     "authorRaw": "作者未列出",
     "category": {
-      "primary": "组织、人才与变革",
+      "primary": "组织、人才与工作",
       "secondary": [
         "治理、风险与安全"
-      ]
+      ],
+      "sourcePrimary": "组织、人才与变革",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -6672,11 +6878,13 @@
     "documentType": "Article",
     "authorRaw": "Rohit Nalgirkar, Michael Grebe, Andrew Arcuri, Bill Braun 等 7 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "技术、数据与架构",
         "财务、投资与资本"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -6740,11 +6948,13 @@
     "documentType": "Report",
     "authorRaw": "Saurabh Tripathi, Andreas Biffar, Chaojung Chen, Tijsbert Creemers-Chaturvedi 等 15 人",
     "category": {
-      "primary": "组织、人才与变革",
+      "primary": "组织、人才与工作",
       "secondary": [
         "财务、投资与资本",
         "可持续与韧性"
-      ]
+      ],
+      "sourcePrimary": "组织、人才与变革",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -6806,10 +7016,12 @@
     "documentType": "Local Article",
     "authorRaw": "作者未列出",
     "category": {
-      "primary": "组织、人才与变革",
+      "primary": "组织、人才与工作",
       "secondary": [
         "治理、风险与安全"
-      ]
+      ],
+      "sourcePrimary": "组织、人才与变革",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -6871,12 +7083,14 @@
     "documentType": "Local Article",
     "authorRaw": "作者未列出",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "技术、数据与架构",
         "组织、人才与变革",
         "财务、投资与资本"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -6942,11 +7156,13 @@
     "documentType": "Article",
     "authorRaw": "Vanessa Lyon, Nadya Bartol, Marianna Leoni, Hussein Abdulghani 等 6 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "技术、数据与架构",
         "治理、风险与安全"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -7011,10 +7227,12 @@
     "documentType": "Local Article",
     "authorRaw": "作者未列出",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "财务、投资与资本"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -7075,11 +7293,13 @@
     "documentType": "Article",
     "authorRaw": "Matthew Harris, Michael Demyttenaere, Edoardo Palmisani, Hardik Sheth 等 8 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "财务、投资与资本",
         "治理、风险与安全"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -7144,7 +7364,9 @@
     "authorRaw": "Matt Langione, Hanl Park, Jean-François Bobier, Brad Henderson 等 7 人",
     "category": {
       "primary": "技术、数据与架构",
-      "secondary": []
+      "secondary": [],
+      "sourcePrimary": "技术、数据与架构",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -7204,10 +7426,12 @@
     "documentType": "Article",
     "authorRaw": "Amir Kolton, Eric Jesse",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "运营、供应链与成本"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -7269,7 +7493,9 @@
     "authorRaw": "Ritu Bhandari, Aparna Bharadwaj, Marc Gilbert, Nikolaus Lang 等 6 人",
     "category": {
       "primary": "治理、风险与安全",
-      "secondary": []
+      "secondary": [],
+      "sourcePrimary": "治理、风险与安全",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -7329,10 +7555,12 @@
     "documentType": "Local Article",
     "authorRaw": "作者未列出",
     "category": {
-      "primary": "消费者、品牌与营销",
+      "primary": "客户、品牌与零售",
       "secondary": [
         "财务、投资与资本"
-      ]
+      ],
+      "sourcePrimary": "消费者、品牌与营销",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -7393,8 +7621,10 @@
     "documentType": "Article",
     "authorRaw": "Daniel Gorlin, Nate Holobinko, Karthik Prasad",
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -7454,10 +7684,12 @@
     "documentType": "Slideshow",
     "authorRaw": "Vinciane Beauchene, Sylvain Duranton, David Martin, Vanessa Lyon 等 5 人",
     "category": {
-      "primary": "AI战略与价值",
+      "primary": "AI 战略与价值",
       "secondary": [
         "组织、人才与变革"
-      ]
+      ],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -7519,8 +7751,10 @@
     "documentType": "policy perspective",
     "authorRaw": null,
     "category": {
-      "primary": "safety-governance",
-      "secondary": []
+      "primary": "治理、风险与安全",
+      "secondary": [],
+      "sourcePrimary": "safety-governance",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -7577,8 +7811,10 @@
     "documentType": "economic research report",
     "authorRaw": null,
     "category": {
-      "primary": "organization-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -7635,8 +7871,10 @@
     "documentType": "engineering article",
     "authorRaw": null,
     "category": {
-      "primary": "agent-architecture",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "agent-architecture",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -7693,8 +7931,10 @@
     "documentType": "incident report",
     "authorRaw": null,
     "category": {
-      "primary": "cyber-resilience",
-      "secondary": []
+      "primary": "治理、风险与安全",
+      "secondary": [],
+      "sourcePrimary": "cyber-resilience",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -7751,8 +7991,10 @@
     "documentType": "engineering article",
     "authorRaw": null,
     "category": {
-      "primary": "agent-architecture",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "agent-architecture",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -7809,8 +8051,10 @@
     "documentType": "societal impacts research",
     "authorRaw": null,
     "category": {
-      "primary": "safety-governance",
-      "secondary": []
+      "primary": "治理、风险与安全",
+      "secondary": [],
+      "sourcePrimary": "safety-governance",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -7867,8 +8111,10 @@
     "documentType": "product architecture announcement",
     "authorRaw": null,
     "category": {
-      "primary": "enterprise-workflows",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "enterprise-workflows",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -7925,8 +8171,10 @@
     "documentType": "policy framework",
     "authorRaw": null,
     "category": {
-      "primary": "safety-governance",
-      "secondary": []
+      "primary": "治理、风险与安全",
+      "secondary": [],
+      "sourcePrimary": "safety-governance",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -7983,8 +8231,10 @@
     "documentType": "engineering experiment",
     "authorRaw": null,
     "category": {
-      "primary": "agent-architecture",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "agent-architecture",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -8041,8 +8291,10 @@
     "documentType": "education research report",
     "authorRaw": null,
     "category": {
-      "primary": "organization-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -8099,8 +8351,10 @@
     "documentType": "frontier red team research",
     "authorRaw": null,
     "category": {
-      "primary": "cyber-resilience",
-      "secondary": []
+      "primary": "治理、风险与安全",
+      "secondary": [],
+      "sourcePrimary": "cyber-resilience",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -8157,8 +8411,10 @@
     "documentType": "product announcement",
     "authorRaw": null,
     "category": {
-      "primary": "enterprise-workflows",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "enterprise-workflows",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -8215,8 +8471,10 @@
     "documentType": "engineering postmortem",
     "authorRaw": null,
     "category": {
-      "primary": "agent-architecture",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "agent-architecture",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -8273,8 +8531,10 @@
     "documentType": "economic research report",
     "authorRaw": null,
     "category": {
-      "primary": "economics-society",
-      "secondary": []
+      "primary": "前沿研究与社会影响",
+      "secondary": [],
+      "sourcePrimary": "economics-society",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -8331,8 +8591,10 @@
     "documentType": "economic research report",
     "authorRaw": null,
     "category": {
-      "primary": "economics-society",
-      "secondary": []
+      "primary": "前沿研究与社会影响",
+      "secondary": [],
+      "sourcePrimary": "economics-society",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -8389,8 +8651,10 @@
     "documentType": "product announcement",
     "authorRaw": null,
     "category": {
-      "primary": "physical-science",
-      "secondary": []
+      "primary": "前沿研究与社会影响",
+      "secondary": [],
+      "sourcePrimary": "physical-science",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -8447,8 +8711,10 @@
     "documentType": "model announcement",
     "authorRaw": null,
     "category": {
-      "primary": "models-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "models-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -8505,8 +8771,10 @@
     "documentType": "large-scale qualitative study",
     "authorRaw": null,
     "category": {
-      "primary": "economics-society",
-      "secondary": []
+      "primary": "前沿研究与社会影响",
+      "secondary": [],
+      "sourcePrimary": "economics-society",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -8563,8 +8831,10 @@
     "documentType": "frontier red team research",
     "authorRaw": null,
     "category": {
-      "primary": "physical-science",
-      "secondary": []
+      "primary": "前沿研究与社会影响",
+      "secondary": [],
+      "sourcePrimary": "physical-science",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -8621,8 +8891,10 @@
     "documentType": "alignment research",
     "authorRaw": null,
     "category": {
-      "primary": "safety-governance",
-      "secondary": []
+      "primary": "治理、风险与安全",
+      "secondary": [],
+      "sourcePrimary": "safety-governance",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -8679,8 +8951,10 @@
     "documentType": "field experiment",
     "authorRaw": null,
     "category": {
-      "primary": "economics-society",
-      "secondary": []
+      "primary": "前沿研究与社会影响",
+      "secondary": [],
+      "sourcePrimary": "economics-society",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -8737,8 +9011,10 @@
     "documentType": "societal impacts research",
     "authorRaw": null,
     "category": {
-      "primary": "safety-governance",
-      "secondary": []
+      "primary": "治理、风险与安全",
+      "secondary": [],
+      "sourcePrimary": "safety-governance",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -8795,8 +9071,10 @@
     "documentType": "engineering research",
     "authorRaw": null,
     "category": {
-      "primary": "agent-architecture",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "agent-architecture",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -8853,8 +9131,10 @@
     "documentType": "alignment research preview",
     "authorRaw": null,
     "category": {
-      "primary": "safety-governance",
-      "secondary": []
+      "primary": "治理、风险与安全",
+      "secondary": [],
+      "sourcePrimary": "safety-governance",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -8911,8 +9191,10 @@
     "documentType": "executive policy position",
     "authorRaw": null,
     "category": {
-      "primary": "models-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "models-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -8969,8 +9251,10 @@
     "documentType": "report",
     "authorRaw": null,
     "category": {
-      "primary": "risk-geopolitics",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "risk-geopolitics",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -9032,8 +9316,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "ai-operating-model",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "ai-operating-model",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -9095,8 +9381,10 @@
     "documentType": "report",
     "authorRaw": null,
     "category": {
-      "primary": "organization",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -9158,8 +9446,10 @@
     "documentType": "survey",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-finance",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "strategy-finance",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -9221,8 +9511,10 @@
     "documentType": "report",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -9284,8 +9576,10 @@
     "documentType": "survey",
     "authorRaw": null,
     "category": {
-      "primary": "ai-operating-model",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "ai-operating-model",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -9347,8 +9641,10 @@
     "documentType": "report",
     "authorRaw": null,
     "category": {
-      "primary": "ai-operating-model",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "ai-operating-model",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -9410,8 +9706,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "risk-geopolitics",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "risk-geopolitics",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -9473,8 +9771,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "ai-operating-model",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "ai-operating-model",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -9536,8 +9836,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "architecture-data",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "architecture-data",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -9599,8 +9901,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "operations",
-      "secondary": []
+      "primary": "运营、供应链与成本",
+      "secondary": [],
+      "sourcePrimary": "operations",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -9662,8 +9966,10 @@
     "documentType": "report",
     "authorRaw": null,
     "category": {
-      "primary": "organization",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -9725,8 +10031,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -9788,8 +10096,10 @@
     "documentType": "report",
     "authorRaw": null,
     "category": {
-      "primary": "retail-fashion",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "retail-fashion",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -9851,8 +10161,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-finance",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "strategy-finance",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -9914,8 +10226,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "architecture-data",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "architecture-data",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -9977,8 +10291,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "architecture-data",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "architecture-data",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -10040,8 +10356,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -10103,8 +10421,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -10166,8 +10486,10 @@
     "documentType": "video transcript",
     "authorRaw": null,
     "category": {
-      "primary": "retail-fashion",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "retail-fashion",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -10229,8 +10551,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -10292,8 +10616,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "operations",
-      "secondary": []
+      "primary": "运营、供应链与成本",
+      "secondary": [],
+      "sourcePrimary": "operations",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -10355,8 +10681,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "architecture-data",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "architecture-data",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -10418,8 +10746,10 @@
     "documentType": "report",
     "authorRaw": null,
     "category": {
-      "primary": "retail-fashion",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "retail-fashion",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -10481,8 +10811,10 @@
     "documentType": "blog post",
     "authorRaw": null,
     "category": {
-      "primary": "organization",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -10544,8 +10876,10 @@
     "documentType": "report",
     "authorRaw": null,
     "category": {
-      "primary": "retail-fashion",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "retail-fashion",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -10607,8 +10941,10 @@
     "documentType": "podcast transcript",
     "authorRaw": null,
     "category": {
-      "primary": "operations",
-      "secondary": []
+      "primary": "运营、供应链与成本",
+      "secondary": [],
+      "sourcePrimary": "operations",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -10670,8 +11006,10 @@
     "documentType": "interview",
     "authorRaw": null,
     "category": {
-      "primary": "retail-fashion",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "retail-fashion",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -10733,8 +11071,10 @@
     "documentType": "blog post",
     "authorRaw": null,
     "category": {
-      "primary": "organization",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -10796,8 +11136,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "operating-model-agents",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "operating-model-agents",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -10859,8 +11201,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "governance-risk-trust",
-      "secondary": []
+      "primary": "治理、风险与安全",
+      "secondary": [],
+      "sourcePrimary": "governance-risk-trust",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -10917,8 +11261,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "governance-risk-trust",
-      "secondary": []
+      "primary": "治理、风险与安全",
+      "secondary": [],
+      "sourcePrimary": "governance-risk-trust",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -10975,8 +11321,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "governance-risk-trust",
-      "secondary": []
+      "primary": "治理、风险与安全",
+      "secondary": [],
+      "sourcePrimary": "governance-risk-trust",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -11033,8 +11381,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "operating-model-agents",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "operating-model-agents",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -11091,8 +11441,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "governance-risk-trust",
-      "secondary": []
+      "primary": "治理、风险与安全",
+      "secondary": [],
+      "sourcePrimary": "governance-risk-trust",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -11149,8 +11501,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "data-architecture",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "data-architecture",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -11207,8 +11561,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-value",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "strategy-value",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -11265,8 +11621,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "operating-model-agents",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "operating-model-agents",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -11323,8 +11681,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "organization-work",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-work",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -11381,8 +11741,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "organization-work",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-work",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -11439,8 +11801,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "governance-risk-trust",
-      "secondary": []
+      "primary": "治理、风险与安全",
+      "secondary": [],
+      "sourcePrimary": "governance-risk-trust",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -11497,8 +11861,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-value",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "strategy-value",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -11555,8 +11921,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "organization-work",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-work",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -11613,8 +11981,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "organization-work",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-work",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -11671,8 +12041,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "operating-model-agents",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "operating-model-agents",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -11729,8 +12101,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "operating-model-agents",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "operating-model-agents",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -11787,8 +12161,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-value",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "strategy-value",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -11845,8 +12221,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "organization-work",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-work",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -11903,8 +12281,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "operating-model-agents",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "operating-model-agents",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -11961,8 +12341,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "ecosystem-policy",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "ecosystem-policy",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -12019,8 +12401,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-value",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "strategy-value",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -12077,8 +12461,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-value",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "strategy-value",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -12135,8 +12521,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "finance-functional-use",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-functional-use",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -12193,8 +12581,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "organization-work",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-work",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -12251,8 +12641,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-value",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "strategy-value",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -12309,8 +12701,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "finance-functional-use",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-functional-use",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -12367,8 +12761,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "ecosystem-policy",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "ecosystem-policy",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -12425,8 +12821,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "finance-functional-use",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-functional-use",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -12483,8 +12881,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "finance-functional-use",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-functional-use",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -12541,8 +12941,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-value",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "strategy-value",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -12599,8 +13001,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "ecosystem-policy",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "ecosystem-policy",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -12657,8 +13061,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "organization-work",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-work",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -12715,8 +13121,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "innovation-methods",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "innovation-methods",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -12773,8 +13181,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "ecosystem-policy",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "ecosystem-policy",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -12831,8 +13241,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "finance-functional-use",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-functional-use",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -12889,8 +13301,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "innovation-methods",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "innovation-methods",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -12947,8 +13361,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "innovation-methods",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "innovation-methods",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -13005,8 +13421,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -13068,8 +13486,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-growth-transformation",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "strategy-growth-transformation",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -13131,8 +13551,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -13194,8 +13616,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -13257,8 +13681,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -13320,8 +13746,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -13383,8 +13811,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-growth-transformation",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "strategy-growth-transformation",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -13446,8 +13876,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -13509,8 +13941,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -13572,8 +14006,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -13635,8 +14071,10 @@
     "documentType": "snap chart",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -13698,8 +14136,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -13761,8 +14201,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -13824,8 +14266,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -13887,8 +14331,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -13950,8 +14396,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "operations-supply-chain",
-      "secondary": []
+      "primary": "运营、供应链与成本",
+      "secondary": [],
+      "sourcePrimary": "operations-supply-chain",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -14013,8 +14461,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -14076,8 +14526,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -14139,8 +14591,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -14202,8 +14656,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -14265,8 +14721,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -14328,8 +14786,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -14391,8 +14851,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -14454,8 +14916,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -14517,8 +14981,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -14580,8 +15046,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-growth-transformation",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "strategy-growth-transformation",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -14643,8 +15111,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-growth-transformation",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "strategy-growth-transformation",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -14706,8 +15176,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -14769,8 +15241,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -14832,8 +15306,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -14895,8 +15371,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -14958,8 +15436,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-growth-transformation",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "strategy-growth-transformation",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -15021,8 +15501,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -15084,8 +15566,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-growth-transformation",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "strategy-growth-transformation",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -15147,8 +15631,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -15210,8 +15696,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -15273,8 +15761,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -15336,8 +15826,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-growth-transformation",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "strategy-growth-transformation",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -15399,8 +15891,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -15462,8 +15956,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -15525,8 +16021,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -15588,8 +16086,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -15651,8 +16151,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -15714,8 +16216,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -15777,8 +16281,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -15840,8 +16346,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -15903,8 +16411,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "operations-supply-chain",
-      "secondary": []
+      "primary": "运营、供应链与成本",
+      "secondary": [],
+      "sourcePrimary": "operations-supply-chain",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -15966,8 +16476,10 @@
     "documentType": "snap chart",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -16029,8 +16541,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "operations-supply-chain",
-      "secondary": []
+      "primary": "运营、供应链与成本",
+      "secondary": [],
+      "sourcePrimary": "operations-supply-chain",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -16092,8 +16606,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -16155,8 +16671,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-growth-transformation",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "strategy-growth-transformation",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -16218,8 +16736,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-growth-transformation",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "strategy-growth-transformation",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -16281,8 +16801,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "operations-supply-chain",
-      "secondary": []
+      "primary": "运营、供应链与成本",
+      "secondary": [],
+      "sourcePrimary": "operations-supply-chain",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -16344,8 +16866,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -16407,8 +16931,10 @@
     "documentType": "snap chart",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -16470,8 +16996,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -16533,8 +17061,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -16596,8 +17126,10 @@
     "documentType": "snap chart",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -16659,8 +17191,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -16722,8 +17256,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -16785,8 +17321,10 @@
     "documentType": "snap chart",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -16848,8 +17386,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -16911,8 +17451,10 @@
     "documentType": "snap chart",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -16974,8 +17516,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-growth-transformation",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "strategy-growth-transformation",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -17037,8 +17581,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -17100,8 +17646,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "operations-supply-chain",
-      "secondary": []
+      "primary": "运营、供应链与成本",
+      "secondary": [],
+      "sourcePrimary": "operations-supply-chain",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -17163,8 +17711,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "operations-supply-chain",
-      "secondary": []
+      "primary": "运营、供应链与成本",
+      "secondary": [],
+      "sourcePrimary": "operations-supply-chain",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -17226,8 +17776,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "operations-supply-chain",
-      "secondary": []
+      "primary": "运营、供应链与成本",
+      "secondary": [],
+      "sourcePrimary": "operations-supply-chain",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -17289,8 +17841,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-growth-transformation",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "strategy-growth-transformation",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -17352,8 +17906,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-growth-transformation",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "strategy-growth-transformation",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -17415,8 +17971,10 @@
     "documentType": "infographic",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -17478,8 +18036,10 @@
     "documentType": "infographic",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -17536,8 +18096,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -17599,8 +18161,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "operations-supply-chain",
-      "secondary": []
+      "primary": "运营、供应链与成本",
+      "secondary": [],
+      "sourcePrimary": "operations-supply-chain",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -17662,8 +18226,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "operations-supply-chain",
-      "secondary": []
+      "primary": "运营、供应链与成本",
+      "secondary": [],
+      "sourcePrimary": "operations-supply-chain",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -17725,8 +18291,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -17788,8 +18356,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "operations-supply-chain",
-      "secondary": []
+      "primary": "运营、供应链与成本",
+      "secondary": [],
+      "sourcePrimary": "operations-supply-chain",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -17851,8 +18421,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-growth-transformation",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "strategy-growth-transformation",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -17914,8 +18486,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -17977,8 +18551,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -18040,8 +18616,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -18103,8 +18681,10 @@
     "documentType": "report",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-growth-transformation",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "strategy-growth-transformation",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -18166,8 +18746,10 @@
     "documentType": "report",
     "authorRaw": null,
     "category": {
-      "primary": "sustainability-resilience",
-      "secondary": []
+      "primary": "可持续发展与韧性",
+      "secondary": [],
+      "sourcePrimary": "sustainability-resilience",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -18229,8 +18811,10 @@
     "documentType": "snap chart",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -18292,8 +18876,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -18355,8 +18941,10 @@
     "documentType": "snap chart",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -18418,8 +19006,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -18481,8 +19071,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -18544,8 +19136,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "macro-risk-geopolitics",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "macro-risk-geopolitics",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -18607,8 +19201,10 @@
     "documentType": "snap chart",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -18670,8 +19266,10 @@
     "documentType": "snap chart",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -18733,8 +19331,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-growth-transformation",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "strategy-growth-transformation",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -18796,8 +19396,10 @@
     "documentType": "forbes.com",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -18859,8 +19461,10 @@
     "documentType": "video",
     "authorRaw": null,
     "category": {
-      "primary": "ai-digital-platform",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "ai-digital-platform",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -18922,8 +19526,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-growth-transformation",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "strategy-growth-transformation",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -18985,8 +19591,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -19048,8 +19656,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "operations-supply-chain",
-      "secondary": []
+      "primary": "运营、供应链与成本",
+      "secondary": [],
+      "sourcePrimary": "operations-supply-chain",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -19111,8 +19721,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "operations-supply-chain",
-      "secondary": []
+      "primary": "运营、供应链与成本",
+      "secondary": [],
+      "sourcePrimary": "operations-supply-chain",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -19174,8 +19786,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "sustainability-resilience",
-      "secondary": []
+      "primary": "可持续发展与韧性",
+      "secondary": [],
+      "sourcePrimary": "sustainability-resilience",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -19237,8 +19851,10 @@
     "documentType": "interactive",
     "authorRaw": null,
     "category": {
-      "primary": "operations-supply-chain",
-      "secondary": []
+      "primary": "运营、供应链与成本",
+      "secondary": [],
+      "sourcePrimary": "operations-supply-chain",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -19300,8 +19916,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -19363,8 +19981,10 @@
     "documentType": "report",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -19426,8 +20046,10 @@
     "documentType": "snap chart",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -19484,8 +20106,10 @@
     "documentType": "multimedia",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -19547,8 +20171,10 @@
     "documentType": "multimedia",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -19605,8 +20231,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -19668,8 +20296,10 @@
     "documentType": "report",
     "authorRaw": null,
     "category": {
-      "primary": "industry-market-signals",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "industry-market-signals",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -19731,8 +20361,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -19794,8 +20426,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-growth-transformation",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "strategy-growth-transformation",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -19857,8 +20491,10 @@
     "documentType": "webinar",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -19920,8 +20556,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -19983,8 +20621,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "industry-market-signals",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "industry-market-signals",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -20046,8 +20686,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -20109,8 +20751,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "operations-supply-chain",
-      "secondary": []
+      "primary": "运营、供应链与成本",
+      "secondary": [],
+      "sourcePrimary": "operations-supply-chain",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -20172,8 +20816,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "operations-supply-chain",
-      "secondary": []
+      "primary": "运营、供应链与成本",
+      "secondary": [],
+      "sourcePrimary": "operations-supply-chain",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -20235,8 +20881,10 @@
     "documentType": "report",
     "authorRaw": null,
     "category": {
-      "primary": "industry-market-signals",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "industry-market-signals",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -20298,8 +20946,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -20361,8 +21011,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "macro-risk-geopolitics",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "macro-risk-geopolitics",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -20424,8 +21076,10 @@
     "documentType": "video",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -20487,8 +21141,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -20550,8 +21206,10 @@
     "documentType": "multimedia",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -20613,8 +21271,10 @@
     "documentType": "webinar",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -20676,8 +21336,10 @@
     "documentType": "webinar",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -20739,8 +21401,10 @@
     "documentType": "report",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -20802,8 +21466,10 @@
     "documentType": "report",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -20865,8 +21531,10 @@
     "documentType": "snap chart",
     "authorRaw": null,
     "category": {
-      "primary": "operations-supply-chain",
-      "secondary": []
+      "primary": "运营、供应链与成本",
+      "secondary": [],
+      "sourcePrimary": "operations-supply-chain",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -20928,8 +21596,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "macro-risk-geopolitics",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "macro-risk-geopolitics",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -20991,8 +21661,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -21054,8 +21726,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-growth-transformation",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "strategy-growth-transformation",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -21117,8 +21791,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -21180,8 +21856,10 @@
     "documentType": "webinar",
     "authorRaw": null,
     "category": {
-      "primary": "strategy-growth-transformation",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "strategy-growth-transformation",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -21243,8 +21921,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "operations-supply-chain",
-      "secondary": []
+      "primary": "运营、供应链与成本",
+      "secondary": [],
+      "sourcePrimary": "operations-supply-chain",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -21306,8 +21986,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -21369,8 +22051,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -21432,8 +22116,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -21495,8 +22181,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -21558,8 +22246,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -21621,8 +22311,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "sustainability-resilience",
-      "secondary": []
+      "primary": "可持续发展与韧性",
+      "secondary": [],
+      "sourcePrimary": "sustainability-resilience",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -21684,8 +22376,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -21747,8 +22441,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "sustainability-resilience",
-      "secondary": []
+      "primary": "可持续发展与韧性",
+      "secondary": [],
+      "sourcePrimary": "sustainability-resilience",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -21810,8 +22506,10 @@
     "documentType": "snap chart",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -21873,8 +22571,10 @@
     "documentType": "report",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -21936,8 +22636,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -21999,8 +22701,10 @@
     "documentType": "world economic forum",
     "authorRaw": null,
     "category": {
-      "primary": "sustainability-resilience",
-      "secondary": []
+      "primary": "可持续发展与韧性",
+      "secondary": [],
+      "sourcePrimary": "sustainability-resilience",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -22062,8 +22766,10 @@
     "documentType": "multimedia",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -22125,8 +22831,10 @@
     "documentType": "webinar",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -22188,8 +22896,10 @@
     "documentType": "webinar",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -22251,8 +22961,10 @@
     "documentType": "report",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -22314,8 +23026,10 @@
     "documentType": "report",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -22377,8 +23091,10 @@
     "documentType": "report",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -22440,8 +23156,10 @@
     "documentType": "snap chart",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -22503,8 +23221,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "operations-supply-chain",
-      "secondary": []
+      "primary": "运营、供应链与成本",
+      "secondary": [],
+      "sourcePrimary": "operations-supply-chain",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -22566,8 +23286,10 @@
     "documentType": "forbes.com",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -22629,8 +23351,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "industry-market-signals",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "industry-market-signals",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -22692,8 +23416,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "industry-market-signals",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "industry-market-signals",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -22755,8 +23481,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "macro-risk-geopolitics",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "macro-risk-geopolitics",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -22818,8 +23546,10 @@
     "documentType": "interactive",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -22881,8 +23611,10 @@
     "documentType": "interactive",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -22944,8 +23676,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -23007,8 +23741,10 @@
     "documentType": "snap chart",
     "authorRaw": null,
     "category": {
-      "primary": "macro-risk-geopolitics",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "macro-risk-geopolitics",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -23070,8 +23806,10 @@
     "documentType": "multimedia",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -23133,8 +23871,10 @@
     "documentType": "snap chart",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -23196,8 +23936,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -23259,8 +24001,10 @@
     "documentType": "snap chart",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -23322,8 +24066,10 @@
     "documentType": "infographic",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -23380,8 +24126,10 @@
     "documentType": "podcast",
     "authorRaw": null,
     "category": {
-      "primary": "consumer-brand-retail",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "consumer-brand-retail",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -23443,8 +24191,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "industry-market-signals",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "industry-market-signals",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -23506,8 +24256,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -23569,8 +24321,10 @@
     "documentType": "multimedia",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -23632,8 +24386,10 @@
     "documentType": "infographic",
     "authorRaw": null,
     "category": {
-      "primary": "sustainability-resilience",
-      "secondary": []
+      "primary": "可持续发展与韧性",
+      "secondary": [],
+      "sourcePrimary": "sustainability-resilience",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -23695,8 +24451,10 @@
     "documentType": "multimedia",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -23758,8 +24516,10 @@
     "documentType": "video",
     "authorRaw": null,
     "category": {
-      "primary": "operations-supply-chain",
-      "secondary": []
+      "primary": "运营、供应链与成本",
+      "secondary": [],
+      "sourcePrimary": "operations-supply-chain",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -23821,8 +24581,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -23884,8 +24646,10 @@
     "documentType": "interactive",
     "authorRaw": null,
     "category": {
-      "primary": "industry-market-signals",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "industry-market-signals",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -23947,8 +24711,10 @@
     "documentType": "interactive",
     "authorRaw": null,
     "category": {
-      "primary": "industry-market-signals",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "industry-market-signals",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -24010,8 +24776,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "industry-market-signals",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "industry-market-signals",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -24073,8 +24841,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "industry-market-signals",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "industry-market-signals",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -24136,8 +24906,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -24199,8 +24971,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -24262,8 +25036,10 @@
     "documentType": "infographic",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -24325,8 +25101,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -24388,8 +25166,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "industry-market-signals",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "industry-market-signals",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -24451,8 +25231,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -24514,8 +25296,10 @@
     "documentType": "webinar",
     "authorRaw": null,
     "category": {
-      "primary": "organization-leadership-talent",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "organization-leadership-talent",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -24577,8 +25361,10 @@
     "documentType": "brief",
     "authorRaw": null,
     "category": {
-      "primary": "industry-market-signals",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "industry-market-signals",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -24640,8 +25426,10 @@
     "documentType": "snap chart",
     "authorRaw": null,
     "category": {
-      "primary": "industry-market-signals",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "industry-market-signals",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -24703,8 +25491,10 @@
     "documentType": "multimedia",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -24766,8 +25556,10 @@
     "documentType": "article",
     "authorRaw": null,
     "category": {
-      "primary": "sustainability-resilience",
-      "secondary": []
+      "primary": "可持续发展与韧性",
+      "secondary": [],
+      "sourcePrimary": "sustainability-resilience",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -24829,8 +25621,10 @@
     "documentType": "video",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -24892,8 +25686,10 @@
     "documentType": "webinar",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -24955,8 +25751,10 @@
     "documentType": "webinar",
     "authorRaw": null,
     "category": {
-      "primary": "sustainability-resilience",
-      "secondary": []
+      "primary": "可持续发展与韧性",
+      "secondary": [],
+      "sourcePrimary": "sustainability-resilience",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -25018,8 +25816,10 @@
     "documentType": "podcast",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -25081,8 +25881,10 @@
     "documentType": "podcast",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -25144,8 +25946,10 @@
     "documentType": "webinar",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -25207,8 +26011,10 @@
     "documentType": "podcast",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -25270,8 +26076,10 @@
     "documentType": "podcast",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -25333,8 +26141,10 @@
     "documentType": "podcast",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -25396,8 +26206,10 @@
     "documentType": "podcast",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -25459,8 +26271,10 @@
     "documentType": "podcast",
     "authorRaw": null,
     "category": {
-      "primary": "industry-market-signals",
-      "secondary": []
+      "primary": "战略、增长与行业洞察",
+      "secondary": [],
+      "sourcePrimary": "industry-market-signals",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -25522,8 +26336,10 @@
     "documentType": "webinar",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -25585,8 +26401,10 @@
     "documentType": "podcast",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -25648,8 +26466,10 @@
     "documentType": "podcast",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -25711,8 +26531,10 @@
     "documentType": "podcast",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -25774,8 +26596,10 @@
     "documentType": "podcast",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -25837,8 +26661,10 @@
     "documentType": "podcast",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -25900,8 +26726,10 @@
     "documentType": "podcast",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -25963,8 +26791,10 @@
     "documentType": "podcast",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -26026,8 +26856,10 @@
     "documentType": "podcast",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -26089,8 +26921,10 @@
     "documentType": "podcast",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -26152,8 +26986,10 @@
     "documentType": "podcast",
     "authorRaw": null,
     "category": {
-      "primary": "finance-investment-ma",
-      "secondary": []
+      "primary": "财务、投资与资本",
+      "secondary": [],
+      "sourcePrimary": "finance-investment-ma",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -26215,8 +27051,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -26277,8 +27115,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -26340,8 +27180,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -26403,7 +27245,9 @@
     "authorRaw": null,
     "category": {
       "primary": "治理、风险与安全",
-      "secondary": []
+      "secondary": [],
+      "sourcePrimary": "治理、风险与安全",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -26465,8 +27309,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "客户、增长与商业模式",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "客户、增长与商业模式",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -26528,8 +27374,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "数据、平台与基础设施",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "数据、平台与基础设施",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -26591,8 +27439,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -26654,8 +27504,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -26717,8 +27569,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -26780,7 +27634,9 @@
     "authorRaw": null,
     "category": {
       "primary": "治理、风险与安全",
-      "secondary": []
+      "secondary": [],
+      "sourcePrimary": "治理、风险与安全",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -26843,7 +27699,9 @@
     "authorRaw": null,
     "category": {
       "primary": "治理、风险与安全",
-      "secondary": []
+      "secondary": [],
+      "sourcePrimary": "治理、风险与安全",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -26905,8 +27763,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -26969,7 +27829,9 @@
     "authorRaw": null,
     "category": {
       "primary": "治理、风险与安全",
-      "secondary": []
+      "secondary": [],
+      "sourcePrimary": "治理、风险与安全",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -27031,8 +27893,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -27094,8 +27958,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -27156,8 +28022,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "数据、平台与基础设施",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "数据、平台与基础设施",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -27220,7 +28088,9 @@
     "authorRaw": null,
     "category": {
       "primary": "治理、风险与安全",
-      "secondary": []
+      "secondary": [],
+      "sourcePrimary": "治理、风险与安全",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -27283,7 +28153,9 @@
     "authorRaw": null,
     "category": {
       "primary": "治理、风险与安全",
-      "secondary": []
+      "secondary": [],
+      "sourcePrimary": "治理、风险与安全",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -27345,8 +28217,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "前沿研究与技术",
-      "secondary": []
+      "primary": "前沿研究与社会影响",
+      "secondary": [],
+      "sourcePrimary": "前沿研究与技术",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -27408,8 +28282,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "组织、人才与变革",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "组织、人才与变革",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -27471,8 +28347,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -27533,8 +28411,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -27596,8 +28476,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "前沿研究与技术",
-      "secondary": []
+      "primary": "前沿研究与社会影响",
+      "secondary": [],
+      "sourcePrimary": "前沿研究与技术",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -27659,8 +28541,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -27721,8 +28605,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -27784,8 +28670,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -27846,8 +28734,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -27908,8 +28798,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "数据、平台与基础设施",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "数据、平台与基础设施",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -27971,8 +28863,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "前沿研究与技术",
-      "secondary": []
+      "primary": "前沿研究与社会影响",
+      "secondary": [],
+      "sourcePrimary": "前沿研究与技术",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -28035,7 +28929,9 @@
     "authorRaw": null,
     "category": {
       "primary": "治理、风险与安全",
-      "secondary": []
+      "secondary": [],
+      "sourcePrimary": "治理、风险与安全",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -28097,8 +28993,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -28159,8 +29057,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "组织、人才与变革",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "组织、人才与变革",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -28222,8 +29122,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -28285,8 +29187,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "客户、增长与商业模式",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "客户、增长与商业模式",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -28348,8 +29252,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -28410,8 +29316,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -28472,8 +29380,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -28535,8 +29445,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "组织、人才与变革",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "组织、人才与变革",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -28598,8 +29510,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "组织、人才与变革",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "组织、人才与变革",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -28661,8 +29575,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "客户、增长与商业模式",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "客户、增长与商业模式",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -28724,8 +29640,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -28787,8 +29705,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "客户、增长与商业模式",
-      "secondary": []
+      "primary": "客户、品牌与零售",
+      "secondary": [],
+      "sourcePrimary": "客户、增长与商业模式",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -28850,8 +29770,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "组织、人才与变革",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "组织、人才与变革",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -28913,8 +29835,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "组织、人才与变革",
-      "secondary": []
+      "primary": "组织、人才与工作",
+      "secondary": [],
+      "sourcePrimary": "组织、人才与变革",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -28976,8 +29900,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -29039,8 +29965,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -29103,7 +30031,9 @@
     "authorRaw": null,
     "category": {
       "primary": "治理、风险与安全",
-      "secondary": []
+      "secondary": [],
+      "sourcePrimary": "治理、风险与安全",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -29165,8 +30095,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -29228,8 +30160,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "数据、平台与基础设施",
-      "secondary": []
+      "primary": "技术、数据与架构",
+      "secondary": [],
+      "sourcePrimary": "数据、平台与基础设施",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -29292,7 +30226,9 @@
     "authorRaw": null,
     "category": {
       "primary": "治理、风险与安全",
-      "secondary": []
+      "secondary": [],
+      "sourcePrimary": "治理、风险与安全",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [
@@ -29354,8 +30290,10 @@
     "documentType": "Article",
     "authorRaw": null,
     "category": {
-      "primary": "AI战略与价值",
-      "secondary": []
+      "primary": "AI 战略与价值",
+      "secondary": [],
+      "sourcePrimary": "AI战略与价值",
+      "taxonomyVersion": "zh-management-v1"
     },
     "tags": {
       "topics": [

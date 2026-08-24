@@ -1,0 +1,3765 @@
+{
+  "schemaVersion": "1.0",
+  "taxonomyVersion": "zh-management-v1",
+  "migratedAt": "2026-08-24T00:27:26.257Z",
+  "summary": {
+    "articleCount": 469,
+    "inputTopicCount": 45,
+    "outputTopicCount": 10,
+    "unmappedCount": 0
+  },
+  "changes": [
+    {
+      "articleId": "bcg-1",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-2",
+      "from": "组织、人才与变革",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-3",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-4",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-5",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-6",
+      "from": "技术、数据与架构",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-7",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-8",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-9",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-10",
+      "from": "治理、风险与安全",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-11",
+      "from": "财务、投资与资本",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-12",
+      "from": "战略与行业观察",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-13",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-14",
+      "from": "组织、人才与变革",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-15",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-16",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-17",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-18",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-19",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-20",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-21",
+      "from": "技术、数据与架构",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-22",
+      "from": "技术、数据与架构",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-23",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-24",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-25",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-26",
+      "from": "组织、人才与变革",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-27",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-28",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-29",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-30",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-31",
+      "from": "组织、人才与变革",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-32",
+      "from": "技术、数据与架构",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-33",
+      "from": "战略与行业观察",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-34",
+      "from": "战略与行业观察",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-35",
+      "from": "技术、数据与架构",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-36",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-37",
+      "from": "可持续与韧性",
+      "to": "可持续发展与韧性",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-38",
+      "from": "战略与行业观察",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-39",
+      "from": "消费者、品牌与营销",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-40",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-41",
+      "from": "战略与行业观察",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-42",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-43",
+      "from": "运营、供应链与成本",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-44",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-45",
+      "from": "战略与行业观察",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-46",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-47",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-48",
+      "from": "可持续与韧性",
+      "to": "可持续发展与韧性",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-49",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-50",
+      "from": "技术、数据与架构",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-51",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-52",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-53",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-54",
+      "from": "技术、数据与架构",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-55",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-56",
+      "from": "财务、投资与资本",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-57",
+      "from": "组织、人才与变革",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-58",
+      "from": "治理、风险与安全",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-59",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-60",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-61",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-62",
+      "from": "运营、供应链与成本",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-63",
+      "from": "组织、人才与变革",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-64",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-65",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-66",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-67",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-68",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-69",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-70",
+      "from": "战略与行业观察",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-71",
+      "from": "战略与行业观察",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-72",
+      "from": "财务、投资与资本",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-73",
+      "from": "技术、数据与架构",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-74",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-75",
+      "from": "技术、数据与架构",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-76",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-77",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-78",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-79",
+      "from": "技术、数据与架构",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-80",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-81",
+      "from": "消费者、品牌与营销",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-82",
+      "from": "战略与行业观察",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-83",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-84",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-85",
+      "from": "组织、人才与变革",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-86",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-87",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-88",
+      "from": "组织、人才与变革",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-89",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-90",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-91",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-92",
+      "from": "消费者、品牌与营销",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-93",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-94",
+      "from": "组织、人才与变革",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-95",
+      "from": "战略与行业观察",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-96",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-97",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-98",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-99",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-100",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-101",
+      "from": "治理、风险与安全",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-102",
+      "from": "消费者、品牌与营销",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-103",
+      "from": "组织、人才与变革",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-104",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-105",
+      "from": "组织、人才与变革",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-106",
+      "from": "组织、人才与变革",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-107",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-108",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-109",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-110",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-111",
+      "from": "技术、数据与架构",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-112",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-113",
+      "from": "治理、风险与安全",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-114",
+      "from": "消费者、品牌与营销",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-115",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-116",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-trustworthy-agents-in-practice",
+      "from": "safety-governance",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-agentic-coding-returns-to-expertise",
+      "from": "organization-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-managed-agents-decoupled-runtime",
+      "from": "agent-architecture",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-cyber-eval-real-world-incidents",
+      "from": "cyber-resilience",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-contain-claude-across-products",
+      "from": "agent-architecture",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-agent-autonomy-in-practice",
+      "from": "safety-governance",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-finance-agent-reference-architecture",
+      "from": "enterprise-workflows",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-responsible-scaling-policy-v3",
+      "from": "safety-governance",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-long-running-harness-design",
+      "from": "agent-architecture",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-ai-fluency-index",
+      "from": "organization-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-ai-enabled-cyber-threat-map",
+      "from": "cyber-resilience",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-claude-tag-team-agent",
+      "from": "enterprise-workflows",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-claude-code-quality-postmortem",
+      "from": "agent-architecture",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-labor-market-observed-exposure",
+      "from": "economics-society",
+      "to": "前沿研究与社会影响",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-economic-index-cadences",
+      "from": "economics-society",
+      "to": "前沿研究与社会影响",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-claude-science-workbench",
+      "from": "physical-science",
+      "to": "前沿研究与社会影响",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-claude-opus-5-economics",
+      "from": "models-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-what-81000-people-want",
+      "from": "economics-society",
+      "to": "前沿研究与社会影响",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-claude-robotics-interface-risk",
+      "from": "physical-science",
+      "to": "前沿研究与社会影响",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-teaching-claude-why",
+      "from": "safety-governance",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-project-deal-agent-commerce",
+      "from": "economics-society",
+      "to": "前沿研究与社会影响",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-claude-values-models-languages",
+      "from": "safety-governance",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-infrastructure-noise-agent-evals",
+      "from": "agent-architecture",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-dual-use-knowledge-off-switch",
+      "from": "safety-governance",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-open-weights-position",
+      "from": "models-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-global-trade-2026",
+      "from": "risk-geopolitics",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-agentic-economics-operating-model",
+      "from": "ai-operating-model",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-agents-robots-us-europe",
+      "from": "organization",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-accelerated-resource-allocation",
+      "from": "strategy-finance",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-state-consumer-2026",
+      "from": "consumer-brand",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-global-tech-agenda-2026",
+      "from": "ai-operating-model",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-symbiotic-enterprise",
+      "from": "ai-operating-model",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-geopolitical-risk-readiness",
+      "from": "risk-geopolitics",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-cost-of-intelligence",
+      "from": "ai-operating-model",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-ai-data-readiness",
+      "from": "architecture-data",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-operational-excellence-ai",
+      "from": "operations",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-state-of-organizations-2026",
+      "from": "organization",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-marketing-continuous-growth",
+      "from": "consumer-brand",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-state-of-luxury-2026",
+      "from": "retail-fashion",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-investor-priorities-2026",
+      "from": "strategy-finance",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-agentic-ai-data-foundations",
+      "from": "architecture-data",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-enterprise-architecture-agentic-era",
+      "from": "architecture-data",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-continuous-cx-agentic-era",
+      "from": "consumer-brand",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-europe-ecommerce-ai",
+      "from": "consumer-brand",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-fashion-2026-outlook",
+      "from": "retail-fashion",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-agentic-advertising-economy",
+      "from": "consumer-brand",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-procurement-agentic-ai",
+      "from": "operations",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-agentic-enterprise-cybersecurity",
+      "from": "architecture-data",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-shopping-age-ai-stores",
+      "from": "retail-fashion",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-early-career-agentic-organization",
+      "from": "organization",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-luxury-agentic-experience",
+      "from": "retail-fashion",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-powering-supply-chain-agentic-ai",
+      "from": "operations",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-asos-agentic-shopper",
+      "from": "retail-fashion",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-ai-leadership-fluency",
+      "from": "organization",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-how-organizations-can-capture-value-digital-colleagues",
+      "from": "operating-model-agents",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-seeing-real-value-ai-depends-being-able-to-verify-its-outputs",
+      "from": "governance-risk-trust",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-these-are-most-urgent-ai-risks-according-to-272-experts",
+      "from": "governance-risk-trust",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-balance-ai-innovation-and-risk-minimum-viable-governance",
+      "from": "governance-risk-trust",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-how-ai-reshaping-workflows-and-redefining-jobs",
+      "from": "operating-model-agents",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-where-to-look-generative-ai-risks",
+      "from": "governance-risk-trust",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-data-liquidity-leads-to-ai-success",
+      "from": "data-architecture",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-what-leaders-still-get-wrong-about-ai",
+      "from": "strategy-value",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-5-heavy-lifts-deploying-ai-agents",
+      "from": "operating-model-agents",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-pro-worker-ai-explained",
+      "from": "organization-work",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-generative-ai-changes-how-employees-spend-their-time",
+      "from": "organization-work",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-how-generative-ai-persuasion-bombs-users-and-how-to-fight-back",
+      "from": "governance-risk-trust",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-how-to-accelerate-ai-transformation",
+      "from": "strategy-value",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-what-2-mit-experts-are-thinking-about-ai-and-work",
+      "from": "organization-work",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-pro-worker-ai-doesnt-just-happen-companies-need-to-act",
+      "from": "organization-work",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-5-ways-to-make-agentic-ai-a-competitive-advantage",
+      "from": "operating-model-agents",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-3-ways-to-use-ai-are-you-a-cyborg-a-centaur-or-a-self-automator",
+      "from": "operating-model-agents",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-6-questions-to-guide-your-ai-strategy",
+      "from": "strategy-value",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-ai-gravity-pulling-you-toward-dependency-heres-how-to-push-back",
+      "from": "organization-work",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-agentic-ai-explained",
+      "from": "operating-model-agents",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-who-will-own-ai-agent-economy",
+      "from": "ecosystem-policy",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-why-ai-driven-enterprises-are-future-entrepreneurship",
+      "from": "strategy-value",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-action-items-ai-decision-makers-2026",
+      "from": "strategy-value",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-here-are-ai-developments-finance-pros-should-be-tracking",
+      "from": "finance-functional-use",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-5-things-to-consider-when-working-ai",
+      "from": "organization-work",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-what-senior-leaders-want-to-know-about-ai",
+      "from": "strategy-value",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-ai-financial-advice-surprisingly-good-especially-if-you-ask-right-questions",
+      "from": "finance-functional-use",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-5-investments-to-close-gap-between-ai-wealth-and-welfare",
+      "from": "ecosystem-policy",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-surprising-power-warmth-ai-negotiations",
+      "from": "finance-functional-use",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-4-takeaways-finance-teams-they-implement-ai",
+      "from": "finance-functional-use",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-putting-ai-to-work-latest-mit-sloan-management-review",
+      "from": "strategy-value",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-how-learnrights-would-compensate-creators-ai-model-training",
+      "from": "ecosystem-policy",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-heeding-popes-call-to-ensure-ai-protects-human-dignity",
+      "from": "organization-work",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-ai-tool-helps-you-ask-better-questions-get-more-authentic-results",
+      "from": "innovation-methods",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-fed-ai-and-economic-uncertainty-what-investors-need-to-know",
+      "from": "ecosystem-policy",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-want-to-use-ai-to-plan-your-retirement-heres-how-to-proceed",
+      "from": "finance-functional-use",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-ai-helped-me-turn-mit-lab-technology-home-product-parents",
+      "from": "innovation-methods",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-ai-tool-helped-me-define-a-target-customer-my-startup",
+      "from": "innovation-methods",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-rearchitecting-the-data-platform-for-the-ai-era",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-your-ai-budget-is-growing-your-returns-arent-heres-why",
+      "from": "strategy-growth-transformation",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-agentic-ai-governance-risk-and-controls-for-business-leaders",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-cloud-sovereignty-maintaining-control-without-losing-scale",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-is-your-ai-transformation-forgetting-the-front-line",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-resilience-by-design-preparing-your-ai-stack-for-an-era-of-uncertainty",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-proprietary-intelligence-how-to-win-with-ai",
+      "from": "strategy-growth-transformation",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-mobilizing-the-organization-in-the-agent-economy",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-three-layers-of-an-agentic-ai-platform",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-why-agentic-ai-demands-a-new-architecture",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-ai-focused-organizational-changes-underperform-other-reorganizations-snap-chart",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-how-token-economics-will-change-opex",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-rise-of-the-ai-development-life-cycle",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-architecture-decisions-only-cfos-can-make",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-zero-click-playbook-how-sports-sponsorships-build-preference-before-search",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-when-ai-optimizes-the-wrong-thing",
+      "from": "operations-supply-chain",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-when-people-never-see-your-app-designing-brands-for-the-agentic-economy",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-agentic-ai-commerce-the-next-retail-revolution-is-here",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-learning-system-how-agentic-ai-can-compound-its-own-advantage-forbes",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-databricks-data-ai-summit-the-lakehouse-becomes-the-agentic-enterprise-control-plane",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-google-cloud-next-2026-the-agentic-enterprise-control-plane-comes-into-view",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-governance-trust-and-the-data-foundation",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-preparing-for-the-quantum-computing-acceleration",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-2026-ceo-agenda-where-ambition-outpaces-execution",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-sap-sapphire-2026-erp-moves-beyond-transactions-to-orchestration",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-ibm-think-2026-from-ai-pilots-to-an-operating-model",
+      "from": "strategy-growth-transformation",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-an-operating-model-for-the-age-of-ai",
+      "from": "strategy-growth-transformation",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-100-billion-saas-opportunity-hiding-in-cross-system-labor",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-claude-mythos-and-ai-cybersecurity-wake-up-call",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-new-sales-productivity-equation-b2b-growth-agenda-2026",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-your-next-customer-will-find-you-using-ai-now-what",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-raising-the-odds-on-a-deal-how-likelihood-to-buy-rewires-b2b-growth",
+      "from": "strategy-growth-transformation",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-what-financial-services-leaders-are-wrestling-with-on-ai-and-organizational-transformation",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-accelerating-the-ai-transformation",
+      "from": "strategy-growth-transformation",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-redesigning-tech-company-operating-models-for-an-ai-accelerated-world",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-tech-services-buyer-survey-betting-big-on-ai-and-resilience",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-will-it-accelerate-or-stall-your-ai-transformation",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-from-roadmap-to-reality-phasing-agentic-ai-into-production",
+      "from": "strategy-growth-transformation",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-quantum-will-not-speed-up-your-enterprise",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-nvidia-gtc-2026-ai-becomes-the-operating-layer",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-why-saas-stocks-have-dropped-and-what-it-signals-for-softwares-next-chapter",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-marketing-finance-divide-is-about-proof-of-performance-not-priorities",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-winning-over-the-customer-in-the-age-of-ai-a-new-horizon-for-luxury",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-agentic-ai-in-retail-how-autonomous-shopping-redefining-customer-journey",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-rewiring-demand-generation-in-age-of-ai-agents",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-what-agency-consolidation-means-for-cmos",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-how-agentic-ai-is-reshaping-procurement",
+      "from": "operations-supply-chain",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-ai-data-center-forecast-from-scramble-to-strategy-snap-chart",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-a-new-supply-chain-efficiency-playbook-for-medtech",
+      "from": "operations-supply-chain",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-from-representation-to-power-ai-and-gender-equity-in-financial-services",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-ais-next-operating-model",
+      "from": "strategy-growth-transformation",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-unclear-value-propositions-stall-growth-b2b-growth-agenda-2026",
+      "from": "strategy-growth-transformation",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-ai-wont-transform-your-go-to-market-until-you-transform-the-work-b2b-growth-agenda-2026",
+      "from": "operations-supply-chain",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-want-more-out-of-your-ai-investments-think-people-first",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-us-grocery-slowdown-is-real-snap-chart",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-road-forward-to-value-creation-in-consumer-products",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-beyond-sales-lift-how-rewards-build-valuable-customers",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-us-consumer-health-indexes",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-online-grocery-pricing-for-both-humans-and-bots",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-synthetic-customers-earn-their-stripes",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-2026-us-insurgent-brands-powering-the-next-wave-of-growth-snap-chart",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-four-things-ceos-need-to-do-differently-on-ai-forbes",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-industrial-ceos-is-ai-the-least-of-their-worries-snap-chart",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-ai-enabled-transformation-starts-and-stops-with-the-ceo",
+      "from": "strategy-growth-transformation",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-how-will-ai-change-software-organizations",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-agentic-ai-and-the-new-complexity-trap-in-enterprise-software",
+      "from": "operations-supply-chain",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-making-the-nuclear-final-investment-decision-the-right-way",
+      "from": "operations-supply-chain",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-secret-to-scaling-circular-supply-chains",
+      "from": "operations-supply-chain",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-b2b-growth-masters-formula-for-repeatably-capturing-new-customers-b2b-growth-agenda-2026",
+      "from": "strategy-growth-transformation",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-ai-enterprise-code-red",
+      "from": "strategy-growth-transformation",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-how-technology-operating-models-are-evolving-for-ai-infographic",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-ai-ripple-effect-managing-strained-semiconductor-supply-infographic",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-ravi-ahuja-is-working-the-buzzer",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-a-risk-balanced-approach-to-upstream-capital-projects",
+      "from": "operations-supply-chain",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-aerospace-and-defense-winning-the-race-to-scale",
+      "from": "operations-supply-chain",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-how-telecom-carriers-are-preparing-for-quantum",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-rise-of-autonomous-intelligent-procurement",
+      "from": "operations-supply-chain",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-from-plans-to-bets-strategy-in-the-age-of-prediction",
+      "from": "strategy-growth-transformation",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-cannes-lions-2026-connecting-art-and-algorithm",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-charting-the-rise-of-preowned-apparel-in-the-us-and-europe",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-insurgent-qa-chomps-cofounder-rashid-ali",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-building-global-champions-asia-pacific-regions-next-medtech-wave",
+      "from": "strategy-growth-transformation",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-energy-and-materials-outlook-2026",
+      "from": "sustainability-resilience",
+      "to": "可持续发展与韧性",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-how-some-big-brands-are-beating-the-odds-snap-chart",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-resetting-the-restaurant-value-equation",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-theres-more-than-one-way-to-win-on-value-in-us-grocery-snap-chart",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-beyond-payments-the-real-prize-in-sme-commerce-is-ecosystem-control",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-orbital-data-centers-beyond-the-grid",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-full-potential-the-antidote-to-satisfactory-underperformance",
+      "from": "macro-risk-geopolitics",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-global-job-market-trends",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-support-not-just-strategy-builds-motivation-and-confidence-in-reorganizations-snap-chart",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-operating-models-in-mining-start-at-the-asset",
+      "from": "strategy-growth-transformation",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-four-ways-leaders-can-make-ai-redesigns-stick-forbes",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-winning-in-the-agentic-era-a-conversation-with-andrew-ng",
+      "from": "ai-digital-platform",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-business-breakthrough-barometer-2026",
+      "from": "strategy-growth-transformation",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-human-imperative-scaling-ai-across-life-sciences",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-nuclear-and-megaproject-delivery-five-elements-that-predict-success",
+      "from": "operations-supply-chain",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-procurement-in-financial-services-a-tech-powered-value-creator",
+      "from": "operations-supply-chain",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-energy-agenda-2026-returns-restructuring-and-resilience",
+      "from": "sustainability-resilience",
+      "to": "可持续发展与韧性",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-commercial-aviation-forecast",
+      "from": "operations-supply-chain",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-six-threats-demand-a-new-playbook-for-banks-in-wealth-and-asset-management",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-takeaways-from-bains-2026-m-and-a-report-webinar",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-luxury-jewelry-in-2026-what-valentines-day-told-us-snap-chart",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-why-consumers-choose-an-ai-chatbot-over-a-search-engine-snap-chart",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-retailers-have-a-secret-weapon-in-ai-powered-shopping-trust-snap-chart",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-bring-back-managing-for-value-hbr",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-asia-pacific-front-line-of-healthcare-2026",
+      "from": "industry-market-signals",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-ai-upskilling-boom-has-a-problem-forbes",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-redefining-corporate-strategy-in-a-more-volatile-world-weforum",
+      "from": "strategy-growth-transformation",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-insurgent-brands-defining-the-next-era-of-consumer-growth-webinar",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-what-it-takes-to-build-the-ai-native-modern-bank",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-future-of-opex-in-the-agent-economy",
+      "from": "industry-market-signals",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-cfos-funded-ai-revolution-now-they-are-joining-it",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-industrial-automation-from-control-to-intelligence",
+      "from": "operations-supply-chain",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-is-your-telco-winning-the-race-to-autonomous-networks",
+      "from": "operations-supply-chain",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-key-insights-from-bains-2026-paper-and-packaging-report-webinar",
+      "from": "industry-market-signals",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-power-capital-and-governance-leadership-in-a-fragmented-world-cjbs",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-end-of-cheap-capital-hbr",
+      "from": "macro-risk-geopolitics",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-brands-defining-the-next-era-of-consumer-growth-video",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-how-to-conduct-difficult-conversations-as-a-leader-forbes",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-ceo-sessions-compete-evolve-compete-again",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-signals-from-cannes-lions-2026-the-next-gen-cmo-agenda-webinar",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-inside-bains-2025-asia-pacific-consumer-products-report-webinar",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-new-era-in-tech-investing-starts-now",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-asia-pacific-private-equity-report-2026",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-medtech-supply-chains-have-an-efficiency-problem-snap-chart",
+      "from": "operations-supply-chain",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-ai-infrastructure-in-the-age-of-sovereignty-wef",
+      "from": "macro-risk-geopolitics",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-why-software-capability-will-define-winners-in-2026-forbes",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-hannover-messe-2026-the-technology-is-ready-are-manufacturers",
+      "from": "strategy-growth-transformation",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-business-case-for-prioritizing-the-human-side-of-ai-forbes",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-takeaways-from-bains-2026-b2b-growth-agenda-webinar",
+      "from": "strategy-growth-transformation",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-engineering-speed-is-reshaping-defense-competition",
+      "from": "operations-supply-chain",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-m-and-a-midyear-outlook-2026-a-winners-paradox",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-future-of-sovereign-wealth-funds-four-imperatives-for-the-next-decade",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-enterprise-shared-services-in-medtech-the-only-wrong-move-is-standing-still",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-gartner-finance-symposium-xpo-2026-five-takeaways-for-cfos",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-how-ai-rewrites-the-rules-of-brand-discoverability-in-banking-brief",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-clean-fuels-opportunity",
+      "from": "sustainability-resilience",
+      "to": "可持续发展与韧性",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-ai-brings-headwinds-and-tailwinds-to-the-rule-of-40",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-volatility-isnt-the-storm-its-the-climate-b2b-growth-agenda-2026",
+      "from": "sustainability-resilience",
+      "to": "可持续发展与韧性",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-global-venture-capital-outlook-latest-trends-snap-chart",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-inside-bains-2026-private-equity-report-webinar",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-from-pilots-to-portfolios-coordinated-finance-for-food-systems",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-circular-economy-is-now-an-economic-and-industrial-strategy-heres-why",
+      "from": "sustainability-resilience",
+      "to": "可持续发展与韧性",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-ceo-sessions-pedro-arnt",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-how-cmos-can-adapt-to-agency-consolidation-webinar",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-winning-the-next-auto-cycle-playbook-for-dealers-webinar",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-private-equity-midyear-report-2026",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-welcome-to-a-new-era-global-private-equity-report-2026",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-outlook-gaining-traction-global-private-equity-report-2026",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-magic-of-founder-led-companies-snap-chart",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-mwc-2026-telecoms-at-the-inflection-point",
+      "from": "operations-supply-chain",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-how-to-make-your-organization-five-times-faster-forbes",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-strong-momentum-in-insurance-but-structural-challenges-remain",
+      "from": "industry-market-signals",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-superai-2016-when-intelligence-is-cheap-what-remains-yours",
+      "from": "industry-market-signals",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-managing-the-transition-to-a-multipolar-pharma-market",
+      "from": "macro-risk-geopolitics",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-telecom-m-and-a-here-are-the-latest-deal-trends-worldwide-interactive",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-global-m-and-a-deal-trends-interactive",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-from-hype-to-hard-value-stablecoin-and-the-great-rewiring-of-wholesale-banking",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-execs-arent-prepared-for-the-post-quantum-cybersecurity-risks-they-know-are-coming-snap-chart",
+      "from": "macro-risk-geopolitics",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-ceo-sessions-jacqueline-novogratz",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-consumer-scale-buyouts-defy-the-broader-slowdown-snap-chart",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-six-provocations-to-future-proof-your-bank",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-life-sciences-ai-momentum-requires-a-workforce-redesign-snap-chart",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-constructing-m-and-a-strategy-building-products-infographic",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-winning-with-ai-podcast-glenn-fogel",
+      "from": "consumer-brand-retail",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-why-smart-leaders-still-fail-at-change-forbes",
+      "from": "industry-market-signals",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-why-strategy-starts-with-better-predictions-and-ends-with-resilience-forbes",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-ceo-sessions-embrace-the-new-rules-of-scaling",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-560-billion-energy-question-infographic",
+      "from": "sustainability-resilience",
+      "to": "可持续发展与韧性",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-ceo-sessions-kevin-lobo",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-how-ai-is-reshaping-industrial-automation-profit-pools-video",
+      "from": "operations-supply-chain",
+      "to": "运营、供应链与成本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-six-ways-to-accelerate-exit-momentum",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-air-travel-forecast-interactive",
+      "from": "industry-market-signals",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-automotive-profitability-how-oem-and-supplier-margins-are-faring-interactive",
+      "from": "industry-market-signals",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-rebuilding-exploration",
+      "from": "industry-market-signals",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-is-the-airline-industry-ready-for-agent-led-bookings",
+      "from": "industry-market-signals",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-accelerating-growth-and-innovation-in-european-mid-sized-pharma",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-modernizing-the-bank-how-to-turn-ai-ambition-into-advantage-international-banker",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-ai-talent-lab-underwriters",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-technology-trends-redefining-the-future-of-banking-temenos",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-will-private-capital-and-disruption-reshape-defense-industrial-base",
+      "from": "industry-market-signals",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-private-equitys-reality-check-gp-outlook-2026",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-sustainable-leadership-in-2026-resilience-growth-and-action-webinar",
+      "from": "organization-leadership-talent",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-doctor-is-always-on-dynamic-medicine-is-the-next-frontier-for-pharma",
+      "from": "industry-market-signals",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-betting-on-the-future-without-a-plan-b-snap-chart",
+      "from": "industry-market-signals",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-banking-modernization-at-scale-a-conversation-with-patrick-wright-video",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-oil-and-gas-in-2026-staying-focused-in-a-disruptive-environment",
+      "from": "sustainability-resilience",
+      "to": "可持续发展与韧性",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-companies-are-betting-bigger-on-ai-even-as-returns-fall-short-video",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-inside-bains-2026-midyear-m-and-a-outlook-webinar",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-inside-bains-latest-survey-of-energy-and-natural-resources-executives-webinar",
+      "from": "sustainability-resilience",
+      "to": "可持续发展与韧性",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-dry-powder-live-from-nexus-2026-podcast",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-exiting-well-in-tough-markets-with-apollos-david-sambur-podcast",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-key-takeaways-from-bains-2026-midyear-private-equity-report-webinar",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-buying-well-at-scale-with-apollos-david-sambur-podcast",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-bain-and-companys-global-private-equity-report-2026-executive-summary-podcast",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-software-as-a-coworker-with-vistas-robert-smith-podcast",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-infrastructures-next-frontiers-with-stonepeaks-michael-dorrell-podcast",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-winning-with-ai-podcast-robert-smith",
+      "from": "industry-market-signals",
+      "to": "战略、增长与行业洞察",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-inside-bains-2026-asia-pacific-private-equity-report-webinar",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-looking-over-the-horizon-with-cvcs-rob-lucas-podcast",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-himalayan-heights-with-cvcs-rob-lucas-podcast",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-the-hard-truth-about-operational-excellence-with-kkrs-pete-stavros-podcast",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-bains-private-equity-midyear-report-2026-executive-summary-podcast",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-new-normal-new-opportunities-with-tritons-peder-prahl-podcast",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-buying-before-the-theme-with-tritons-peder-prahl-podcast",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-mastering-the-infrastructure-cycle-with-stonespeaks-michael-dorrell-podcast",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-megafund-capabilities-on-a-mid-market-budget-with-gryphons-david-andrews-podcast",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-employee-ownership-at-scale-with-kkrs-pete-stavros-podcast",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-spotting-the-downturn-early-and-coming-out-ahead-with-gryphons-david-andrews-podcast",
+      "from": "finance-investment-ma",
+      "to": "财务、投资与资本",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-refresh-ceos-guide-to-closing-the-ai-knowledge-gap-with-your-board",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-refresh-ai-in-procurement-drives-competitive-advantage",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-refresh-reimagining-asset-management-with-ai",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-refresh-how-ceos-avoid-ai-vendor-lock-in-risk",
+      "from": "治理、风险与安全",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-refresh-how-ai-lets-retailers-manage-store-portfolios",
+      "from": "客户、增长与商业模式",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-refresh-digital-infrastructure-playbook",
+      "from": "数据、平台与基础设施",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-refresh-coo-role-becomes-ai-orchestrator",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-refresh-how-universities-lead-ai-research",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-refresh-how-strategy-leaders-adapt-to-ai",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-refresh-how-ceos-manage-ai-cybersecurity-risks",
+      "from": "治理、风险与安全",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-refresh-how-cios-govern-ai-agents-at-scale",
+      "from": "治理、风险与安全",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-refresh-how-executives-fix-failing-tech-ai-partnerships",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-refresh-ai-risk-self-assessments-banking",
+      "from": "治理、风险与安全",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-refresh-which-companies-capture-value-from-ai",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-refresh-new-zealand-a-destination-for-data",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bcg-refresh-powering-ai-through-grid-positive-data-centers",
+      "from": "数据、平台与基础设施",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-refresh-discovering-cryptographic-weaknesses",
+      "from": "治理、风险与安全",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-refresh-improving-fable-5-s-biology-safeguards",
+      "from": "治理、风险与安全",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-refresh-riemann-zeta",
+      "from": "前沿研究与技术",
+      "to": "前沿研究与社会影响",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-refresh-reviewing-the-evidence-on-worker-retraining-programs",
+      "from": "组织、人才与变革",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-refresh-claude-text-watermark",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-refresh-multiagent-systems",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "anthropic-refresh-claude-accelerates-protein-design",
+      "from": "前沿研究与技术",
+      "to": "前沿研究与社会影响",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-refresh-how-is-ai-changing-the-way-bain-hires-consultants",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-refresh-what-is-an-ai-native-enterprise",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "bain-refresh-what-is-a-modern-data-platform",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-refresh-how-will-ai-automation-hit-a-crashing-wave-or-a-rising-tide",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-refresh-why-a-semantic-layer-pivotal-to-your-ai-strategy",
+      "from": "数据、平台与基础设施",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-refresh-can-ais-climate-benefits-outweigh-its-costs",
+      "from": "前沿研究与技术",
+      "to": "前沿研究与社会影响",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-refresh-ai-ethics-and-governance-where-will-you-draw-line",
+      "from": "治理、风险与安全",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mit-refresh-mit-expert-which-companies-will-succeed-ai-era",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-refresh-from-adoption-to-impact-three-horizons-of-ai-transformation",
+      "from": "组织、人才与变革",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-refresh-how-can-the-public-sector-meet-the-ai-moment",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-refresh-the-future-of-b2b-sales-how-growth-champions-rewire-their-playbooks-with-ai",
+      "from": "客户、增长与商业模式",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-refresh-how-ai-will-reshape-the-economics-of-insurance-a-ceos-guide-to-strategy",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-refresh-how-socar-transformed-a-fertilizer-leader-in-azerbaijan-with-industrial-ai",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-refresh-rewired-takes-how-ai-is-unlocking-creativity-and-heralding-the-rise-of-the-agent-manager",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-refresh-is-the-ai-productivity-story-at-a-turning-point",
+      "from": "组织、人才与变革",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-refresh-escaping-the-pilot-trap-building-hr-for-the-agentic-era",
+      "from": "组织、人才与变革",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-refresh-how-ai-is-redefining-category-management-in-distribution",
+      "from": "客户、增长与商业模式",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-refresh-growth-favors-the-bold-ai-as-force-multiplier",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-refresh-how-ai-enabled-execution-became-reckitts-tenfold-game-changer",
+      "from": "客户、增长与商业模式",
+      "to": "客户、品牌与零售",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-refresh-ai-fluency-the-next-foundation-of-us-economic-competitiveness",
+      "from": "组织、人才与变革",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-refresh-how-to-close-the-agentic-adoption-gap",
+      "from": "组织、人才与变革",
+      "to": "组织、人才与工作",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-refresh-agentic-ai-and-the-future-of-global-business-services",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-refresh-how-ai-led-commercial-transformation-can-power-industrial-growth",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-refresh-ai-transformations-run-on-trust",
+      "from": "治理、风险与安全",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-refresh-a-new-era-for-procurement-in-financial-services",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-refresh-colos-from-builders-to-coshapers-of-asia-pacifics-ai-infrastructure",
+      "from": "数据、平台与基础设施",
+      "to": "技术、数据与架构",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-refresh-governing-ai-with-intention-in-the-social-impact-sector",
+      "from": "治理、风险与安全",
+      "to": "治理、风险与安全",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    },
+    {
+      "articleId": "mckinsey-refresh-lessons-from-our-alliances-what-aws-agentic-journey-can-teach-ceo-about-rewiring-for-ai",
+      "from": "AI战略与价值",
+      "to": "AI 战略与价值",
+      "mappingRule": "legacy-primary-to-zh-management-v1",
+      "taxonomyVersion": "zh-management-v1",
+      "migratedAt": "2026-08-24T00:27:26.257Z"
+    }
+  ]
+}
