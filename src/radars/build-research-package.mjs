@@ -33,6 +33,14 @@ const SOURCE_ARCHIVES = {
     'finance-yonyou-close': { remote: true },
     'finance-fujian-energy': { remote: true },
   },
+  marketing: {
+    'marketing-continuous-mck': { local: 'work/archive/McKinsey 最近半年洞察雷达 | 2026-08-02/articles/013-from-campaigns-to-continuous-growth-ai-capabilities-shaping-marketing' },
+    'marketing-cx-mck': { local: 'work/archive/McKinsey 最近半年洞察雷达 | 2026-08-02/articles/018-rewiring-customer-experience-for-the-agentic-era' },
+    'marketing-proof-bain': { local: 'work/archive/Bain Six-Month Insight Radar · 2026-08-02/articles/042-the-marketing-finance-divide-is-about-proof-of-performance-not-priorities' },
+    'marketing-demand-bain': { local: 'work/archive/Bain Six-Month Insight Radar · 2026-08-02/articles/045-rewiring-demand-generation-in-the-age-of-ai-agents' },
+    'marketing-alibaba-1111': { remote: true },
+    'marketing-haier-model': { remote: true },
+  },
 };
 
 async function exists(filePath) {

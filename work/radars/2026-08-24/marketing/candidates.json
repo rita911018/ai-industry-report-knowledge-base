@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "domain": "marketing",
+  "discoveredAt": "2026-08-24T00:00:00+08:00",
+  "coverage": { "discovered": 8, "included": 6, "excluded": 2, "failed": 0 },
+  "candidates": [
+    { "id": "marketing-continuous-mck", "url": "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/from-campaigns-to-continuous-growth-ai-capabilities-shaping-marketing", "status": "included", "discovery": "existing_local_archive", "reason": "2026 marketing AI scale research" },
+    { "id": "marketing-cx-mck", "url": "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/rewiring-customer-experience-for-the-agentic-era", "status": "included", "discovery": "existing_local_archive", "reason": "2026 agentic customer-experience research" },
+    { "id": "marketing-proof-bain", "url": "https://www.bain.com/insights/the-marketing-finance-divide-is-about-proof-of-performance-not-priorities/", "status": "included", "discovery": "existing_local_archive", "reason": "2026 CMO-CFO measurement evidence" },
+    { "id": "marketing-demand-bain", "url": "https://www.bain.com/insights/rewiring-demand-generation-in-the-age-of-AI-agents/", "status": "included", "discovery": "existing_local_archive", "reason": "2026 consumer AI-shopping behavior evidence" },
+    { "id": "marketing-alibaba-1111", "url": "https://home.alibabagroup.com/zh-HK/document-1915930722120499200", "status": "included", "discovery": "official_web_search", "reason": "2025 Chinese company marketing and content metrics" },
+    { "id": "marketing-haier-model", "url": "https://www.haier.com/about_haier/xinwen/20250829_270448.shtml", "status": "included", "discovery": "official_web_search", "reason": "2025 Chinese company digital marketing model disclosure" },
+    { "id": "marketing-baidu-case-list", "url": "https://e.m.baidu.com/case/", "status": "excluded", "discovery": "official_vendor_search", "reason": "mixed legacy cases without a consistent 2025-2026 publication window" },
+    { "id": "marketing-adobe-agents", "url": "https://www.adobe.com/content/dam/cc/in/about-adobe/newsroom/pdfs/2025/Press%20Release_Adobe%20Brings%20AI%20Agents%20to%20Adobe%20Experience%20Cloud%20for%20Businesses%20to%20Deliver%20on%20the%20Promise%20of%20a%20Unified%20Customer%20Experience_Press%20Release.pdf", "status": "excluded", "discovery": "official_vendor_search", "reason": "product announcement without a named measurable customer outcome" }
+  ]
+}

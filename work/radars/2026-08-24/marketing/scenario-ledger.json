@@ -1,0 +1,875 @@
+{
+  "schemaVersion": "1.0",
+  "domain": "marketing",
+  "generatedAt": "2026-08-24T02:50:46.546Z",
+  "scenarioCount": 24,
+  "scenarios": [
+    {
+      "id": "marketing-01",
+      "title": "用 AI 汇总消费者研究并生成可追溯的洞察主题",
+      "priority": "P0",
+      "matrixEligible": true,
+      "matrixRank": 1,
+      "evidenceIds": [
+        "marketing-continuous-mck",
+        "marketing-demand-bain",
+        "marketing-haier-model"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-continuous-mck",
+          "text": "调查显示 90% 的 CMO 正在试验 AI，但不到 10% 已跨营销流程规模化或捕获价值，只有 28% 在根本重构团队和流程。",
+          "locator": "Opening findings；Five capability pillars；survey footnotes"
+        },
+        {
+          "sourceId": "marketing-haier-model",
+          "text": "海尔披露自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元，同时把 AI 与数字化嵌入研发、生产、销售和物流。",
+          "locator": "正文：“自研数字营销大模型”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "marketing-haier-model",
+          "market": "中国",
+          "caveat": "披露的是归因口径而非随机对照的增量，且同期有多项渠道和产品动作。"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "reason": "研究依据与企业公开实践相互补充，但收益仍需用本企业基线复验。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-02",
+      "title": "用 AI 生成多版本文案和图片并进入品牌审核",
+      "priority": "P0",
+      "matrixEligible": true,
+      "matrixRank": 2,
+      "evidenceIds": [
+        "marketing-continuous-mck",
+        "marketing-demand-bain",
+        "marketing-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-continuous-mck",
+          "text": "调查显示 90% 的 CMO 正在试验 AI，但不到 10% 已跨营销流程规模化或捕获价值，只有 28% 在根本重构团队和流程。",
+          "locator": "Opening findings；Five capability pillars；survey footnotes"
+        },
+        {
+          "sourceId": "marketing-alibaba-1111",
+          "text": "阿里巴巴披露 AI 推荐带来部分场景双位数点击提升，AI 竞价引擎带来 12% 营销 ROI 提升，AIGC 工具批量生成图片和视频。",
+          "locator": "正文：搜索推荐、商家 AI 团队与营销效率"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "marketing-alibaba-1111",
+          "market": "中国",
+          "caveat": "大促期公司自报，不能视为独立测量的长期增量。"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "reason": "研究依据与企业公开实践相互补充，但收益仍需用本企业基线复验。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-03",
+      "title": "用 AI 编排 CRM 旅程并在关键节点转给人工",
+      "priority": "P0",
+      "matrixEligible": true,
+      "matrixRank": 3,
+      "evidenceIds": [
+        "marketing-cx-mck",
+        "marketing-demand-bain",
+        "marketing-haier-model"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-cx-mck",
+          "text": "McKinsey 称客户面对面职能的 AI 部署中 41% 已完全规模化，是其他业务域的 3.5 倍；同时强调领先体验与增长相关，但不是因果证明。",
+          "locator": "Opening and Exhibit 2；Opening and Exhibit 1"
+        },
+        {
+          "sourceId": "marketing-haier-model",
+          "text": "海尔披露自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元，同时把 AI 与数字化嵌入研发、生产、销售和物流。",
+          "locator": "正文：“自研数字营销大模型”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "marketing-haier-model",
+          "market": "中国",
+          "caveat": "披露的是归因口径而非随机对照的增量，且同期有多项渠道和产品动作。"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "reason": "研究依据与企业公开实践相互补充，但收益仍需用本企业基线复验。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-04",
+      "title": "用 AI 汇总市场、竞品和品类信号生成周度简报",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 4,
+      "evidenceIds": [
+        "marketing-demand-bain",
+        "marketing-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-demand-bain",
+          "text": "Bain 调查称 30%–45% 的美国消费者使用 AI 支持购物，64% 已使用或愿意使用 AI 完成购买，品牌发现正在受算法中介影响。",
+          "locator": "Official page section: Opening section"
+        },
+        {
+          "sourceId": "marketing-alibaba-1111",
+          "text": "阿里巴巴披露 AI 推荐带来部分场景双位数点击提升，AI 竞价引擎带来 12% 营销 ROI 提升，AIGC 工具批量生成图片和视频。",
+          "locator": "正文：搜索推荐、商家 AI 团队与营销效率"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "marketing-alibaba-1111",
+          "market": "中国",
+          "caveat": "大促期公司自报，不能视为独立测量的长期增量。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-05",
+      "title": "用 AI 监听社媒与客服信号并预警声誉问题",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 5,
+      "evidenceIds": [
+        "marketing-cx-mck",
+        "marketing-haier-model"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-cx-mck",
+          "text": "McKinsey 称客户面对面职能的 AI 部署中 41% 已完全规模化，是其他业务域的 3.5 倍；同时强调领先体验与增长相关，但不是因果证明。",
+          "locator": "Opening and Exhibit 2；Opening and Exhibit 1"
+        },
+        {
+          "sourceId": "marketing-haier-model",
+          "text": "海尔披露自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元，同时把 AI 与数字化嵌入研发、生产、销售和物流。",
+          "locator": "正文：“自研数字营销大模型”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "marketing-haier-model",
+          "market": "中国",
+          "caveat": "披露的是归因口径而非随机对照的增量，且同期有多项渠道和产品动作。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-06",
+      "title": "用 AI 识别可行动客群并解释细分差异",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 6,
+      "evidenceIds": [
+        "marketing-continuous-mck",
+        "marketing-haier-model"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-continuous-mck",
+          "text": "调查显示 90% 的 CMO 正在试验 AI，但不到 10% 已跨营销流程规模化或捕获价值，只有 28% 在根本重构团队和流程。",
+          "locator": "Opening findings；Five capability pillars；survey footnotes"
+        },
+        {
+          "sourceId": "marketing-haier-model",
+          "text": "海尔披露自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元，同时把 AI 与数字化嵌入研发、生产、销售和物流。",
+          "locator": "正文：“自研数字营销大模型”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "marketing-haier-model",
+          "market": "中国",
+          "caveat": "披露的是归因口径而非随机对照的增量，且同期有多项渠道和产品动作。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-07",
+      "title": "用 AI 基于证据生成动态人物画像而非虚构标签",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 7,
+      "evidenceIds": [
+        "marketing-continuous-mck",
+        "marketing-haier-model"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-continuous-mck",
+          "text": "调查显示 90% 的 CMO 正在试验 AI，但不到 10% 已跨营销流程规模化或捕获价值，只有 28% 在根本重构团队和流程。",
+          "locator": "Opening findings；Five capability pillars；survey footnotes"
+        },
+        {
+          "sourceId": "marketing-haier-model",
+          "text": "海尔披露自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元，同时把 AI 与数字化嵌入研发、生产、销售和物流。",
+          "locator": "正文：“自研数字营销大模型”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "marketing-haier-model",
+          "market": "中国",
+          "caveat": "披露的是归因口径而非随机对照的增量，且同期有多项渠道和产品动作。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-08",
+      "title": "用 AI 把商业目标转成带证据的内容简报",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 8,
+      "evidenceIds": [
+        "marketing-continuous-mck",
+        "marketing-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-continuous-mck",
+          "text": "调查显示 90% 的 CMO 正在试验 AI，但不到 10% 已跨营销流程规模化或捕获价值，只有 28% 在根本重构团队和流程。",
+          "locator": "Opening findings；Five capability pillars；survey footnotes"
+        },
+        {
+          "sourceId": "marketing-alibaba-1111",
+          "text": "阿里巴巴披露 AI 推荐带来部分场景双位数点击提升，AI 竞价引擎带来 12% 营销 ROI 提升，AIGC 工具批量生成图片和视频。",
+          "locator": "正文：搜索推荐、商家 AI 团队与营销效率"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "marketing-alibaba-1111",
+          "market": "中国",
+          "caveat": "大促期公司自报，不能视为独立测量的长期增量。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-09",
+      "title": "用 AI 本地化内容并保留文化与法规人工复核",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 9,
+      "evidenceIds": [
+        "marketing-continuous-mck",
+        "marketing-haier-model"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-continuous-mck",
+          "text": "调查显示 90% 的 CMO 正在试验 AI，但不到 10% 已跨营销流程规模化或捕获价值，只有 28% 在根本重构团队和流程。",
+          "locator": "Opening findings；Five capability pillars；survey footnotes"
+        },
+        {
+          "sourceId": "marketing-haier-model",
+          "text": "海尔披露自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元，同时把 AI 与数字化嵌入研发、生产、销售和物流。",
+          "locator": "正文：“自研数字营销大模型”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "marketing-haier-model",
+          "market": "中国",
+          "caveat": "披露的是归因口径而非随机对照的增量，且同期有多项渠道和产品动作。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-10",
+      "title": "用 AI 检查跨渠道品牌语气、视觉和事实一致性",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 10,
+      "evidenceIds": [
+        "marketing-continuous-mck",
+        "marketing-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-continuous-mck",
+          "text": "调查显示 90% 的 CMO 正在试验 AI，但不到 10% 已跨营销流程规模化或捕获价值，只有 28% 在根本重构团队和流程。",
+          "locator": "Opening findings；Five capability pillars；survey footnotes"
+        },
+        {
+          "sourceId": "marketing-alibaba-1111",
+          "text": "阿里巴巴披露 AI 推荐带来部分场景双位数点击提升，AI 竞价引擎带来 12% 营销 ROI 提升，AIGC 工具批量生成图片和视频。",
+          "locator": "正文：搜索推荐、商家 AI 团队与营销效率"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "marketing-alibaba-1111",
+          "market": "中国",
+          "caveat": "大促期公司自报，不能视为独立测量的长期增量。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-11",
+      "title": "用 AI 生成活动计划并协调受众、内容、渠道和预算",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 11,
+      "evidenceIds": [
+        "marketing-continuous-mck",
+        "marketing-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-continuous-mck",
+          "text": "调查显示 90% 的 CMO 正在试验 AI，但不到 10% 已跨营销流程规模化或捕获价值，只有 28% 在根本重构团队和流程。",
+          "locator": "Opening findings；Five capability pillars；survey footnotes"
+        },
+        {
+          "sourceId": "marketing-alibaba-1111",
+          "text": "阿里巴巴披露 AI 推荐带来部分场景双位数点击提升，AI 竞价引擎带来 12% 营销 ROI 提升，AIGC 工具批量生成图片和视频。",
+          "locator": "正文：搜索推荐、商家 AI 团队与营销效率"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "marketing-alibaba-1111",
+          "market": "中国",
+          "caveat": "大促期公司自报，不能视为独立测量的长期增量。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-12",
+      "title": "用 AI 模拟渠道组合并说明覆盖、频次与成本权衡",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 12,
+      "evidenceIds": [
+        "marketing-proof-bain",
+        "marketing-haier-model"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-proof-bain",
+          "text": "Bain 与 Google 的研究称，CMO–CFO 关系强的公司成为市场份额和收入增长领先者的可能性约为关系弱公司的 1.5 倍。",
+          "locator": "Official page section: Marketing and finance already agree on the scoreboard"
+        },
+        {
+          "sourceId": "marketing-haier-model",
+          "text": "海尔披露自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元，同时把 AI 与数字化嵌入研发、生产、销售和物流。",
+          "locator": "正文：“自研数字营销大模型”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "marketing-haier-model",
+          "market": "中国",
+          "caveat": "披露的是归因口径而非随机对照的增量，且同期有多项渠道和产品动作。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-13",
+      "title": "用 AI 生成媒体计划并检查库存、频控和品牌安全",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "marketing-proof-bain",
+        "marketing-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-proof-bain",
+          "text": "Bain 与 Google 的研究称，CMO–CFO 关系强的公司成为市场份额和收入增长领先者的可能性约为关系弱公司的 1.5 倍。",
+          "locator": "Official page section: Marketing and finance already agree on the scoreboard"
+        },
+        {
+          "sourceId": "marketing-alibaba-1111",
+          "text": "阿里巴巴披露 AI 推荐带来部分场景双位数点击提升，AI 竞价引擎带来 12% 营销 ROI 提升，AIGC 工具批量生成图片和视频。",
+          "locator": "正文：搜索推荐、商家 AI 团队与营销效率"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "marketing-alibaba-1111",
+          "market": "中国",
+          "caveat": "大促期公司自报，不能视为独立测量的长期增量。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-14",
+      "title": "用 AI 优化广告竞价但限定预算、品牌和公平约束",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "marketing-proof-bain",
+        "marketing-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-proof-bain",
+          "text": "Bain 与 Google 的研究称，CMO–CFO 关系强的公司成为市场份额和收入增长领先者的可能性约为关系弱公司的 1.5 倍。",
+          "locator": "Official page section: Marketing and finance already agree on the scoreboard"
+        },
+        {
+          "sourceId": "marketing-alibaba-1111",
+          "text": "阿里巴巴披露 AI 推荐带来部分场景双位数点击提升，AI 竞价引擎带来 12% 营销 ROI 提升，AIGC 工具批量生成图片和视频。",
+          "locator": "正文：搜索推荐、商家 AI 团队与营销效率"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "marketing-alibaba-1111",
+          "market": "中国",
+          "caveat": "大促期公司自报，不能视为独立测量的长期增量。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-15",
+      "title": "用 AI 推荐受众但阻止敏感属性和代理歧视",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "marketing-cx-mck",
+        "marketing-haier-model"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-cx-mck",
+          "text": "McKinsey 称客户面对面职能的 AI 部署中 41% 已完全规模化，是其他业务域的 3.5 倍；同时强调领先体验与增长相关，但不是因果证明。",
+          "locator": "Opening and Exhibit 2；Opening and Exhibit 1"
+        },
+        {
+          "sourceId": "marketing-haier-model",
+          "text": "海尔披露自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元，同时把 AI 与数字化嵌入研发、生产、销售和物流。",
+          "locator": "正文：“自研数字营销大模型”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "marketing-haier-model",
+          "market": "中国",
+          "caveat": "披露的是归因口径而非随机对照的增量，且同期有多项渠道和产品动作。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-16",
+      "title": "用 AI 推荐下一最佳行动并优先选择不打扰",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "marketing-cx-mck",
+        "marketing-haier-model"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-cx-mck",
+          "text": "McKinsey 称客户面对面职能的 AI 部署中 41% 已完全规模化，是其他业务域的 3.5 倍；同时强调领先体验与增长相关，但不是因果证明。",
+          "locator": "Opening and Exhibit 2；Opening and Exhibit 1"
+        },
+        {
+          "sourceId": "marketing-haier-model",
+          "text": "海尔披露自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元，同时把 AI 与数字化嵌入研发、生产、销售和物流。",
+          "locator": "正文：“自研数字营销大模型”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "marketing-haier-model",
+          "market": "中国",
+          "caveat": "披露的是归因口径而非随机对照的增量，且同期有多项渠道和产品动作。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-17",
+      "title": "用 AI 识别高意向线索并给销售可解释的跟进建议",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "marketing-cx-mck",
+        "marketing-haier-model"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-cx-mck",
+          "text": "McKinsey 称客户面对面职能的 AI 部署中 41% 已完全规模化，是其他业务域的 3.5 倍；同时强调领先体验与增长相关，但不是因果证明。",
+          "locator": "Opening and Exhibit 2；Opening and Exhibit 1"
+        },
+        {
+          "sourceId": "marketing-haier-model",
+          "text": "海尔披露自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元，同时把 AI 与数字化嵌入研发、生产、销售和物流。",
+          "locator": "正文：“自研数字营销大模型”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "marketing-haier-model",
+          "market": "中国",
+          "caveat": "披露的是归因口径而非随机对照的增量，且同期有多项渠道和产品动作。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-18",
+      "title": "用 AI 发现搜索问题并优化面向人和助手的内容",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "marketing-demand-bain",
+        "marketing-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-demand-bain",
+          "text": "Bain 调查称 30%–45% 的美国消费者使用 AI 支持购物，64% 已使用或愿意使用 AI 完成购买，品牌发现正在受算法中介影响。",
+          "locator": "Official page section: Opening section"
+        },
+        {
+          "sourceId": "marketing-alibaba-1111",
+          "text": "阿里巴巴披露 AI 推荐带来部分场景双位数点击提升，AI 竞价引擎带来 12% 营销 ROI 提升，AIGC 工具批量生成图片和视频。",
+          "locator": "正文：搜索推荐、商家 AI 团队与营销效率"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "marketing-alibaba-1111",
+          "market": "中国",
+          "caveat": "大促期公司自报，不能视为独立测量的长期增量。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-19",
+      "title": "用 AI 诊断转化漏斗并提出可验证的页面改进",
+      "priority": "P2",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "marketing-cx-mck",
+        "marketing-haier-model"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-cx-mck",
+          "text": "McKinsey 称客户面对面职能的 AI 部署中 41% 已完全规模化，是其他业务域的 3.5 倍；同时强调领先体验与增长相关，但不是因果证明。",
+          "locator": "Opening and Exhibit 2；Opening and Exhibit 1"
+        },
+        {
+          "sourceId": "marketing-haier-model",
+          "text": "海尔披露自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元，同时把 AI 与数字化嵌入研发、生产、销售和物流。",
+          "locator": "正文：“自研数字营销大模型”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "marketing-haier-model",
+          "market": "中国",
+          "caveat": "披露的是归因口径而非随机对照的增量，且同期有多项渠道和产品动作。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-20",
+      "title": "用 AI 设计实验并检查样本、污染和提前停止风险",
+      "priority": "P2",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "marketing-proof-bain",
+        "marketing-haier-model"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-proof-bain",
+          "text": "Bain 与 Google 的研究称，CMO–CFO 关系强的公司成为市场份额和收入增长领先者的可能性约为关系弱公司的 1.5 倍。",
+          "locator": "Official page section: Marketing and finance already agree on the scoreboard"
+        },
+        {
+          "sourceId": "marketing-haier-model",
+          "text": "海尔披露自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元，同时把 AI 与数字化嵌入研发、生产、销售和物流。",
+          "locator": "正文：“自研数字营销大模型”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "marketing-haier-model",
+          "market": "中国",
+          "caveat": "披露的是归因口径而非随机对照的增量，且同期有多项渠道和产品动作。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-21",
+      "title": "用 AI 整合归因与 MMM 并明确相关性和增量差异",
+      "priority": "P2",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "marketing-proof-bain",
+        "marketing-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-proof-bain",
+          "text": "Bain 与 Google 的研究称，CMO–CFO 关系强的公司成为市场份额和收入增长领先者的可能性约为关系弱公司的 1.5 倍。",
+          "locator": "Official page section: Marketing and finance already agree on the scoreboard"
+        },
+        {
+          "sourceId": "marketing-alibaba-1111",
+          "text": "阿里巴巴披露 AI 推荐带来部分场景双位数点击提升，AI 竞价引擎带来 12% 营销 ROI 提升，AIGC 工具批量生成图片和视频。",
+          "locator": "正文：搜索推荐、商家 AI 团队与营销效率"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "marketing-alibaba-1111",
+          "market": "中国",
+          "caveat": "大促期公司自报，不能视为独立测量的长期增量。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-22",
+      "title": "用 AI 筛选影响者并检查受众真实性与品牌风险",
+      "priority": "P2",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "marketing-demand-bain",
+        "marketing-haier-model"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-demand-bain",
+          "text": "Bain 调查称 30%–45% 的美国消费者使用 AI 支持购物，64% 已使用或愿意使用 AI 完成购买，品牌发现正在受算法中介影响。",
+          "locator": "Official page section: Opening section"
+        },
+        {
+          "sourceId": "marketing-haier-model",
+          "text": "海尔披露自研数字营销大模型在 2025 上半年获取 52.64 万条商机并转化零售 14.9 亿元，同时把 AI 与数字化嵌入研发、生产、销售和物流。",
+          "locator": "正文：“自研数字营销大模型”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔智家",
+          "sourceId": "marketing-haier-model",
+          "market": "中国",
+          "caveat": "披露的是归因口径而非随机对照的增量，且同期有多项渠道和产品动作。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-23",
+      "title": "用 AI 审查品牌安全、产品声明和监管要求",
+      "priority": "P2",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "marketing-continuous-mck",
+        "marketing-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-continuous-mck",
+          "text": "调查显示 90% 的 CMO 正在试验 AI，但不到 10% 已跨营销流程规模化或捕获价值，只有 28% 在根本重构团队和流程。",
+          "locator": "Opening findings；Five capability pillars；survey footnotes"
+        },
+        {
+          "sourceId": "marketing-alibaba-1111",
+          "text": "阿里巴巴披露 AI 推荐带来部分场景双位数点击提升，AI 竞价引擎带来 12% 营销 ROI 提升，AIGC 工具批量生成图片和视频。",
+          "locator": "正文：搜索推荐、商家 AI 团队与营销效率"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "marketing-alibaba-1111",
+          "market": "中国",
+          "caveat": "大促期公司自报，不能视为独立测量的长期增量。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "marketing-24",
+      "title": "让 AI 操纵脆弱人群或发布受监管声明（禁止）",
+      "priority": "P3",
+      "matrixEligible": false,
+      "matrixRank": null,
+      "evidenceIds": [
+        "marketing-proof-bain",
+        "marketing-alibaba-1111"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "marketing-proof-bain",
+          "text": "Bain 与 Google 的研究称，CMO–CFO 关系强的公司成为市场份额和收入增长领先者的可能性约为关系弱公司的 1.5 倍。",
+          "locator": "Official page section: Marketing and finance already agree on the scoreboard"
+        },
+        {
+          "sourceId": "marketing-alibaba-1111",
+          "text": "阿里巴巴披露 AI 推荐带来部分场景双位数点击提升，AI 竞价引擎带来 12% 营销 ROI 提升，AIGC 工具批量生成图片和视频。",
+          "locator": "正文：搜索推荐、商家 AI 团队与营销效率"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "阿里巴巴（淘宝天猫）",
+          "sourceId": "marketing-alibaba-1111",
+          "market": "中国",
+          "caveat": "大促期公司自报，不能视为独立测量的长期增量。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "风险边界有明确治理依据，但不同司法辖区和业务情境仍需专项评估。"
+      },
+      "evidenceWindow": "current"
+    }
+  ]
+}
