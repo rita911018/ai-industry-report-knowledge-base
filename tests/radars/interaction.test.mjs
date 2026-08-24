@@ -10,9 +10,9 @@ const legalPath = new URL('../../web/radars/data/legal.js', import.meta.url);
 const hrPath = new URL('../../web/radars/data/hr.js', import.meta.url);
 const extendedPath = new URL('./fixtures/extended-radar.js', import.meta.url);
 
-async function setup(data) {
+async function setup(data, url = 'http://127.0.0.1/radars/legal.html') {
   const dom = new JSDOM('<!doctype html><div id="radar-error" aria-live="assertive" hidden></div><main id="radar-app"></main>', {
-    url: 'http://127.0.0.1/radars/legal.html',
+    url,
     runScripts: 'outside-only',
     pretendToBeVisual: true,
   });
@@ -183,6 +183,7 @@ test('live radar builds a two-level table of contents from domain data', async (
   const dom = await setup(await loadRadarFile(fileURLToPath(legalPath)));
   const { document } = dom.window;
   assert.ok(document.querySelector('#radar-toc'));
+  assert.equal(document.querySelector('#radar-toc-title').tagName, 'STRONG');
   assert.equal(document.querySelectorAll('[data-toc-section]').length, 3);
   assert.equal(document.querySelectorAll('[data-toc-scenario]').length, 12);
   const backdrop = document.querySelector('.radar-toc-backdrop');
@@ -207,13 +208,32 @@ test('table of contents can collapse scenarios and jump to a filtered scenario',
   assert.equal(toggle.getAttribute('aria-expanded'), 'false');
   assert.equal(list.hidden, true);
   toggle.click();
+  assert.equal(toggle.getAttribute('aria-expanded'), 'true');
+  assert.equal(list.hidden, false);
   document.querySelector('[data-priority-filter="P0"]').click();
   assert.equal(document.querySelector('#legal-07').hidden, true);
   document.querySelector('[data-toc-scenario="legal-07"]').click();
   assert.equal(document.querySelector('#legal-07').hidden, false);
+  assert.equal(document.querySelectorAll('.scenario:not([hidden])').length, 12);
+  assert.equal(document.querySelector('#scenario-result-count').textContent, '12 个场景');
+  assert.equal(document.querySelector('[data-priority-filter="all"]').getAttribute('aria-pressed'), 'true');
+  assert.equal(document.querySelector('[data-category-filter="all"]').getAttribute('aria-pressed'), 'true');
   assert.equal(document.querySelector('#legal-07 .scenario-header').getAttribute('aria-expanded'), 'true');
   assert.equal(document.activeElement, document.querySelector('#legal-07 .scenario-header'));
   assert.equal(dom.window.location.hash, '#legal-07');
+});
+
+test('table of contents scenario links work on file URLs', async () => {
+  const dom = await setup(
+    await loadRadarFile(fileURLToPath(legalPath)),
+    'file:///Users/rita/Documents/AI%E8%A1%8C%E4%B8%9A%E6%8A%A5%E5%91%8A/web/radars/legal.html',
+  );
+  const { document } = dom.window;
+  const link = document.querySelector('[data-toc-scenario="legal-07"]');
+  assert.doesNotThrow(() => link.click());
+  assert.equal(document.querySelector('#legal-07 .scenario-header').getAttribute('aria-expanded'), 'true');
+  assert.equal(dom.window.location.hash, '#legal-07');
+  assert.equal(link.getAttribute('aria-current'), 'location');
 });
 
 test('missing data displays an explicit error instead of a blank page', async () => {

@@ -429,7 +429,11 @@
 
   function setLocationHash(state, targetId) {
     const view = state.root?.ownerDocument?.defaultView || window;
-    view.history.replaceState(view.history.state, '', `#${targetId}`);
+    try {
+      view.history.replaceState(view.history.state, '', `#${targetId}`);
+    } catch {
+      view.location.hash = targetId;
+    }
   }
 
   function closeTocDrawer(state, restoreFocus = false) {
@@ -442,7 +446,7 @@
   }
 
   function renderToc(data, state) {
-    const title = createElement('h2', { text: '本页目录', attrs: { id: 'radar-toc-title' } });
+    const title = createElement('strong', { text: '本页目录', attrs: { id: 'radar-toc-title' } });
     const closeButton = createElement('button', { className: 'radar-toc-close', text: '关闭', attrs: { type: 'button', 'aria-label': '关闭目录' } });
     const panel = createElement('aside', { className: 'radar-toc-panel', attrs: { id: 'radar-toc', 'aria-labelledby': 'radar-toc-title' } });
     const navigation = createElement('nav', { attrs: { 'aria-label': '雷达页面目录' } });
