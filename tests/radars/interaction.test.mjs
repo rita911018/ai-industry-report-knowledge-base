@@ -178,7 +178,10 @@ test('standalone export contains the complete current-domain report and no secre
   assert.equal((report.match(/class="export-scenario"/g) || []).length, 12);
   assert.equal((report.match(/data-export-toc-scenario=/g) || []).length, 12);
   for (const id of ['export-priority-matrix', 'export-scenario-portfolio', 'export-priority-starts']) assert.match(report, new RegExp(`id="${id}"`));
-  assert.match(report, /\.export-toc\{display:none!important\}/);
+  assert.doesNotMatch(report, /<summary tabindex=/);
+  const printStyles = report.slice(report.indexOf('@media print{'), report.indexOf('</style>'));
+  assert.match(printStyles, /\.export-toc\{display:none!important\}/);
+  assert.match(printStyles, /body>\.hero \.shell,body>main \.shell,body>\.footer \.shell\{width:100%!important;max-width:none!important;margin-left:auto!important;margin-right:auto!important\}/);
   for (const heading of ['业务痛点', 'AI 价值｜可以做什么', '主要风险', '证据锚点', '哪些公司做过']) assert.match(report, new RegExp(heading));
   for (const item of ['业务价值', '流程适配度', '数据与系统准备度', '证据与可验收性', '风险可控性']) assert.match(report, new RegExp(item));
   assert.match(report, /中国建设科技集团/);
@@ -215,6 +218,11 @@ test('standalone export TOC opens and focuses filtered scenarios on file URLs', 
   );
   assert.equal(library.open, true);
   assert.equal(toc.querySelector('summary').textContent, '场景列表');
+  assert.deepEqual(
+    [...toc.querySelectorAll('[data-export-toc-scenario]')].map((link) => link.textContent.trim().slice(0, 2)),
+    legal.scenarios.slice().sort((a, b) => a.number.localeCompare(b.number)).map((scenario) => scenario.number),
+  );
+  for (const summary of document.querySelectorAll('.export-scenario summary')) assert.equal(summary.tabIndex, 0);
   library.open = false;
   assert.equal(library.open, false);
   library.open = true;
@@ -224,18 +232,48 @@ test('standalone export TOC opens and focuses filtered scenarios on file URLs', 
   assert.equal(target.hidden, true);
   const targetDetails = target.querySelector('details');
   targetDetails.open = false;
+  const targetSummary = target.querySelector('summary');
+  targetSummary.click();
+  assert.equal(targetDetails.open, true);
+  targetSummary.click();
+  assert.equal(targetDetails.open, false);
+  dom.window.matchMedia = () => ({ matches: true });
   assert.doesNotThrow(() => document.querySelector('[data-export-toc-scenario="legal-07"]').click());
   assert.equal(target.hidden, false);
   assert.equal(targetDetails.open, true);
   assert.equal(dom.window.location.hash, '#export-legal-07');
-  assert.equal(document.activeElement, target.querySelector('summary'));
+  assert.equal(document.activeElement, targetSummary);
   assert.equal(scrollEvents.at(-1).element, target);
+  assert.equal(scrollEvents.at(-1).options.behavior, 'auto');
   assert.equal(document.querySelector('[data-export-priority="all"]').getAttribute('aria-pressed'), 'true');
   assert.equal(document.querySelector('[data-export-category="all"]').getAttribute('aria-pressed'), 'true');
   const matrixLink = toc.querySelector('a[href="#export-priority-matrix"]');
   assert.doesNotThrow(() => matrixLink.click());
   await new Promise((resolve) => dom.window.setTimeout(resolve, 0));
   assert.equal(dom.window.location.hash, '#export-priority-matrix');
+  dom.window.close();
+});
+
+test('standalone export TOC handles punctuation scenario IDs on file URLs', async () => {
+  const legal = structuredClone(await loadRadarFile(fileURLToPath(legalPath)));
+  legal.scenarios[6].id = 'legal:07';
+  const sourceDom = await setup(legal);
+  const report = sourceDom.window.OpportunityRadar.buildStandaloneReport(legal, new Date('2026-08-24T08:00:00+08:00'));
+  const dom = new JSDOM(report, {
+    url: 'file:///tmp/legal-export.html',
+    runScripts: 'dangerously',
+    pretendToBeVisual: true,
+    beforeParse(window) { window.HTMLElement.prototype.scrollIntoView = () => {}; },
+  });
+  const { document } = dom.window;
+  const target = document.getElementById('export-legal:07');
+  const targetDetails = target.querySelector('details');
+  targetDetails.open = false;
+  const link = document.querySelector('[data-export-toc-scenario="legal:07"]');
+  assert.doesNotThrow(() => link.click());
+  assert.equal(targetDetails.open, true);
+  assert.equal(document.activeElement, target.querySelector('summary'));
+  assert.equal(dom.window.location.hash, '#export-legal%3A07');
   dom.window.close();
 });
 
