@@ -37,7 +37,7 @@ function firstMeaningfulParagraph(markdown) {
 }
 
 function mergedArticle(archived, ledgerRecord, markdown) {
-  const article = { ...ledgerRecord, ...archived.metadata };
+  const article = { ...archived.metadata, ...ledgerRecord };
   const summary = ledgerRecord?.coreView?.zh || archived.metadata?.coreView?.zh || firstMeaningfulParagraph(markdown);
   if (summary) article.coreView = { ...(ledgerRecord?.coreView || archived.metadata?.coreView || {}), zh: summary };
   return article;

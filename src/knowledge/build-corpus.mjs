@@ -132,8 +132,8 @@ export async function loadArchiveRecords({ ledgerPath, archiveRoot }) {
     const originalPath = path.join(saved.directory, '英文原文.md');
     const relativeDirectory = path.relative(archiveRoot, saved.directory).split(path.sep).join('/');
     return {
-      ...record,
       ...saved.metadata,
+      ...record,
       translationMarkdown: await readFile(translationPath, 'utf8'),
       localPaths: {
         chinese: `/archive/${relativeDirectory}/中文全文.html`,

@@ -33,6 +33,18 @@ test('generates deterministic validated Chinese readers', async () => {
   assert.deepEqual(await verifyChineseReaders({ ledgerPath, archiveRoot: root, expected: 1 }), { expected: 1, verified: 1 });
 });
 
+test('renders canonical ledger topics instead of archived legacy topics', async () => {
+  const { root, articleDir, ledgerPath } = await fixture({
+    metadata: { category: { primary: 'legacy-english-topic', secondary: [] } },
+  });
+
+  await generateChineseReaders({ ledgerPath, archiveRoot: root, expected: 1 });
+  const html = await readFile(path.join(articleDir, '中文全文.html'), 'utf8');
+
+  assert.match(html, /AI 战略/);
+  assert.doesNotMatch(html, /legacy-english-topic/);
+});
+
 for (const [label, overrides, pattern] of [
   ['missing Markdown', { noMarkdown: true }, /Missing Chinese Markdown: a/],
   ['blank Markdown', { markdown: ' \n ' }, /Chinese Markdown rendered empty/],
