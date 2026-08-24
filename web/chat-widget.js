@@ -1,0 +1,1 @@
+window.KnowledgeChat = window.KnowledgeChat || {};

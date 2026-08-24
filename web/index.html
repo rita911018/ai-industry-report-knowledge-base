@@ -20,31 +20,17 @@
     <div class="mast-meta">
       <span><strong id="article-count">469</strong> 篇归档</span>
       <span><strong>5</strong> 个来源</span>
-      <span id="api-status" class="status" aria-live="polite">正在检查 DeepSeek…</span>
     </div>
   </header>
 
   <main id="top">
-    <section class="ask-workspace" aria-labelledby="ask-heading">
-      <div class="section-index" aria-hidden="true">01 / ASK</div>
-      <div class="ask-copy">
+    <section class="knowledge-hero" aria-labelledby="knowledge-heading">
+      <div class="section-index" aria-hidden="true">01 / KNOWLEDGE</div>
+      <div class="knowledge-hero-copy">
         <p class="eyebrow">Grounded research assistant</p>
-        <h1 id="ask-heading">问报告，<br>也问证据。</h1>
+        <h1 id="knowledge-heading">问报告，也问证据。</h1>
         <p>答案只基于已归档全文，并逐条标注出处。没有足够证据时，系统会明确说明。</p>
-      </div>
-      <div class="ask-console">
-        <form id="question-form">
-          <label for="question">你想从这 469 篇报告中了解什么？</label>
-          <textarea id="question" name="question" rows="4" maxlength="1200" placeholder="例如：企业部署 AI Agent 时，治理重点和组织变化分别是什么？" required></textarea>
-          <div class="ask-actions">
-            <span class="privacy-note">API Key 仅保存在本机服务器环境中</span>
-            <button id="ask-button" type="submit">基于全文回答</button>
-          </div>
-        </form>
-        <div id="answer" class="answer" aria-live="polite" aria-atomic="false">
-          <p class="answer-placeholder">提出问题后，答案与经过校验的来源会显示在这里。</p>
-        </div>
-        <div id="question-history" class="history" aria-label="最近问题"></div>
+        <a class="hero-link" href="#library-heading">浏览 469 篇文章 ↓</a>
       </div>
     </section>
 
@@ -90,6 +76,43 @@
     </section>
   </main>
 
+  <button id="knowledge-chat-button" class="knowledge-chat-button" type="button" aria-label="问整个知识库" aria-expanded="false" aria-controls="knowledge-chat-drawer">
+    <span aria-hidden="true">✦</span><span>问知识库</span>
+  </button>
+  <aside id="knowledge-chat-drawer" class="knowledge-chat-drawer" role="dialog" aria-modal="false" aria-labelledby="chat-heading" aria-hidden="true" hidden>
+    <header class="knowledge-chat-head">
+      <div><span class="eyebrow">469 articles · global search</span><h2 id="chat-heading" tabindex="-1">问整个知识库</h2></div>
+      <button id="knowledge-chat-close" class="icon-button" type="button" aria-label="关闭全局问答">×</button>
+    </header>
+    <p id="api-status" class="status" aria-live="polite">正在检查问答模型…</p>
+    <div id="answer" class="answer" aria-live="polite" aria-atomic="false">
+      <p class="answer-placeholder">提出问题后，回答与经过校验的来源会显示在这里。</p>
+    </div>
+    <div id="question-history" class="history" aria-label="最近问题"></div>
+    <form id="question-form" class="knowledge-chat-form">
+      <label for="question">向 469 篇全文提问</label>
+      <textarea id="question" name="question" rows="4" maxlength="1200" placeholder="例如：企业部署 AI Agent 时，治理重点和组织变化分别是什么？" required></textarea>
+      <div class="ask-actions">
+        <span class="privacy-note">API Key 仅保存在本机服务器环境中</span>
+        <button id="ask-button" type="submit">基于全文回答</button>
+      </div>
+    </form>
+  </aside>
+
+  <section id="source-reader" class="source-reader" aria-labelledby="source-reader-title" aria-hidden="true" hidden>
+    <header class="source-reader-head">
+      <button id="source-reader-back" class="text-button" type="button">← 返回回答</button>
+      <div><span class="eyebrow" id="source-reader-publisher">Cited source</span><h2 id="source-reader-title" tabindex="-1">来源全文</h2><p id="source-reader-section"></p></div>
+      <nav class="source-reader-links" aria-label="来源阅读入口">
+        <a id="source-reader-chinese" href="#">中文全文</a>
+        <a id="source-reader-original" href="#" target="_blank">原文归档</a>
+        <a id="source-reader-official" href="#" target="_blank" rel="noreferrer">官网原文</a>
+      </nav>
+      <button id="source-reader-close" class="icon-button" type="button" aria-label="关闭来源阅读器">×</button>
+    </header>
+    <iframe id="source-reader-frame" title="中文全文阅读器"></iframe>
+  </section>
+
   <aside id="source-drawer" class="source-drawer" aria-labelledby="source-heading" aria-hidden="true">
     <div class="drawer-head">
       <div><span class="eyebrow">Cited evidence</span><h2 id="source-heading">本次回答来源</h2></div>
@@ -114,13 +137,14 @@
   </dialog>
 
   <footer>
-    <p><strong>方法说明</strong>　网页先在本地全文中检索证据，再把有限证据片段发送给 DeepSeek V4。每个模型引用都必须与实际检索片段匹配后才会展示。</p>
+    <p><strong>方法说明</strong>　网页先在本地全文中检索证据，再把有限证据片段发送给服务器配置的问答模型。每个模型引用都必须与实际检索片段匹配后才会展示。</p>
     <p>归档来源：BCG · Anthropic · McKinsey · MIT · Bain</p>
   </footer>
 
   <script src="data/topics.js"></script>
   <script src="data/articles.js"></script>
   <script src="article-utils.js"></script>
+  <script src="chat-widget.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

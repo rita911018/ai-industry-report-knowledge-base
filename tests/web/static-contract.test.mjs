@@ -7,6 +7,8 @@ const root = new URL('../../web/', import.meta.url);
 test('unified page exposes an accessible cited research workspace', async () => {
   const html = await readFile(new URL('index.html', root), 'utf8');
   assert.equal((html.match(/<main\b/g) || []).length, 1);
+  assert.doesNotMatch(html, /class="ask-console"/);
+  assert.doesNotMatch(html, /问报告，<br>/);
   assert.match(html, /<form[^>]+id="question-form"/);
   assert.match(html, /<label[^>]+for="question"/);
   for (const id of ['publisher-filter', 'date-filter', 'category-filter', 'priority-filter']) assert.match(html, new RegExp(`id="${id}"`));
@@ -15,6 +17,11 @@ test('unified page exposes an accessible cited research workspace', async () => 
   assert.match(html, /id="source-drawer"/);
   assert.match(html, /id="article-dialog"/);
   assert.match(html, /id="api-status"/);
+  assert.match(html, /id="knowledge-chat-button"[^>]+aria-label="问整个知识库"/);
+  assert.match(html, /id="knowledge-chat-drawer"[^>]+role="dialog"[^>]+aria-modal="false"/);
+  assert.match(html, /id="source-reader"/);
+  assert.match(html, /id="source-reader-frame"/);
+  assert.match(html, /id="source-reader-back"/);
   assert.match(html, /<nav[^>]+aria-label="主导航"/);
   assert.match(html, /href="radars\/index\.html"[^>]*>AI机会雷达<\/a>/);
   assert.match(html, /data-link="chinese"/);
@@ -25,6 +32,7 @@ test('unified page exposes an accessible cited research workspace', async () => 
   assert.match(html, /value="score"[^>]*>评分最高/);
   assert.match(html, /<script src="data\/topics\.js"><\/script>/);
   assert.match(html, /<script src="article-utils\.js"><\/script>/);
+  assert.match(html, /<script src="chat-widget\.js"><\/script>/);
 });
 
 test('assets include responsive, accessible and safe rendering contracts', async () => {
