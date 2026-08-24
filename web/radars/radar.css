@@ -105,12 +105,17 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .priority.p0 { border-color: var(--signal); background: var(--signal); color: var(--ink); }
 .priority.p3 { border-style: dashed; }
 .scenario-title { font: 500 clamp(20px, 2.1vw, 30px)/1.25 var(--serif); transition: color .18s ease; }
+.scenario-title-group { min-width: 0; display: grid; justify-items: start; gap: 8px; }
+.scenario-badge { padding: 3px 7px; border: 1px solid var(--line-dark); color: var(--sage); font: 800 9px/1.2 var(--sans); letter-spacing: .08em; }
+.scenario-badge-core { border-color: var(--signal); color: var(--signal); }
+.scenario-badge-boundary { border-color: #f2a65a; color: #ffd0a4; }
 .scenario-scores { display: flex; gap: 18px; color: var(--sage); font-size: 11px; white-space: nowrap; }
 .scenario-chevron { color: var(--signal); font-size: 24px; text-align: right; }
 .scenario-detail { padding: 0 0 36px 102px; }
 .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line-dark); border: 1px solid var(--line-dark); }
 .detail-block { min-width: 0; padding: 23px; background: var(--ink-soft); }
 .detail-block h4 { margin: 0 0 7px; color: var(--signal); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+.detail-block h5, .source-facts h5 { margin: 18px 0 8px; color: var(--signal); font-size: 10px; letter-spacing: .08em; }
 .detail-block p { margin: 0; color: #c1cec5; font-size: 13px; }
 .detail-list { display: grid; gap: 8px; margin: 0; padding-left: 20px; color: #c1cec5; font-size: 13px; }
 .detail-list li::marker { color: var(--signal); }
@@ -125,6 +130,12 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .decision-link-action { margin-top: 5px; color: var(--signal); font-size: 11px; font-weight: 750; }
 .company-case-summary { color: #dce6df; font-size: 13px; line-height: 1.55; }
 .company-case-empty { padding: 18px; border: 1px dashed var(--line-dark); color: #aebdb4 !important; }
+.evidence-confidence, .source-facts { grid-column: 1 / -1; }
+.evidence-confidence { padding: 10px 12px; border-left: 3px solid var(--signal); background: rgba(201,255,71,.07); }
+.source-facts { display: grid; gap: 8px; padding-top: 6px; }
+.source-fact { display: grid; grid-template-columns: minmax(130px,.35fr) minmax(0,1fr); gap: 14px; padding: 12px; border: 1px solid var(--line-dark); }
+.source-fact strong { color: var(--signal); font-size: 11px; }
+.source-fact p { margin: 0; }
 .scorecard { display: grid; gap: 12px; padding: 20px 0; border-bottom: 1px solid var(--line-dark); }
 .scorecard-total { display: flex; justify-content: space-between; align-items: end; gap: 20px; }
 .scorecard-total span { color: var(--sage); font-size: 11px; font-weight: 800; letter-spacing: .08em; }

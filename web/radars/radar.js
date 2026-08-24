@@ -263,13 +263,19 @@
 
   function renderScenario(scenario, data, state) {
     const detailId = `${scenario.id}-detail`;
+    const statusClass = Number.isInteger(scenario.matrixRank) ? 'core' : (scenario.priority === 'P3' || scenario.scorecard.redLine ? 'boundary' : 'observe');
+    const statusLabel = ({ core: '核心矩阵', observe: '观察', boundary: '风险边界' })[statusClass];
+    const titleGroup = createElement('span', { className: 'scenario-title-group' }, [
+      createElement('span', { className: 'scenario-title', text: scenario.title }),
+      data.schemaVersion === '2.0' ? createElement('small', { className: `scenario-badge scenario-badge-${statusClass}`, text: statusLabel }) : null,
+    ]);
     const header = createElement('button', {
       className: 'scenario-header',
       attrs: { type: 'button', 'aria-expanded': 'false', 'aria-controls': detailId },
     }, [
       createElement('span', { className: 'scenario-index', text: scenario.number }),
       createElement('span', { className: `priority ${scenario.priority.toLowerCase()}`, text: scenario.priority }),
-      createElement('span', { className: 'scenario-title', text: scenario.title }),
+      titleGroup,
       createElement('span', { className: 'scenario-scores' }, [createElement('span', { text: `价值 ${scenario.value.toFixed(1)}` }), createElement('span', { text: `可行性 ${scenario.feasibility.toFixed(1)}` })]),
       createElement('span', { className: 'scenario-chevron', text: '＋', attrs: { 'aria-hidden': 'true' } }),
     ]);
@@ -304,13 +310,33 @@
     filterScenarios(state, state.filters);
   }
 
+  function sortScenarios(state, mode) {
+    state.sortMode = mode;
+    const scenarios = [...state.data.scenarios].sort((a, b) => {
+      if (mode === 'score') return b.scorecard.total - a.scorecard.total || a.number.localeCompare(b.number);
+      return a.number.localeCompare(b.number);
+    });
+    for (const scenario of scenarios) state.list.append(state.cards.get(scenario.id));
+    state.filterPanel.querySelectorAll('[data-scenario-sort]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.scenarioSort === mode)));
+  }
+
   function renderPortfolio(data, state) {
     const priorityControls = createElement('div', { className: 'filter-group', attrs: { role: 'group', 'aria-label': '按优先级筛选' } });
     for (const value of ['all', 'P0', 'P1', 'P2', 'P3']) priorityControls.append(filterButton(value === 'all' ? '全部' : value, 'data-priority-filter', value, state));
     const categoryControls = createElement('div', { className: 'filter-group', attrs: { role: 'group', 'aria-label': '按场景类别筛选' } });
     categoryControls.append(filterButton('全部', 'data-category-filter', 'all', state));
     for (const [value, label] of Object.entries(data.categoryLabels || {})) categoryControls.append(filterButton(label, 'data-category-filter', value, state));
-    const controls = createElement('div', { className: 'filter-panel' }, [createElement('span', { text: '优先级' }), priorityControls, createElement('span', { text: '类别' }), categoryControls]);
+    const controlChildren = [createElement('span', { text: '优先级' }), priorityControls, createElement('span', { text: '类别' }), categoryControls];
+    if (data.schemaVersion === '2.0') {
+      const sortControls = createElement('div', { className: 'filter-group', attrs: { role: 'group', 'aria-label': '场景排序' } });
+      for (const [value, label] of [['number', '按编号'], ['score', '按总分']]) {
+        const button = createElement('button', { className: 'filter-button', text: label, attrs: { type: 'button', 'data-scenario-sort': value, 'aria-pressed': String(value === 'number') } });
+        button.addEventListener('click', () => sortScenarios(state, value));
+        sortControls.append(button);
+      }
+      controlChildren.push(createElement('span', { text: '排序' }), sortControls);
+    }
+    const controls = createElement('div', { className: 'filter-panel' }, controlChildren);
     const count = createElement('strong', { text: `${data.scenarioCount} 个场景`, attrs: { id: 'scenario-result-count' } });
     const list = createElement('div', { className: 'scenario-list' });
     for (const scenario of data.scenarios) list.append(renderScenario(scenario, data, state));
@@ -321,6 +347,7 @@
     state.count = count;
     state.empty = empty;
     state.filterPanel = controls;
+    state.list = list;
     return createElement('section', { className: 'radar-section portfolio-section', attrs: { id: 'scenario-portfolio' } }, [
       createElement('div', { className: 'radar-shell' }, [sectionHead('02', 'BUSINESS PROBLEMS', 'AI 能解决哪些业务问题', `完整 ${data.scenarioCount} 个场景，可按优先级与类别筛选；点开后查看痛点、AI 价值、风险、证据和公司实践。`), controls, createElement('div', { className: 'result-line' }, [count, createElement('button', { className: 'text-reset', text: '重置筛选', attrs: { type: 'button' } })]), list, empty]),
     ]);
@@ -389,7 +416,7 @@
   }
 
   function renderRadar(root, data) {
-    const state = { data, cards: new Map(), points: new Map(), filters: { priority: 'all', category: 'all' }, count: null, empty: null, filterPanel: null, inspectorContent: null, selectedScenarioId: null };
+    const state = { data, cards: new Map(), points: new Map(), filters: { priority: 'all', category: 'all' }, sortMode: 'number', count: null, empty: null, filterPanel: null, list: null, inspectorContent: null, selectedScenarioId: null };
     root.replaceChildren(renderHero(data), renderMatrix(data, state), renderPortfolio(data, state), renderRoadmap(data));
     root.querySelector('.text-reset').addEventListener('click', () => resetFilters(state));
     activateMatrixPoint(state, matrixScenarios(data).find((scenario) => scenario.priority === 'P0')?.id || matrixScenarios(data)[0]?.id);
@@ -410,7 +437,7 @@
     return renderRadar(root, data);
   }
 
-  window.OpportunityRadar = Object.freeze({ createElement, renderRadar, filterScenarios, toggleScenario, activateMatrixPoint, jumpToScenario, buildStandaloneReport, downloadStandaloneReport, initRadar });
+  window.OpportunityRadar = Object.freeze({ createElement, renderRadar, filterScenarios, sortScenarios, toggleScenario, activateMatrixPoint, jumpToScenario, buildStandaloneReport, downloadStandaloneReport, initRadar });
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => initRadar(document), { once: true });
   else initRadar(document);
 })();

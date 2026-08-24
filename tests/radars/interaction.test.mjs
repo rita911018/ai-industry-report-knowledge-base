@@ -49,6 +49,14 @@ test('extended renderer shows the ranked 12 in the matrix and all 24 in the libr
   assert.equal(document.querySelector('[data-scenario-target="fixture-13"]'), null);
   assert.match(document.querySelector('.matrix-section .section-description').textContent, /前 12 个/);
   assert.match(document.querySelector('.portfolio-section .section-description').textContent, /完整 24 个/);
+  assert.equal(document.querySelectorAll('.scenario-badge-core').length, 12);
+  assert.equal(document.querySelectorAll('.scenario-badge-observe').length, 12);
+
+  extended.scenarios[23].scorecard.dimensions = { businessValue: 25, processFit: 16, readiness: 12, evidence: 12, riskControl: 14 };
+  extended.scenarios[23].scorecard.total = 79;
+  const sortedDom = await setup(extended);
+  sortedDom.window.document.querySelector('[data-scenario-sort="score"]').click();
+  assert.equal(sortedDom.window.document.querySelectorAll('.scenario')[3].id, 'fixture-24');
 
   document.querySelector('#fixture-01 .scenario-header').click();
   const detail = document.querySelector('#fixture-01 .scenario-detail').textContent;
