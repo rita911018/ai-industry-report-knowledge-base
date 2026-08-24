@@ -16,6 +16,8 @@ async function withServer(options, run) {
 test('health and local search work without an API key', async () => withServer({}, async (base) => {
   const health = await (await fetch(`${base}/api/health`)).json();
   assert.equal(health.articles, 1);
+  assert.equal(health.llmConfigured, false);
+  assert.equal(health.provider, null);
   assert.equal(health.deepseekConfigured, false);
   const response = await fetch(`${base}/api/search`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ query: '智能体治理' }) });
   const result = await response.json();
@@ -23,7 +25,7 @@ test('health and local search work without an API key', async () => withServer({
 }));
 
 test('ask returns validated citations and handles missing API key', async () => {
-  await withServer({ apiKey: 'test', askImpl: async () => ({ answer: '需要监督。', claims: [{ text: '需要人工监督。', kind: 'source_fact', citations: ['a:001'] }], limitations: [], insufficient: false }) }, async (base) => {
+  await withServer({ llmConfig: { configured: true, provider: 'deepseek', model: 'deepseek-v4-flash', apiKey: 'test', endpoint: 'https://api.deepseek.com/chat/completions' }, askImpl: async () => ({ answer: '需要监督。', claims: [{ text: '需要人工监督。', kind: 'source_fact', citations: ['a:001'] }], limitations: [], insufficient: false }) }, async (base) => {
     const response = await fetch(`${base}/api/ask`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ question: '如何治理智能体？' }) });
     const result = await response.json();
     assert.equal(response.status, 200);
@@ -34,6 +36,58 @@ test('ask returns validated citations and handles missing API key', async () => 
     assert.equal(response.status, 503);
     assert.equal((await response.json()).code, 'MISSING_API_KEY');
   });
+});
+
+test('health exposes provider metadata without exposing credentials', async () => {
+  const llmConfig = {
+    configured: true,
+    provider: 'qwen',
+    model: 'qwen-plus',
+    apiKey: 'never-print',
+    endpoint: 'https://workspace.cn-beijing.maas.aliyuncs.com/compatible-mode/v1/chat/completions',
+  };
+  await withServer({ llmConfig }, async (base) => {
+    const health = await fetch(`${base}/api/health`).then((response) => response.json());
+    assert.deepEqual(
+      { configured: health.llmConfigured, provider: health.provider, model: health.model },
+      { configured: true, provider: 'qwen', model: 'qwen-plus' },
+    );
+    assert.doesNotMatch(JSON.stringify(health), /never-print|maas\.aliyuncs/);
+  });
+});
+
+test('ask ignores client model, endpoint, and credential overrides', async () => {
+  const llmConfig = {
+    configured: true,
+    provider: 'qwen',
+    model: 'qwen-plus',
+    apiKey: 'server-key',
+    endpoint: 'https://workspace.cn-beijing.maas.aliyuncs.com/compatible-mode/v1/chat/completions',
+  };
+  let captured;
+  await withServer({
+    llmConfig,
+    askImpl: async (options) => {
+      captured = options;
+      return { answer: '需要监督。', claims: [{ text: '需要人工监督。', kind: 'source_fact', citations: ['a:001'] }], limitations: [], insufficient: false };
+    },
+  }, async (base) => {
+    const response = await fetch(`${base}/api/ask`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        question: '如何治理智能体？',
+        model: 'attacker-model',
+        baseUrl: 'http://127.0.0.1:9',
+        apiKey: 'attacker-key',
+      }),
+    });
+    assert.equal(response.status, 200);
+  });
+
+  assert.equal(captured.config, llmConfig);
+  assert.equal('model' in captured, false);
+  assert.equal('apiKey' in captured, false);
 });
 
 test('rejects malformed JSON and oversized bodies', async () => withServer({ bodyLimit: 20 }, async (base) => {

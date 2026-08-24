@@ -3,7 +3,8 @@ import { readFile, stat } from 'node:fs/promises';
 import { createServer } from 'node:http';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { askDeepSeek } from './deepseek-client.mjs';
+import { askLlm } from './llm-client.mjs';
+import { loadLlmConfig } from './llm-config.mjs';
 import { validateAnswer } from './validate-answer.mjs';
 import { createSearchIndex, searchCorpus } from '../knowledge/search.mjs';
 
@@ -64,9 +65,8 @@ export function createAppServer({
   corpus,
   webRoot,
   archiveRoot,
-  apiKey = process.env.DEEPSEEK_API_KEY,
-  model = process.env.DEEPSEEK_MODEL || 'deepseek-v4-flash',
-  askImpl = askDeepSeek,
+  llmConfig = loadLlmConfig(),
+  askImpl = askLlm,
   bodyLimit = 1_000_000,
 }) {
   const chunks = corpus.flatMap((article) => article.chunks);
@@ -75,7 +75,15 @@ export function createAppServer({
     const url = new URL(req.url, 'http://127.0.0.1');
     try {
       if (req.method === 'GET' && url.pathname === '/api/health') {
-        return json(res, 200, { status: 'ok', articles: corpus.length, chunks: chunks.length, deepseekConfigured: Boolean(apiKey), models: ['deepseek-v4-flash', 'deepseek-v4-pro'], model });
+        return json(res, 200, {
+          status: 'ok',
+          articles: corpus.length,
+          chunks: chunks.length,
+          llmConfigured: Boolean(llmConfig.configured),
+          provider: llmConfig.provider,
+          model: llmConfig.model,
+          deepseekConfigured: Boolean(llmConfig.configured && llmConfig.provider === 'deepseek'),
+        });
       }
       if (req.method === 'POST' && url.pathname === '/api/search') {
         const body = await readJson(req, bodyLimit);
@@ -87,13 +95,13 @@ export function createAppServer({
         if (typeof body.question !== 'string' || !body.question.trim()) return json(res, 400, { error: 'question is required', code: 'INVALID_QUERY' });
         const retrieval = searchCorpus(index, body.question, body.filters || {});
         if (retrieval.insufficient) return json(res, 200, { answer: '现有归档资料不足以可靠回答这个问题。', claims: [], limitations: ['未检索到足够相关的文章证据。'], insufficient: true, sources: [] });
-        if (!apiKey) return json(res, 503, { error: '尚未配置 DeepSeek API Key', code: 'MISSING_API_KEY' });
+        if (!llmConfig.configured) return json(res, 503, { error: '尚未配置问答模型 API Key', code: 'MISSING_API_KEY' });
         const evidence = retrieval.results.map((chunk) => ({
           chunkId: chunk.chunkId, articleId: chunk.articleId, titleZh: chunk.titleZh, titleOriginal: chunk.titleOriginal,
           publisher: chunk.publisher, publishedAt: chunk.publishedAt, sectionPath: chunk.sectionPath,
           content: chunk.content, sourceUrl: chunk.sourceUrl, localPaths: chunk.localPaths,
         }));
-        const raw = await askImpl({ question: body.question, evidence, model: body.model || model, apiKey });
+        const raw = await askImpl({ question: body.question, evidence, config: llmConfig });
         return json(res, 200, validateAnswer(raw, evidence));
       }
       if (req.method === 'GET' && url.pathname.startsWith('/archive/')) {
