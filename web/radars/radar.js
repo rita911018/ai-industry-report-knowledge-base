@@ -484,7 +484,7 @@
     });
 
     const trigger = createElement('button', { className: 'radar-toc-trigger', text: '目录', attrs: { type: 'button', 'aria-expanded': 'false', 'aria-controls': 'radar-toc' } });
-    const backdrop = createElement('div', { className: 'radar-toc-backdrop' });
+    const backdrop = createElement('button', { className: 'radar-toc-backdrop', attrs: { type: 'button', 'aria-label': '关闭目录', tabindex: '-1' } });
     state.toc = { panel, trigger, backdrop, closeButton, scenarioList, scenarioToggle };
     closeButton.addEventListener('click', () => closeTocDrawer(state, true));
     backdrop.addEventListener('click', () => closeTocDrawer(state, true));

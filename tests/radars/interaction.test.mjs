@@ -185,6 +185,11 @@ test('live radar builds a two-level table of contents from domain data', async (
   assert.ok(document.querySelector('#radar-toc'));
   assert.equal(document.querySelectorAll('[data-toc-section]').length, 3);
   assert.equal(document.querySelectorAll('[data-toc-scenario]').length, 12);
+  const backdrop = document.querySelector('.radar-toc-backdrop');
+  assert.equal(backdrop.tagName, 'BUTTON');
+  assert.equal(backdrop.type, 'button');
+  assert.equal(backdrop.getAttribute('aria-label'), '关闭目录');
+  assert.equal(backdrop.getAttribute('tabindex'), '-1');
   assert.deepEqual(
     [...document.querySelectorAll('[data-toc-section]')].map((link) => link.textContent.trim()),
     ['优先矩阵', '完整场景库', '优先启动建议'],
