@@ -289,7 +289,7 @@ test('standalone export contains the complete current-domain report and no secre
   assertRuleDeclaration(reportCss, '.evidence small', 'color', /^var\(--text-muted-dark\)$/);
   assertRuleDeclaration(reportCss, '.export-scenario details>.export-score header strong', 'color', /^var\(--signal-strong\)$/);
   assertRuleDeclaration(reportCss, '.export-scenario details>.export-score .score-row em', 'background', /^var\(--signal-strong\)$/);
-  for (const selector of ['.evidence', '.evidence span', '.evidence small']) {
+  for (const selector of ['.evidence', '.evidence b', '.evidence span', '.evidence small']) {
     assertAnyPrintRuleDeclaration(printStyleBlocks, selector, 'color', /^#111$/);
   }
   for (const heading of ['业务痛点', 'AI 价值｜可以做什么', '主要风险', '证据锚点', '哪些公司做过']) assert.match(report, new RegExp(heading));
