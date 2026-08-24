@@ -88,6 +88,7 @@ test('extended renderer shows the ranked 12 in the matrix and all 24 in the libr
 
   const report = dom.window.OpportunityRadar.buildStandaloneReport(extended, new Date('2026-08-24T08:00:00+08:00'));
   assert.equal((report.match(/class="export-scenario"/g) || []).length, 24);
+  assert.equal((report.match(/data-export-toc-scenario=/g) || []).length, 24);
   assert.equal((report.match(/data-export-target=/g) || []).length, 12);
   assert.match(report, /24 个场景完整详情/);
   assert.match(report, /第 2 节：流程机会/);
@@ -173,7 +174,11 @@ test('standalone export contains the complete current-domain report and no secre
   assert.match(report, /<!doctype html>/i);
   assert.match(report, /企业法务 AI 机会雷达/);
   assert.match(report, /哪些 AI 场景应该优先启动/);
+  assert.match(report, /class="export-toc"/);
   assert.equal((report.match(/class="export-scenario"/g) || []).length, 12);
+  assert.equal((report.match(/data-export-toc-scenario=/g) || []).length, 12);
+  for (const id of ['export-priority-matrix', 'export-scenario-portfolio', 'export-priority-starts']) assert.match(report, new RegExp(`id="${id}"`));
+  assert.match(report, /\.export-toc\{display:none!important\}/);
   for (const heading of ['业务痛点', 'AI 价值｜可以做什么', '主要风险', '证据锚点', '哪些公司做过']) assert.match(report, new RegExp(heading));
   for (const item of ['业务价值', '流程适配度', '数据与系统准备度', '证据与可验收性', '风险可控性']) assert.match(report, new RegExp(item));
   assert.match(report, /中国建设科技集团/);
@@ -186,6 +191,45 @@ test('standalone export contains the complete current-domain report and no secre
   const hrReport = dom.window.OpportunityRadar.buildStandaloneReport(hr, new Date('2026-08-24T08:00:00+08:00'));
   assert.match(hrReport, /人力资源 AI 机会雷达/);
   assert.doesNotMatch(hrReport, /企业法务 AI 机会雷达/);
+});
+
+test('standalone export TOC opens and focuses filtered scenarios on file URLs', async () => {
+  const legal = await loadRadarFile(fileURLToPath(legalPath));
+  const sourceDom = await setup(legal);
+  const report = sourceDom.window.OpportunityRadar.buildStandaloneReport(legal, new Date('2026-08-24T08:00:00+08:00'));
+  const scrollEvents = [];
+  const dom = new JSDOM(report, {
+    url: 'file:///tmp/legal-export.html',
+    runScripts: 'dangerously',
+    pretendToBeVisual: true,
+    beforeParse(window) {
+      window.HTMLElement.prototype.scrollIntoView = function scrollIntoView(options) { scrollEvents.push({ element: this, options }); };
+    },
+  });
+  const { document } = dom.window;
+  const toc = document.querySelector('.export-toc');
+  const library = toc.querySelector('details');
+  assert.equal(library.open, true);
+  assert.equal(toc.querySelector('summary').textContent, '完整场景库');
+  assert.equal(document.querySelector('[data-export-priority="P0"]').getAttribute('aria-pressed'), 'false');
+  document.querySelector('[data-export-priority="P0"]').click();
+  const target = document.querySelector('#export-legal-07');
+  assert.equal(target.hidden, true);
+  const targetDetails = target.querySelector('details');
+  targetDetails.open = false;
+  assert.doesNotThrow(() => document.querySelector('[data-export-toc-scenario="legal-07"]').click());
+  assert.equal(target.hidden, false);
+  assert.equal(targetDetails.open, true);
+  assert.equal(dom.window.location.hash, '#export-legal-07');
+  assert.equal(document.activeElement, target.querySelector('summary'));
+  assert.equal(scrollEvents.at(-1).element, target);
+  assert.equal(document.querySelector('[data-export-priority="all"]').getAttribute('aria-pressed'), 'true');
+  assert.equal(document.querySelector('[data-export-category="all"]').getAttribute('aria-pressed'), 'true');
+  const matrixLink = toc.querySelector('a[href="#export-priority-matrix"]');
+  assert.doesNotThrow(() => matrixLink.click());
+  await new Promise((resolve) => dom.window.setTimeout(resolve, 0));
+  assert.equal(dom.window.location.hash, '#export-priority-matrix');
+  dom.window.close();
 });
 
 test('export button downloads a UTF-8 HTML blob with the current domain filename', async () => {
