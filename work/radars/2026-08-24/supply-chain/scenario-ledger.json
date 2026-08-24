@@ -1,0 +1,875 @@
+{
+  "schemaVersion": "1.0",
+  "domain": "supply-chain",
+  "generatedAt": "2026-08-24T02:41:43.627Z",
+  "scenarioCount": 24,
+  "scenarios": [
+    {
+      "id": "supply_chain-01",
+      "title": "用 AI 感知需求变化并给计划员滚动预测",
+      "priority": "P0",
+      "matrixEligible": true,
+      "matrixRank": 1,
+      "evidenceIds": [
+        "supply-agentic",
+        "supply-procurement-bain",
+        "supply-haier-ai"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-agentic",
+          "text": "McKinsey Talks Operations 明确要求超越孤立用例，在人、流程和技术之间编排供应链工作。",
+          "locator": "Episode introduction and transcript"
+        },
+        {
+          "sourceId": "supply-haier-ai",
+          "text": "海尔披露在研发、供应链、销售和营销中全面应用 AI，打通研发到采购、生产和消费端数据，并用 AI 预测订单需求、动态调整产能。",
+          "locator": "“深度拥抱 AI，以创新重塑用户体验”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔集团",
+          "sourceId": "supply-haier-ai",
+          "market": "中国",
+          "caveat": "战略与案例为企业自报，未披露按场景拆分的独立对照结果。"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "reason": "研究依据与企业公开实践相互补充，但收益仍需用本企业基线复验。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-02",
+      "title": "用 AI 生成 S&OP 情景并解释服务、库存与利润权衡",
+      "priority": "P0",
+      "matrixEligible": true,
+      "matrixRank": 2,
+      "evidenceIds": [
+        "supply-agentic",
+        "supply-procurement-bain",
+        "supply-haier-ai"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-agentic",
+          "text": "McKinsey Talks Operations 明确要求超越孤立用例，在人、流程和技术之间编排供应链工作。",
+          "locator": "Episode introduction and transcript"
+        },
+        {
+          "sourceId": "supply-haier-ai",
+          "text": "海尔披露在研发、供应链、销售和营销中全面应用 AI，打通研发到采购、生产和消费端数据，并用 AI 预测订单需求、动态调整产能。",
+          "locator": "“深度拥抱 AI，以创新重塑用户体验”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔集团",
+          "sourceId": "supply-haier-ai",
+          "market": "中国",
+          "caveat": "战略与案例为企业自报，未披露按场景拆分的独立对照结果。"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "reason": "研究依据与企业公开实践相互补充，但收益仍需用本企业基线复验。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-03",
+      "title": "用 AI 汇总中断信号并给出可执行的控制塔处置选项",
+      "priority": "P0",
+      "matrixEligible": true,
+      "matrixRank": 3,
+      "evidenceIds": [
+        "supply-agentic",
+        "supply-procurement-bain",
+        "supply-fujian-energy"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-agentic",
+          "text": "McKinsey Talks Operations 明确要求超越孤立用例，在人、流程和技术之间编排供应链工作。",
+          "locator": "Episode introduction and transcript"
+        },
+        {
+          "sourceId": "supply-fujian-energy",
+          "text": "案例披露凭证自动化率 95%、仓单线上化率 100%，并通过批量询价与系统打通使采购成本平均降低 12%。",
+          "locator": "“核心应用场景”与“客户价值”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "福建省能源石化集团",
+          "sourceId": "supply-fujian-energy",
+          "market": "中国",
+          "caveat": "由用友披露，缺少独立审计，采购成本改善不能单独归因于 AI。"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "reason": "研究依据与企业公开实践相互补充，但收益仍需用本企业基线复验。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-04",
+      "title": "用 AI 计算安全库存并解释服务水平与现金占用",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 4,
+      "evidenceIds": [
+        "supply-efficiency-bain",
+        "supply-haier-ai"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-efficiency-bain",
+          "text": "Bain 指出医疗科技供应链在恢复服务后仍有资本效率问题，库存天数仍比 2019 年基线高 17%。",
+          "locator": "Official page section: Opening section；Figure 2"
+        },
+        {
+          "sourceId": "supply-haier-ai",
+          "text": "海尔披露在研发、供应链、销售和营销中全面应用 AI，打通研发到采购、生产和消费端数据，并用 AI 预测订单需求、动态调整产能。",
+          "locator": "“深度拥抱 AI，以创新重塑用户体验”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔集团",
+          "sourceId": "supply-haier-ai",
+          "market": "中国",
+          "caveat": "战略与案例为企业自报，未披露按场景拆分的独立对照结果。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-05",
+      "title": "用 AI 生成补货建议并识别订单与库存异常",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 5,
+      "evidenceIds": [
+        "supply-agentic",
+        "supply-fujian-energy"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-agentic",
+          "text": "McKinsey Talks Operations 明确要求超越孤立用例，在人、流程和技术之间编排供应链工作。",
+          "locator": "Episode introduction and transcript"
+        },
+        {
+          "sourceId": "supply-fujian-energy",
+          "text": "案例披露凭证自动化率 95%、仓单线上化率 100%，并通过批量询价与系统打通使采购成本平均降低 12%。",
+          "locator": "“核心应用场景”与“客户价值”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "福建省能源石化集团",
+          "sourceId": "supply-fujian-energy",
+          "market": "中国",
+          "caveat": "由用友披露，缺少独立审计，采购成本改善不能单独归因于 AI。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-06",
+      "title": "用 AI 生成可行生产计划并提示产能与物料冲突",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 6,
+      "evidenceIds": [
+        "supply-agentic",
+        "supply-haier-ai"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-agentic",
+          "text": "McKinsey Talks Operations 明确要求超越孤立用例，在人、流程和技术之间编排供应链工作。",
+          "locator": "Episode introduction and transcript"
+        },
+        {
+          "sourceId": "supply-haier-ai",
+          "text": "海尔披露在研发、供应链、销售和营销中全面应用 AI，打通研发到采购、生产和消费端数据，并用 AI 预测订单需求、动态调整产能。",
+          "locator": "“深度拥抱 AI，以创新重塑用户体验”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔集团",
+          "sourceId": "supply-haier-ai",
+          "market": "中国",
+          "caveat": "战略与案例为企业自报，未披露按场景拆分的独立对照结果。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-07",
+      "title": "用 AI 识别质量异常并辅助定位可能根因",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 7,
+      "evidenceIds": [
+        "supply-agentic",
+        "supply-haier-ai"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-agentic",
+          "text": "McKinsey Talks Operations 明确要求超越孤立用例，在人、流程和技术之间编排供应链工作。",
+          "locator": "Episode introduction and transcript"
+        },
+        {
+          "sourceId": "supply-haier-ai",
+          "text": "海尔披露在研发、供应链、销售和营销中全面应用 AI，打通研发到采购、生产和消费端数据，并用 AI 预测订单需求、动态调整产能。",
+          "locator": "“深度拥抱 AI，以创新重塑用户体验”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔集团",
+          "sourceId": "supply-haier-ai",
+          "market": "中国",
+          "caveat": "战略与案例为企业自报，未披露按场景拆分的独立对照结果。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-08",
+      "title": "用 AI 协调预测性维护与生产计划减少非计划停机",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 8,
+      "evidenceIds": [
+        "supply-agentic",
+        "supply-haier-ai"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-agentic",
+          "text": "McKinsey Talks Operations 明确要求超越孤立用例，在人、流程和技术之间编排供应链工作。",
+          "locator": "Episode introduction and transcript"
+        },
+        {
+          "sourceId": "supply-haier-ai",
+          "text": "海尔披露在研发、供应链、销售和营销中全面应用 AI，打通研发到采购、生产和消费端数据，并用 AI 预测订单需求、动态调整产能。",
+          "locator": "“深度拥抱 AI，以创新重塑用户体验”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔集团",
+          "sourceId": "supply-haier-ai",
+          "market": "中国",
+          "caveat": "战略与案例为企业自报，未披露按场景拆分的独立对照结果。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-09",
+      "title": "用 AI 理解采购需求并自动准备合规采购申请",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 9,
+      "evidenceIds": [
+        "supply-procurement-bain",
+        "supply-fujian-energy"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-procurement-bain",
+          "text": "Bain 指出采购组织正从 Copilot 和分析工具试验，转向对采购工作流、运营模式与决策的更广泛重设计。",
+          "locator": "Official page section: Opening section"
+        },
+        {
+          "sourceId": "supply-fujian-energy",
+          "text": "案例披露凭证自动化率 95%、仓单线上化率 100%，并通过批量询价与系统打通使采购成本平均降低 12%。",
+          "locator": "“核心应用场景”与“客户价值”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "福建省能源石化集团",
+          "sourceId": "supply-fujian-energy",
+          "market": "中国",
+          "caveat": "由用友披露，缺少独立审计，采购成本改善不能单独归因于 AI。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-10",
+      "title": "用 AI 自动归类支出并发现采购机会与数据问题",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 10,
+      "evidenceIds": [
+        "supply-procurement-roi",
+        "supply-fujian-energy"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-procurement-roi",
+          "text": "文章把采购 ROI 定义为总价值除以总成本；价值包含节省、避免泄漏、营运资本、风险和收入支持，成本包含人员、技术、数据与变革。",
+          "locator": "Use-case examples；From measured savings to procurement ROI"
+        },
+        {
+          "sourceId": "supply-fujian-energy",
+          "text": "案例披露凭证自动化率 95%、仓单线上化率 100%，并通过批量询价与系统打通使采购成本平均降低 12%。",
+          "locator": "“核心应用场景”与“客户价值”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "福建省能源石化集团",
+          "sourceId": "supply-fujian-energy",
+          "market": "中国",
+          "caveat": "由用友披露，缺少独立审计，采购成本改善不能单独归因于 AI。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-11",
+      "title": "用 AI 搜索候选供应商并生成可追溯的尽调清单",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 11,
+      "evidenceIds": [
+        "supply-procurement-bain",
+        "supply-fujian-energy"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-procurement-bain",
+          "text": "Bain 指出采购组织正从 Copilot 和分析工具试验，转向对采购工作流、运营模式与决策的更广泛重设计。",
+          "locator": "Official page section: Opening section"
+        },
+        {
+          "sourceId": "supply-fujian-energy",
+          "text": "案例披露凭证自动化率 95%、仓单线上化率 100%，并通过批量询价与系统打通使采购成本平均降低 12%。",
+          "locator": "“核心应用场景”与“客户价值”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "福建省能源石化集团",
+          "sourceId": "supply-fujian-energy",
+          "market": "中国",
+          "caveat": "由用友披露，缺少独立审计，采购成本改善不能单独归因于 AI。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-12",
+      "title": "用 AI 汇总供应商风险信号并触发分级复核",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": 12,
+      "evidenceIds": [
+        "supply-agentic",
+        "supply-haier-ai"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-agentic",
+          "text": "McKinsey Talks Operations 明确要求超越孤立用例，在人、流程和技术之间编排供应链工作。",
+          "locator": "Episode introduction and transcript"
+        },
+        {
+          "sourceId": "supply-haier-ai",
+          "text": "海尔披露在研发、供应链、销售和营销中全面应用 AI，打通研发到采购、生产和消费端数据，并用 AI 预测订单需求、动态调整产能。",
+          "locator": "“深度拥抱 AI，以创新重塑用户体验”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔集团",
+          "sourceId": "supply-haier-ai",
+          "market": "中国",
+          "caveat": "战略与案例为企业自报，未披露按场景拆分的独立对照结果。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-13",
+      "title": "用 AI 准备供应商谈判事实包和多套让步方案",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "supply-procurement-roi",
+        "supply-fujian-energy"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-procurement-roi",
+          "text": "文章把采购 ROI 定义为总价值除以总成本；价值包含节省、避免泄漏、营运资本、风险和收入支持，成本包含人员、技术、数据与变革。",
+          "locator": "Use-case examples；From measured savings to procurement ROI"
+        },
+        {
+          "sourceId": "supply-fujian-energy",
+          "text": "案例披露凭证自动化率 95%、仓单线上化率 100%，并通过批量询价与系统打通使采购成本平均降低 12%。",
+          "locator": "“核心应用场景”与“客户价值”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "福建省能源石化集团",
+          "sourceId": "supply-fujian-energy",
+          "market": "中国",
+          "caveat": "由用友披露，缺少独立审计，采购成本改善不能单独归因于 AI。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-14",
+      "title": "用 AI 识别采购订单与合同偏差并提出处理建议",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "supply-procurement-bain",
+        "supply-fujian-energy"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-procurement-bain",
+          "text": "Bain 指出采购组织正从 Copilot 和分析工具试验，转向对采购工作流、运营模式与决策的更广泛重设计。",
+          "locator": "Official page section: Opening section"
+        },
+        {
+          "sourceId": "supply-fujian-energy",
+          "text": "案例披露凭证自动化率 95%、仓单线上化率 100%，并通过批量询价与系统打通使采购成本平均降低 12%。",
+          "locator": "“核心应用场景”与“客户价值”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "福建省能源石化集团",
+          "sourceId": "supply-fujian-energy",
+          "market": "中国",
+          "caveat": "由用友披露，缺少独立审计，采购成本改善不能单独归因于 AI。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-15",
+      "title": "用 AI 优化运输路线并保留承运人与调度员决策",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "supply-agentic",
+        "supply-haier-ai"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-agentic",
+          "text": "McKinsey Talks Operations 明确要求超越孤立用例，在人、流程和技术之间编排供应链工作。",
+          "locator": "Episode introduction and transcript"
+        },
+        {
+          "sourceId": "supply-haier-ai",
+          "text": "海尔披露在研发、供应链、销售和营销中全面应用 AI，打通研发到采购、生产和消费端数据，并用 AI 预测订单需求、动态调整产能。",
+          "locator": "“深度拥抱 AI，以创新重塑用户体验”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔集团",
+          "sourceId": "supply-haier-ai",
+          "market": "中国",
+          "caveat": "战略与案例为企业自报，未披露按场景拆分的独立对照结果。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-16",
+      "title": "用 AI 预测到货时间并主动解释延误原因",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "supply-agentic",
+        "supply-haier-ai"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-agentic",
+          "text": "McKinsey Talks Operations 明确要求超越孤立用例，在人、流程和技术之间编排供应链工作。",
+          "locator": "Episode introduction and transcript"
+        },
+        {
+          "sourceId": "supply-haier-ai",
+          "text": "海尔披露在研发、供应链、销售和营销中全面应用 AI，打通研发到采购、生产和消费端数据，并用 AI 预测订单需求、动态调整产能。",
+          "locator": "“深度拥抱 AI，以创新重塑用户体验”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔集团",
+          "sourceId": "supply-haier-ai",
+          "market": "中国",
+          "caveat": "战略与案例为企业自报，未披露按场景拆分的独立对照结果。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-17",
+      "title": "用 AI 优化仓库库位并解释搬移成本与收益",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "supply-efficiency-bain",
+        "supply-fujian-energy"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-efficiency-bain",
+          "text": "Bain 指出医疗科技供应链在恢复服务后仍有资本效率问题，库存天数仍比 2019 年基线高 17%。",
+          "locator": "Official page section: Opening section；Figure 2"
+        },
+        {
+          "sourceId": "supply-fujian-energy",
+          "text": "案例披露凭证自动化率 95%、仓单线上化率 100%，并通过批量询价与系统打通使采购成本平均降低 12%。",
+          "locator": "“核心应用场景”与“客户价值”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "福建省能源石化集团",
+          "sourceId": "supply-fujian-energy",
+          "market": "中国",
+          "caveat": "由用友披露，缺少独立审计，采购成本改善不能单独归因于 AI。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-18",
+      "title": "用 AI 编排拣选任务并动态处理缺货与拥堵",
+      "priority": "P1",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "supply-agentic",
+        "supply-fujian-energy"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-agentic",
+          "text": "McKinsey Talks Operations 明确要求超越孤立用例，在人、流程和技术之间编排供应链工作。",
+          "locator": "Episode introduction and transcript"
+        },
+        {
+          "sourceId": "supply-fujian-energy",
+          "text": "案例披露凭证自动化率 95%、仓单线上化率 100%，并通过批量询价与系统打通使采购成本平均降低 12%。",
+          "locator": "“核心应用场景”与“客户价值”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "福建省能源石化集团",
+          "sourceId": "supply-fujian-energy",
+          "market": "中国",
+          "caveat": "由用友披露，缺少独立审计，采购成本改善不能单独归因于 AI。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-19",
+      "title": "用 AI 提取报关与运输文件并提示缺失和冲突",
+      "priority": "P2",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "supply-agentic",
+        "supply-haier-ai"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-agentic",
+          "text": "McKinsey Talks Operations 明确要求超越孤立用例，在人、流程和技术之间编排供应链工作。",
+          "locator": "Episode introduction and transcript"
+        },
+        {
+          "sourceId": "supply-haier-ai",
+          "text": "海尔披露在研发、供应链、销售和营销中全面应用 AI，打通研发到采购、生产和消费端数据，并用 AI 预测订单需求、动态调整产能。",
+          "locator": "“深度拥抱 AI，以创新重塑用户体验”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔集团",
+          "sourceId": "supply-haier-ai",
+          "market": "中国",
+          "caveat": "战略与案例为企业自报，未披露按场景拆分的独立对照结果。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-20",
+      "title": "用 AI 估算供应链碳排并定位可执行的减排杠杆",
+      "priority": "P2",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "supply-efficiency-bain",
+        "supply-haier-ai"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-efficiency-bain",
+          "text": "Bain 指出医疗科技供应链在恢复服务后仍有资本效率问题，库存天数仍比 2019 年基线高 17%。",
+          "locator": "Official page section: Opening section；Figure 2"
+        },
+        {
+          "sourceId": "supply-haier-ai",
+          "text": "海尔披露在研发、供应链、销售和营销中全面应用 AI，打通研发到采购、生产和消费端数据，并用 AI 预测订单需求、动态调整产能。",
+          "locator": "“深度拥抱 AI，以创新重塑用户体验”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔集团",
+          "sourceId": "supply-haier-ai",
+          "market": "中国",
+          "caveat": "战略与案例为企业自报，未披露按场景拆分的独立对照结果。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-21",
+      "title": "用 AI 比较供应链网络设计并量化韧性代价",
+      "priority": "P2",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "supply-agentic",
+        "supply-haier-ai"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-agentic",
+          "text": "McKinsey Talks Operations 明确要求超越孤立用例，在人、流程和技术之间编排供应链工作。",
+          "locator": "Episode introduction and transcript"
+        },
+        {
+          "sourceId": "supply-haier-ai",
+          "text": "海尔披露在研发、供应链、销售和营销中全面应用 AI，打通研发到采购、生产和消费端数据，并用 AI 预测订单需求、动态调整产能。",
+          "locator": "“深度拥抱 AI，以创新重塑用户体验”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔集团",
+          "sourceId": "supply-haier-ai",
+          "market": "中国",
+          "caveat": "战略与案例为企业自报，未披露按场景拆分的独立对照结果。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-22",
+      "title": "用 AI 驱动数字孪生模拟重大供应与产能冲击",
+      "priority": "P2",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "supply-agentic",
+        "supply-haier-ai"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-agentic",
+          "text": "McKinsey Talks Operations 明确要求超越孤立用例，在人、流程和技术之间编排供应链工作。",
+          "locator": "Episode introduction and transcript"
+        },
+        {
+          "sourceId": "supply-haier-ai",
+          "text": "海尔披露在研发、供应链、销售和营销中全面应用 AI，打通研发到采购、生产和消费端数据，并用 AI 预测订单需求、动态调整产能。",
+          "locator": "“深度拥抱 AI，以创新重塑用户体验”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "海尔集团",
+          "sourceId": "supply-haier-ai",
+          "market": "中国",
+          "caveat": "战略与案例为企业自报，未披露按场景拆分的独立对照结果。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-23",
+      "title": "用 AI 优化退货、维修、翻新与再利用路径",
+      "priority": "P2",
+      "matrixEligible": true,
+      "matrixRank": null,
+      "evidenceIds": [
+        "supply-efficiency-bain",
+        "supply-fujian-energy"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-efficiency-bain",
+          "text": "Bain 指出医疗科技供应链在恢复服务后仍有资本效率问题，库存天数仍比 2019 年基线高 17%。",
+          "locator": "Official page section: Opening section；Figure 2"
+        },
+        {
+          "sourceId": "supply-fujian-energy",
+          "text": "案例披露凭证自动化率 95%、仓单线上化率 100%，并通过批量询价与系统打通使采购成本平均降低 12%。",
+          "locator": "“核心应用场景”与“客户价值”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "福建省能源石化集团",
+          "sourceId": "supply-fujian-energy",
+          "market": "中国",
+          "caveat": "由用友披露，缺少独立审计，采购成本改善不能单独归因于 AI。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "公开资料支持方向判断；具体效果多为企业或供应商自报，不能直接外推。"
+      },
+      "evidenceWindow": "current"
+    },
+    {
+      "id": "supply_chain-24",
+      "title": "让 AI 自主选择供应商、下单或停产（禁止）",
+      "priority": "P3",
+      "matrixEligible": false,
+      "matrixRank": null,
+      "evidenceIds": [
+        "supply-procurement-roi",
+        "supply-fujian-energy"
+      ],
+      "sourceFacts": [
+        {
+          "sourceId": "supply-procurement-roi",
+          "text": "文章把采购 ROI 定义为总价值除以总成本；价值包含节省、避免泄漏、营运资本、风险和收入支持，成本包含人员、技术、数据与变革。",
+          "locator": "Use-case examples；From measured savings to procurement ROI"
+        },
+        {
+          "sourceId": "supply-fujian-energy",
+          "text": "案例披露凭证自动化率 95%、仓单线上化率 100%，并通过批量询价与系统打通使采购成本平均降低 12%。",
+          "locator": "“核心应用场景”与“客户价值”段落"
+        }
+      ],
+      "companyCases": [
+        {
+          "company": "福建省能源石化集团",
+          "sourceId": "supply-fujian-energy",
+          "market": "中国",
+          "caveat": "由用友披露，缺少独立审计，采购成本改善不能单独归因于 AI。"
+        }
+      ],
+      "confidence": {
+        "level": "middle",
+        "reason": "风险边界有明确治理依据，但不同司法辖区和业务情境仍需专项评估。"
+      },
+      "evidenceWindow": "current"
+    }
+  ]
+}

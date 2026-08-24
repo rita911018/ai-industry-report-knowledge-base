@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0",
+  "domain": "supply-chain",
+  "generatedAt": "2026-08-24T02:41:43.627Z",
+  "sources": [
+    {
+      "id": "supply-agentic",
+      "title": "用 Agentic AI 驱动供应链",
+      "publisher": "McKinsey",
+      "publishedAt": "2026-07-22",
+      "evidenceType": "管理研究",
+      "language": "en",
+      "url": "https://www.mckinsey.com/capabilities/operations/our-insights/powering-supply-chain-with-agentic-ai",
+      "fact": "McKinsey Talks Operations 明确要求超越孤立用例，在人、流程和技术之间编排供应链工作。",
+      "locator": "Episode introduction and transcript",
+      "limitation": "播客提供实施观点和案例讨论，不是定量绩效研究。"
+    },
+    {
+      "id": "supply-procurement-roi",
+      "title": "Agentic AI 时代重新定义采购绩效",
+      "publisher": "McKinsey",
+      "publishedAt": "2026-02-05",
+      "evidenceType": "管理研究",
+      "language": "en",
+      "url": "https://www.mckinsey.com/capabilities/operations/our-insights/redefining-procurement-performance-in-the-era-of-agentic-ai",
+      "fact": "文章把采购 ROI 定义为总价值除以总成本；价值包含节省、避免泄漏、营运资本、风险和收入支持，成本包含人员、技术、数据与变革。",
+      "locator": "Use-case examples；From measured savings to procurement ROI",
+      "limitation": "部分数字是机会识别而非审计后的实际收益；采购 ROI 框架仍需企业内基线。"
+    },
+    {
+      "id": "supply-procurement-bain",
+      "title": "智能体 AI 如何重塑采购",
+      "publisher": "Bain",
+      "publishedAt": "2026-06-05",
+      "evidenceType": "管理观点",
+      "language": "en",
+      "url": "https://www.bain.com/insights/how-agentic-ai-is-reshaping-procurement/",
+      "fact": "Bain 指出采购组织正从 Copilot 和分析工具试验，转向对采购工作流、运营模式与决策的更广泛重设计。",
+      "locator": "Official page section: Opening section",
+      "limitation": "主要为管理建议，未披露统一样本的独立成效评估。"
+    },
+    {
+      "id": "supply-efficiency-bain",
+      "title": "医疗科技供应链的新效率打法",
+      "publisher": "Bain",
+      "publishedAt": "2026-04-30",
+      "evidenceType": "行业研究",
+      "language": "en",
+      "url": "https://www.bain.com/insights/a-new-supply-chain-efficiency-playbook-for-medtech/",
+      "fact": "Bain 指出医疗科技供应链在恢复服务后仍有资本效率问题，库存天数仍比 2019 年基线高 17%。",
+      "locator": "Official page section: Opening section；Figure 2",
+      "limitation": "医疗科技行业的库存和合规约束特殊，跨行业迁移需重新校准。"
+    },
+    {
+      "id": "supply-haier-ai",
+      "title": "海尔：2025 年 AI 应用元年，贯通研发到消费端",
+      "publisher": "海尔集团",
+      "publishedAt": "2025-05-16",
+      "evidenceType": "公司披露",
+      "language": "zh",
+      "url": "https://www.haier.com/press-events/news/20250516_264537.shtml",
+      "fact": "海尔披露在研发、供应链、销售和营销中全面应用 AI，打通研发到采购、生产和消费端数据，并用 AI 预测订单需求、动态调整产能。",
+      "locator": "“深度拥抱 AI，以创新重塑用户体验”段落",
+      "limitation": "公司自报，多个数字化与组织措施并行，不能把整体成果全部归因于 AI。"
+    },
+    {
+      "id": "supply-fujian-energy",
+      "title": "福建省能化集团：业财协同与 AI 数智员工",
+      "publisher": "用友",
+      "publishedAt": "2025-08-17",
+      "evidenceType": "供应商客户案例",
+      "language": "zh",
+      "url": "https://www.yonyou.com/case/7f6aa770-1c00-480a-a246-35f06b2656cb",
+      "fact": "案例披露凭证自动化率 95%、仓单线上化率 100%，并通过批量询价与系统打通使采购成本平均降低 12%。",
+      "locator": "“核心应用场景”与“客户价值”段落",
+      "limitation": "供应商客户案例，成效未经独立审计，且数字化平台、流程标准化与 AI 同时实施。"
+    }
+  ]
+}

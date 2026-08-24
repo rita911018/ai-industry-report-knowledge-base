@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "domain": "supply-chain",
+  "discoveredAt": "2026-08-24T00:00:00+08:00",
+  "coverage": { "discovered": 8, "included": 6, "excluded": 2, "failed": 0 },
+  "candidates": [
+    { "id": "supply-agentic", "url": "https://www.mckinsey.com/capabilities/operations/our-insights/powering-supply-chain-with-agentic-ai", "status": "included", "discovery": "existing_local_archive", "reason": "2026 end-to-end orchestration view" },
+    { "id": "supply-procurement-roi", "url": "https://www.mckinsey.com/capabilities/operations/our-insights/redefining-procurement-performance-in-the-era-of-agentic-ai", "status": "included", "discovery": "existing_local_archive", "reason": "2026 procurement value and cost framework" },
+    { "id": "supply-procurement-bain", "url": "https://www.bain.com/insights/how-agentic-ai-is-reshaping-procurement/", "status": "included", "discovery": "existing_local_archive", "reason": "2026 procurement operating-model evidence" },
+    { "id": "supply-efficiency-bain", "url": "https://www.bain.com/insights/a-new-supply-chain-efficiency-playbook-for-medtech/", "status": "included", "discovery": "existing_local_archive", "reason": "2026 inventory and efficiency benchmark" },
+    { "id": "supply-haier-ai", "url": "https://www.haier.com/press-events/news/20250516_264537.shtml", "status": "included", "discovery": "official_web_search", "reason": "2025 official Chinese enterprise AI and supply-chain disclosure" },
+    { "id": "supply-fujian-energy", "url": "https://www.yonyou.com/case/7f6aa770-1c00-480a-a246-35f06b2656cb", "status": "included", "discovery": "official_vendor_case_search", "reason": "2025 Chinese customer case with finance and procurement metrics" },
+    { "id": "supply-lenovo-sci", "url": "https://www.lenovo.com/content/dam/lenovo/iso/customer-references-coe/global/en/case-studies/lenovo-powers-lenovo-sustainability/supply-chain/Lenovo_LPL_SCI_CaseStudy.pdf", "status": "excluded", "discovery": "official_web_search", "reason": "useful legacy case but older than the preferred window and superseded by current Chinese cases" },
+    { "id": "supply-haier-awe", "url": "https://www.haier.com/about_haier/xinwen/20250321_257373.shtml", "status": "excluded", "discovery": "official_web_search", "reason": "narrow manufacturing showcase duplicated by the broader Haier source" }
+  ]
+}

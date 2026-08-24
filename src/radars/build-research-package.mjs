@@ -17,6 +17,14 @@ const SOURCE_ARCHIVES = {
     'retail-alibaba-1111': { remote: true },
     'retail-haier-digital': { remote: true },
   },
+  'supply-chain': {
+    'supply-agentic': { local: 'work/archive/McKinsey 最近半年洞察雷达 | 2026-08-02/articles/027-powering-supply-chain-with-agentic-ai' },
+    'supply-procurement-roi': { local: 'work/archive/McKinsey 最近半年洞察雷达 | 2026-08-02/articles/022-redefining-procurement-performance-in-the-era-of-agentic-ai' },
+    'supply-procurement-bain': { local: 'work/archive/Bain Six-Month Insight Radar · 2026-08-02/articles/047-how-agentic-ai-is-reshaping-procurement' },
+    'supply-efficiency-bain': { local: 'work/archive/Bain Six-Month Insight Radar · 2026-08-02/articles/049-a-new-supply-chain-efficiency-playbook-for-medtech' },
+    'supply-haier-ai': { remote: true },
+    'supply-fujian-energy': { remote: true },
+  },
 };
 
 async function exists(filePath) {
