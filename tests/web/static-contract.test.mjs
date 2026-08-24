@@ -47,6 +47,13 @@ test('assets include responsive, accessible and safe rendering contracts', async
   assert.doesNotMatch(chat, /\.innerHTML\s*=/);
   assert.match(chat, /localStorage/);
   assert.match(chat, /\/api\/health/);
+  assert.doesNotMatch(css, /\.ask-workspace\s*\{/);
+  assert.match(css, /\.knowledge-hero\s*\{[^}]*min-width:\s*0/);
+  assert.match(css, /\.knowledge-hero-copy\s*\{[^}]*width:\s*min\(100%,\s*1180px\)/);
+  assert.match(css, /\.knowledge-chat-drawer\s*\{[^}]*width:\s*min\(520px,\s*44vw\)/);
+  assert.match(css, /\.source-reader\s*\{[^}]*right:\s*min\(520px,\s*44vw\)/);
+  assert.match(css, /@media\s*\(max-width:\s*760px\)[\s\S]*\.knowledge-chat-drawer\s*\{[^}]*width:\s*100vw/);
+  assert.match(css, /@media\s*\(max-width:\s*760px\)[\s\S]*\.source-reader\s*\{[^}]*inset:\s*0/);
   assert.match(js, /ArticleUtils\.sortArticles/);
   assert.match(js, /params\.set\('sort'/);
   assert.match(js, /window\.ARTICLE_TOPICS/);
