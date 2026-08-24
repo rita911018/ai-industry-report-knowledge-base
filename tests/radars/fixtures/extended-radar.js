@@ -63,6 +63,7 @@
     eyebrow: 'EXTENDED RADAR FIXTURE',
     updatedAt: '2026-08-24',
     coreJudgment: '用于验证完整场景库、矩阵筛选和证据约束。',
+    categoryLabels: { test: '测试流程' },
     scenarioCount: scenarios.length,
     p0Count: scenarios.filter((scenario) => scenario.priority === 'P0').length,
     scenarios,

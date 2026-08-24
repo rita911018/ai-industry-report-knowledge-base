@@ -8,6 +8,7 @@ import { loadRadarFile } from '../../web/radars/validate-data.mjs';
 const rendererUrl = new URL('../../web/radars/radar.js', import.meta.url);
 const legalPath = new URL('../../web/radars/data/legal.js', import.meta.url);
 const hrPath = new URL('../../web/radars/data/hr.js', import.meta.url);
+const extendedPath = new URL('./fixtures/extended-radar.js', import.meta.url);
 
 async function setup(data) {
   const dom = new JSDOM('<!doctype html><div id="radar-error" aria-live="assertive" hidden></div><main id="radar-app"></main>', {
@@ -36,6 +37,32 @@ test('shared renderer builds only the four approved decision sections', async ()
   assert.match(document.querySelector('.portfolio-section h2').textContent, /AI 能解决哪些业务问题/);
   assert.match(document.querySelector('.roadmap-section h2').textContent, /建议优先启动的 3 个场景/);
   assert.equal(document.querySelector('.matrix-section h2').textContent, '哪些 AI 场景应该优先启动？');
+});
+
+test('extended renderer shows the ranked 12 in the matrix and all 24 in the library and export', async () => {
+  const extended = await loadRadarFile(fileURLToPath(extendedPath));
+  const dom = await setup(extended);
+  const { document } = dom.window;
+  assert.equal(document.querySelectorAll('.matrix-point').length, 12);
+  assert.equal(document.querySelectorAll('.scenario').length, 24);
+  assert.ok(document.querySelector('[data-scenario-target="fixture-12"]'));
+  assert.equal(document.querySelector('[data-scenario-target="fixture-13"]'), null);
+  assert.match(document.querySelector('.matrix-section .section-description').textContent, /前 12 个/);
+  assert.match(document.querySelector('.portfolio-section .section-description').textContent, /完整 24 个/);
+
+  document.querySelector('#fixture-01 .scenario-header').click();
+  const detail = document.querySelector('#fixture-01 .scenario-detail').textContent;
+  assert.match(detail, /第 2 节：流程机会/);
+  assert.match(detail, /平均处理时间下降至少 20%/);
+  assert.match(detail, /转交具名业务负责人审批/);
+  assert.match(detail, /证据置信度：高/);
+
+  const report = dom.window.OpportunityRadar.buildStandaloneReport(extended, new Date('2026-08-24T08:00:00+08:00'));
+  assert.equal((report.match(/class="export-scenario"/g) || []).length, 24);
+  assert.equal((report.match(/data-export-target=/g) || []).length, 12);
+  assert.match(report, /24 个场景完整详情/);
+  assert.match(report, /第 2 节：流程机会/);
+  assert.match(report, /平均处理时间下降至少 20%/);
 });
 
 test('each scenario contains only five linked decision blocks', async () => {

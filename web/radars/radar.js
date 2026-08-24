@@ -35,8 +35,20 @@
     return `<ul>${content.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`;
   }
 
+  function domainName(data) {
+    return ({ legal: '企业法务', hr: '人力资源', retail: '零售', supply_chain: '供应链', finance: '财务', marketing: '市场营销' })[data.id] || data.title.replace(/\s*AI\s*机会雷达\s*$/, '');
+  }
+
+  function matrixScenarios(data) {
+    if (data.schemaVersion !== '2.0') return data.scenarios;
+    return data.scenarios.filter((scenario) => Number.isInteger(scenario.matrixRank)).sort((a, b) => a.matrixRank - b.matrixRank);
+  }
+
   function exportEvidence(scenario, data) {
-    return scenario.evidenceIds.map((id) => data.sources.find((source) => source.id === id)).filter(Boolean).map((source) => `<a class="evidence" href="${escapeHtml(source.url)}" target="_blank" rel="noreferrer"><b>${escapeHtml(source.publisher)} · ${escapeHtml(source.evidenceType)}</b><span>${escapeHtml(source.title)}</span><small>证据局限：${escapeHtml(source.limitation)}</small></a>`).join('');
+    const links = scenario.evidenceIds.map((id) => data.sources.find((source) => source.id === id)).filter(Boolean).map((source) => `<a class="evidence" href="${escapeHtml(source.url)}" target="_blank" rel="noreferrer"><b>${escapeHtml(source.publisher)} · ${escapeHtml(source.evidenceType)}</b><span>${escapeHtml(source.title)}</span><small>证据局限：${escapeHtml(source.limitation)}</small></a>`).join('');
+    const confidence = scenario.confidence ? `<p class="evidence-confidence">证据置信度：${escapeHtml(({ high: '高', middle: '中', low: '低' })[scenario.confidence.level] || scenario.confidence.level)}｜${escapeHtml(scenario.confidence.reason)}</p>` : '';
+    const facts = Array.isArray(scenario.sourceFacts) ? `<div class="source-facts"><h5>原文事实与定位</h5>${scenario.sourceFacts.map((fact) => `<p><b>${escapeHtml(fact.locator)}</b><span>${escapeHtml(fact.text)}</span></p>`).join('')}</div>` : '';
+    return `${confidence}${links}${facts}`;
   }
 
   function exportCompanyCases(scenario, data) {
@@ -49,49 +61,53 @@
 
   function exportScorecard(scenario) {
     const rows = SCORE_DIMENSIONS.map(([key, label, maximum]) => `<div class="score-row"><span>${escapeHtml(label)}</span><i><em style="width:${(scenario.scorecard.dimensions[key] / maximum) * 100}%"></em></i><b>${scenario.scorecard.dimensions[key]}/${maximum}</b></div>`).join('');
-    return `<section class="export-score"><header><span>${escapeHtml(scenario.priority)} · 五维总分</span><strong>${scenario.scorecard.total}</strong></header>${scenario.scorecard.redLine ? '<p class="redline">风险红线：不得让 AI 作最终决定或执行不可逆动作。</p>' : ''}${rows}<p>${escapeHtml(scenario.scorecard.rationale)}</p><small>关键前提：${escapeHtml(scenario.scorecard.prerequisite)}</small></section>`;
+    const confidence = scenario.confidence ? `<small>证据置信度：${escapeHtml(({ high: '高', middle: '中', low: '低' })[scenario.confidence.level] || scenario.confidence.level)}｜${escapeHtml(scenario.confidence.reason)}</small>` : '';
+    return `<section class="export-score"><header><span>${escapeHtml(scenario.priority)} · 五维总分</span><strong>${scenario.scorecard.total}</strong></header>${scenario.scorecard.redLine ? '<p class="redline">风险红线：不得让 AI 作最终决定或执行不可逆动作。</p>' : ''}${rows}<p>${escapeHtml(scenario.scorecard.rationale)}</p><small>关键前提：${escapeHtml(scenario.scorecard.prerequisite)}</small>${confidence}</section>`;
   }
 
   function exportScenarioDetails(scenario, data) {
-    return `<div class="five-details"><section><h4>业务痛点</h4>${exportTextList(scenario.problem)}</section><section><h4>AI 价值｜可以做什么</h4>${exportTextList(scenario.aiValue)}</section><section><h4>主要风险</h4>${exportTextList(scenario.risk)}</section><section><h4>证据锚点</h4><div class="links">${exportEvidence(scenario, data)}</div></section><section><h4>哪些公司做过</h4><div class="links">${exportCompanyCases(scenario, data)}</div></section></div>`;
+    const acceptance = Array.isArray(scenario.acceptanceMetrics) ? `<h5>8–12 周验收指标</h5>${exportTextList(scenario.acceptanceMetrics)}` : '';
+    const handoff = scenario.humanHandoff ? `<h5>人工接管</h5><p>${escapeHtml(scenario.humanHandoff)}</p>` : '';
+    return `<div class="five-details"><section><h4>业务痛点</h4>${exportTextList(scenario.problem)}</section><section><h4>AI 价值｜可以做什么</h4>${exportTextList(scenario.aiValue)}${acceptance}</section><section><h4>主要风险</h4>${exportTextList(scenario.risk)}${handoff}</section><section><h4>证据锚点</h4><div class="links">${exportEvidence(scenario, data)}</div></section><section><h4>哪些公司做过</h4><div class="links">${exportCompanyCases(scenario, data)}</div></section></div>`;
   }
 
   function buildStandaloneReport(data, generatedAt = new Date()) {
     const generatedDate = formatDate(generatedAt);
-    const domainName = data.id === 'hr' ? '人力资源' : '企业法务';
-    const matrixPoints = data.scenarios.map((scenario) => `<button type="button" data-export-target="${escapeHtml(scenario.id)}" aria-pressed="${scenario === data.scenarios[0] ? 'true' : 'false'}" style="left:${scenario.matrix.x}%;top:${scenario.matrix.y}%"><b>${escapeHtml(scenario.number)}</b><span>${escapeHtml(scenario.shortTitle)}</span></button>`).join('');
-    const templates = data.scenarios.map((scenario) => `<template id="export-template-${escapeHtml(scenario.id)}"><div class="inspector-head"><span>${escapeHtml(scenario.priority)} · ${escapeHtml(scenario.number)}</span><h3>${escapeHtml(scenario.title)}</h3></div>${exportScorecard(scenario)}${exportScenarioDetails(scenario, data)}<a class="jump" href="#export-${escapeHtml(scenario.id)}">查看该场景完整条目 ↓</a></template>`).join('');
+    const currentDomainName = domainName(data);
+    const rankedScenarios = matrixScenarios(data);
+    const matrixPoints = rankedScenarios.map((scenario) => `<button type="button" data-export-target="${escapeHtml(scenario.id)}" aria-pressed="${scenario === rankedScenarios[0] ? 'true' : 'false'}" style="left:${scenario.matrix.x}%;top:${scenario.matrix.y}%"><b>${escapeHtml(scenario.number)}</b><span>${escapeHtml(scenario.shortTitle)}</span></button>`).join('');
+    const templates = rankedScenarios.map((scenario) => `<template id="export-template-${escapeHtml(scenario.id)}"><div class="inspector-head"><span>${escapeHtml(scenario.priority)} · ${escapeHtml(scenario.number)}</span><h3>${escapeHtml(scenario.title)}</h3></div>${exportScorecard(scenario)}${exportScenarioDetails(scenario, data)}<a class="jump" href="#export-${escapeHtml(scenario.id)}">查看该场景完整条目 ↓</a></template>`).join('');
     const priorityFilters = ['全部', 'P0', 'P1', 'P2', 'P3'].map((label) => `<button type="button" data-export-priority="${label === '全部' ? 'all' : label}" aria-pressed="${label === '全部'}">${label}</button>`).join('');
-    const categoryFilters = [`<button type="button" data-export-category="all" aria-pressed="true">全部类别</button>`, ...Object.entries(data.categoryLabels).map(([value, label]) => `<button type="button" data-export-category="${escapeHtml(value)}" aria-pressed="false">${escapeHtml(label)}</button>`)].join('');
+    const categoryFilters = [`<button type="button" data-export-category="all" aria-pressed="true">全部类别</button>`, ...Object.entries(data.categoryLabels || {}).map(([value, label]) => `<button type="button" data-export-category="${escapeHtml(value)}" aria-pressed="false">${escapeHtml(label)}</button>`)].join('');
     const scenarios = data.scenarios.map((scenario) => `<article class="export-scenario" id="export-${escapeHtml(scenario.id)}" data-priority="${escapeHtml(scenario.priority)}" data-category="${escapeHtml(scenario.category)}"><details open><summary><span>${escapeHtml(scenario.number)}</span><b>${escapeHtml(scenario.priority)}</b><h3>${escapeHtml(scenario.title)}</h3><strong>${scenario.scorecard.total} 分</strong></summary>${exportScorecard(scenario)}${exportScenarioDetails(scenario, data)}</details></article>`).join('');
     const pilots = data.pilots.map((pilot, index) => {
-      const scenario = data.scenarios.filter((item) => item.priority === 'P0')[index];
+      const scenario = data.scenarios.find((item) => item.id === pilot.scenarioId) || data.scenarios.filter((item) => item.priority === 'P0')[index];
       return `<article class="pilot"><span>${escapeHtml(pilot.label)}</span><h3>${escapeHtml(pilot.title)}</h3><div><h4>推荐理由</h4><p>${escapeHtml(scenario.scorecard.rationale)}</p><h4>关键前提</h4><p>${escapeHtml(scenario.scorecard.prerequisite)}</p><h4>范围与方案</h4><p>${escapeHtml(pilot.scope)}</p><h4>验收</h4><p>${escapeHtml(pilot.acceptance)}</p></div></article>`;
     }).join('');
     return `<!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(domainName)}-AI机会雷达-${generatedDate}</title>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(currentDomainName)}-AI机会雷达-${generatedDate}</title>
 <style>
 :root{--ink:#071a16;--paper:#f4f1e8;--bright:#fffefa;--signal:#c9ff47;--sage:#9eaa8b;--line:#ccd2c5;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--paper)}*{box-sizing:border-box}body{margin:0;line-height:1.6}a{color:inherit}.shell{width:min(calc(100% - 48px),1280px);margin:auto}.hero{padding:76px 0;background:var(--ink);color:white}.eyebrow{color:var(--signal);font-size:11px;font-weight:800;letter-spacing:.16em}.hero h1{max-width:11ch;margin:14px 0 24px;font:500 clamp(48px,8vw,104px)/.92 Georgia,"Songti SC",serif}.hero p{max-width:58em;color:#c2cec6}.hero .meta{display:flex;gap:24px;flex-wrap:wrap;color:var(--signal);font-weight:700}.section{padding:72px 0}.section h2{margin:0 0 16px;font:500 clamp(36px,5vw,64px)/1 Georgia,"Songti SC",serif}.lede{max-width:60em;color:#5f6b64}.matrix-layout{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:42px}.matrix{position:relative;height:620px;border-left:1px solid;border-bottom:1px solid;background:linear-gradient(90deg,transparent 49.9%,#dfe2da 50%,transparent 50.1%),linear-gradient(transparent 49.9%,#dfe2da 50%,transparent 50.1%)}.matrix button{position:absolute;transform:translate(-50%,-50%);min-width:104px;display:grid;grid-template-columns:26px 1fr;gap:6px;align-items:center;padding:6px;border:1px solid;background:var(--bright);cursor:pointer}.matrix button[aria-pressed=true]{background:var(--ink);color:var(--signal);outline:3px solid var(--signal)}.matrix button b{display:grid;place-items:center;width:26px;height:26px;border:1px solid;border-radius:50%;font-size:10px}.matrix button span{font-size:10px;font-weight:750}.inspector{max-height:620px;overflow:auto;padding:28px;background:var(--ink);color:white}.inspector-head span,.export-score header span{color:var(--signal);font-size:11px;font-weight:800}.inspector-head h3{font:500 30px/1.15 Georgia,"Songti SC",serif}.export-score{padding:18px 0;border-block:1px solid #385047}.export-score header{display:flex;justify-content:space-between}.export-score header strong{color:var(--signal);font:500 42px/1 Georgia,serif}.score-row{display:grid;grid-template-columns:120px 1fr 48px;gap:10px;align-items:center;font-size:10px;margin:7px 0}.score-row i{height:5px;background:#294139}.score-row em{display:block;height:100%;background:var(--signal)}.export-score p,.export-score small{font-size:11px;color:#c6d1ca}.redline{padding:8px;border-left:3px solid #f2a65a;color:#ffd0a4!important}.five-details{display:grid;gap:1px;background:#385047;margin-top:18px}.five-details>section{padding:18px;background:#12352c}.five-details h4,.pilot h4{margin:0 0 8px;color:var(--signal);font-size:10px;letter-spacing:.1em}.five-details p,.five-details li{font-size:12px;color:#d2dcd5}.five-details ul{padding-left:18px}.links{display:grid;gap:8px}.evidence{display:grid;gap:5px;padding:12px;border:1px solid #496158;text-decoration:none}.evidence b{color:var(--signal);font-size:9px}.evidence span{font-size:12px}.evidence small{color:#aebdb4;font-size:10px}.jump{display:block;margin-top:18px;padding:12px;background:var(--signal);text-align:center;text-decoration:none;font-weight:800}.method{padding:30px;margin:36px 0;background:var(--ink);color:white}.method-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:#385047}.method-grid span{padding:15px;background:#12352c;color:var(--signal);font-size:11px;font-weight:800}.filters{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0}.filters button{padding:8px 12px;border:1px solid;background:transparent}.filters button[aria-pressed=true]{background:var(--ink);color:var(--signal)}.export-scenario{border-top:1px solid var(--line)}.export-scenario summary{display:grid;grid-template-columns:36px 42px 1fr auto;gap:14px;align-items:center;padding:20px 0;cursor:pointer}.export-scenario summary h3{margin:0;font:500 22px/1.25 Georgia,"Songti SC",serif}.export-scenario details>.export-score,.export-scenario details>.five-details{margin-left:78px}.export-scenario details>.export-score{color:var(--ink);border-color:var(--line)}.export-scenario details>.export-score header span{color:#1f4b3f}.export-scenario details>.score-row{}.export-scenario details>.five-details{margin-bottom:28px}.pilot{display:grid;grid-template-columns:150px 260px 1fr;gap:24px;padding:28px 0;border-top:1px solid var(--line)}.pilot span{font-size:10px;font-weight:800}.pilot h3{margin:0;font:500 27px/1.1 Georgia,"Songti SC",serif}.pilot div{display:grid;grid-template-columns:110px 1fr;gap:8px 18px}.pilot h4{color:#1f4b3f}.pilot p{margin:0;font-size:12px}.footer{padding:30px 0;background:var(--ink);color:#b7c5bc;font-size:11px}@media(max-width:760px){.shell{width:calc(100% - 28px)}.matrix-layout{grid-template-columns:1fr}.matrix{height:460px}.inspector{max-height:none}.method-grid{grid-template-columns:1fr 1fr}.export-scenario summary{grid-template-columns:30px 38px 1fr}.export-scenario summary>strong{display:none}.export-scenario details>.export-score,.export-scenario details>.five-details{margin-left:0}.pilot{grid-template-columns:1fr}.pilot div{grid-template-columns:1fr}.score-row{grid-template-columns:105px 1fr 44px}}@media print{.hero{padding:24px 0;background:white;color:#111}.hero p{color:#333}.matrix-layout,.filters,.jump{display:none}.section{padding:28px 0}.export-scenario{break-inside:avoid}.export-scenario details{display:block}.five-details>section{background:white;border:1px solid #aaa}.five-details h4,.five-details p,.five-details li{color:#111}.footer{background:white;color:#333}a[href^="http"]:after{content:" (" attr(href) ")";font-size:8px;word-break:break-all}}
 </style></head><body><header class="hero"><div class="shell"><p class="eyebrow">${escapeHtml(data.eyebrow)} · 完整离线报告</p><h1>${escapeHtml(data.title)}</h1><p>${escapeHtml(data.coreJudgment)}</p><div class="meta"><span>${data.scenarioCount} 个场景</span><span>${data.p0Count} 个 P0</span><span>生成日期 ${generatedDate}</span><span>数据更新 ${escapeHtml(data.updatedAt)}</span></div></div></header>
 <main><section class="section"><div class="shell"><h2>哪些 AI 场景应该优先启动？</h2><p class="lede">先看业务价值和落地可行性，再通过证据与风险门槛。点击点位，在右侧查看完整判断。</p><div class="matrix-layout"><div class="matrix" aria-label="业务价值与落地可行性矩阵">${matrixPoints}</div><aside class="inspector" id="export-inspector"></aside></div>${templates}</div></section>
-<section class="section"><div class="shell"><h2>12 个场景完整详情</h2><div class="method"><h3>五维评分与风险红线</h3><div class="method-grid">${SCORE_DIMENSIONS.map(([, label, maximum]) => `<span>${escapeHtml(label)} ${maximum}%</span>`).join('')}</div><p>P0：≥80 且无红线 · P1：65–79 · P2：50–64 或仍有关键前置条件 · P3：风险红线覆盖总分。</p></div><div class="filters">${priorityFilters}${categoryFilters}</div><div id="export-scenarios">${scenarios}</div></div></section>
-<section class="section"><div class="shell"><h2>建议优先启动的 3 个场景</h2>${pilots}</div></section></main><footer class="footer"><div class="shell">${escapeHtml(domainName)} AI 机会雷达 · 单文件离线报告 · 外部链接保留至公开原文。本报告是内部决策工具，不替代法律、隐私或就业合规意见。</div></footer>
-<script>(function(){const inspector=document.querySelector('#export-inspector');function select(id){const template=document.querySelector('#export-template-'+id);if(!template)return;inspector.replaceChildren(template.content.cloneNode(true));document.querySelectorAll('[data-export-target]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.exportTarget===id)))}document.querySelectorAll('[data-export-target]').forEach(button=>button.addEventListener('click',()=>select(button.dataset.exportTarget)));let priority='all',category='all';function filter(){document.querySelectorAll('.export-scenario').forEach(card=>{card.hidden=!((priority==='all'||card.dataset.priority===priority)&&(category==='all'||card.dataset.category===category))})}document.querySelectorAll('[data-export-priority]').forEach(button=>button.addEventListener('click',()=>{priority=button.dataset.exportPriority;document.querySelectorAll('[data-export-priority]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));filter()}));document.querySelectorAll('[data-export-category]').forEach(button=>button.addEventListener('click',()=>{category=button.dataset.exportCategory;document.querySelectorAll('[data-export-category]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));filter()}));select('${escapeHtml(data.scenarios[0].id)}')})();</script></body></html>`;
+<section class="section"><div class="shell"><h2>${data.scenarioCount} 个场景完整详情</h2><div class="method"><h3>五维评分与风险红线</h3><div class="method-grid">${SCORE_DIMENSIONS.map(([, label, maximum]) => `<span>${escapeHtml(label)} ${maximum}%</span>`).join('')}</div><p>P0：≥80 且无红线 · P1：65–79 · P2：50–64 或仍有关键前置条件 · P3：风险红线覆盖总分。</p></div><div class="filters">${priorityFilters}${categoryFilters}</div><div id="export-scenarios">${scenarios}</div></div></section>
+<section class="section"><div class="shell"><h2>建议优先启动的 ${data.pilots.length} 个场景</h2>${pilots}</div></section></main><footer class="footer"><div class="shell">${escapeHtml(currentDomainName)} AI 机会雷达 · 单文件离线报告 · 外部链接保留至公开原文。本报告是内部决策工具，不替代法律、隐私或就业合规意见。</div></footer>
+<script>(function(){const inspector=document.querySelector('#export-inspector');function select(id){const template=document.querySelector('#export-template-'+id);if(!template)return;inspector.replaceChildren(template.content.cloneNode(true));document.querySelectorAll('[data-export-target]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.exportTarget===id)))}document.querySelectorAll('[data-export-target]').forEach(button=>button.addEventListener('click',()=>select(button.dataset.exportTarget)));let priority='all',category='all';function filter(){document.querySelectorAll('.export-scenario').forEach(card=>{card.hidden=!((priority==='all'||card.dataset.priority===priority)&&(category==='all'||card.dataset.category===category))})}document.querySelectorAll('[data-export-priority]').forEach(button=>button.addEventListener('click',()=>{priority=button.dataset.exportPriority;document.querySelectorAll('[data-export-priority]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));filter()}));document.querySelectorAll('[data-export-category]').forEach(button=>button.addEventListener('click',()=>{category=button.dataset.exportCategory;document.querySelectorAll('[data-export-category]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));filter()}));select('${escapeHtml(rankedScenarios[0]?.id || '')}')})();</script></body></html>`;
   }
 
   function downloadStandaloneReport(data) {
     const date = formatDate(new Date());
-    const domainName = data.id === 'hr' ? '人力资源' : '企业法务';
+    const currentDomainName = domainName(data);
     const blob = new Blob([buildStandaloneReport(data)], { type: 'text/html;charset=utf-8' });
     const url = URL.createObjectURL(blob);
-    const link = createElement('a', { attrs: { href: url, download: `${domainName}-AI机会雷达-${date}.html` } });
+    const link = createElement('a', { attrs: { href: url, download: `${currentDomainName}-AI机会雷达-${date}.html` } });
     link.click();
     setTimeout(() => URL.revokeObjectURL(url), 0);
   }
 
   function renderHero(data) {
     const action = createElement('a', { className: 'radar-hero-action', text: '查看优先级矩阵 ↓', attrs: { href: '#priority-matrix' } });
-    const exportButton = createElement('button', { className: 'radar-export-button', text: '导出完整 HTML', attrs: { type: 'button', title: '导出矩阵、12 个场景、证据与公司案例' } });
+    const exportButton = createElement('button', { className: 'radar-export-button', text: '导出完整 HTML', attrs: { type: 'button', title: `导出矩阵、${data.scenarioCount} 个场景、证据与公司案例` } });
     exportButton.addEventListener('click', () => downloadStandaloneReport(data));
     const companyCaseCount = data.scenarios.reduce((total, scenario) => total + scenario.companyCases.length, 0);
     const stats = createElement('div', { className: 'radar-hero-stats', attrs: { 'aria-label': '核心数字' } }, [
@@ -101,7 +117,7 @@
     ]);
     return createElement('section', { className: 'radar-hero', attrs: { 'aria-labelledby': 'radar-title' } }, [
       createElement('div', { className: 'radar-shell radar-hero-grid' }, [
-        createElement('div', { className: 'radar-hero-copy' }, [createElement('p', { className: 'radar-eyebrow', text: data.eyebrow }), createElement('h1', { text: data.title, attrs: { id: 'radar-title' } }), createElement('p', { className: 'radar-hero-lede', text: '从业务问题出发，逐项查看 AI 能做什么、主要风险、证据和已有公司实践。' }), createElement('div', { className: 'radar-hero-actions' }, [action, exportButton]), createElement('small', { className: 'radar-export-note', text: '导出包含矩阵、12 个场景、证据与公司案例' })]),
+        createElement('div', { className: 'radar-hero-copy' }, [createElement('p', { className: 'radar-eyebrow', text: data.eyebrow }), createElement('h1', { text: data.title, attrs: { id: 'radar-title' } }), createElement('p', { className: 'radar-hero-lede', text: '从业务问题出发，逐项查看 AI 能做什么、主要风险、证据和已有公司实践。' }), createElement('div', { className: 'radar-hero-actions' }, [action, exportButton]), createElement('small', { className: 'radar-export-note', text: `导出包含矩阵、完整 ${data.scenarioCount} 个场景、证据与公司案例` })]),
         stats,
       ]),
       createElement('div', { className: 'decision-strip' }, [createElement('div', { className: 'radar-shell' }, [createElement('strong', { text: '核心判断' }), createElement('p', { text: data.coreJudgment })])]),
@@ -110,7 +126,7 @@
 
   function renderMatrix(data, state) {
     const matrix = createElement('div', { className: 'matrix', attrs: { role: 'group', 'aria-label': '业务价值与落地可行性矩阵' } });
-    for (const scenario of data.scenarios) {
+    for (const scenario of matrixScenarios(data)) {
       const point = createElement('button', {
         className: `matrix-point ${scenario.priority.toLowerCase()}`,
         attrs: { type: 'button', 'data-scenario-target': scenario.id, 'aria-label': `${scenario.title}，${scenario.priority}，价值 ${scenario.value}，可行性 ${scenario.feasibility}`, 'aria-pressed': 'false' },
@@ -130,7 +146,7 @@
     state.inspectorContent = inspectorContent;
     const inspector = createElement('aside', { className: 'matrix-inspector' }, [inspectorContent]);
     return createElement('section', { className: 'radar-section matrix-section', attrs: { id: 'priority-matrix' } }, [
-      createElement('div', { className: 'radar-shell' }, [sectionHead('01', 'PRIORITY', '哪些 AI 场景应该优先启动？', '先看业务价值和落地可行性，再通过证据与风险门槛。点击点位，在右侧查看完整判断。'), createElement('div', { className: 'matrix-layout' }, [matrixWrap, inspector])]),
+      createElement('div', { className: 'radar-shell' }, [sectionHead('01', 'PRIORITY', '哪些 AI 场景应该优先启动？', `${data.schemaVersion === '2.0' ? '矩阵展示前 12 个场景；' : ''}先看业务价值和落地可行性，再通过证据与风险门槛。点击点位，在右侧查看完整判断。`), createElement('div', { className: 'matrix-layout' }, [matrixWrap, inspector])]),
     ]);
   }
 
@@ -163,6 +179,7 @@
       createElement('p', { className: 'scorecard-rationale', text: scenario.scorecard.rationale }),
       createElement('p', { className: 'scorecard-prerequisite', text: `关键前提：${scenario.scorecard.prerequisite}` }),
     ]);
+    if (scenario.confidence) card.append(createElement('p', { className: 'scorecard-confidence', text: `证据置信度：${({ high: '高', middle: '中', low: '低' })[scenario.confidence.level] || scenario.confidence.level}｜${scenario.confidence.reason}` }));
     if (scenario.scorecard.redLine) card.prepend(createElement('p', { className: 'scorecard-redline', text: '风险红线：不得让 AI 作最终决定或执行不可逆动作。' }));
     return card;
   }
@@ -178,11 +195,29 @@
 
   function renderEvidence(scenario, data) {
     const list = createElement('div', { className: 'evidence-links' });
+    if (scenario.confidence) list.append(createElement('p', { className: 'evidence-confidence', text: `证据置信度：${({ high: '高', middle: '中', low: '低' })[scenario.confidence.level] || scenario.confidence.level}｜${scenario.confidence.reason}` }));
     for (const id of scenario.evidenceIds) {
       const source = data.sources.find((item) => item.id === id);
       if (source) list.append(sourceLink(source, 'evidence-link decision-link'));
     }
+    if (Array.isArray(scenario.sourceFacts)) {
+      const facts = createElement('div', { className: 'source-facts' }, [createElement('h5', { text: '原文事实与定位' })]);
+      for (const fact of scenario.sourceFacts) facts.append(createElement('div', { className: 'source-fact' }, [createElement('strong', { text: fact.locator }), createElement('p', { text: fact.text })]));
+      list.append(facts);
+    }
     return list;
+  }
+
+  function renderAiValue(scenario) {
+    const content = createElement('div', { className: 'ai-value-detail' }, [renderTextList(scenario.aiValue)]);
+    if (Array.isArray(scenario.acceptanceMetrics)) content.append(createElement('h5', { text: '8–12 周验收指标' }), renderTextList(scenario.acceptanceMetrics));
+    return content;
+  }
+
+  function renderRisk(scenario) {
+    const content = createElement('div', { className: 'risk-content' }, [renderTextList(scenario.risk)]);
+    if (scenario.humanHandoff) content.append(createElement('h5', { text: '人工接管' }), createElement('p', { text: scenario.humanHandoff }));
+    return content;
   }
 
   function renderCompanyCases(scenario, data) {
@@ -217,8 +252,8 @@
       renderScorecard(scenario, true),
       createElement('div', { className: 'matrix-inspector-details' }, [
         detailBlock('业务痛点', scenario.problem),
-        detailBlock('AI 价值｜可以做什么', scenario.aiValue),
-        detailBlock('主要风险', scenario.risk, true, 'risk-detail'),
+        detailBlock('AI 价值｜可以做什么', renderAiValue(scenario)),
+        detailBlock('主要风险', renderRisk(scenario), true, 'risk-detail'),
         detailBlock('证据锚点', renderEvidence(scenario, data), true, 'evidence-detail'),
         detailBlock('哪些公司做过', renderCompanyCases(scenario, data), true, 'company-detail'),
       ]),
@@ -241,8 +276,8 @@
     const detail = createElement('div', { className: 'scenario-detail', attrs: { id: detailId } }, [
       createElement('div', { className: 'detail-grid' }, [
         detailBlock('业务痛点', scenario.problem),
-        detailBlock('AI 价值｜可以做什么', scenario.aiValue),
-        detailBlock('主要风险', scenario.risk, true, 'risk-detail'),
+        detailBlock('AI 价值｜可以做什么', renderAiValue(scenario)),
+        detailBlock('主要风险', renderRisk(scenario), true, 'risk-detail'),
         detailBlock('证据锚点', renderEvidence(scenario, data), true, 'evidence-detail'),
         detailBlock('哪些公司做过', renderCompanyCases(scenario, data), true, 'company-detail'),
       ]),
@@ -274,7 +309,7 @@
     for (const value of ['all', 'P0', 'P1', 'P2', 'P3']) priorityControls.append(filterButton(value === 'all' ? '全部' : value, 'data-priority-filter', value, state));
     const categoryControls = createElement('div', { className: 'filter-group', attrs: { role: 'group', 'aria-label': '按场景类别筛选' } });
     categoryControls.append(filterButton('全部', 'data-category-filter', 'all', state));
-    for (const [value, label] of Object.entries(data.categoryLabels)) categoryControls.append(filterButton(label, 'data-category-filter', value, state));
+    for (const [value, label] of Object.entries(data.categoryLabels || {})) categoryControls.append(filterButton(label, 'data-category-filter', value, state));
     const controls = createElement('div', { className: 'filter-panel' }, [createElement('span', { text: '优先级' }), priorityControls, createElement('span', { text: '类别' }), categoryControls]);
     const count = createElement('strong', { text: `${data.scenarioCount} 个场景`, attrs: { id: 'scenario-result-count' } });
     const list = createElement('div', { className: 'scenario-list' });
@@ -287,7 +322,7 @@
     state.empty = empty;
     state.filterPanel = controls;
     return createElement('section', { className: 'radar-section portfolio-section', attrs: { id: 'scenario-portfolio' } }, [
-      createElement('div', { className: 'radar-shell' }, [sectionHead('02', 'BUSINESS PROBLEMS', 'AI 能解决哪些业务问题', '按优先级与类别筛选；点开后只看痛点、AI 价值、风险、证据和公司实践。'), controls, createElement('div', { className: 'result-line' }, [count, createElement('button', { className: 'text-reset', text: '重置筛选', attrs: { type: 'button' } })]), list, empty]),
+      createElement('div', { className: 'radar-shell' }, [sectionHead('02', 'BUSINESS PROBLEMS', 'AI 能解决哪些业务问题', `完整 ${data.scenarioCount} 个场景，可按优先级与类别筛选；点开后查看痛点、AI 价值、风险、证据和公司实践。`), controls, createElement('div', { className: 'result-line' }, [count, createElement('button', { className: 'text-reset', text: '重置筛选', attrs: { type: 'button' } })]), list, empty]),
     ]);
   }
 
@@ -307,9 +342,9 @@
     const priorityScenarios = data.scenarios.filter((scenario) => scenario.priority === 'P0');
     data.pilots.forEach((pilot, index) => flow.append(createElement('article', { className: 'pilot' }, [
       createElement('p', { className: 'pilot-label', text: pilot.label }), createElement('h3', { text: pilot.title }),
-      createElement('div', { className: 'pilot-copy' }, [detailBlock('推荐理由', priorityScenarios[index].scorecard.rationale), detailBlock('关键前提', priorityScenarios[index].scorecard.prerequisite), detailBlock('范围与方案', pilot.scope), detailBlock('验收', pilot.acceptance)]),
+      createElement('div', { className: 'pilot-copy' }, (() => { const scenario = data.scenarios.find((item) => item.id === pilot.scenarioId) || priorityScenarios[index]; return [detailBlock('推荐理由', scenario.scorecard.rationale), detailBlock('关键前提', scenario.scorecard.prerequisite), detailBlock('范围与方案', pilot.scope), detailBlock('验收', pilot.acceptance)]; })()),
     ])));
-    return createElement('section', { className: 'radar-section roadmap-section', attrs: { id: 'priority-starts' } }, [createElement('div', { className: 'radar-shell' }, [sectionHead('03', 'START HERE', '建议优先启动的 3 个场景', '先按五维分数排序，再检查风险红线、关键前提和 8–12 周内是否能够验收。'), renderPriorityMethod(), flow])]);
+    return createElement('section', { className: 'radar-section roadmap-section', attrs: { id: 'priority-starts' } }, [createElement('div', { className: 'radar-shell' }, [sectionHead('03', 'START HERE', `建议优先启动的 ${data.pilots.length} 个场景`, '先按五维分数排序，再检查风险红线、关键前提和 8–12 周内是否能够验收。'), renderPriorityMethod(), flow])]);
   }
 
   function toggleScenario(card, expanded) {
@@ -357,7 +392,7 @@
     const state = { data, cards: new Map(), points: new Map(), filters: { priority: 'all', category: 'all' }, count: null, empty: null, filterPanel: null, inspectorContent: null, selectedScenarioId: null };
     root.replaceChildren(renderHero(data), renderMatrix(data, state), renderPortfolio(data, state), renderRoadmap(data));
     root.querySelector('.text-reset').addEventListener('click', () => resetFilters(state));
-    activateMatrixPoint(state, data.scenarios.find((scenario) => scenario.priority === 'P0')?.id || data.scenarios[0]?.id);
+    activateMatrixPoint(state, matrixScenarios(data).find((scenario) => scenario.priority === 'P0')?.id || matrixScenarios(data)[0]?.id);
     return state;
   }
 
