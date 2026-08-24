@@ -21,7 +21,7 @@ async function setup(data) {
   dom.getScrollCalls = () => scrollCalls;
   if (data) dom.window.OPPORTUNITY_RADAR_DATA = data;
   dom.window.eval(await readFile(rendererUrl, 'utf8'));
-  dom.window.OpportunityRadar.initRadar(dom.window.document);
+  dom.radarState = dom.window.OpportunityRadar.initRadar(dom.window.document);
   return dom;
 }
 
@@ -177,6 +177,38 @@ test('export button downloads a UTF-8 HTML blob with the current domain filename
   dom.window.document.querySelector('.radar-export-button').click();
   assert.equal(capturedBlob.type, 'text/html;charset=utf-8');
   assert.match(capturedDownload, /^企业法务-AI机会雷达-\d{4}-\d{2}-\d{2}\.html$/);
+});
+
+test('live radar builds a two-level table of contents from domain data', async () => {
+  const dom = await setup(await loadRadarFile(fileURLToPath(legalPath)));
+  const { document } = dom.window;
+  assert.ok(document.querySelector('#radar-toc'));
+  assert.equal(document.querySelectorAll('[data-toc-section]').length, 3);
+  assert.equal(document.querySelectorAll('[data-toc-scenario]').length, 12);
+  assert.deepEqual(
+    [...document.querySelectorAll('[data-toc-section]')].map((link) => link.textContent.trim()),
+    ['优先矩阵', '完整场景库', '优先启动建议'],
+  );
+  const extended = await setup(await loadRadarFile(fileURLToPath(extendedPath)));
+  assert.equal(extended.window.document.querySelectorAll('[data-toc-scenario]').length, 24);
+});
+
+test('table of contents can collapse scenarios and jump to a filtered scenario', async () => {
+  const dom = await setup(await loadRadarFile(fileURLToPath(legalPath)));
+  const { document } = dom.window;
+  const toggle = document.querySelector('#radar-toc-scenario-toggle');
+  const list = document.querySelector('#radar-toc-scenarios');
+  toggle.click();
+  assert.equal(toggle.getAttribute('aria-expanded'), 'false');
+  assert.equal(list.hidden, true);
+  toggle.click();
+  document.querySelector('[data-priority-filter="P0"]').click();
+  assert.equal(document.querySelector('#legal-07').hidden, true);
+  document.querySelector('[data-toc-scenario="legal-07"]').click();
+  assert.equal(document.querySelector('#legal-07').hidden, false);
+  assert.equal(document.querySelector('#legal-07 .scenario-header').getAttribute('aria-expanded'), 'true');
+  assert.equal(document.activeElement, document.querySelector('#legal-07 .scenario-header'));
+  assert.equal(dom.window.location.hash, '#legal-07');
 });
 
 test('missing data displays an explicit error instead of a blank page', async () => {

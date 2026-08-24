@@ -415,9 +415,89 @@
     card.querySelector('.scenario-header').focus({ preventScroll: true });
   }
 
+  function sortedTocScenarios(data) {
+    return [...data.scenarios].sort((a, b) => a.number.localeCompare(b.number));
+  }
+
+  function setTocActive(state, targetId) {
+    if (!state.toc) return;
+    const activeLink = [...state.toc.panel.querySelectorAll('[data-toc-section], [data-toc-scenario]')]
+      .find((link) => link.dataset.tocSection === targetId || link.dataset.tocScenario === targetId);
+    state.toc.panel.querySelectorAll('[aria-current="location"]').forEach((link) => link.removeAttribute('aria-current'));
+    if (activeLink) activeLink.setAttribute('aria-current', 'location');
+  }
+
+  function setLocationHash(state, targetId) {
+    const view = state.root?.ownerDocument?.defaultView || window;
+    view.history.replaceState(view.history.state, '', `#${targetId}`);
+  }
+
+  function closeTocDrawer(state, restoreFocus = false) {
+    if (!state.toc) return;
+    state.root?.ownerDocument?.body.classList.remove('radar-toc-open');
+    state.toc.trigger.setAttribute('aria-expanded', 'false');
+    state.toc.panel.removeAttribute('role');
+    state.toc.panel.removeAttribute('aria-modal');
+    if (restoreFocus) state.toc.trigger.focus();
+  }
+
+  function renderToc(data, state) {
+    const title = createElement('h2', { text: '本页目录', attrs: { id: 'radar-toc-title' } });
+    const closeButton = createElement('button', { className: 'radar-toc-close', text: '关闭', attrs: { type: 'button', 'aria-label': '关闭目录' } });
+    const panel = createElement('aside', { className: 'radar-toc-panel', attrs: { id: 'radar-toc', 'aria-labelledby': 'radar-toc-title' } });
+    const navigation = createElement('nav', { attrs: { 'aria-label': '雷达页面目录' } });
+    const sectionList = createElement('ol', { className: 'radar-toc-sections' });
+    const scenarioList = createElement('ol', { className: 'radar-toc-scenarios', attrs: { id: 'radar-toc-scenarios' } });
+    const scenarioToggle = createElement('button', {
+      className: 'radar-toc-scenario-toggle',
+      text: '场景列表 ▾',
+      attrs: { type: 'button', id: 'radar-toc-scenario-toggle', 'aria-label': '展开或收起场景列表', 'aria-expanded': 'true', 'aria-controls': 'radar-toc-scenarios' },
+    });
+    const sectionLink = (targetId, label) => {
+      const link = createElement('a', { text: label, attrs: { href: `#${targetId}`, 'data-toc-section': targetId } });
+      link.addEventListener('click', () => {
+        setLocationHash(state, targetId);
+        setTocActive(state, targetId);
+        closeTocDrawer(state);
+      });
+      return link;
+    };
+
+    sectionList.append(createElement('li', {}, [sectionLink('priority-matrix', '优先矩阵')]));
+    const scenarioSection = createElement('li', { className: 'radar-toc-scenario-section' }, [sectionLink('scenario-portfolio', '完整场景库'), scenarioToggle, scenarioList]);
+    for (const scenario of sortedTocScenarios(data)) {
+      const link = createElement('a', { text: `${scenario.number} ${scenario.title}`, attrs: { href: `#${scenario.id}`, 'data-toc-scenario': scenario.id } });
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        jumpToScenario(state, scenario.id);
+        setLocationHash(state, scenario.id);
+        setTocActive(state, scenario.id);
+        closeTocDrawer(state);
+      });
+      scenarioList.append(createElement('li', {}, [link]));
+    }
+    sectionList.append(scenarioSection, createElement('li', {}, [sectionLink('priority-starts', '优先启动建议')]));
+    scenarioToggle.addEventListener('click', () => {
+      const expanded = scenarioToggle.getAttribute('aria-expanded') === 'true';
+      scenarioToggle.setAttribute('aria-expanded', String(!expanded));
+      scenarioList.hidden = expanded;
+    });
+
+    const trigger = createElement('button', { className: 'radar-toc-trigger', text: '目录', attrs: { type: 'button', 'aria-expanded': 'false', 'aria-controls': 'radar-toc' } });
+    const backdrop = createElement('div', { className: 'radar-toc-backdrop' });
+    state.toc = { panel, trigger, backdrop, closeButton, scenarioList, scenarioToggle };
+    closeButton.addEventListener('click', () => closeTocDrawer(state, true));
+    backdrop.addEventListener('click', () => closeTocDrawer(state, true));
+    panel.append(createElement('div', { className: 'radar-toc-head' }, [title, closeButton]), navigation);
+    navigation.append(sectionList);
+    return [trigger, panel, backdrop];
+  }
+
   function renderRadar(root, data) {
-    const state = { data, cards: new Map(), points: new Map(), filters: { priority: 'all', category: 'all' }, sortMode: 'number', count: null, empty: null, filterPanel: null, list: null, inspectorContent: null, selectedScenarioId: null };
-    root.replaceChildren(renderHero(data), renderMatrix(data, state), renderPortfolio(data, state), renderRoadmap(data));
+    const state = { root, data, cards: new Map(), points: new Map(), filters: { priority: 'all', category: 'all' }, sortMode: 'number', count: null, empty: null, filterPanel: null, list: null, inspectorContent: null, selectedScenarioId: null, toc: null, tocObserver: null };
+    root.ownerDocument.body.classList.add('radar-detail-page');
+    const content = [renderHero(data), renderMatrix(data, state), renderPortfolio(data, state), renderRoadmap(data)];
+    root.replaceChildren(...renderToc(data, state), ...content);
     root.querySelector('.text-reset').addEventListener('click', () => resetFilters(state));
     activateMatrixPoint(state, matrixScenarios(data).find((scenario) => scenario.priority === 'P0')?.id || matrixScenarios(data)[0]?.id);
     return state;
