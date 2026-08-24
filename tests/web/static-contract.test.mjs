@@ -20,6 +20,11 @@ test('unified page exposes an accessible cited research workspace', async () => 
   assert.match(html, /data-link="chinese"/);
   assert.match(html, /data-link="original"/);
   assert.match(html, /data-link="official"/);
+  assert.match(html, /id="sort-control"/);
+  assert.match(html, /value="date"[^>]*>最新发布/);
+  assert.match(html, /value="score"[^>]*>评分最高/);
+  assert.match(html, /<script src="data\/topics\.js"><\/script>/);
+  assert.match(html, /<script src="article-utils\.js"><\/script>/);
 });
 
 test('assets include responsive, accessible and safe rendering contracts', async () => {
@@ -30,4 +35,8 @@ test('assets include responsive, accessible and safe rendering contracts', async
   assert.doesNotMatch(js, /\.innerHTML\s*=/);
   assert.match(js, /localStorage/);
   assert.match(js, /\/api\/ask/);
+  assert.match(js, /ArticleUtils\.sortArticles/);
+  assert.match(js, /params\.set\('sort'/);
+  assert.match(js, /window\.ARTICLE_TOPICS/);
+  assert.doesNotMatch(js, /SOURCE SCORE/);
 });
