@@ -436,13 +436,61 @@
     }
   }
 
-  function closeTocDrawer(state, restoreFocus = false) {
+  function openTocDrawer(state) {
+    if (!state.toc) return;
+    state.root?.ownerDocument?.body.classList.add('radar-toc-open');
+    state.toc.trigger.setAttribute('aria-expanded', 'true');
+    state.toc.panel.setAttribute('role', 'dialog');
+    state.toc.panel.setAttribute('aria-modal', 'true');
+    state.toc.closeButton.focus();
+  }
+
+  function closeTocDrawer(state, restoreFocus = true) {
     if (!state.toc) return;
     state.root?.ownerDocument?.body.classList.remove('radar-toc-open');
     state.toc.trigger.setAttribute('aria-expanded', 'false');
     state.toc.panel.removeAttribute('role');
     state.toc.panel.removeAttribute('aria-modal');
     if (restoreFocus) state.toc.trigger.focus();
+  }
+
+  function observeToc(state) {
+    const view = state.root?.ownerDocument?.defaultView || window;
+    if (typeof view.IntersectionObserver !== 'function') return null;
+    const observer = new view.IntersectionObserver((entries) => {
+      const strongest = entries.filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (strongest?.target?.id) setTocActive(state, strongest.target.id);
+    }, { rootMargin: '-18% 0px -68% 0px', threshold: [0, 0.15, 0.4, 0.75] });
+    const documentRef = state.root.ownerDocument;
+    for (const id of ['priority-matrix', 'scenario-portfolio', 'priority-starts']) {
+      const section = documentRef.getElementById(id);
+      if (section) observer.observe(section);
+    }
+    for (const card of state.cards.values()) observer.observe(card);
+    state.tocObserver = observer;
+    return observer;
+  }
+
+  function openInitialHash(state) {
+    const view = state.root?.ownerDocument?.defaultView || window;
+    let targetId;
+    try {
+      targetId = decodeURIComponent(view.location.hash.slice(1));
+    } catch {
+      return;
+    }
+    if (!targetId) return;
+    if (state.cards.has(targetId)) {
+      jumpToScenario(state, targetId);
+      setTocActive(state, targetId);
+      return;
+    }
+    if (!['priority-matrix', 'scenario-portfolio', 'priority-starts'].includes(targetId)) return;
+    const section = state.root.ownerDocument.getElementById(targetId);
+    if (!section) return;
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTocActive(state, targetId);
   }
 
   function renderToc(data, state) {
@@ -462,7 +510,7 @@
       link.addEventListener('click', () => {
         setLocationHash(state, targetId);
         setTocActive(state, targetId);
-        closeTocDrawer(state);
+        closeTocDrawer(state, false);
       });
       return link;
     };
@@ -476,7 +524,7 @@
         jumpToScenario(state, scenario.id);
         setLocationHash(state, scenario.id);
         setTocActive(state, scenario.id);
-        closeTocDrawer(state);
+        closeTocDrawer(state, false);
       });
       scenarioList.append(createElement('li', {}, [link]));
     }
@@ -490,8 +538,15 @@
     const trigger = createElement('button', { className: 'radar-toc-trigger', text: '目录', attrs: { type: 'button', 'aria-expanded': 'false', 'aria-controls': 'radar-toc' } });
     const backdrop = createElement('button', { className: 'radar-toc-backdrop', attrs: { type: 'button', 'aria-label': '关闭目录', tabindex: '-1' } });
     state.toc = { panel, trigger, backdrop, closeButton, scenarioList, scenarioToggle };
+    trigger.addEventListener('click', () => openTocDrawer(state));
     closeButton.addEventListener('click', () => closeTocDrawer(state, true));
     backdrop.addEventListener('click', () => closeTocDrawer(state, true));
+    const documentRef = state.root.ownerDocument;
+    if (state.root.radarTocKeydownHandler) documentRef.removeEventListener('keydown', state.root.radarTocKeydownHandler);
+    state.root.radarTocKeydownHandler = (event) => {
+      if (event.key === 'Escape' && documentRef.body.classList.contains('radar-toc-open')) closeTocDrawer(state, true);
+    };
+    documentRef.addEventListener('keydown', state.root.radarTocKeydownHandler);
     panel.append(createElement('div', { className: 'radar-toc-head' }, [title, closeButton]), navigation);
     navigation.append(sectionList);
     return [trigger, panel, backdrop];
@@ -504,6 +559,10 @@
     root.replaceChildren(...renderToc(data, state), ...content);
     root.querySelector('.text-reset').addEventListener('click', () => resetFilters(state));
     activateMatrixPoint(state, matrixScenarios(data).find((scenario) => scenario.priority === 'P0')?.id || matrixScenarios(data)[0]?.id);
+    observeToc(state);
+    const view = root.ownerDocument.defaultView || window;
+    if (typeof view.requestAnimationFrame === 'function') view.requestAnimationFrame(() => openInitialHash(state));
+    else openInitialHash(state);
     return state;
   }
 
@@ -521,7 +580,7 @@
     return renderRadar(root, data);
   }
 
-  window.OpportunityRadar = Object.freeze({ createElement, renderRadar, filterScenarios, sortScenarios, toggleScenario, activateMatrixPoint, jumpToScenario, buildStandaloneReport, downloadStandaloneReport, initRadar });
+  window.OpportunityRadar = Object.freeze({ createElement, renderRadar, filterScenarios, sortScenarios, toggleScenario, activateMatrixPoint, jumpToScenario, setTocActive, buildStandaloneReport, downloadStandaloneReport, initRadar });
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => initRadar(document), { once: true });
   else initRadar(document);
 })();

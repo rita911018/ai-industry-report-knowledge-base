@@ -49,4 +49,9 @@ test('shared radar styles cover focus, mobile, reduced motion, and print', async
   assert.match(css, /\.directory-lede\s*\{[^}]*font-size:\s*24px/s);
   assert.match(css, /@media\s*\(max-width:\s*390px\)[\s\S]*\.directory-hero h1\s*\{[^}]*font-size:\s*48px/s);
   assert.match(css, /@media\s*\(max-width:\s*390px\)[\s\S]*\.directory-lede\s*\{[^}]*font-size:\s*18px/s);
+  assert.match(css, /\.radar-toc-panel\s*\{[^}]*position:\s*fixed/s);
+  assert.match(css, /@media\s*\(min-width:\s*1100px\)[\s\S]*\.radar-toc-trigger[^}]*display:\s*none/s);
+  assert.match(css, /@media\s*\(max-width:\s*1099px\)[\s\S]*\.radar-toc-panel[^}]*transform:\s*translateX\(-/s);
+  assert.match(css, /body\.radar-toc-open[\s\S]*overflow:\s*hidden/s);
+  assert.match(css, /@media\s+print[\s\S]*\.radar-toc-panel[\s\S]*display:\s*none\s*!important/s);
 });

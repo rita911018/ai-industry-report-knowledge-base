@@ -10,7 +10,7 @@ const legalPath = new URL('../../web/radars/data/legal.js', import.meta.url);
 const hrPath = new URL('../../web/radars/data/hr.js', import.meta.url);
 const extendedPath = new URL('./fixtures/extended-radar.js', import.meta.url);
 
-async function setup(data, url = 'http://127.0.0.1/radars/legal.html') {
+async function setup(data, url = 'http://127.0.0.1/radars/legal.html', options = {}) {
   const dom = new JSDOM('<!doctype html><div id="radar-error" aria-live="assertive" hidden></div><main id="radar-app"></main>', {
     url,
     runScripts: 'outside-only',
@@ -19,7 +19,10 @@ async function setup(data, url = 'http://127.0.0.1/radars/legal.html') {
   let scrollCalls = 0;
   dom.window.HTMLElement.prototype.scrollIntoView = function scrollIntoView() { scrollCalls += 1; };
   dom.getScrollCalls = () => scrollCalls;
+  dom.window.requestAnimationFrame = (callback) => { callback(); return 1; };
+  if (options.beforeEval) options.beforeEval(dom.window);
   if (data) dom.window.OPPORTUNITY_RADAR_DATA = data;
+  Object.defineProperty(dom.window.document, 'readyState', { configurable: true, value: 'loading' });
   dom.window.eval(await readFile(rendererUrl, 'utf8'));
   dom.radarState = dom.window.OpportunityRadar.initRadar(dom.window.document);
   return dom;
@@ -234,6 +237,102 @@ test('table of contents scenario links work on file URLs', async () => {
   assert.equal(document.querySelector('#legal-07 .scenario-header').getAttribute('aria-expanded'), 'true');
   assert.equal(dom.window.location.hash, '#legal-07');
   assert.equal(link.getAttribute('aria-current'), 'location');
+});
+
+test('mobile table of contents opens accessibly, closes by every control, and tracks the active location', async () => {
+  const dom = await setup(await loadRadarFile(fileURLToPath(legalPath)));
+  const { document, KeyboardEvent } = dom.window;
+  const trigger = document.querySelector('.radar-toc-trigger');
+  const panel = document.querySelector('.radar-toc-panel');
+  const closeButton = document.querySelector('.radar-toc-close');
+  const backdrop = document.querySelector('.radar-toc-backdrop');
+
+  trigger.click();
+  assert.equal(trigger.getAttribute('aria-expanded'), 'true');
+  assert.equal(document.body.classList.contains('radar-toc-open'), true);
+  assert.equal(panel.getAttribute('role'), 'dialog');
+  assert.equal(panel.getAttribute('aria-modal'), 'true');
+  assert.equal(document.activeElement, closeButton);
+
+  backdrop.click();
+  assert.equal(trigger.getAttribute('aria-expanded'), 'false');
+  assert.equal(document.body.classList.contains('radar-toc-open'), false);
+  assert.equal(panel.hasAttribute('role'), false);
+  assert.equal(panel.hasAttribute('aria-modal'), false);
+  assert.equal(document.activeElement, trigger);
+
+  trigger.click();
+  closeButton.click();
+  assert.equal(trigger.getAttribute('aria-expanded'), 'false');
+  assert.equal(document.activeElement, trigger);
+
+  trigger.click();
+  document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+  assert.equal(trigger.getAttribute('aria-expanded'), 'false');
+  assert.equal(document.activeElement, trigger);
+
+  dom.window.OpportunityRadar.setTocActive(dom.radarState, 'legal-01');
+  dom.window.OpportunityRadar.setTocActive(dom.radarState, 'legal-04');
+  assert.equal(document.querySelector('[data-toc-scenario="legal-04"]').getAttribute('aria-current'), 'location');
+  assert.equal(document.querySelector('[data-toc-scenario="legal-01"]').hasAttribute('aria-current'), false);
+});
+
+test('active-reading observer watches all TOC targets and selects the strongest visible entry', async () => {
+  const observedIds = [];
+  let observerCallback;
+  let observerOptions;
+  const dom = await setup(await loadRadarFile(fileURLToPath(legalPath)), undefined, {
+    beforeEval(window) {
+      window.IntersectionObserver = class IntersectionObserver {
+        constructor(callback, options) { observerCallback = callback; observerOptions = options; }
+        observe(element) { observedIds.push(element.id); }
+      };
+    },
+  });
+  assert.equal(observerOptions.rootMargin, '-18% 0px -68% 0px');
+  assert.deepEqual([...observerOptions.threshold], [0, 0.15, 0.4, 0.75]);
+  assert.deepEqual(observedIds.slice(0, 3), ['priority-matrix', 'scenario-portfolio', 'priority-starts']);
+  assert.deepEqual(observedIds.slice(3), [...dom.radarState.cards.keys()]);
+
+  observerCallback([
+    { target: dom.window.document.querySelector('#legal-01'), isIntersecting: true, intersectionRatio: 0.15 },
+    { target: dom.window.document.querySelector('#legal-07'), isIntersecting: true, intersectionRatio: 0.75 },
+  ]);
+  assert.equal(dom.window.document.querySelector('[data-toc-scenario="legal-07"]').getAttribute('aria-current'), 'location');
+});
+
+test('renderer and TOC navigation still work without IntersectionObserver', async () => {
+  const dom = await setup(await loadRadarFile(fileURLToPath(legalPath)), undefined, {
+    beforeEval(window) { delete window.IntersectionObserver; },
+  });
+  assert.ok(dom.radarState);
+  assert.equal(dom.radarState.tocObserver, null);
+  dom.window.document.querySelector('[data-toc-scenario="legal-07"]').click();
+  assert.equal(dom.window.document.querySelector('#legal-07 .scenario-header').getAttribute('aria-expanded'), 'true');
+  assert.equal(dom.window.location.hash, '#legal-07');
+});
+
+for (const url of [
+  'http://127.0.0.1/radars/legal.html#legal-07',
+  'file:///Users/rita/Documents/AI%E8%A1%8C%E4%B8%9A%E6%8A%A5%E5%91%8A/web/radars/legal.html#legal-07',
+]) {
+  test(`initial scenario hash opens, focuses, scrolls, and activates on ${url.startsWith('file:') ? 'file' : 'HTTP'} URLs`, async () => {
+    const dom = await setup(await loadRadarFile(fileURLToPath(legalPath)), url);
+    const target = dom.window.document.querySelector('#legal-07');
+    assert.equal(target.hidden, false);
+    assert.equal(target.querySelector('.scenario-header').getAttribute('aria-expanded'), 'true');
+    assert.equal(dom.window.document.activeElement, target.querySelector('.scenario-header'));
+    assert.equal(dom.getScrollCalls(), 1);
+    assert.equal(dom.window.document.querySelector('[data-toc-scenario="legal-07"]').getAttribute('aria-current'), 'location');
+  });
+}
+
+test('initial section hashes scroll and malformed hashes are ignored safely', async () => {
+  const legal = await loadRadarFile(fileURLToPath(legalPath));
+  const sectionDom = await setup(legal, 'http://127.0.0.1/radars/legal.html#priority-starts');
+  assert.equal(sectionDom.getScrollCalls(), 1);
+  assert.equal(sectionDom.window.document.querySelector('[data-toc-section="priority-starts"]').getAttribute('aria-current'), 'location');
+  await assert.doesNotReject(() => setup(legal, 'http://127.0.0.1/radars/legal.html#%E0%A4%A'));
 });
 
 test('missing data displays an explicit error instead of a blank page', async () => {
