@@ -209,8 +209,15 @@ test('standalone export TOC opens and focuses filtered scenarios on file URLs', 
   const { document } = dom.window;
   const toc = document.querySelector('.export-toc');
   const library = toc.querySelector('details');
+  assert.deepEqual(
+    [...toc.querySelectorAll(':scope > nav > a')].map((link) => [link.textContent, link.getAttribute('href')]),
+    [['优先矩阵', '#export-priority-matrix'], ['完整场景库', '#export-scenario-portfolio'], ['优先启动建议', '#export-priority-starts']],
+  );
   assert.equal(library.open, true);
-  assert.equal(toc.querySelector('summary').textContent, '完整场景库');
+  assert.equal(toc.querySelector('summary').textContent, '场景列表');
+  library.open = false;
+  assert.equal(library.open, false);
+  library.open = true;
   assert.equal(document.querySelector('[data-export-priority="P0"]').getAttribute('aria-pressed'), 'false');
   document.querySelector('[data-export-priority="P0"]').click();
   const target = document.querySelector('#export-legal-07');
