@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0",
+  "domain": "finance",
+  "generatedAt": "2026-08-24T02:45:52.511Z",
+  "sources": [
+    {
+      "id": "finance-ai-first-bcg",
+      "title": "AI 优先的财务职能",
+      "publisher": "BCG",
+      "publishedAt": "2026-06-17",
+      "evidenceType": "管理研究",
+      "language": "en",
+      "url": "https://www.bcg.com/publications/2026/the-artificial-intelligence-first-finance-function",
+      "fact": "BCG 认为人类关注点会从例行审查转向异常处理，并估计现有工作流所需人员可能减少一半；CFO 的角色将从数字生产者转向价值架构师。",
+      "locator": "Section on the agent ecosystem and exception-based work",
+      "limitation": "员工数量变化是咨询机构估计，不是对单一企业的承诺；需结合流程重构和控制要求。"
+    },
+    {
+      "id": "finance-vibe-guardrails",
+      "title": "AI 编码进入财务，CFO 需要护栏",
+      "publisher": "BCG",
+      "publishedAt": "2026-06-04",
+      "evidenceType": "治理研究",
+      "language": "en",
+      "url": "https://www.bcg.com/publications/2026/vibe-coding-is-coming-to-finance-cfos-need-guardrails",
+      "fact": "文章指出 AI 编码代理让财务人员能自行构建工具，编排会连接原本孤立的工作流；AI 应增强而不是取代核心系统。",
+      "locator": "Opening view and sections on orchestration and guardrails",
+      "limitation": "聚焦自建工具与编排风险，不代表所有财务流程都适合由生成式 AI 自动化。"
+    },
+    {
+      "id": "finance-mit-takeaways",
+      "title": "财务团队实施 AI 的四点启示",
+      "publisher": "MIT Sloan",
+      "publishedAt": "2026-02-04",
+      "evidenceType": "专家研究",
+      "language": "en",
+      "url": "https://mitsloan.mit.edu/ideas-made-to-matter/4-takeaways-finance-teams-they-implement-ai",
+      "fact": "MIT Sloan 建议财务团队从具体用例和 ROI 证明起步，按问题选择自动化、机器学习或生成式 AI，并在数据质量达标后再提高技术复杂度。",
+      "locator": "Official article JSON-LD description and “What you will learn” summary",
+      "limitation": "方法性建议为主，不提供统一样本的财务绩效效果量。"
+    },
+    {
+      "id": "finance-cfo-bain",
+      "title": "CFO 资助了 AI 革命，现在开始亲自参与",
+      "publisher": "Bain",
+      "publishedAt": "2026-04-12",
+      "evidenceType": "高管调查",
+      "language": "en",
+      "url": "https://www.bain.com/insights/cfos-funded-ai-revolution-now-they-are-joining-it/",
+      "fact": "Bain 披露超过半数 CFO 在当年把 AI 投资提高 15% 以上，同时指出财务职能自身的采用仍相对滞后。",
+      "locator": "Official page section: Opening section",
+      "limitation": "调查反映投资与采用意向，不等于各财务场景已实现收益。"
+    },
+    {
+      "id": "finance-yonyou-close",
+      "title": "用友集团财务总账核算智能升级",
+      "publisher": "用友",
+      "publishedAt": "2026-03-11",
+      "evidenceType": "公司披露",
+      "language": "zh",
+      "url": "https://www.yonyou.com/news/4789",
+      "fact": "用友披露智能月结、自动对账与合并报表已覆盖 150 家核算组织；合并报表编制时间由 3–5 小时压缩到 10 分钟。",
+      "locator": "“智驱全场景”与“高效破局”段落",
+      "limitation": "用友既是实施方又是使用方，结果为企业自报，缺少独立审计与对照组。"
+    },
+    {
+      "id": "finance-fujian-energy",
+      "title": "福建省能化集团：财务与供应链数智转型",
+      "publisher": "用友",
+      "publishedAt": "2025-08-17",
+      "evidenceType": "供应商客户案例",
+      "language": "zh",
+      "url": "https://www.yonyou.com/case/7f6aa770-1c00-480a-a246-35f06b2656cb",
+      "fact": "案例披露凭证自动化率 95%、合并报表效率提升 80%、资金 100% 归集和费用报销效率提升 60%。",
+      "locator": "“财务领域实现全流程智能化升级”段落",
+      "limitation": "供应商客户案例，成效未经独立审计，且平台、标准化与 AI 同时实施。"
+    }
+  ]
+}

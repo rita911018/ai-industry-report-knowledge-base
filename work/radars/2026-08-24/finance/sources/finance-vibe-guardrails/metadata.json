@@ -1,0 +1,11 @@
+{
+  "id": "finance-vibe-guardrails",
+  "publisher": "BCG",
+  "title": "AI 编码进入财务，CFO 需要护栏",
+  "language": "en",
+  "sourceUrl": "https://www.bcg.com/publications/2026/vibe-coding-is-coming-to-finance-cfos-need-guardrails",
+  "publishedAt": "2026-06-04",
+  "evidenceWindow": "current",
+  "retrievedAt": "2026-08-24T02:45:50.635Z",
+  "limitation": "聚焦自建工具与编排风险，不代表所有财务流程都适合由生成式 AI 自动化。"
+}

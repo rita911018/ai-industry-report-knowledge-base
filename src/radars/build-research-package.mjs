@@ -25,6 +25,14 @@ const SOURCE_ARCHIVES = {
     'supply-haier-ai': { remote: true },
     'supply-fujian-energy': { remote: true },
   },
+  finance: {
+    'finance-ai-first-bcg': { local: 'work/archive/BCG Insight Radar · 2026-W31 · Static/articles/080-the-ai-first-finance-function' },
+    'finance-vibe-guardrails': { local: 'work/archive/BCG Insight Radar · 2026-W31 · Static/articles/110-vibe-coding-is-coming-to-finance-cfos-need-guardrails' },
+    'finance-mit-takeaways': { local: 'work/archive/MIT AI Management Insight Radar · 2026-08-04/articles/030-4-takeaways-for-finance-teams-as-they-implement-ai' },
+    'finance-cfo-bain': { local: 'work/archive/Bain Six-Month Insight Radar · 2026-08-02/articles/113-cfos-funded-the-ai-revolution-now-they-re-joining-it' },
+    'finance-yonyou-close': { remote: true },
+    'finance-fujian-energy': { remote: true },
+  },
 };
 
 async function exists(filePath) {

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "domain": "finance",
+  "discoveredAt": "2026-08-24T00:00:00+08:00",
+  "coverage": { "discovered": 8, "included": 6, "excluded": 2, "failed": 0 },
+  "candidates": [
+    { "id": "finance-ai-first-bcg", "url": "https://www.bcg.com/publications/2026/the-artificial-intelligence-first-finance-function", "status": "included", "discovery": "existing_local_archive", "reason": "2026 finance-function operating-model research" },
+    { "id": "finance-vibe-guardrails", "url": "https://www.bcg.com/publications/2026/vibe-coding-is-coming-to-finance-cfos-need-guardrails", "status": "included", "discovery": "existing_local_archive", "reason": "2026 finance control and orchestration boundary" },
+    { "id": "finance-mit-takeaways", "url": "https://mitsloan.mit.edu/ideas-made-to-matter/4-takeaways-finance-teams-they-implement-ai", "status": "included", "discovery": "existing_local_archive", "reason": "2026 use-case and ROI method" },
+    { "id": "finance-cfo-bain", "url": "https://www.bain.com/insights/cfos-funded-ai-revolution-now-they-are-joining-it/", "status": "included", "discovery": "existing_local_archive", "reason": "2026 CFO investment and adoption evidence" },
+    { "id": "finance-yonyou-close", "url": "https://www.yonyou.com/news/4789", "status": "included", "discovery": "official_web_search", "reason": "2026 Chinese enterprise finance case with close metrics" },
+    { "id": "finance-fujian-energy", "url": "https://www.yonyou.com/case/7f6aa770-1c00-480a-a246-35f06b2656cb", "status": "included", "discovery": "official_vendor_case_search", "reason": "2025 Chinese customer case with finance metrics" },
+    { "id": "finance-kingdee-anonymous", "url": "https://www.kingdee.com/resources/articles/1413459753619221857", "status": "excluded", "discovery": "official_vendor_search", "reason": "customer identities are anonymized and evidence is weaker than named cases" },
+    { "id": "finance-harbin-electric", "url": "https://www.yonyou.com/news/4930", "status": "excluded", "discovery": "official_vendor_search", "reason": "project announcement describes planned capabilities but not completed outcomes" }
+  ]
+}
