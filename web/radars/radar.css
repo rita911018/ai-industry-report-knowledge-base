@@ -252,14 +252,15 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 @media (min-width: 1100px) {
   .radar-toc-trigger, .radar-toc-backdrop, .radar-toc-close { display: none; }
+  .radar-toc-panel { transform: none; visibility: visible; pointer-events: auto; }
   .radar-detail-page #radar-app .radar-shell { width: min(calc(100% - 360px), 1280px); margin-left: 320px; margin-right: auto; }
 }
 
 @media (max-width: 1099px) {
-  .radar-toc-panel { top: 0; left: 0; width: min(340px, 88vw); height: 100vh; max-height: none; transform: translateX(-105%); transition: transform .22s ease; }
+  .radar-toc-panel { top: 0; left: 0; width: min(340px, 88vw); height: 100vh; height: 100dvh; max-height: none; transform: translateX(-105%); visibility: hidden; pointer-events: none; transition: transform .22s ease, visibility 0s linear .22s; }
   .radar-toc-backdrop { display: none; }
   body.radar-toc-open { overflow: hidden; }
-  body.radar-toc-open .radar-toc-panel { transform: translateX(0); }
+  body.radar-toc-open .radar-toc-panel { transform: translateX(0); visibility: visible; pointer-events: auto; transition-delay: 0s; }
   body.radar-toc-open .radar-toc-backdrop { display: block; }
 }
 
@@ -350,6 +351,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 @media print {
+  body { overflow: visible !important; }
   body, .radar-hero, .portfolio-section, .calibration-section, .sources-section, .radar-footer { background: white !important; color: #111 !important; }
   .radar-masthead, .radar-hero-actions, .radar-export-note, .filter-panel, .result-line, .matrix-point, .scenario-chevron, .radar-empty { display: none !important; }
   .radar-toc-panel, .radar-toc-trigger, .radar-toc-backdrop { display: none !important; }

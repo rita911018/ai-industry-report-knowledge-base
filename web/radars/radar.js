@@ -406,13 +406,29 @@
     state.inspectorContent.replaceChildren(renderInspectorScenario(scenario, state.data, state));
   }
 
+  function preferredScrollBehavior(state) {
+    const view = state.root?.ownerDocument?.defaultView || window;
+    return view.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+  }
+
   function jumpToScenario(state, scenarioId) {
     resetFilters(state);
     const card = state.cards.get(scenarioId);
     if (!card) return;
     toggleScenario(card, true);
-    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    card.scrollIntoView({ behavior: preferredScrollBehavior(state), block: 'start' });
     card.querySelector('.scenario-header').focus({ preventScroll: true });
+  }
+
+  function focusSection(state, targetId) {
+    const section = state.root.ownerDocument.getElementById(targetId);
+    if (!section) return;
+    section.scrollIntoView({ behavior: preferredScrollBehavior(state), block: 'start' });
+    const heading = section.querySelector('h2');
+    if (heading) {
+      heading.setAttribute('tabindex', '-1');
+      heading.focus({ preventScroll: true });
+    }
   }
 
   function sortedTocScenarios(data) {
@@ -420,15 +436,20 @@
   }
 
   function setTocActive(state, targetId) {
-    if (!state.toc) return;
+    if (!state.toc) return false;
     const activeLink = [...state.toc.panel.querySelectorAll('[data-toc-section], [data-toc-scenario]')]
       .find((link) => link.dataset.tocSection === targetId || link.dataset.tocScenario === targetId);
+    if (!activeLink) return false;
+    if (state.activeTocTargetId === targetId && activeLink.getAttribute('aria-current') === 'location') return false;
     state.toc.panel.querySelectorAll('[aria-current="location"]').forEach((link) => link.removeAttribute('aria-current'));
-    if (activeLink) activeLink.setAttribute('aria-current', 'location');
+    activeLink.setAttribute('aria-current', 'location');
+    state.activeTocTargetId = targetId;
+    return true;
   }
 
   function setLocationHash(state, targetId) {
     const view = state.root?.ownerDocument?.defaultView || window;
+    if (view.location.hash === `#${targetId}`) return;
     try {
       view.history.replaceState(view.history.state, '', `#${targetId}`);
     } catch {
@@ -436,9 +457,19 @@
     }
   }
 
+  function setBackgroundInert(state, inert) {
+    for (const element of state.toc?.backgroundElements || []) element.toggleAttribute('inert', Boolean(inert));
+  }
+
+  function isDesktopToc(state) {
+    return Boolean(state.toc?.desktopQuery?.matches);
+  }
+
   function openTocDrawer(state) {
-    if (!state.toc) return;
+    if (!state.toc || isDesktopToc(state)) return;
     state.root?.ownerDocument?.body.classList.add('radar-toc-open');
+    state.toc.panel.removeAttribute('inert');
+    setBackgroundInert(state, true);
     state.toc.trigger.setAttribute('aria-expanded', 'true');
     state.toc.panel.setAttribute('role', 'dialog');
     state.toc.panel.setAttribute('aria-modal', 'true');
@@ -451,23 +482,71 @@
     state.toc.trigger.setAttribute('aria-expanded', 'false');
     state.toc.panel.removeAttribute('role');
     state.toc.panel.removeAttribute('aria-modal');
+    setBackgroundInert(state, false);
+    state.toc.panel.toggleAttribute('inert', !isDesktopToc(state));
     if (restoreFocus) state.toc.trigger.focus();
+  }
+
+  function trapTocFocus(state, event) {
+    if (event.key !== 'Tab' || !state.root.ownerDocument.body.classList.contains('radar-toc-open')) return;
+    const focusable = [...state.toc.panel.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')]
+      .filter((element) => !element.closest('[hidden]'));
+    if (!focusable.length) return;
+    const active = state.root.ownerDocument.activeElement;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if ((event.shiftKey && (active === first || !state.toc.panel.contains(active))) || (!event.shiftKey && (active === last || !state.toc.panel.contains(active)))) {
+      event.preventDefault();
+      (event.shiftKey ? last : first).focus();
+    }
+  }
+
+  function setupTocBreakpoint(state) {
+    const view = state.root?.ownerDocument?.defaultView || window;
+    if (typeof view.matchMedia !== 'function') {
+      closeTocDrawer(state, false);
+      return;
+    }
+    const query = view.matchMedia('(min-width: 1100px)');
+    const handler = () => {
+      const restoreFocus = !query.matches && state.toc.panel.contains(state.root.ownerDocument.activeElement);
+      closeTocDrawer(state, restoreFocus);
+    };
+    state.toc.desktopQuery = query;
+    state.toc.breakpointHandler = handler;
+    if (typeof query.addEventListener === 'function') query.addEventListener('change', handler);
+    else query.addListener?.(handler);
+    handler();
   }
 
   function observeToc(state) {
     const view = state.root?.ownerDocument?.defaultView || window;
     if (typeof view.IntersectionObserver !== 'function') return null;
     const observer = new view.IntersectionObserver((entries) => {
-      const strongest = entries.filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (strongest?.target?.id) setTocActive(state, strongest.target.id);
+      for (const entry of entries) {
+        if (entry.isIntersecting) state.tocIntersections.set(entry.target, entry.intersectionRatio);
+        else state.tocIntersections.delete(entry.target);
+      }
+      let strongest = null;
+      let strongestRatio = -1;
+      for (const target of state.tocTargets) {
+        const ratio = state.tocIntersections.get(target);
+        if (ratio !== undefined && ratio > strongestRatio) {
+          strongest = target;
+          strongestRatio = ratio;
+        }
+      }
+      if (strongest?.id && strongest.id !== state.activeTocTargetId && setTocActive(state, strongest.id) && state.initialHashProcessed) setLocationHash(state, strongest.id);
     }, { rootMargin: '-18% 0px -68% 0px', threshold: [0, 0.15, 0.4, 0.75] });
     const documentRef = state.root.ownerDocument;
+    const targets = [];
     for (const id of ['priority-matrix', 'scenario-portfolio', 'priority-starts']) {
       const section = documentRef.getElementById(id);
-      if (section) observer.observe(section);
+      if (section) targets.push(section);
     }
-    for (const card of state.cards.values()) observer.observe(card);
+    targets.push(...state.cards.values());
+    state.tocTargets = targets;
+    for (const target of targets) observer.observe(target);
     state.tocObserver = observer;
     return observer;
   }
@@ -487,10 +566,26 @@
       return;
     }
     if (!['priority-matrix', 'scenario-portfolio', 'priority-starts'].includes(targetId)) return;
-    const section = state.root.ownerDocument.getElementById(targetId);
-    if (!section) return;
-    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    focusSection(state, targetId);
     setTocActive(state, targetId);
+  }
+
+  function cleanupRadar(state) {
+    const view = state.root?.ownerDocument?.defaultView || window;
+    state.tocObserver?.disconnect();
+    if (state.initialHashFrame !== null && typeof view.cancelAnimationFrame === 'function') view.cancelAnimationFrame(state.initialHashFrame);
+    const documentRef = state.root.ownerDocument;
+    if (state.toc?.keydownHandler) documentRef.removeEventListener('keydown', state.toc.keydownHandler);
+    const query = state.toc?.desktopQuery;
+    const breakpointHandler = state.toc?.breakpointHandler;
+    if (query && breakpointHandler) {
+      if (typeof query.removeEventListener === 'function') query.removeEventListener('change', breakpointHandler);
+      else query.removeListener?.(breakpointHandler);
+    }
+    closeTocDrawer(state, false);
+    state.toc?.panel.removeAttribute('inert');
+    state.tocIntersections.clear();
+    if (state.root.radarCleanup === state.cleanup) state.root.radarCleanup = null;
   }
 
   function renderToc(data, state) {
@@ -507,10 +602,12 @@
     });
     const sectionLink = (targetId, label) => {
       const link = createElement('a', { text: label, attrs: { href: `#${targetId}`, 'data-toc-section': targetId } });
-      link.addEventListener('click', () => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
         setLocationHash(state, targetId);
         setTocActive(state, targetId);
         closeTocDrawer(state, false);
+        focusSection(state, targetId);
       });
       return link;
     };
@@ -537,32 +634,42 @@
 
     const trigger = createElement('button', { className: 'radar-toc-trigger', text: '目录', attrs: { type: 'button', 'aria-expanded': 'false', 'aria-controls': 'radar-toc' } });
     const backdrop = createElement('button', { className: 'radar-toc-backdrop', attrs: { type: 'button', 'aria-label': '关闭目录', tabindex: '-1' } });
-    state.toc = { panel, trigger, backdrop, closeButton, scenarioList, scenarioToggle };
+    state.toc = { panel, trigger, backdrop, closeButton, scenarioList, scenarioToggle, backgroundElements: [], desktopQuery: null, breakpointHandler: null, keydownHandler: null };
     trigger.addEventListener('click', () => openTocDrawer(state));
     closeButton.addEventListener('click', () => closeTocDrawer(state, true));
     backdrop.addEventListener('click', () => closeTocDrawer(state, true));
     const documentRef = state.root.ownerDocument;
-    if (state.root.radarTocKeydownHandler) documentRef.removeEventListener('keydown', state.root.radarTocKeydownHandler);
-    state.root.radarTocKeydownHandler = (event) => {
+    state.toc.keydownHandler = (event) => {
       if (event.key === 'Escape' && documentRef.body.classList.contains('radar-toc-open')) closeTocDrawer(state, true);
+      else trapTocFocus(state, event);
     };
-    documentRef.addEventListener('keydown', state.root.radarTocKeydownHandler);
+    documentRef.addEventListener('keydown', state.toc.keydownHandler);
     panel.append(createElement('div', { className: 'radar-toc-head' }, [title, closeButton]), navigation);
     navigation.append(sectionList);
     return [trigger, panel, backdrop];
   }
 
   function renderRadar(root, data) {
-    const state = { root, data, cards: new Map(), points: new Map(), filters: { priority: 'all', category: 'all' }, sortMode: 'number', count: null, empty: null, filterPanel: null, list: null, inspectorContent: null, selectedScenarioId: null, toc: null, tocObserver: null };
+    root.radarCleanup?.();
+    const state = { root, data, cards: new Map(), points: new Map(), filters: { priority: 'all', category: 'all' }, sortMode: 'number', count: null, empty: null, filterPanel: null, list: null, inspectorContent: null, selectedScenarioId: null, toc: null, tocObserver: null, tocTargets: [], tocIntersections: new Map(), activeTocTargetId: null, initialHashFrame: null, initialHashProcessed: false, cleanup: null };
     root.ownerDocument.body.classList.add('radar-detail-page');
     const content = [renderHero(data), renderMatrix(data, state), renderPortfolio(data, state), renderRoadmap(data)];
-    root.replaceChildren(...renderToc(data, state), ...content);
+    const tocElements = renderToc(data, state);
+    state.toc.backgroundElements = content;
+    root.replaceChildren(...tocElements, ...content);
+    setupTocBreakpoint(state);
     root.querySelector('.text-reset').addEventListener('click', () => resetFilters(state));
     activateMatrixPoint(state, matrixScenarios(data).find((scenario) => scenario.priority === 'P0')?.id || matrixScenarios(data)[0]?.id);
     observeToc(state);
     const view = root.ownerDocument.defaultView || window;
-    if (typeof view.requestAnimationFrame === 'function') view.requestAnimationFrame(() => openInitialHash(state));
-    else openInitialHash(state);
+    const handleInitialHash = () => {
+      state.initialHashFrame = null;
+      try { openInitialHash(state); } finally { state.initialHashProcessed = true; }
+    };
+    if (typeof view.requestAnimationFrame === 'function') state.initialHashFrame = view.requestAnimationFrame(handleInitialHash);
+    else handleInitialHash();
+    state.cleanup = () => cleanupRadar(state);
+    root.radarCleanup = state.cleanup;
     return state;
   }
 
@@ -573,6 +680,7 @@
     const data = documentRef.defaultView?.OPPORTUNITY_RADAR_DATA || window.OPPORTUNITY_RADAR_DATA;
     if (!data) {
       if (error) { error.hidden = false; error.textContent = '雷达数据未加载，请返回雷达目录后重试。'; }
+      root.radarCleanup?.();
       root.replaceChildren();
       return null;
     }

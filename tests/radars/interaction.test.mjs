@@ -16,15 +16,33 @@ async function setup(data, url = 'http://127.0.0.1/radars/legal.html', options =
     runScripts: 'outside-only',
     pretendToBeVisual: true,
   });
-  let scrollCalls = 0;
-  dom.window.HTMLElement.prototype.scrollIntoView = function scrollIntoView() { scrollCalls += 1; };
-  dom.getScrollCalls = () => scrollCalls;
-  dom.window.requestAnimationFrame = (callback) => { callback(); return 1; };
+  const scrollEvents = [];
+  dom.window.HTMLElement.prototype.scrollIntoView = function scrollIntoView(scrollOptions) { scrollEvents.push({ element: this, options: scrollOptions }); };
+  dom.getScrollCalls = () => scrollEvents.length;
+  dom.scrollEvents = scrollEvents;
+  const frameCallbacks = new Map();
+  const canceledFrames = [];
+  let nextFrameId = 1;
+  dom.window.requestAnimationFrame = (callback) => {
+    const frameId = nextFrameId;
+    nextFrameId += 1;
+    frameCallbacks.set(frameId, callback);
+    return frameId;
+  };
+  dom.window.cancelAnimationFrame = (frameId) => { canceledFrames.push(frameId); frameCallbacks.delete(frameId); };
+  dom.flushAnimationFrames = () => {
+    for (const [frameId, callback] of [...frameCallbacks]) {
+      frameCallbacks.delete(frameId);
+      callback();
+    }
+  };
+  dom.canceledFrames = canceledFrames;
   if (options.beforeEval) options.beforeEval(dom.window);
   if (data) dom.window.OPPORTUNITY_RADAR_DATA = data;
   Object.defineProperty(dom.window.document, 'readyState', { configurable: true, value: 'loading' });
   dom.window.eval(await readFile(rendererUrl, 'utf8'));
   dom.radarState = dom.window.OpportunityRadar.initRadar(dom.window.document);
+  if (options.flushAnimationFrames !== false) dom.flushAnimationFrames();
   return dom;
 }
 
@@ -246,12 +264,21 @@ test('mobile table of contents opens accessibly, closes by every control, and tr
   const panel = document.querySelector('.radar-toc-panel');
   const closeButton = document.querySelector('.radar-toc-close');
   const backdrop = document.querySelector('.radar-toc-backdrop');
+  assert.equal(panel.hasAttribute('inert'), true);
 
   trigger.click();
   assert.equal(trigger.getAttribute('aria-expanded'), 'true');
   assert.equal(document.body.classList.contains('radar-toc-open'), true);
   assert.equal(panel.getAttribute('role'), 'dialog');
   assert.equal(panel.getAttribute('aria-modal'), 'true');
+  assert.equal(panel.hasAttribute('inert'), false);
+  assert.equal(dom.radarState.toc.backgroundElements.every((element) => element.hasAttribute('inert')), true);
+  assert.equal(document.activeElement, closeButton);
+
+  const focusables = [...panel.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')];
+  document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab', shiftKey: true, bubbles: true }));
+  assert.equal(document.activeElement, focusables.at(-1));
+  document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab', bubbles: true }));
   assert.equal(document.activeElement, closeButton);
 
   backdrop.click();
@@ -259,6 +286,8 @@ test('mobile table of contents opens accessibly, closes by every control, and tr
   assert.equal(document.body.classList.contains('radar-toc-open'), false);
   assert.equal(panel.hasAttribute('role'), false);
   assert.equal(panel.hasAttribute('aria-modal'), false);
+  assert.equal(panel.hasAttribute('inert'), true);
+  assert.equal(dom.radarState.toc.backgroundElements.some((element) => element.hasAttribute('inert')), false);
   assert.equal(document.activeElement, trigger);
 
   trigger.click();
@@ -277,7 +306,22 @@ test('mobile table of contents opens accessibly, closes by every control, and tr
   assert.equal(document.querySelector('[data-toc-scenario="legal-01"]').hasAttribute('aria-current'), false);
 });
 
-test('active-reading observer watches all TOC targets and selects the strongest visible entry', async () => {
+test('section TOC links close the drawer and move focus out of the hidden panel', async () => {
+  const dom = await setup(await loadRadarFile(fileURLToPath(legalPath)));
+  const { document } = dom.window;
+  document.querySelector('.radar-toc-trigger').click();
+  document.querySelector('[data-toc-section="priority-starts"]').click();
+  const section = document.querySelector('#priority-starts');
+  const heading = section.querySelector('h2');
+  assert.equal(document.body.classList.contains('radar-toc-open'), false);
+  assert.equal(document.querySelector('.radar-toc-panel').hasAttribute('inert'), true);
+  assert.equal(document.activeElement, heading);
+  assert.equal(heading.getAttribute('tabindex'), '-1');
+  assert.equal(dom.scrollEvents.at(-1).element, section);
+  assert.equal(dom.window.location.hash, '#priority-starts');
+});
+
+test('active-reading observer tracks partial batches, retains the strongest target, and synchronizes hash', async () => {
   const observedIds = [];
   let observerCallback;
   let observerOptions;
@@ -294,10 +338,43 @@ test('active-reading observer watches all TOC targets and selects the strongest 
   assert.deepEqual(observedIds.slice(0, 3), ['priority-matrix', 'scenario-portfolio', 'priority-starts']);
   assert.deepEqual(observedIds.slice(3), [...dom.radarState.cards.keys()]);
 
+  const legal01 = dom.window.document.querySelector('#legal-01');
+  const legal07 = dom.window.document.querySelector('#legal-07');
+  observerCallback([{ target: legal07, isIntersecting: true, intersectionRatio: 0.75 }]);
+  assert.equal(dom.window.document.querySelector('[data-toc-scenario="legal-07"]').getAttribute('aria-current'), 'location');
+  assert.equal(dom.window.location.hash, '#legal-07');
+  observerCallback([{ target: legal01, isIntersecting: true, intersectionRatio: 0.4 }]);
+  assert.equal(dom.window.document.querySelector('[data-toc-scenario="legal-07"]').getAttribute('aria-current'), 'location');
+  assert.equal(dom.window.location.hash, '#legal-07');
+  observerCallback([{ target: legal07, isIntersecting: false, intersectionRatio: 0 }]);
+  assert.equal(dom.window.document.querySelector('[data-toc-scenario="legal-01"]').getAttribute('aria-current'), 'location');
+  assert.equal(dom.window.location.hash, '#legal-01');
+
+  const matrix = dom.window.document.querySelector('#priority-matrix');
+  observerCallback([{ target: legal01, isIntersecting: false, intersectionRatio: 0 }]);
   observerCallback([
-    { target: dom.window.document.querySelector('#legal-01'), isIntersecting: true, intersectionRatio: 0.15 },
-    { target: dom.window.document.querySelector('#legal-07'), isIntersecting: true, intersectionRatio: 0.75 },
+    { target: legal01, isIntersecting: true, intersectionRatio: 0.5 },
+    { target: matrix, isIntersecting: true, intersectionRatio: 0.5 },
   ]);
+  assert.equal(dom.window.document.querySelector('[data-toc-section="priority-matrix"]').getAttribute('aria-current'), 'location');
+});
+
+test('observer does not overwrite an initial hash before deferred startup handles it', async () => {
+  let observerCallback;
+  const dom = await setup(await loadRadarFile(fileURLToPath(legalPath)), 'http://127.0.0.1/radars/legal.html#legal-07', {
+    flushAnimationFrames: false,
+    beforeEval(window) {
+      window.IntersectionObserver = class IntersectionObserver {
+        constructor(callback) { observerCallback = callback; }
+        observe() {}
+        disconnect() {}
+      };
+    },
+  });
+  observerCallback([{ target: dom.window.document.querySelector('#priority-matrix'), isIntersecting: true, intersectionRatio: 0.9 }]);
+  assert.equal(dom.window.location.hash, '#legal-07');
+  dom.flushAnimationFrames();
+  assert.equal(dom.window.document.querySelector('#legal-07 .scenario-header').getAttribute('aria-expanded'), 'true');
   assert.equal(dom.window.document.querySelector('[data-toc-scenario="legal-07"]').getAttribute('aria-current'), 'location');
 });
 
@@ -333,6 +410,100 @@ test('initial section hashes scroll and malformed hashes are ignored safely', as
   assert.equal(sectionDom.getScrollCalls(), 1);
   assert.equal(sectionDom.window.document.querySelector('[data-toc-section="priority-starts"]').getAttribute('aria-current'), 'location');
   await assert.doesNotReject(() => setup(legal, 'http://127.0.0.1/radars/legal.html#%E0%A4%A'));
+});
+
+test('re-render tears down observer, frame, document listener, breakpoint listener, and open state', async () => {
+  const observers = [];
+  const keydownHandlers = new Set();
+  const breakpointHandlers = new Set();
+  const legal = await loadRadarFile(fileURLToPath(legalPath));
+  const dom = await setup(legal, 'http://127.0.0.1/radars/legal.html#legal-07', {
+    flushAnimationFrames: false,
+    beforeEval(window) {
+      const nativeAdd = window.document.addEventListener.bind(window.document);
+      const nativeRemove = window.document.removeEventListener.bind(window.document);
+      window.document.addEventListener = (type, listener, options) => {
+        if (type === 'keydown') keydownHandlers.add(listener);
+        return nativeAdd(type, listener, options);
+      };
+      window.document.removeEventListener = (type, listener, options) => {
+        if (type === 'keydown') keydownHandlers.delete(listener);
+        return nativeRemove(type, listener, options);
+      };
+      window.IntersectionObserver = class IntersectionObserver {
+        constructor() { this.disconnected = false; observers.push(this); }
+        observe() {}
+        disconnect() { this.disconnected = true; }
+      };
+      window.matchMedia = (query) => ({
+        matches: false,
+        media: query,
+        addEventListener(type, listener) { if (query.includes('1100px') && type === 'change') breakpointHandlers.add(listener); },
+        removeEventListener(type, listener) { if (query.includes('1100px') && type === 'change') breakpointHandlers.delete(listener); },
+      });
+    },
+  });
+  const firstState = dom.radarState;
+  const firstFrame = firstState.initialHashFrame;
+  firstState.toc.trigger.click();
+  assert.equal(dom.window.document.body.classList.contains('radar-toc-open'), true);
+
+  dom.radarState = dom.window.OpportunityRadar.renderRadar(dom.window.document.querySelector('#radar-app'), legal);
+  assert.equal(observers[0].disconnected, true);
+  assert.equal(dom.canceledFrames.includes(firstFrame), true);
+  assert.equal(keydownHandlers.size, 1);
+  assert.equal(breakpointHandlers.size, 1);
+  assert.equal(dom.window.document.body.classList.contains('radar-toc-open'), false);
+  assert.equal(firstState.toc.backgroundElements.some((element) => element.hasAttribute('inert')), false);
+});
+
+test('breakpoint changes reset mobile dialog state and desktop panels cannot be opened as drawers', async () => {
+  let desktop = false;
+  let breakpointHandler;
+  const dom = await setup(await loadRadarFile(fileURLToPath(legalPath)), undefined, {
+    beforeEval(window) {
+      window.matchMedia = (query) => ({
+        get matches() { return query.includes('1100px') ? desktop : false; },
+        media: query,
+        addEventListener(type, listener) { if (query.includes('1100px') && type === 'change') breakpointHandler = listener; },
+        removeEventListener() {},
+      });
+    },
+  });
+  const { document } = dom.window;
+  const { panel, trigger, backgroundElements } = dom.radarState.toc;
+  trigger.click();
+  assert.equal(document.body.classList.contains('radar-toc-open'), true);
+
+  desktop = true;
+  breakpointHandler({ matches: true });
+  assert.equal(document.body.classList.contains('radar-toc-open'), false);
+  assert.equal(panel.hasAttribute('role'), false);
+  assert.equal(panel.hasAttribute('inert'), false);
+  assert.equal(backgroundElements.some((element) => element.hasAttribute('inert')), false);
+  trigger.click();
+  assert.equal(document.body.classList.contains('radar-toc-open'), false);
+
+  panel.querySelector('[data-toc-section="priority-matrix"]').focus();
+  desktop = false;
+  breakpointHandler({ matches: false });
+  assert.equal(panel.hasAttribute('inert'), true);
+  assert.equal(document.activeElement, trigger);
+  trigger.click();
+  assert.equal(document.body.classList.contains('radar-toc-open'), true);
+});
+
+test('reduced-motion preference uses instant scrolling for initial section and scenario hashes', async () => {
+  const legal = await loadRadarFile(fileURLToPath(legalPath));
+  const options = {
+    beforeEval(window) {
+      window.matchMedia = (query) => ({ matches: query.includes('prefers-reduced-motion'), media: query, addEventListener() {}, removeEventListener() {} });
+    },
+  };
+  const sectionDom = await setup(legal, 'http://127.0.0.1/radars/legal.html#priority-starts', options);
+  assert.equal(sectionDom.scrollEvents[0].options.behavior, 'auto');
+  const scenarioDom = await setup(legal, 'http://127.0.0.1/radars/legal.html#legal-07', options);
+  assert.equal(scenarioDom.scrollEvents[0].options.behavior, 'auto');
 });
 
 test('missing data displays an explicit error instead of a blank page', async () => {
