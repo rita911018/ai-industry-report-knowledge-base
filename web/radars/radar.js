@@ -618,10 +618,10 @@
       const link = createElement('a', { text: `${scenario.number} ${scenario.title}`, attrs: { href: `#${scenario.id}`, 'data-toc-scenario': scenario.id } });
       link.addEventListener('click', (event) => {
         event.preventDefault();
+        closeTocDrawer(state, false);
         jumpToScenario(state, scenario.id);
         setLocationHash(state, scenario.id);
         setTocActive(state, scenario.id);
-        closeTocDrawer(state, false);
       });
       scenarioList.append(createElement('li', {}, [link]));
     }

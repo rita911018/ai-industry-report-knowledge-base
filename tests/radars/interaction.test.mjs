@@ -321,6 +321,30 @@ test('section TOC links close the drawer and move focus out of the hidden panel'
   assert.equal(dom.window.location.hash, '#priority-starts');
 });
 
+test('scenario TOC links remove background inertness before focusing the expanded scenario', async () => {
+  const dom = await setup(await loadRadarFile(fileURLToPath(legalPath)));
+  const { document, HTMLElement } = dom.window;
+  const nativeFocus = HTMLElement.prototype.focus;
+  HTMLElement.prototype.focus = function focus(options) {
+    if (this.closest('[inert]')) return;
+    nativeFocus.call(this, options);
+  };
+  const { panel, trigger, backgroundElements } = dom.radarState.toc;
+  trigger.click();
+  assert.equal(backgroundElements.every((element) => element.hasAttribute('inert')), true);
+
+  document.querySelector('[data-toc-scenario="legal-07"]').click();
+  const target = document.querySelector('#legal-07');
+  const targetHeader = target.querySelector('.scenario-header');
+  assert.equal(document.body.classList.contains('radar-toc-open'), false);
+  assert.equal(panel.hasAttribute('inert'), true);
+  assert.equal(backgroundElements.some((element) => element.hasAttribute('inert')), false);
+  assert.equal(target.hidden, false);
+  assert.equal(targetHeader.getAttribute('aria-expanded'), 'true');
+  assert.equal(document.activeElement, targetHeader);
+  assert.equal(dom.window.location.hash, '#legal-07');
+});
+
 test('active-reading observer tracks partial batches, retains the strongest target, and synchronizes hash', async () => {
   const observedIds = [];
   let observerCallback;
