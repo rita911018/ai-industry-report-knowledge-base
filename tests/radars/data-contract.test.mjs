@@ -9,6 +9,34 @@ test('validator rejects an incomplete radar', () => {
   assert.throws(() => validateRadarData({ id: 'broken' }, { radarRoot }), /title/);
 });
 
+test('extended radar accepts 20–30 scenarios and ranks exactly 12 matrix points', async () => {
+  const data = await loadRadarFile(fileURLToPath(new URL('./fixtures/extended-radar.js', import.meta.url)));
+  const result = validateRadarData(data, { radarRoot });
+  assert.equal(result.scenarioCount, 24);
+  assert.equal(result.matrixCount, 12);
+  assert.deepEqual(data.scenarios.filter((scenario) => scenario.matrixRank).map((scenario) => scenario.matrixRank), Array.from({ length: 12 }, (_, index) => index + 1));
+});
+
+test('extended radar rejects source facts without a precise locator', async () => {
+  const data = await loadRadarFile(fileURLToPath(new URL('./fixtures/extended-radar.js', import.meta.url)));
+  data.scenarios[0].sourceFacts[0].locator = '';
+  assert.throws(() => validateRadarData(data, { radarRoot }), /sourceFacts\[0\]\.locator/);
+});
+
+test('extended radar rejects an invalid matrix rank', async () => {
+  const data = await loadRadarFile(fileURLToPath(new URL('./fixtures/extended-radar.js', import.meta.url)));
+  data.scenarios[0].matrixRank = 13;
+  assert.throws(() => validateRadarData(data, { radarRoot }), /matrixRank/);
+});
+
+test('extended P0 scenarios require evidence from two distinct publishers', async () => {
+  const data = await loadRadarFile(fileURLToPath(new URL('./fixtures/extended-radar.js', import.meta.url)));
+  data.scenarios[0].evidenceIds = ['fixture-research-a', 'fixture-case-cn-a'];
+  data.sources.find((source) => source.id === 'fixture-case-cn-a').publisher = '研究机构 A';
+  data.scenarios[0].sourceFacts = [{ sourceId: 'fixture-research-a', text: '单一发布方证据。', locator: '第 1 节' }];
+  assert.throws(() => validateRadarData(data, { radarRoot }), /P0 requires evidence from at least two distinct publishers/);
+});
+
 for (const domain of ['legal', 'hr']) {
   test(`${domain} radar satisfies the shared contract`, async () => {
     const data = await loadRadarFile(`${radarRoot}/data/${domain}.js`);

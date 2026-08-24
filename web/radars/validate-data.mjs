@@ -8,6 +8,8 @@ const SCENARIO_TEXT = ['id', 'number', 'title', 'shortTitle', 'priority', 'categ
 const CASE_TEXT = ['company', 'summary', 'sourceId', 'caseType', 'caveat', 'market'];
 const CASE_TYPES = new Set(['客户案例', '公司披露', '研究案例', '警示案例']);
 const CASE_MARKETS = new Set(['中国', '国际']);
+const CONFIDENCE_LEVELS = new Set(['high', 'middle', 'low']);
+const EVIDENCE_WINDOWS = new Set(['current', 'legacy_reference']);
 const SCORE_MAXIMUMS = Object.freeze({ businessValue: 30, processFit: 20, readiness: 15, evidence: 15, riskControl: 20 });
 
 function nonEmpty(value) {
@@ -94,16 +96,23 @@ export async function loadRadarFile(filePath) {
 export function validateRadarData(data, options = {}) {
   const errors = [];
   pushMissing(errors, data, REQUIRED_TEXT, 'radar');
+  const isExtended = data?.schemaVersion === '2.0';
 
   const scenarios = Array.isArray(data?.scenarios) ? data.scenarios : [];
   const pilots = Array.isArray(data?.pilots) ? data.pilots : [];
   const sources = Array.isArray(data?.sources) ? data.sources : [];
 
-  if (data?.scenarioCount !== 12 || scenarios.length !== 12) errors.push('radar.scenarioCount and scenarios.length must both equal 12');
-  if (data?.p0Count !== 3 || scenarios.filter((item) => item.priority === 'P0').length !== 3) errors.push('radar.p0Count and actual P0 count must both equal 3');
+  if (isExtended) {
+    if (data?.scenarioCount !== scenarios.length || scenarios.length < 20 || scenarios.length > 30) errors.push('extended radar.scenarioCount must match 20–30 scenarios');
+    if (data?.p0Count !== scenarios.filter((item) => item.priority === 'P0').length) errors.push('extended radar.p0Count must match the actual P0 count');
+  } else {
+    if (data?.scenarioCount !== 12 || scenarios.length !== 12) errors.push('radar.scenarioCount and scenarios.length must both equal 12');
+    if (data?.p0Count !== 3 || scenarios.filter((item) => item.priority === 'P0').length !== 3) errors.push('radar.p0Count and actual P0 count must both equal 3');
+  }
   if (uniqueCount(scenarios, 'id') !== scenarios.length) errors.push('scenario IDs must be unique');
 
   const sourceIds = new Set(sources.map((source) => source?.id));
+  const sourceById = new Map(sources.map((source) => [source?.id, source]));
   scenarios.forEach((scenario, index) => {
     const prefix = `scenarios[${index}]`;
     pushMissing(errors, scenario, SCENARIO_TEXT, prefix);
@@ -118,6 +127,28 @@ export function validateRadarData(data, options = {}) {
     for (const field of ['x', 'y']) if (typeof scenario?.matrix?.[field] !== 'number' || scenario.matrix[field] < 0 || scenario.matrix[field] > 100) errors.push(`${prefix}.matrix.${field} must be in [0,100]`);
     if (!Array.isArray(scenario?.evidenceIds) || scenario.evidenceIds.length === 0) errors.push(`${prefix}.evidenceIds must be non-empty`);
     else for (const id of scenario.evidenceIds) if (!sourceIds.has(id)) errors.push(`${prefix}.evidenceIds contains unknown source ${id}`);
+    if (isExtended) {
+      if (typeof scenario?.matrixEligible !== 'boolean') errors.push(`${prefix}.matrixEligible must be boolean`);
+      const hasRank = scenario?.matrixRank !== null && scenario?.matrixRank !== undefined;
+      if (hasRank && (!Number.isInteger(scenario.matrixRank) || scenario.matrixRank < 1 || scenario.matrixRank > 12)) errors.push(`${prefix}.matrixRank must be an integer in [1,12] or null`);
+      if (hasRank && !scenario?.matrixEligible) errors.push(`${prefix}.matrixRank requires matrixEligible to be true`);
+      if (hasRank && (scenario?.priority === 'P3' || scenario?.scorecard?.redLine)) errors.push(`${prefix}.matrixRank cannot include a P3 or red-line scenario`);
+      if (!scenario?.confidence || !CONFIDENCE_LEVELS.has(scenario.confidence.level) || !nonEmpty(scenario.confidence.reason)) errors.push(`${prefix}.confidence requires a valid level and reason`);
+      if (!nonEmpty(scenario?.humanHandoff)) errors.push(`${prefix}.humanHandoff must be non-empty text`);
+      if (!EVIDENCE_WINDOWS.has(scenario?.evidenceWindow)) errors.push(`${prefix}.evidenceWindow must be current or legacy_reference`);
+      validateTextArray(scenario?.acceptanceMetrics, 3, `${prefix}.acceptanceMetrics`, errors);
+      if (!Array.isArray(scenario?.sourceFacts) || scenario.sourceFacts.length === 0) errors.push(`${prefix}.sourceFacts must be non-empty`);
+      else scenario.sourceFacts.forEach((fact, factIndex) => {
+        const factPrefix = `${prefix}.sourceFacts[${factIndex}]`;
+        pushMissing(errors, fact, ['sourceId', 'text', 'locator'], factPrefix);
+        if (nonEmpty(fact?.sourceId) && !sourceIds.has(fact.sourceId)) errors.push(`${factPrefix}.sourceId contains unknown source ${fact.sourceId}`);
+        if (nonEmpty(fact?.sourceId) && Array.isArray(scenario.evidenceIds) && !scenario.evidenceIds.includes(fact.sourceId)) errors.push(`${factPrefix}.sourceId must also appear in evidenceIds`);
+      });
+      if (scenario?.priority === 'P0' && Array.isArray(scenario.evidenceIds)) {
+        const publishers = new Set(scenario.evidenceIds.map((id) => sourceById.get(id)?.publisher).filter(nonEmpty));
+        if (publishers.size < 2) errors.push(`${prefix} P0 requires evidence from at least two distinct publishers`);
+      }
+    }
     if (!Array.isArray(scenario?.companyCases)) errors.push(`${prefix}.companyCases must be an array`);
     else scenario.companyCases.forEach((companyCase, caseIndex) => {
       const casePrefix = `${prefix}.companyCases[${caseIndex}]`;
@@ -131,7 +162,9 @@ export function validateRadarData(data, options = {}) {
   const chinaCompanies = new Set(scenarios.flatMap((scenario) => scenario.companyCases || []).filter((companyCase) => companyCase?.market === '中国').map((companyCase) => companyCase.company));
   if (chinaCompanies.size < 2) errors.push('radar must contain at least two different Chinese company cases');
 
-  if (pilots.length !== 3) errors.push('radar.pilots must contain exactly 3 entries');
+  if (isExtended) {
+    if (pilots.length > 3) errors.push('extended radar.pilots must contain no more than 3 entries');
+  } else if (pilots.length !== 3) errors.push('radar.pilots must contain exactly 3 entries');
   pilots.forEach((pilot, index) => pushMissing(errors, pilot, ['id', 'label', 'title', 'scope', 'acceptance'], `pilots[${index}]`));
   if (sources.length === 0) errors.push('radar.sources must be non-empty');
   if (uniqueCount(sources, 'id') !== sources.length) errors.push('source IDs must be unique');
@@ -146,8 +179,17 @@ export function validateRadarData(data, options = {}) {
     if (!boundary.includes('禁止') || !boundary.includes('具名人员')) errors.push('hr-12 risk must prohibit autonomous action and require a named human owner');
   }
 
+  let matrixCount = 0;
+  if (isExtended) {
+    const ranks = scenarios.map((scenario) => scenario.matrixRank).filter((rank) => rank !== null && rank !== undefined).sort((a, b) => a - b);
+    matrixCount = ranks.length;
+    if (ranks.length !== 12 || ranks.some((rank, index) => rank !== index + 1)) errors.push('extended radar must contain each matrixRank from 1 through 12 exactly once');
+  }
+
   if (errors.length) throw new Error(errors.join('\n'));
-  return { id: data.id, scenarios: scenarios.length, p0: scenarios.filter((item) => item.priority === 'P0').length, pilots: pilots.length };
+  const summary = { id: data.id, scenarios: scenarios.length, p0: scenarios.filter((item) => item.priority === 'P0').length, pilots: pilots.length };
+  if (isExtended) Object.assign(summary, { scenarioCount: scenarios.length, matrixCount });
+  return summary;
 }
 
 export function validateRadarCollection(radars, options = {}) {
