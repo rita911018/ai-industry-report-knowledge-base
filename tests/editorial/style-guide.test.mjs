@@ -24,7 +24,8 @@ function parseMarkdownTable(section) {
 }
 
 test('Chinese editorial style guide defines the required versioned contract', () => {
-  assert.match(guide, /^# [^\n]*v1[^\n]*$/m, 'the H1 must identify the guide as v1');
+  const h1 = guide.match(/^# ([^\n]+)$/m)?.[1] ?? '';
+  assert.match(h1, /\bv1\b/, 'the H1 must identify the guide with a bounded v1 token');
 
   const requiredSections = [
     '忠实性',
@@ -54,11 +55,13 @@ test('Chinese editorial style guide defines the required versioned contract', ()
   assert.match(guide, /不保留英文语法结构/);
 });
 
-test('glossary contains every required term as an exact table key', () => {
+test('glossary maps every required exact term to a non-empty default Chinese translation', () => {
   const glossaryRows = parseMarkdownTable(getSection(guide, '术语表'));
   assert.deepEqual(glossaryRows[0]?.slice(0, 2), ['英文', '默认中文']);
 
-  const glossaryKeys = new Set(glossaryRows.slice(1).map(([key]) => key.toLowerCase()));
+  const glossary = new Map(
+    glossaryRows.slice(1).map(([key, defaultChinese]) => [key.toLowerCase(), defaultChinese]),
+  );
   const requiredTerms = [
     'agent',
     'agentic',
@@ -74,7 +77,9 @@ test('glossary contains every required term as an exact table key', () => {
   ];
 
   for (const term of requiredTerms) {
-    assert.ok(glossaryKeys.has(term.toLowerCase()), `missing glossary table key: ${term}`);
+    const key = term.toLowerCase();
+    assert.ok(glossary.has(key), `missing glossary table key: ${term}`);
+    assert.ok(glossary.get(key), `missing default Chinese translation for: ${term}`);
   }
 });
 
