@@ -15,6 +15,9 @@ const articleDirectory = path.join(
 );
 const expectedPdfSha256 = '189a969d299c8080d5fccb11dec6f0b5229d8aec99661f939c138c111d911e2e';
 const officialUrl = 'https://www.gartner.com/en/chief-information-officer/products/gartner-for-cios';
+const obsidianDirectory = path.join(repoRoot, 'work/obsidian/2026-Gartner-CIO报告');
+const obsidianNote = path.join(obsidianDirectory, 'Gartner 2026 下半年 CIO 报告-中文全文.md');
+const obsidianPdf = path.join(obsidianDirectory, '附件/Gartner-2H26-CIO-Report.pdf');
 
 const files = {
   metadata: path.join(articleDirectory, 'metadata.json'),
@@ -364,4 +367,47 @@ test('builds the Gartner corpus contract without a pre-generated corpus file', a
   assert.equal(browserMatches.length, 1);
   assert.ok(browserMatches[0].chunkCount > 0);
   assert.deepEqual(browserMatches[0].localPaths, expectedLocalPaths);
+});
+
+test('stages the complete Gartner report for an idempotent Obsidian import', async () => {
+  const note = await readFile(obsidianNote, 'utf8');
+  const archivedChinese = await readFile(files.chinese, 'utf8');
+
+  assert.equal(await sha256(obsidianPdf), expectedPdfSha256, 'staged PDF must match the archived report');
+  assert.ok(note.startsWith('---\n'), 'Obsidian note must begin with YAML frontmatter');
+  for (const field of [
+    'publisher: Gartner',
+    'title_original: "2H26 The CIO Report"',
+    'published: 2026-08-15',
+    'priority: must-read',
+    'score: 92',
+    'source_url: https://www.gartner.com/en/chief-information-officer/products/gartner-for-cios',
+    'local_archive: "work/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report"',
+    'imported: 2026-08-25',
+  ]) assert.ok(note.includes(field), `Obsidian YAML missing: ${field}`);
+  for (const topic of ['技术、数据与架构', 'AI 战略与价值', '组织、人才与工作', '治理、风险与安全']) {
+    assert.match(note, new RegExp(`^  - ${topic}$`, 'm'), `Obsidian topics missing: ${topic}`);
+  }
+
+  for (const heading of ['## 核心导读', '## 四个 CIO 问题', '## 关键数据', '## 完整中文全文', '## 官方来源']) {
+    assert.ok(note.includes(heading), `Obsidian note missing: ${heading}`);
+  }
+  for (const question of [
+    '应优先布局哪些新兴技术，才能让企业架构面向未来？',
+    '如何提升 IT 运营模式的韧性，以应对经济、地缘政治或供应链中断？',
+    '如何在不干扰业务运营的前提下实现遗留系统现代化？',
+    '如何组织人机协作团队、增强员工韧性并提升人才技能，同时不影响运营？',
+  ]) assert.ok(note.includes(question), `Obsidian note missing question: ${question}`);
+  const keyData = section(note, '## 关键数据', '## 完整中文全文');
+  for (const evidence of [
+    '50% 的 CIO 表示 IT 无法跟上业务需求变化；85% 计划在未来三年内实施 AI 支持的服务。',
+    '仅 24% 的 CIO 认为其灵活运营模式高度有效；到 2028 年，50% 的企业将因运营模式过时而无法实现 AI 价值。',
+    '到 2028 年，组织可实现最高 30% 的成本降低；到 2029 年，90% 的现代化项目将使用 AI 增强工具，高于 2026 年的不足 20%。',
+    '51% 将 AI 技能差距视为首要挑战，56% 计划用 AI 增强而非取代员工，40% 已制定应对技能退化的战略。',
+  ]) assert.ok(keyData.includes(evidence), `Obsidian key-data summary missing canonical evidence: ${evidence}`);
+  assert.equal((keyData.match(/^- /gm) || []).length, 4, 'key-data summary must contain exactly four canonical evidence groups');
+  assert.doesNotMatch(keyData, /73%|70%|48%/, 'key-data summary must not add noncanonical percentages');
+  assert.ok(note.includes(archivedChinese), 'Obsidian note must contain the verified Chinese archive verbatim');
+  assert.ok(note.includes(`[Gartner for CIOs](${officialUrl})`), 'Obsidian note must link to the official source');
+  assert.equal(occurrenceCount(note, '![[附件/Gartner-2H26-CIO-Report.pdf]]'), 1, 'PDF embed must appear exactly once');
 });

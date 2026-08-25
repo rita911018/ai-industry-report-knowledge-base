@@ -1,0 +1,368 @@
+---
+title: "Gartner 2026 下半年 CIO 报告"
+publisher: Gartner
+title_original: "2H26 The CIO Report"
+published: 2026-08-15
+priority: must-read
+score: 92
+topics:
+  - 技术、数据与架构
+  - AI 战略与价值
+  - 组织、人才与工作
+  - 治理、风险与安全
+source_url: https://www.gartner.com/en/chief-information-officer/products/gartner-for-cios
+local_archive: "work/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report"
+imported: 2026-08-25
+---
+
+# Gartner 2026 下半年 CIO 报告
+
+![[附件/Gartner-2H26-CIO-Report.pdf]]
+
+## 核心导读
+
+Gartner 将 2026 年下半年 CIO 议程归纳为四项相互关联的任务：以 AI、云和边缘计算重构企业架构，增强 IT 运营韧性，分阶段现代化遗留系统，并建立可持续的人机协作与技能提升机制。报告的共同主线并非单点技术采购，而是让架构、运营模式、平台治理和人才体系协同演进，以更快响应外部扰动并持续兑现 AI 价值。
+
+## 四个 CIO 问题
+
+1. 应优先布局哪些新兴技术，才能让企业架构面向未来？
+2. 如何提升 IT 运营模式的韧性，以应对经济、地缘政治或供应链中断？
+3. 如何在不干扰业务运营的前提下实现遗留系统现代化？
+4. 如何组织人机协作团队、增强员工韧性并提升人才技能，同时不影响运营？
+
+## 关键数据
+
+- 50% 的 CIO 表示 IT 无法跟上业务需求变化；85% 计划在未来三年内实施 AI 支持的服务。
+- 仅 24% 的 CIO 认为其灵活运营模式高度有效；到 2028 年，50% 的企业将因运营模式过时而无法实现 AI 价值。
+- 到 2028 年，组织可实现最高 30% 的成本降低；到 2029 年，90% 的现代化项目将使用 AI 增强工具，高于 2026 年的不足 20%。
+- 51% 将 AI 技能差距视为首要挑战，56% 计划用 AI 增强而非取代员工，40% 已制定应对技能退化的战略。
+
+## 完整中文全文
+
+# Gartner 2026 下半年 CIO 报告
+
+原报告标题：2H26 The CIO Report。Gartner 解答 CIO 当前最关注的问题。
+
+## 关于本报告
+
+当今的 CIO 身处一个技术飞速进步、外部扰动持续不断、业务要求不断提高的时代。企业争相运用 AI、边缘计算等新兴技术，打造有韧性、面向未来的组织架构，这项任务比以往任何时候都更为紧迫。然而，许多 IT 领导者发现，现有 IT 运营模式难以跟上变化的步伐。在这样的环境中，企业平台能否通过现代化改造获得更强的敏捷性和性能，已成为关键。
+
+本报告汇总了 CIO 当前向 Gartner 提出的四个核心问题，并给出可执行的洞察，帮助 CIO 推动企业转型。
+
+### CIO 当前最关注的四个问题
+
+1. 应优先布局哪些新兴技术，才能让企业架构面向未来？
+2. 如何提升 IT 运营模式的韧性，以应对经济、地缘政治或供应链中断？
+3. 如何在不干扰业务运营的前提下实现遗留系统现代化？
+4. 如何组织人机协作团队、增强员工韧性并提升人才技能，同时不影响运营？
+
+## CIO 问题 1
+
+### 应优先布局哪些新兴技术，才能让企业架构面向未来？
+
+- **50%** 的 CIO 认为，其 IT 职能跟不上变化速度。
+- **73%** 的企业高管认为，保持动态调整和适应能力，是持续实现高收入增长的必要条件。
+- **85%** 的 IT 领导者表示，计划在未来三年内交付由 AI 赋能的业务服务。
+
+### CIO 同行还在追问
+
+1. 如何判断哪些新兴技术能够创造最大的业务价值和竞争优势？
+2. 应采用哪些标准评估企业成熟度，以及采用新技术的准备程度？
+3. 如何确保新兴技术与现有 IT 基础设施和应用程序顺畅集成？
+
+> “获取相关信息、制定战略有多种方式。你需要倾听客户和组织内部的声音，同时也需要外部信息。归根结底，就是要了解总体的 IT 趋势，AI 便是其中一例。Gartner 提供的工具可以在这方面发挥作用。Gartner IT Score 就是一个很好的例子，可以帮助你了解自身能力。”
+>
+> - Pekka Kahkipuro，Fimlab 首席信息官
+
+[阅读 Fimlab 案例](https://www.gartner.com/en/information-technology/customer-success-stories/aligning-it-initiatives-with-evolving-business-demands)
+
+## Gartner 解答 1
+
+### 运用 AI、云和边缘计算，构建面向未来的企业架构
+
+随着业务转型加速，CIO 必须确保企业架构（EA）足够敏捷，能够跟上技术快速变化的步伐。借助 AI、云和边缘计算，CIO 可以突破传统的集中式模式，更快、更大规模地创造业务价值。
+
+分布式企业架构智能将架构专业能力与 AI 驱动的洞察结合起来。在业务单元日益分散、自治程度不断提高的环境中，它能帮助团队更快作出依据更充分的决策。
+
+CEO 正在优先投入 AI，并期待技术推动增长。CIO 必须重新设计企业架构职能，使其达到“AI 速度”。这意味着从依靠人工传递指导，转向持续、自动化的决策支持；通过工具、管道和 AI 落实架构原则。随着决策权下沉到更靠近业务一线的位置，集中控制逐步让位于在预设治理边界内赋能，云和边缘计算也进一步强化了对适应性架构的需求。
+
+企业架构能否面向未来，取决于组织适应变化并交付战略成果的速度。CIO 应采用 AI、云和边缘计算，并围绕速度、规模和适应性重新设计企业架构运营模式，使企业架构成为创新的催化剂，也让相关团队继续成为推动业务转型不可或缺的力量。
+
+### 图示：简化新兴技术评估，加快实现业务价值
+
+新兴技术评估目标涵盖四项活动：
+
+- 优化新增投资组合。
+- 对齐战略。
+- 验证领导层的优先事项。
+- 扩大规模并推动增长。
+
+**来源：** Gartner
+
+## 行动计划示例 1
+
+### Gartner 如何协助 CIO 打造面向未来的企业架构
+
+| 步骤 | 预期成果 | Gartner 支持的行动 |
+| --- | --- | --- |
+| 1. 明确企业战略和愿景 | 清晰理解组织的战略与愿景。 | 由 [Executive Partner](https://www.gartner.com/en/products/executive-programs) 主持对齐研讨会；借助[战略规划工具包](https://www.gartner.com/en/insights/strategic-planning)明确成功方向；通过 [Gartner 标杆分析](https://www.gartner.com/en/information-technology/research/benchmarking)与同类组织比较战略。 |
+| 2. 确定企业架构的未来情景 | 明确在不同时间跨度内，组织需要企业架构职能提供什么。 | 使用 [Gartner Digital Execution Scorecard](https://www.gartner.com/en/chief-information-officer/research/digital-execution-scorecard)加快决策；[建设企业架构职能](https://www.gartner.com/en/information-technology/topics/enterprise-architecture)；参考[企业架构负责人的 3 大优先事项](https://www.gartner.com/en/information-technology/insights/leadership-priorities-enterprise-architecture-2026/unlocked)。 |
+| 3. 转型企业架构运营模式 | 以更快、更具创新性的方式交付价值，并与企业架构选定的未来角色保持一致。 | [提升 AI 素养](https://www.gartner.com/en/articles/ai-literacy-program)；使用 [Accelerator](https://www.gartner.com/en/chief-information-officer/research/accelerators-for-cios)启动工作；通过 [AskGartner](https://www.gartner.com/en/products/ask-gartner)发现创新的转型思路。 |
+| 4. 实现企业架构产品和服务现代化 | 形成实时洞察、决策工具和技术基础，直接匹配业务运行速度。 | 通过[战略性 IT 成本优化](https://www.gartner.com/en/chief-information-officer/mcp/strategic-cost-optimization-for-cios)制定成本路线图；审视[新兴技术观察](https://www.gartner.com/en/articles/hype-cycle-for-emerging-technologies)；参加 [Gartner 应用创新与业务解决方案峰会](https://www.gartner.com/en/conferences/na/applications-us/conference-resources/enterprise-architecture-industry)，加快现代化进程。 |
+| 5. 通过业务快速适应实现企业架构成功 | 以可量化指标体现企业架构成效。 | 使用 [Gartner Score for CIOs（面向 CIO 的 Gartner 评分）](https://www.gartner.com/en/information-technology/research/gartner-it-score-for-cios)衡量关键活动；通过 [AI 成熟度评估](https://www.gartner.com/en/chief-information-officer/research/ai-maturity-model-toolkit)跟踪进度；使用 [AskGartner](https://www.gartner.com/en/products/ask-gartner)按需获取 KPI。 |
+
+如需进一步了解 Gartner Executive Partner 如何帮助你实现目标，可[联系 Gartner 专家](https://www.gartner.com/en/chief-information-officer/trends/cio-executive-partner-bac)。
+
+## 关键领导角色 1
+
+### 打造面向未来的企业架构所需的完整领导角色体系与行动
+
+| 领导群体 | 角色 | 必要行动 | Gartner 资源和工具 |
+| --- | --- | --- | --- |
+| 企业领导层 | CEO、COO、CFO | 将技术战略与业务目标对齐；确保资金投入；推动转型。 | 工具：[IT 战略规划](https://www.gartner.com/en/chief-information-officer/topics/it-strategic-plan)；路线图：[以 AI 路线图推动价值](https://www.gartner.com/en/articles/ai-roadmap)。 |
+| 数据与分析 | CDAO、分析负责人 | 明确数据治理；推动 AI/ML 项目；保障数据质量和合规。 | 电子书：[让数据、分析与 AI 成为战略增长动力](https://www.gartner.com/en/data-analytics/insights/turn-data-analytics-and-ai-into-strategic-growth-drivers)；电子书：[利用数据、分析和 AI 取得业务成果](https://www.gartner.com/en/publications/the-it-roadmap-for-data-and-analytics)；网络研讨会：[设计面向未来、兼顾规模与一致性的数据和分析组织](https://www.gartner.com/en/webinar/817418/1823039-designing-a-futureready-data-and-analytics-organization-for-scale-and-consistency)；线上简报：[为分析的未来做好准备](https://www.gartner.com/en/webinar/897845/1903576-virtual-briefing-prepare-for-the-future-of-analytics)。 |
+| 安全 | 首席信息安全官（CISO） | 将安全融入架构；管理风险；确保符合法规要求。 | 路线图：[网络安全领导力战略路线图](https://www.gartner.com/en/articles/cybersecurity-leadership)；网络研讨会：[评估和对标 AI 网络风险准备度](https://www.gartner.com/en/webinar/895200/1900400-assess-and-benchmark-ai-cyber-risk-readiness)；网络研讨会：[在 AI 时代用结果导向的指标和标杆推动网络安全投资](https://www.gartner.com/en/webinar/847653/1855984-drive-cybersecurity-investment-in-the-ai-era-with-outcome-driven-metrics-and-benchmarks)。 |
+| 应用开发 | 软件工程负责人 | 实现应用现代化；采用云原生和 AI 驱动的开发实践。 | 电子书：[2030 年软件工程的未来：AI 的影响](https://www.gartner.com/en/software-engineering/insights/software-engineering-2030-impact-of-ai)；电子书：[领导力协同：软件与数据分析领导者如何推动 AI 创新](https://www.gartner.com/en/software-engineering/role/ai-innovation-leadership)；线上简报：[在软件开发生命周期中有效运用 AI](https://www.gartner.com/en/webinar/835366/1844236-virtual-briefing-effectively-leverage-ai-in-the-software-development-life-cycle)。 |
+| 供应商管理 | 采购负责人、供应商经理 | 评估并选择云和 AI 合作伙伴；管理合同和 SLA。 | 工具：[Proposal Review](https://www.gartner.com/en/products/proposal-review)；工具：[Gartner BuySmart](https://www.gartner.com/en/products/buysmart)。 |
+
+## CIO 问题 2
+
+### 如何增强 IT 运营模式抵御经济、地缘政治或供应链中断的韧性？
+
+- **24%** 的 CIO 表示，自己在建立能够随业务需求灵活变化的 IT 运营模式方面成效显著。
+- **70%** 的董事会将地缘政治不稳定和国际冲突视为组织面临的最大外部威胁。
+- 到 2028 年，**50%** 的企业将因 IT 运营模式过时，无法从 AI 中获得可量化的业务价值。
+
+### CIO 同行还在追问
+
+1. 如何在意外中断期间确保业务连续性？
+2. 可以采取哪些措施，使技术供应链更加多元，并降低对单一供应商的依赖？
+3. 如何提高 IT 架构的灵活性，使其能够快速适应业务需求或外部威胁的变化？
+
+> “Gartner 帮助我们识别可持续的解决方案和服务，确定业务应采用的运营模式，并确保技术和解决方案投资获得较高回报。”
+>
+> - Heinrich Kukkuk，Aveng Group 集团 IT 高管
+
+[阅读 Aveng Group 案例](https://www.gartner.com/en/chief-information-officer/customer-success-stories/an-operating-model-with-new-technologies-to-support-the-business-strategy)
+
+## Gartner 解答 2
+
+### 增强 IT 运营模式的韧性
+
+CIO 可以通过分散供应商，并采用多云或混合云战略，降低对单一服务商或地区的依赖，使 IT 运营模式更能抵御中断。自动化和边缘计算支持的灵活、模块化架构，可以帮助组织快速调整，并在遭遇中断时维持运营。
+
+定期更新灾难恢复计划，采取有力的网络安全措施，并与业务和风险管理领导者密切协作，可以确保关键系统受到保护，并与组织优先事项保持一致。投资于员工队伍的敏捷性和远程工作能力，也能进一步提高 IT 团队应对突发挑战的能力。
+
+### 图示：影响 IT 运营模式的不确定性因素
+
+IT 运营模式以绩效为中心，由决策权、组织结构、采购与生态系统、财务、交付模式、人才、工具与平台，以及工作场所共同支撑。它置身于治理、文化和信任/伦理环境之中，同时受到经济、社会、技术、环境、政治及监管/法律不确定性的影响。组织必须在这些力量交织的环境下贯彻战略。
+
+**来源：** Gartner
+
+## 行动计划示例 2
+
+### Gartner 如何协助 CIO 建立更有韧性的 IT 运营模式
+
+| 步骤 | 预期成果 | Gartner 支持的行动 |
+| --- | --- | --- |
+| 1. 将运营模式愿景与业务价值对齐 | IT 架构能够随变化灵活调整，弥合 IT 能力与业务需求之间的差距，并直接支持战略性业务成果。 | 使用 [IT 预算与效率标杆](https://www.gartner.com/en/information-technology/research/it-budget-and-efficiency-benchmark)使愿景与价值对齐；借助 [Digital Execution Scorecard](https://www.gartner.com/en/chief-information-officer/research/digital-execution-scorecard)确定数字能力优先级；通过 [Executive Partner](https://www.gartner.com/en/products/executive-programs)构建适合董事会沟通的价值叙事。 |
+| 2. 设计运营模式要素 | 建立能够承受中断，并适应经济、地缘政治和供应链波动的韧性基础。 | 通过 [IT 运营模式行动计划网络研讨会](https://www.gartner.com/en/webinar/731065/1641950)识别韧性要素；利用 [AskGartner](https://www.gartner.com/en/products/ask-gartner)快速了解同行的风险管理方法；通过 [AI Use Case Insights](https://www.gartner.com/en/products/ai-use-case-insights)评估所需 AI 能力。 |
+| 3. 实施运营模式变革 | 摆脱阻碍企业获取 AI 驱动业务价值的过时模式。 | 借助 [Gartner 路线图](https://www.gartner.com/en/articles/ai-roadmap)顺畅推进过渡；通过 [Gartner Accelerators](https://www.gartner.com/en/chief-information-officer/research/accelerators-for-cios)快速整合结构化改进；利用[分析师咨询](https://www.gartner.com/en/products/analyst-inquiry)对实施计划进行压力测试。 |
+| 4. 优化寻源策略与共享服务 | 优化资源和供应商管理，在外部中断期间维持连续性与灵活性。 | 使用 [IT 寻源价值加速器](https://www.gartner.com/en/chief-information-officer/research/accelerators-for-cios)优化供应商；通过 [Proposal Review](https://www.gartner.com/en/products/proposal-review)发现合同节省机会；利用 [Gartner Peer Insights](https://www.gartner.com/peer-insights/home)比较供应商价格和策略。 |
+| 5. 管理并优化运营模式绩效 | 使组织能够取得可量化的业务成功，并持续适应未来外部威胁。 | 使用 [CIO Score（CIO 评分）](https://www.gartner.com/en/information-technology/research/it-budget-and-efficiency-benchmark)对标运营绩效；通过 [Gartner ROI 价值框架](https://www.gartner.com/en/articles/ai-value-metrics)衡量可用于再投资的成果；利用 [Gartner Hype Cycle](https://www.gartner.com/en/articles/hype-cycle-for-artificial-intelligence)跟踪新技术带来的冲击。 |
+
+如需进一步了解 Gartner Executive Partner 如何帮助你实现目标，可[联系 Gartner 专家](https://www.gartner.com/en/chief-information-officer/trends/cio-executive-partner-bac)。
+
+## 关键领导角色 2
+
+### 提升 IT 运营模式韧性所需的领导者及行动
+
+| 领导群体 | 角色 | 必要行动 | Gartner 资源和工具 |
+| --- | --- | --- | --- |
+| 企业领导层 | CEO、COO、CFO | 将 IT 韧性与业务战略对齐；确保韧性举措获得资金。 | 网络研讨会：[2026 高管韧性：CIO 应对波动的领导指南](https://www.gartner.com/en/webinar/800581/1799563-c-suite-dynamics-2026-the-cio-guide-to-building-executive-endurance)；线上简报：[1 页战略的艺术](https://www.gartner.com/en/webinar/885969/1892761-virtual-briefing-art-of-the-1-page-strategy-effectively-communicate-for-strategic-impact)；工具：[IT 预算与效率标杆](https://www.gartner.com/en/information-technology/research/it-budget-and-efficiency-benchmark)。 |
+| 安全 | CISO | 强化网络安全态势；监测并应对新兴威胁。 | 网络研讨会：[2026 年网络安全主要趋势](https://www.gartner.com/en/webinar/818215/1824152-top-trends-in-cybersecurity-for-2026)；网络研讨会：[评估和对标 AI 网络风险准备度](https://www.gartner.com/en/webinar/895200/1900400-assess-and-benchmark-ai-cyber-risk-readiness)；资源：[面向未来的网络安全领导力](https://www.gartner.com/en/articles/cybersecurity-leadership)。 |
+| 运营 | IT 运营负责人、基础设施负责人 | 确保业务连续性；优化基础设施的冗余性和灵活性。 | 网络研讨会：[2026 基础设施与运营技术采用路线图](https://www.gartner.com/en/webinar/818160/1824120-2026-technology-adoption-roadmap-for-infrastructure-and-operations)；网络研讨会：[面向 AI 的核心系统现代化：CIO 4 阶段路线图](https://www.gartner.com/en/webinar/836020/1845120-modernizing-core-systems-for-ai-a-cios-4stage-roadmap)；电子书：[加快战略性成本优化，实现可持续增长](https://www.gartner.com/en/chief-information-officer/mcp/strategic-cost-optimization-for-cios)。 |
+| 采购与供应商管理 | 采购负责人、供应商经理 | 分散供应商；管理合同并监控供应链风险。 | 网络研讨会：[采购的未来：通过 AI、人才和运营模式重塑加速价值创造](https://www.gartner.com/en/webinar/815510/1821182-the-future-of-procurement-accelerating-value-through-ai-talent-and-operating-model-reinvention)；网络研讨会：[采购走向 AI 优先的步骤](https://www.gartner.com/en/webinar/835306/1844172-steps-for-procurement-to-become-aifirst)；线上简报：[采购转型：CPO 实现 AI 价值的路线图](https://www.gartner.com/en/webinar/865557/1873857-virtual-briefing-procurement-transformation-a-cpos-roadmap-to-ai-value)；工具：[Gartner BuySmart](https://www.gartner.com/en/products/buysmart)。 |
+| 数据与分析 | 首席数据官、分析负责人 | 监控运营数据，捕捉早期预警信号；支持数据驱动的决策。 | 网络研讨会：[数据与分析治理的未来](https://www.gartner.com/en/webinar/896045/1901456-the-future-of-da-governance)；网络研讨会：[数据与分析 2030：AI 原生企业愿景](https://www.gartner.com/en/webinar/868372/1876219-data-and-analytics-2030-the-vision-for-an-ainative-enterprise)；线上简报：[为分析的未来做好准备](https://www.gartner.com/en/webinar/897845/1903576-virtual-briefing-prepare-for-the-future-of-analytics)；路线图：[让数据、分析与 AI 成为战略增长动力](https://www.gartner.com/en/data-analytics/insights/turn-data-analytics-and-ai-into-strategic-growth-drivers)。 |
+| 人力资源与员工队伍 | CHRO | 培养员工队伍敏捷性；支持远程工作和交叉培训。 | 网络研讨会：[战略路线图：为 AI 融合型运营模式重新设计人力资源](https://www.gartner.com/en/webinar/908131/1911784-strategic-roadmap-redesigning-hr-for-an-aiinfused-operating-model)；网络研讨会：[决定 AI 成功的是员工准备度，而非技术](https://www.gartner.com/en/webinar/808364/1810809-why-workforce-readiness-not-technology-determines-ai-success)；线上简报：[CHRO 在领导企业 AI 转型中的角色](https://www.gartner.com/en/webinar/811212/1814912-virtual-briefing-chros-role-in-leading-enterprise-ai-transformation)；工具：[AI 成熟度评估](https://www.gartner.com/en/chief-information-officer/research/ai-maturity-model-toolkit)。 |
+
+## CIO 问题 3
+
+### 如何在不干扰业务运营的前提下实现遗留系统现代化？
+
+- 在生成式 AI 推动下，预计到 2028 年，应用现代化成本将降低 **30%**。
+- 到 2029 年，**90%** 的软件现代化项目将使用 AI 增强工具；2026 年这一比例还不到 **20%**。
+- 在拥有明确转型计划的组织中，**48%** 已经开始现代化，另有 **73%** 计划在未来两年增加现代化投资。
+
+### CIO 同行还在追问
+
+1. 哪些关键业务流程依赖遗留系统？
+2. 如何在现代化过程中确保数据完整性和安全性？
+3. 应如何确定遗留系统的现代化优先级？
+
+> “Gartner 一直是我们的战略合作伙伴，协助我们规划数字化工作场所产品路线图和未来工作战略。”
+>
+> - Sidharth Mukherjee，Wipro 总经理
+
+[阅读 Wipro 案例](https://www.gartner.com/en/information-technology/customer-success-stories/wipro-accelerates-digital-workplace-innovation-and-ai-strategy-with-gartner)
+
+## Gartner 解答 3
+
+### 采用分阶段、渐进式方法推进遗留系统现代化
+
+要在不干扰业务运营的情况下实现遗留系统现代化，通常需要在迁移期间让新旧系统并行运行，以便充分测试、逐步切换，从而尽量降低风险和停机时间。根据业务影响确定现代化工作的优先级，可以确保最关键的流程在整个过渡期间保持稳定并得到支持。
+
+自动化和 AI 驱动的工具可以简化数据迁移、测试和集成，进一步降低发生错误和延误的可能性。与业务部门紧密协作并保持透明沟通，有助于管理预期、尽早处理疑虑，确保 IT 目标与运营目标保持一致。通过周密规划和持续监控，CIO 可以在维持业务连续性的同时完成现代化。
+
+### 图示：现代化是一项持续工作
+
+战略执行与持续扫描共同推动持续改进流程。运营节奏在季度复盘和事件复盘之间交替，使现代化决策既能响应既定检查节点，也能应对新出现的事件。
+
+**来源：** Gartner
+
+## 行动计划示例 3
+
+### 推动企业平台现代化，提升敏捷性和性能
+
+| 步骤 | 预期成果 | Gartner 支持的行动 |
+| --- | --- | --- |
+| 1. 制定与业务成果对齐的平台战略 | 使现代化工作与业务目标保持一致，同时尽量减少运营停机。 | 通过 [Digital Execution Scorecard](https://www.gartner.com/en/chief-information-officer/research/digital-execution-scorecard)确定投资优先级；借助 [Executive Partner](https://www.gartner.com/en/products/executive-programs)推动利益相关方对齐；使用 [IT 预算与效率标杆](https://www.gartner.com/en/information-technology/research/it-budget-and-efficiency-benchmark)。 |
+| 2. 设计模块化、可组合的平台 | 建立灵活的基础，减少遗留技术债，并支持 AI 集成。 | 从 [Gartner for Technical Professionals](https://www.gartner.com/en/chief-information-officer/products/gartner-for-technical-professionals)获取架构指导；利用 [Gartner Hype Cycle](https://www.gartner.com/en/articles/hype-cycle-for-artificial-intelligence)跟踪新兴技术；通过 [AskGartner](https://www.gartner.com/en/products/ask-gartner)了解同行做法。 |
+| 3. 评估市场并选择供应商关系 | 优化供应商合作关系，加快交付并降低现代化成本。 | 通过 [Proposal Review](https://www.gartner.com/en/products/proposal-review)节省合同成本；利用 [Gartner Peer Insights](https://www.gartner.com/peer-insights/home)比较供应商；借助 [Gartner Accelerators](https://www.gartner.com/en/chief-information-officer/research/accelerators-for-cios)加速供应商选择。 |
+| 4. 实施企业平台 | 在维持业务连续性的同时，加快平台交付。 | 使用 [Gartner 路线图](https://www.gartner.com/en/articles/ai-roadmap)规划分批上线；通过[分析师咨询](https://www.gartner.com/en/products/analyst-inquiry)对计划进行压力测试；利用 [AI Use Case Insights](https://www.gartner.com/en/products/ai-use-case-insights)优化 AI 工具部署。 |
+| 5. 建立持续实现价值的治理机制 | 保持平台敏捷性，并持续衡量 ROI。 | 使用 [Gartner IT Score](https://www.gartner.com/en/information-technology/research/gartner-it-score-for-cios)评估工程成熟度；通过 [Gartner ROI/价值框架](https://www.gartner.com/en/articles/ai-value-metrics)衡量 ROI；在 [Gartner Peer Community](https://www.gartner.com/peer-community/home)交流最佳实践。 |
+
+如需进一步了解 Gartner Executive Partner 如何帮助你实现目标，可[联系 Gartner 专家](https://www.gartner.com/en/chief-information-officer/trends/cio-executive-partner-bac)。
+
+## 关键领导角色 3
+
+### 遗留系统现代化所需的关键领导者及行动
+
+| 领导群体 | 角色 | 必要行动 | Gartner 资源和工具 |
+| --- | --- | --- | --- |
+| 安全 | CISO | 保护敏感数据；管理过渡期间的风险。 | 网络研讨会：[2026 年 CISO 必须交付的网络安全重点项目](https://www.gartner.com/en/webinar/819332/1825920-cybersecuritys-top-projects-for-2026-what-cisos-must-deliver-next)；网络研讨会：[塑造 2026 年的主要网络安全技术](https://www.gartner.com/en/webinar/819332/1825920-cybersecuritys-top-projects-for-2026-what-cisos-must-deliver-next)；线上简报：[通过战略性标杆分析增强网络安全计划](https://www.gartner.com/en/webinar/859335/1868042-virtual-briefing-enhancing-your-cybersecurity-program-through-strategic-benchmarking)；工具：[AskGartner](https://www.gartner.com/en/products/ask-gartner)。 |
+| 企业领导层 | CEO、COO、CFO | 将现代化与业务目标对齐；确保资金和管理支持。 | 网络研讨会：[IT 2030：CIO 应如何为 AI 时代重塑 IT](https://www.gartner.com/en/webinar/839091/1847711-it-2030-how-cios-should-reinvent-it-for-the-ai-age)；网络研讨会：[CIO 董事会演示准备：展示 IT 的战略价值](https://www.gartner.com/en/webinar/797363/1794979-cio-board-presentation-prep-showcase-its-strategic-value)；线上简报：[IT 2030：CIO 应如何为 AI 时代重塑 IT](https://www.gartner.com/en/webinar/839091/1847711-it-2030-how-cios-should-reinvent-it-for-the-ai-age)；工具：[IT 战略规划](https://www.gartner.com/en/chief-information-officer/topics/it-strategic-plan)。 |
+| 应用开发 | 软件工程负责人、DevOps 负责人 | 规划分阶段迁移；确保充分测试和验证。 | 网络研讨会：[面向 AI 的核心系统现代化：CIO 4 阶段路线图](https://www.gartner.com/en/webinar/836020/1845120-modernizing-core-systems-for-ai-a-cios-4stage-roadmap)；网络研讨会：[现代应用的外部化授权架构](https://www.gartner.com/en/webinar/902774/1907659-architecting-externalized-authorization-for-modern-applications)；线上简报：[在软件开发生命周期中有效运用 AI](https://www.gartner.com/en/webinar/835366/1844236-virtual-briefing-effectively-leverage-ai-in-the-software-development-life-cycle)；电子书：[2030 年软件工程的未来：AI 的影响](https://www.gartner.com/en/software-engineering/insights/software-engineering-2030-impact-of-ai)。 |
+| 投资与价值监督 | CFO | 统筹网络安全投资；评估 ROI 和 ODM 指标；确保主动控制获得资金。 | 网络研讨会：[2026 年财务优先事项与趋势：平衡成本压力和 AI 抱负](https://www.gartner.com/en/webinar/797742/1795997-the-future-of-finance-top-cfo-priorities-and-trends-for-2026)；网络研讨会：[让成本优化成为战略性、主动性和系统性工作](https://www.gartner.com/en/webinar/836105/1845186-make-cost-optimization-strategic-proactive-and-programmatic)；线上简报：[财务与企业 AI：CFO 如何领导、治理并推动增长](https://www.gartner.com/en/webinar/856129/1864595-virtual-briefing-ai-in-finance-and-the-enterprise-how-cfos-can-lead-govern-grow)。 |
+| 变革管理 | 人力资源负责人、变革管理负责人 | 提升员工技能；管理新系统相关的沟通和培训。 | 网络研讨会：[释放被困住的 AI ROI：以组织变革创造价值](https://www.gartner.com/en/webinar/814044/1819485-value-is-trapped-unlocking-ai-roi-through-organizational-change)；网络研讨会：[如何打造跟得上 AI 的员工队伍](https://webinar.gartner.com/864098/agenda/session/1872461?login=ML)；线上简报：[CHRO 在领导企业 AI 转型中的角色](https://www.gartner.com/en/webinar/811212/1814912-virtual-briefing-chros-role-in-leading-enterprise-ai-transformation)。 |
+| 供应商管理 | 采购负责人、供应商经理 | 选择现代化合作伙伴；管理合同和 SLA。 | 网络研讨会：[CPO 与 CIO 如何成功协作](https://www.gartner.com/en/webinar/894905/1900189-how-cpos-and-cios-can-partner-for-success)；网络研讨会：[采购走向 AI 优先的步骤](https://www.gartner.com/en/webinar/835306/1844172-steps-for-procurement-to-become-aifirst)；线上简报：[采购转型：CPO 实现 AI 价值的路线图](https://www.gartner.com/en/webinar/865557/1873857-virtual-briefing-procurement-transformation-a-cpos-roadmap-to-ai-value)；工具：[Proposal Review](https://www.gartner.com/en/products/proposal-review)。 |
+
+## CIO 问题 4
+
+### 如何组织人机协作团队、增强员工韧性并提升人才技能，同时不影响运营？
+
+- **51%** 的 CIO 将不断变化的 AI 技能需求与现有人才之间的差距视为首要挑战。
+- **56%** 的企业着眼于增强员工能力，而不是用 AI 取代员工。
+- **40%** 的企业已制定防止员工技能退化的策略。
+
+### CIO 同行还在追问
+
+1. 在未来的组织状态下，需要进行哪些组织变革，并设立哪些新角色？
+2. 如果终局尚不明确，如何带领组织应对持续不断的变化？
+3. 如何量化新型人机协作模式对员工队伍的影响，并重新设计岗位？
+
+> “与 Gartner 的合作给我们带来了转变。Gartner 的专业知识和洞察帮助我们制定了与业务目标一致的综合 AI 战略，提高人机协作效率，并培育主动变革的文化。”
+>
+> - Anna Sanchez，首席信息官
+
+[阅读 Volkswagen Group 案例](https://www.gartner.com/en/chief-information-officer/customer-success-stories/volkswagen-group-drives-innovation)
+
+## Gartner 解答 4
+
+### 重组人机协作团队，建立变革反应能力并升级组织能力
+
+CIO 必须同时解决团队组织、韧性和技能提升问题，才能确保 AI 转型成功。首先可采用“半人马”协作模式，组建跨职能融合团队。在这种模式下，AI 负责速度和规模，人类负责提供情境和判断。为了支持新的工作流程，领导者必须培养员工的基础能力、适应性变革反应能力和 AI 技能。整个过程都需要透明沟通，以避免员工出现变革疲劳或消极抵触。
+
+企业不能为了重新培训员工而暂停运营。因此，CIO 还应采用分阶段、迭代式方法提升技能。组织需要及早识别关键技能，在初期试点中部署智能体辅助工具，使员工既能完成复杂任务，也能在实践中学习。将 AI 驱动的培训模拟直接嵌入工作流程，可以持续升级员工队伍能力，避免服务能力突然下滑。
+
+### 图示：引导员工队伍从使用 AI 工具走向借助 AI 放大能力
+
+AI 流利度阶梯以 AI 流利度和 AI 参与度为两个维度，能力依次从 **工具（Tool）**、**工具伙伴（Toolmate）**，发展到 **能力放大者（Amplifier）**。对应的成长路径，是从学会技能，到主动选择相应行为，最终让这些行为成为自动化习惯。
+
+**来源：** Gartner
+
+## 行动计划示例 4
+
+### Gartner 如何协助 CIO 组织团队、增强员工韧性并提升人才技能
+
+| 步骤 | 预期成果 | Gartner 支持的行动 |
+| --- | --- | --- |
+| 1. 制定 AI 驱动的人才战略 | 使 AI 抱负和投资与明确的数字人才战略对齐，并与企业目标相匹配。 | 与 [Executive Partner](https://www.gartner.com/en/products/executive-programs)共同制定有韧性的员工队伍计划；使用 [Digital Execution Scorecard](https://www.gartner.com/en/chief-information-officer/research/digital-execution-scorecard)使人才战略与价值对齐；借助 [AskGartner](https://www.gartner.com/en/products/ask-gartner)探索 AI 人才战略。 |
+| 2. 评估员工队伍面向未来的准备度 | 清楚掌握当前员工队伍能力，识别技能差距，并建立透明的评估流程。 | 使用 [AI 成熟度评估](https://www.gartner.com/en/chief-information-officer/research/ai-maturity-model-toolkit)评估员工准备度；利用 [Gartner IT Score for CIOs](https://www.gartner.com/en/information-technology/research/gartner-it-score-for-cios)对标当前人才能力；通过 [Gartner Peer Insights](https://www.gartner.com/peer-insights/home)了解同行的技能差距。 |
+| 3. 设计技术与人力资源之间的组织平衡 | 重新分配员工能力并重新设计岗位，通过人机协作优化价值创造。 | 借助 [Gartner Accelerators](https://www.gartner.com/en/chief-information-officer/research/accelerators-for-cios)梳理人机协作工作流；通过[分析师咨询](https://www.gartner.com/en/products/analyst-inquiry)设计混合型员工队伍；利用 [Gartner for Technical Professionals](https://www.gartner.com/en/chief-information-officer/products/gartner-for-technical-professionals)重新设计技术岗位。 |
+| 4. 大规模提升员工面向 AI 的准备度 | 有针对性地提升员工技能，使其掌握关键生成式 AI 技能，同时让管理者做好领导 AI 驱动型员工队伍的准备。 | 通过 [Digital Execution Scorecard](https://www.gartner.com/en/chief-information-officer/research/digital-execution-scorecard)确定投资优先级；借助 [Executive Partner](https://www.gartner.com/en/products/executive-programs)推动利益相关方对齐；利用 [IT 预算与效率标杆](https://www.gartner.com/en/information-technology/research/it-budget-and-efficiency-benchmark)确定资金优先级。 |
+| 5. 提升人机协作员工队伍的敏捷性 | 更新员工价值主张（EVP），形成持续学习文化，提高组织应对 AI 引发变化的韧性。 | 通过 [Gartner ROI/价值框架](https://www.gartner.com/en/articles/ai-value-metrics)衡量生产力提升；利用 [IT 预算与效率标杆](https://www.gartner.com/en/information-technology/research/it-budget-and-efficiency-benchmark)跟踪人才优化；通过 [CIO Agenda](https://www.gartner.com/en/chief-information-officer/insights/cio-agenda)评估员工队伍的持续变化趋势。 |
+
+如需进一步了解 Gartner Executive Partner 如何帮助你实现目标，可[联系 Gartner 专家](https://www.gartner.com/en/chief-information-officer/trends/cio-executive-partner-bac)。
+
+## 关键领导角色 4
+
+### 组织团队、增强员工韧性并提升人才技能所需的关键领导者及行动
+
+| 领导群体 | 角色 | 必要行动 | Gartner 资源和工具 |
+| --- | --- | --- | --- |
+| IT 领导层 | CIO、IT 负责人 | 通过制定技术和数字人才战略，使 AI 抱负与投资保持一致。 | 网络研讨会：[决定 AI 成功的是员工准备度，而非技术](https://www.gartner.com/en/webinar/808364/1810809-why-workforce-readiness-not-technology-determines-ai-success)；网络研讨会：[如何打造跟得上 AI 的员工队伍](https://webinar.gartner.com/864098/agenda/session/1872461?login=ML)；线上简报：[AI 与数据分析领导者如何从 AI 中创造价值](https://www.gartner.com/en/webinar/804349/1803285-virtual-briefing-how-ai-and-da-leaders-can-get-value-from-ai)；路线图：[以 AI 路线图推动价值](https://www.gartner.com/en/articles/ai-roadmap)。 |
+| 技术专业人员 | 软件工程负责人 | 掌握四项关键生成式 AI 技能：用例识别、技术流利度、有效提示和输出判断。 | 网络研讨会：[面向 AI 的核心系统现代化：CIO 4 阶段路线图](https://www.gartner.com/en/webinar/836020/1845120-modernizing-core-systems-for-ai-a-cios-4stage-roadmap)；网络研讨会：[现代应用的外部化授权架构](https://www.gartner.com/en/webinar/902774/1907659-architecting-externalized-authorization-for-modern-applications)；线上简报：[技术专业人员如何评估 AI 智能体、用例、平台和风险](https://www.gartner.com/en/webinar/806180/1807340-tech-professionals-assess-ai-agents-use-cases-platforms-and-risks)；电子书：[领导力协同：软件与数据分析领导者如何推动 AI 创新](https://www.gartner.com/en/software-engineering/role/ai-innovation-leadership)。 |
+| IT 管理层 | IT 运营负责人、基础设施负责人 | 领导 AI 驱动型员工队伍；激励技术员工，并增强其应对 AI 引发变化的韧性。 | 网络研讨会：[2026 基础设施与运营技术采用路线图](https://www.gartner.com/en/webinar/818160/1824120-2026-technology-adoption-roadmap-for-infrastructure-and-operations)；网络研讨会：[释放被困住的 AI ROI：以组织变革创造价值](https://www.gartner.com/en/webinar/814044/1819485-value-is-trapped-unlocking-ai-roi-through-organizational-change)；线上简报：[在软件开发生命周期中有效运用 AI](https://www.gartner.com/en/webinar/835366/1844236-virtual-briefing-effectively-leverage-ai-in-the-software-development-life-cycle)；工具：[Gartner IT Score for CIOs](https://www.gartner.com/en/information-technology/research/gartner-it-score-for-cios)。 |
+| 人力资源 | CHRO | 就人才战略直接与 CIO 协作；更新 IT 员工价值主张，以吸引顶尖人才。 | 网络研讨会：[CHRO 战略利益相关方管理指南](https://www.gartner.com/en/webinar/814049/1819497-the-chros-guide-to-strategic-stakeholder-management)；网络研讨会：[决定 AI 成功的是员工准备度，而非技术](https://www.gartner.com/en/webinar/808364/1810809-why-workforce-readiness-not-technology-determines-ai-success)；线上简报：[CHRO 在领导企业 AI 转型中的角色](https://www.gartner.com/en/webinar/811212/1814912-virtual-briefing-chros-role-in-leading-enterprise-ai-transformation)；电子书：[人力资源中的 AI：CHRO 在 AI 转型中的角色](https://www.gartner.com/en/articles/ai-in-hr)。 |
+| 供应商管理 | 采购负责人、供应商经理 | 选择现代化合作伙伴；管理合同和 SLA。 | 网络研讨会：[CPO 与 CIO 如何成功协作](https://www.gartner.com/en/webinar/894905/1900189-how-cpos-and-cios-can-partner-for-success)；网络研讨会：[采购走向 AI 优先的步骤](https://www.gartner.com/en/webinar/835306/1844172-steps-for-procurement-to-become-aifirst)；线上简报：[采购转型：CPO 实现 AI 价值的路线图](https://www.gartner.com/en/webinar/865557/1873857-virtual-briefing-procurement-transformation-a-cpos-roadmap-to-ai-value)；工具：[Gartner BuySmart](https://www.gartner.com/en/products/buysmart)。 |
+
+## 为 CIO 及其团队提供可信洞察
+
+AI 正在重塑 CIO 创造价值的方式，网络安全威胁持续增加，成本压力则对未来投资构成挑战。每一项决策都比以往更为重要，因此可信洞察不可或缺。
+
+Gartner 在全球拥有 **2,400+ 名分析师**，汇集 **11,000+ 名 CIO 会员**和 **14,000+ 家客户企业**的洞察，围绕当前优先事项、挑战和最佳实践，为 CIO 提供无可比拟、能够直接用于行动的决策情报，帮助他们更有把握地验证决策。
+
+Gartner 帮助 CIO 更快作出以下决策：
+
+- **推动增长：** 通过技术投资，将 IT 定位为组织的战略增长引擎。
+- **降低风险：** 预判市场变化、抢先应对威胁、避免战略陷阱，并挑战既有思维。
+- **降低成本：** 提高效率，更好地评估技术采购，并争取更有利的交易条件。
+
+[进一步了解 Gartner for CIOs](https://www.gartner.com/en/chief-information-officer/products/gartner-for-cios)。
+
+## 参加 Gartner 大会，推进 IT 战略
+
+CIO 必须扩大自身影响力，超越 IT 职能，与其他 C 级高管合作，加快数字业务模式落地、为未来工作方式提供支持并推动业务增长。
+
+参加 Gartner CIO 大会，可以获取世界一流洞察，帮助 CIO 解决最关键的任务和优先事项。
+
+- Gartner 根据每年 **510,000+** 次客户互动积累的洞察设计会议议程。
+- **2,400+** 名专注于业务与技术洞察的分析师提供专属指导和一对一现场咨询。
+- 每年有 **60,000+** 名业务与技术洞察专业人士参会。
+- **1,000+** 家解决方案提供商代表技术前沿。
+
+**不要错过**
+
+[立即查看 Gartner 大会日历，找到适合你的会议。](https://www.gartner.com/en/conferences/hub/cio-conferences)
+
+**拓展你的 CIO 人脉网络。**
+
+## 可执行、客观的洞察
+
+面向 CIO 的其他免费资源和工具包括：
+
+- **线上简报 - IT 2030：CIO 应如何为 AI 时代重塑 IT。** 确定 IT 组织未来的“北极星”目标。[立即观看](https://www.gartner.com/en/webinar/888336/1894619-virtual-briefing-it-2030-how-cios-should-reinvent-it-for-the-ai-age)。
+- **网页 - 探索 Gartner AI Hub。** 了解 Gartner 为何是全球 AI 领域的权威机构。[进一步了解](https://www.gartner.com/en/ai)。
+- **工具 - AskGartner。** 使用 AI 驱动的工具获取可信的 Gartner 洞察。[进一步了解](https://www.gartner.com/en/products/ask-gartner)。
+- **工具 - Accelerators。** 帮助 CIO 按步骤加快实现组织优先事项。[开始使用](https://www.gartner.com/en/chief-information-officer/research/accelerators-for-cios)。
+
+已经是 Gartner 客户？可登录[客户门户](http://gartner.com/account/signin)，获取更多资源。
+
+## 联系 Gartner
+
+获取可执行、客观的业务和技术洞察，围绕最关键的任务和优先事项作出更明智的决策，取得更好的绩效。
+
+- [成为 Gartner 客户](https://www.gartner.com/en/chief-information-officer/trends/cio-executive-partner-bac)
+- 美国：1 855 322 5484
+- 国际：+44 (0) 3300 296 946
+- 进一步了解：[Gartner for CIOs](https://www.gartner.com/en/chief-information-officer/products/gartner-for-cios)
+- 保持联系：[LinkedIn](https://www.linkedin.com/showcase/gartner-for-it-leaders/)、[X](https://x.com/Gartner_inc)、[YouTube](https://www.youtube.com/channel/UCSNX50LYGXWV_e5UWZGPGbw)
+- 参加 Gartner 大会：[查看大会](https://www.gartner.com/en/conferences/hub/cio-conferences)
+
+© 2026 Gartner, Inc. 及其关联公司。保留所有权利。GTS_5114400
+
+## 官方来源
+
+- [Gartner for CIOs](https://www.gartner.com/en/chief-information-officer/products/gartner-for-cios)
+- 本地归档：`work/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report`
