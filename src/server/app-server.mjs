@@ -1,5 +1,5 @@
 import { createReadStream } from 'node:fs';
-import { readFile, stat } from 'node:fs/promises';
+import { lstat, readFile, stat } from 'node:fs/promises';
 import { createServer } from 'node:http';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -48,10 +48,22 @@ function safePath(root, relative) {
   return resolved;
 }
 
-async function serveFile(res, root, relative, { directoryIndex = true, headers = {} } = {}) {
+async function pathContainsSymlink(root, target) {
+  const resolvedRoot = path.resolve(root);
+  const relative = path.relative(resolvedRoot, target);
+  let current = resolvedRoot;
+  for (const part of relative.split(path.sep).filter(Boolean)) {
+    current = path.join(current, part);
+    if ((await lstat(current)).isSymbolicLink()) return true;
+  }
+  return false;
+}
+
+async function serveFile(res, root, relative, { directoryIndex = true, headers = {}, rejectSymlinks = false } = {}) {
   let target = safePath(root, relative);
   if (!target) return json(res, 403, { error: 'Forbidden path' });
   try {
+    if (rejectSymlinks && await pathContainsSymlink(root, target)) return json(res, 403, { error: 'Forbidden path' });
     let info = await stat(target);
     if (info.isDirectory()) {
       if (!directoryIndex) return json(res, 403, { error: 'Forbidden path' });
@@ -70,6 +82,8 @@ async function serveFile(res, root, relative, { directoryIndex = true, headers =
 function requestPathname(requestTarget) {
   const absolute = requestTarget.match(/^[a-z][a-z\d+.-]*:\/\/[^/?#]*(\/[^?#]*)?/i);
   if (absolute) return absolute[1] || '/';
+  const network = requestTarget.match(/^\/\/[^/?#]*(\/[^?#]*)?/);
+  if (network) return network[1] || '/';
   return requestTarget.split('?', 1)[0];
 }
 
@@ -114,12 +128,12 @@ export function createAppServer({
   return createServer(async (req, res) => {
     try {
       const rawPathname = requestPathname(req.url);
-      if (req.method === 'GET' && isArchivePath(rawPathname)) {
+      const url = new URL(req.url, 'http://127.0.0.1');
+      if (req.method === 'GET' && (isArchivePath(rawPathname) || isArchivePath(url.pathname))) {
         const relative = decodeArchivePath(rawPathname);
         if (!relative) return json(res, 403, { error: 'Forbidden path' });
-        return serveFile(res, archiveRoot, relative, { directoryIndex: false, headers: archiveHeaders(relative) });
+        return serveFile(res, archiveRoot, relative, { directoryIndex: false, headers: archiveHeaders(relative), rejectSymlinks: true });
       }
-      const url = new URL(req.url, 'http://127.0.0.1');
       if (req.method === 'GET' && url.pathname === '/api/health') {
         return json(res, 200, {
           status: 'ok',

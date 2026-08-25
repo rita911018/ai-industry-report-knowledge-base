@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { once } from 'node:events';
-import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdtemp, mkdir, readFile, rm, symlink, writeFile } from 'node:fs/promises';
 import { get } from 'node:http';
 import os from 'node:os';
 import path from 'node:path';
@@ -36,8 +36,9 @@ async function requestRaw(base, requestPath) {
 async function withStaticServer(run) {
   const root = await mkdtemp(path.join(os.tmpdir(), 'ai-radar-static-'));
   const webRoot = path.join(root, 'web');
-  const archiveRoot = root;
+  const archiveRoot = path.join(root, 'archive');
   const articleRoot = path.join(archiveRoot, 'Radar 2026', 'articles', '001-report');
+  const outsideArchive = path.join(root, 'outside-archive.html');
   const webArchiveArticleRoot = path.join(webRoot, 'archive', 'Radar 2026', 'articles', '001-report');
   await mkdir(path.join(webRoot, 'radars'), { recursive: true });
   await mkdir(webArchiveArticleRoot, { recursive: true });
@@ -45,9 +46,12 @@ async function withStaticServer(run) {
   await mkdir(path.join(articleRoot, 'nested'), { recursive: true });
   await mkdir(path.join(archiveRoot, '.hidden-radar', 'articles', '001-report'), { recursive: true });
   await mkdir(path.join(archiveRoot, 'Radar 2026', 'articles', '.hidden-article'), { recursive: true });
+  await mkdir(path.join(archiveRoot, 'Radar 2026', 'articles', '002-outside-symlink'), { recursive: true });
+  await mkdir(path.join(archiveRoot, 'Radar 2026', 'articles', '003-inside-symlink'), { recursive: true });
   await writeFile(path.join(webRoot, 'index.html'), '<!doctype html><h1>知识库</h1>');
   await writeFile(path.join(webRoot, 'radars', 'index.html'), '<!doctype html><h1>选择领域</h1>');
   await writeFile(path.join(webArchiveArticleRoot, '中文全文.html'), '<h1>web-root archive bypass marker</h1>');
+  await writeFile(outsideArchive, '<h1>outside archive symlink marker</h1>');
   await writeFile(path.join(root, 'secret.txt'), 'protected');
   await writeFile(path.join(archiveRoot, 'AI行业报告知识库', '.env.local'), 'LLM_API_KEY=must-not-leak');
   await writeFile(path.join(articleRoot, '中文全文.html'), '<!doctype html><h1>中文全文</h1>');
@@ -62,6 +66,8 @@ async function withStaticServer(run) {
   await writeFile(path.join(articleRoot, 'nested', '中文全文.html'), '<h1>nested must not be served</h1>');
   await writeFile(path.join(archiveRoot, '.hidden-radar', 'articles', '001-report', '中文全文.html'), 'hidden radar');
   await writeFile(path.join(archiveRoot, 'Radar 2026', 'articles', '.hidden-article', '中文全文.html'), 'hidden article');
+  await symlink(outsideArchive, path.join(archiveRoot, 'Radar 2026', 'articles', '002-outside-symlink', '中文全文.html'));
+  await symlink(path.join(articleRoot, '中文全文.html'), path.join(archiveRoot, 'Radar 2026', 'articles', '003-inside-symlink', '中文全文.html'));
 
   const server = createAppServer({ corpus: [], webRoot, archiveRoot });
   server.listen(0, '127.0.0.1');
@@ -113,6 +119,14 @@ test('archive HTML responses are sandboxed, including original page snapshots', 
   }
 }));
 
+test('archive route rejects allowlisted basenames reached through symlinks', async () => withStaticServer(async (base) => {
+  for (const article of ['002-outside-symlink', '003-inside-symlink']) {
+    const response = await requestRaw(base, `/archive/Radar%202026/articles/${article}/%E4%B8%AD%E6%96%87%E5%85%A8%E6%96%87.html`);
+    assert.equal(response.status, 403, article);
+    assert.doesNotMatch(response.body, /outside archive symlink marker|<!doctype html><h1>中文全文/);
+  }
+}));
+
 test('archive route returns 403 without leaking files outside the report asset shape', async () => withStaticServer(async (base) => {
   const forbidden = [
     '/archive/AI%E8%A1%8C%E4%B8%9A%E6%8A%A5%E5%91%8A%E7%9F%A5%E8%AF%86%E5%BA%93/.env.local',
@@ -155,6 +169,32 @@ test('archive route rejects encoded dot, slash, traversal, and malformed escapes
 test('absolute-form archive request targets use the isolated archive route', async () => withStaticServer(async (base) => {
   const authority = new URL(base).host;
   const response = await requestRaw(base, `http://${authority}/archive/Radar%202026/articles/001-report/%E4%B8%AD%E6%96%87%E5%85%A8%E6%96%87.html`);
+  assert.equal(response.status, 200);
+  assert.match(response.body, /中文全文/);
+  assert.doesNotMatch(response.body, /web-root archive bypass marker/);
+  assert.equal(response.headers['content-security-policy'], ARCHIVE_CSP);
+  assert.equal(response.headers['referrer-policy'], 'no-referrer');
+}));
+
+test('normalized archive paths cannot fall through to matching files in the web root', async () => withStaticServer(async (base) => {
+  const archiveAsset = 'archive/Radar%202026/articles/001-report/%E4%B8%AD%E6%96%87%E5%85%A8%E6%96%87.html';
+  const authority = new URL(base).host;
+  const forbidden = [
+    `/x/../${archiveAsset}`,
+    `/x/%2e%2e/${archiveAsset}`,
+    `http://${authority}/x/../${archiveAsset}`,
+    `//example.invalid/x/%2e%2e/${archiveAsset}`,
+  ];
+  for (const requestTarget of forbidden) {
+    const response = await requestRaw(base, requestTarget);
+    assert.equal(response.status, 403, requestTarget);
+    assert.doesNotMatch(response.body, /web-root archive bypass marker/);
+    assert.equal(response.headers['content-security-policy'], undefined, requestTarget);
+  }
+}));
+
+test('network-path archive request targets use the isolated archive route', async () => withStaticServer(async (base) => {
+  const response = await requestRaw(base, '//example.invalid/archive/Radar%202026/articles/001-report/%E4%B8%AD%E6%96%87%E5%85%A8%E6%96%87.html');
   assert.equal(response.status, 200);
   assert.match(response.body, /中文全文/);
   assert.doesNotMatch(response.body, /web-root archive bypass marker/);
