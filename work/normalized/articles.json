@@ -30406,23 +30406,23 @@
     },
     "evidence": [
       {
-        "statementOriginal": "50% of CIOs say IT cannot keep pace with business needs, while 85% plan to implement AI-enabled services within the next three years.",
-        "statementZh": "50% 的 CIO 表示 IT 无法跟上业务需求变化；85% 计划在未来三年内实施 AI 支持的服务。",
+        "statementOriginal": "50% of CIOs agree that their IT function can't keep up with the pace of change; 85% of IT leaders report that they plan to deliver AI-enabled business services in the next three years.",
+        "statementZh": "50% 的 CIO 认为，其 IT 职能跟不上变化速度；85% 的 IT 领导者表示，计划在未来三年内交付由 AI 赋能的业务服务。",
         "locator": "PDF pages 3–6"
       },
       {
-        "statementOriginal": "Only 24% of CIOs report highly effective flexible operating models; by 2028, 50% of enterprises will fail to realize AI value because of outdated operating models.",
-        "statementZh": "仅 24% 的 CIO 认为其灵活运营模式高度有效；到 2028 年，50% 的企业将因运营模式过时而无法实现 AI 价值。",
+        "statementOriginal": "24% of CIOs report that they have been highly effective at establishing IT operating models that flex and change with business needs; 50% of enterprises by 2028 will fail to realize measurable business value from AI due to outdated IT operating models.",
+        "statementZh": "24% 的 CIO 表示，自己在建立能够随业务需求灵活变化的 IT 运营模式方面成效显著；到 2028 年，50% 的企业将因 IT 运营模式过时，无法从 AI 中获得可量化的业务价值。",
         "locator": "PDF pages 7–10"
       },
       {
-        "statementOriginal": "Organizations can achieve up to 30% cost reduction by 2028; by 2029, 90% of modernization projects will use AI-augmented tools, up from less than 20% in 2026.",
-        "statementZh": "到 2028 年，组织可实现最高 30% 的成本降低；到 2029 年，90% 的现代化项目将使用 AI 增强工具，高于 2026 年的不足 20%。",
+        "statementOriginal": "A 30% reduction in application modernization costs is expected by 2028, driven by GenAI; 90% of software modernization projects will use AI-augmented tools by 2029, up from less than 20% in 2026.",
+        "statementZh": "在生成式 AI 推动下，预计到 2028 年，应用现代化成本将降低 30%；到 2029 年，90% 的软件现代化项目将使用 AI 增强工具；2026 年这一比例还不到 20%。",
         "locator": "PDF pages 11–14"
       },
       {
-        "statementOriginal": "51% cite the AI skills gap as the primary challenge, 56% plan to augment rather than replace employees, and 40% have a strategy to address skills atrophy.",
-        "statementZh": "51% 将 AI 技能差距视为首要挑战，56% 计划用 AI 增强而非取代员工，40% 已制定应对技能退化的战略。",
+        "statementOriginal": "51% of CIOs view the gap between evolving AI skill requirements and available talent as their primary challenge; 56% of enterprises are focusing on augmenting, not replacing, employees; 40% of enterprises have a strategy in place to prevent employee skills atrophy.",
+        "statementZh": "51% 的 CIO 将不断变化的 AI 技能需求与现有人才之间的差距视为首要挑战；56% 的企业着眼于增强员工能力，而不是用 AI 取代员工；40% 的企业已制定防止员工技能退化的策略。",
         "locator": "PDF pages 15–18"
       }
     ],

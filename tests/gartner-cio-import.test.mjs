@@ -34,6 +34,28 @@ const expectedLocalPaths = {
   metadata: '/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report/metadata.json',
   pdf: '/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report/原始报告.pdf',
 };
+const expectedEvidence = [
+  {
+    statementOriginal: "50% of CIOs agree that their IT function can't keep up with the pace of change; 85% of IT leaders report that they plan to deliver AI-enabled business services in the next three years.",
+    statementZh: '50% 的 CIO 认为，其 IT 职能跟不上变化速度；85% 的 IT 领导者表示，计划在未来三年内交付由 AI 赋能的业务服务。',
+    locator: 'PDF pages 3–6',
+  },
+  {
+    statementOriginal: '24% of CIOs report that they have been highly effective at establishing IT operating models that flex and change with business needs; 50% of enterprises by 2028 will fail to realize measurable business value from AI due to outdated IT operating models.',
+    statementZh: '24% 的 CIO 表示，自己在建立能够随业务需求灵活变化的 IT 运营模式方面成效显著；到 2028 年，50% 的企业将因 IT 运营模式过时，无法从 AI 中获得可量化的业务价值。',
+    locator: 'PDF pages 7–10',
+  },
+  {
+    statementOriginal: 'A 30% reduction in application modernization costs is expected by 2028, driven by GenAI; 90% of software modernization projects will use AI-augmented tools by 2029, up from less than 20% in 2026.',
+    statementZh: '在生成式 AI 推动下，预计到 2028 年，应用现代化成本将降低 30%；到 2029 年，90% 的软件现代化项目将使用 AI 增强工具；2026 年这一比例还不到 20%。',
+    locator: 'PDF pages 11–14',
+  },
+  {
+    statementOriginal: '51% of CIOs view the gap between evolving AI skill requirements and available talent as their primary challenge; 56% of enterprises are focusing on augmenting, not replacing, employees; 40% of enterprises have a strategy in place to prevent employee skills atrophy.',
+    statementZh: '51% 的 CIO 将不断变化的 AI 技能需求与现有人才之间的差距视为首要挑战；56% 的企业着眼于增强员工能力，而不是用 AI 取代员工；40% 的企业已制定防止员工技能退化的策略。',
+    locator: 'PDF pages 15–18',
+  },
+];
 
 async function sha256(filePath) {
   return createHash('sha256').update(await readFile(filePath)).digest('hex');
@@ -68,6 +90,37 @@ function section(markdown, heading, nextHeading) {
   assert.notEqual(start, -1, `missing section ${heading}`);
   const end = nextHeading ? markdown.indexOf(nextHeading, start + heading.length) : markdown.length;
   return markdown.slice(start, end === -1 ? markdown.length : end);
+}
+
+function parseSimpleFrontmatter(markdown) {
+  assert.ok(markdown.startsWith('---\n'), 'Obsidian note must begin with YAML frontmatter');
+  const closingDelimiter = markdown.indexOf('\n---\n', 4);
+  assert.notEqual(closingDelimiter, -1, 'Obsidian YAML frontmatter must have a closing delimiter');
+  const block = markdown.slice(4, closingDelimiter);
+  const data = {};
+  let listKey = null;
+  for (const line of block.split('\n')) {
+    const listItem = line.match(/^  - (.+)$/);
+    if (listItem) {
+      assert.ok(listKey, `YAML list item has no parent: ${line}`);
+      data[listKey].push(listItem[1]);
+      continue;
+    }
+    const field = line.match(/^([a-z_]+):(?: (.*))?$/);
+    assert.ok(field, `Unsupported YAML frontmatter line: ${line}`);
+    const [, key, rawValue = ''] = field;
+    assert.equal(Object.hasOwn(data, key), false, `Duplicate YAML frontmatter key: ${key}`);
+    if (!rawValue) {
+      data[key] = [];
+      listKey = key;
+    } else {
+      data[key] = /^".*"$/.test(rawValue)
+        ? JSON.parse(rawValue)
+        : /^\d+$/.test(rawValue) ? Number(rawValue) : rawValue;
+      listKey = null;
+    }
+  }
+  return { block, data };
 }
 
 function assertActionPlanDetails(markdown, label, plans) {
@@ -287,36 +340,7 @@ test('adds the Gartner report as the canonical 470th knowledge-library record', 
     original: null,
     zh: 'Gartner 将 2026 年下半年 CIO 议程归纳为四项相互关联的任务：以 AI、云和边缘计算重构企业架构，增强 IT 运营韧性，分阶段现代化遗留系统，并建立可持续的人机协作与技能提升机制。',
   });
-  assert.equal(article.evidence.length, 4);
-  const evidenceText = (item) => `${item.statementOriginal}\n${item.statementZh}`;
-  const [architecture, resilience, modernization, humanAi] = article.evidence;
-  assert.equal(architecture.locator, 'PDF pages 3–6');
-  assert.match(evidenceText(architecture), /50%/);
-  assert.match(evidenceText(architecture), /85%/);
-  assert.match(evidenceText(architecture), /cannot keep pace/i);
-  assert.match(evidenceText(architecture), /next three years/i);
-
-  assert.equal(resilience.locator, 'PDF pages 7–10');
-  assert.match(evidenceText(resilience), /24%/);
-  assert.match(evidenceText(resilience), /50%/);
-  assert.match(evidenceText(resilience), /2028/);
-  assert.match(evidenceText(resilience), /outdated operating models/i);
-
-  assert.equal(modernization.locator, 'PDF pages 11–14');
-  assert.match(evidenceText(modernization), /30%/);
-  assert.match(evidenceText(modernization), /2028/);
-  assert.match(evidenceText(modernization), /90%/);
-  assert.match(evidenceText(modernization), /2029/);
-  assert.match(evidenceText(modernization), /less than 20% in 2026/i);
-  assert.match(evidenceText(modernization), /AI-augmented tools/i);
-
-  assert.equal(humanAi.locator, 'PDF pages 15–18');
-  assert.match(evidenceText(humanAi), /51%/);
-  assert.match(evidenceText(humanAi), /56%/);
-  assert.match(evidenceText(humanAi), /40%/);
-  assert.match(evidenceText(humanAi), /skills gap/i);
-  assert.match(evidenceText(humanAi), /augment rather than replace/i);
-  assert.match(evidenceText(humanAi), /skills atrophy/i);
+  assert.deepEqual(article.evidence, expectedEvidence);
   assert.ok(article.impactZh?.length > 20);
   assert.ok(article.implicationZh?.length > 20);
   assert.deepEqual(article.provenance, {
@@ -359,6 +383,7 @@ test('builds the Gartner corpus contract without a pre-generated corpus file', a
   assert.equal(corpusMatches.length, 1);
   assert.ok(corpusMatches[0].chunks.length > 0);
   assert.deepEqual(corpusMatches[0].localPaths, expectedLocalPaths);
+  assert.deepEqual(corpusMatches[0].evidence, expectedEvidence);
 
   const browserScript = await readFile(path.join(repoRoot, 'web/data/articles.js'), 'utf8');
   const browserArticles = JSON.parse(browserScript.replace(/^window\.ARTICLE_INDEX = /, '').replace(/;\s*$/, ''));
@@ -374,20 +399,22 @@ test('stages the complete Gartner report for an idempotent Obsidian import', asy
   const archivedChinese = await readFile(files.chinese, 'utf8');
 
   assert.equal(await sha256(obsidianPdf), expectedPdfSha256, 'staged PDF must match the archived report');
-  assert.ok(note.startsWith('---\n'), 'Obsidian note must begin with YAML frontmatter');
-  for (const field of [
-    'publisher: Gartner',
-    'title_original: "2H26 The CIO Report"',
-    'published: 2026-08-15',
-    'priority: must-read',
-    'score: 92',
-    'source_url: https://www.gartner.com/en/chief-information-officer/products/gartner-for-cios',
-    'local_archive: "work/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report"',
-    'imported: 2026-08-25',
-  ]) assert.ok(note.includes(field), `Obsidian YAML missing: ${field}`);
-  for (const topic of ['技术、数据与架构', 'AI 战略与价值', '组织、人才与工作', '治理、风险与安全']) {
-    assert.match(note, new RegExp(`^  - ${topic}$`, 'm'), `Obsidian topics missing: ${topic}`);
-  }
+  const frontmatter = parseSimpleFrontmatter(note);
+  assert.deepEqual(frontmatter.data, {
+    title: 'Gartner 2026 下半年 CIO 报告',
+    publisher: 'Gartner',
+    title_original: '2H26 The CIO Report',
+    published: '2026-08-15',
+    priority: 'must-read',
+    score: 92,
+    topics: ['技术、数据与架构', 'AI 战略与价值', '组织、人才与工作', '治理、风险与安全'],
+    source_url: officialUrl,
+    local_archive: 'work/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report',
+    imported: '2026-08-25',
+  });
+  assert.equal(typeof frontmatter.data.score, 'number');
+  assert.equal(typeof frontmatter.data.published, 'string');
+  assert.equal(typeof frontmatter.data.imported, 'string');
 
   for (const heading of ['## 核心导读', '## 四个 CIO 问题', '## 关键数据', '## 完整中文全文', '## 官方来源']) {
     assert.ok(note.includes(heading), `Obsidian note missing: ${heading}`);
@@ -399,12 +426,9 @@ test('stages the complete Gartner report for an idempotent Obsidian import', asy
     '如何组织人机协作团队、增强员工韧性并提升人才技能，同时不影响运营？',
   ]) assert.ok(note.includes(question), `Obsidian note missing question: ${question}`);
   const keyData = section(note, '## 关键数据', '## 完整中文全文');
-  for (const evidence of [
-    '50% 的 CIO 表示 IT 无法跟上业务需求变化；85% 计划在未来三年内实施 AI 支持的服务。',
-    '仅 24% 的 CIO 认为其灵活运营模式高度有效；到 2028 年，50% 的企业将因运营模式过时而无法实现 AI 价值。',
-    '到 2028 年，组织可实现最高 30% 的成本降低；到 2029 年，90% 的现代化项目将使用 AI 增强工具，高于 2026 年的不足 20%。',
-    '51% 将 AI 技能差距视为首要挑战，56% 计划用 AI 增强而非取代员工，40% 已制定应对技能退化的战略。',
-  ]) assert.ok(keyData.includes(evidence), `Obsidian key-data summary missing canonical evidence: ${evidence}`);
+  for (const evidence of expectedEvidence) {
+    assert.ok(keyData.includes(evidence.statementZh), `Obsidian key-data summary missing source-faithful evidence: ${evidence.statementZh}`);
+  }
   assert.equal((keyData.match(/^- /gm) || []).length, 4, 'key-data summary must contain exactly four canonical evidence groups');
   assert.doesNotMatch(keyData, /73%|70%|48%/, 'key-data summary must not add noncanonical percentages');
   assert.ok(note.includes(archivedChinese), 'Obsidian note must contain the verified Chinese archive verbatim');
