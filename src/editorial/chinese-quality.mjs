@@ -918,7 +918,44 @@ function locatedNumbers(markdown, lineMap) {
 
 const CURRENCY_TOKEN_SOURCE = String.raw`(?:US\$|HK\$|A\$|C\$|S\$|USD|HKD|AUD|CAD|SGD|EUR|GBP|CNY|RMB|[$€£¥]|(?:US\s+)?dollars?|Hong\s+Kong\s+dollars?|Australian\s+dollars?|Canadian\s+dollars?|Singapore\s+dollars?|euros?|pounds?|yuan|美元|港元|港币|澳元|加元|新加坡元|新元|欧元|英镑|人民币|元)`;
 const SCALE_SOURCE = String.raw`(?:thousand|million|billion|trillion|万亿|十亿|百万|千|万)`;
-const UNIT_SOURCE = String.raw`(?:basis\s+points?|bps|个?基点|kilomet(?:er|re)s?|km|公里|千米|kilograms?|kg|公斤|gigabytes?|GB|megabytes?|MB|terabytes?|TB|kilowatts?|kW|千瓦|megawatts?|MW|兆瓦|gigawatts?|GW|吉瓦|watt[ -]?hours?|Wh|瓦时|kilowatt[ -]?hours?|kWh|千瓦时|megawatt[ -]?hours?|MWh|兆瓦时|gigawatt[ -]?hours?|GWh|吉瓦时|metric\s+tonnes?|tonnes?|tons?|公吨|吨|tokens?|令牌|词元|seconds?|secs?|秒|months?|个月|月|°C|°F)`;
+const UNIT_DEFINITIONS = [
+  { key: 'unit:km', english: [String.raw`kilomet(?:er|re)s?`, 'km'], local: ['公里', '千米'] },
+  { key: 'unit:kg', english: [String.raw`kilograms?`, 'kg'], local: ['公斤'] },
+  { key: 'unit:GB', english: [String.raw`gigabytes?`, 'GB'] },
+  { key: 'unit:MB', english: [String.raw`megabytes?`, 'MB'] },
+  { key: 'unit:TB', english: [String.raw`terabytes?`, 'TB'] },
+  { key: 'unit:kWh', english: [String.raw`kilowatt[ -]?hours?`, 'kWh'], local: ['千瓦时'] },
+  { key: 'unit:MWh', english: [String.raw`megawatt[ -]?hours?`, 'MWh'], local: ['兆瓦时'] },
+  { key: 'unit:GWh', english: [String.raw`gigawatt[ -]?hours?`, 'GWh'], local: ['吉瓦时'] },
+  { key: 'unit:Wh', english: [String.raw`watt[ -]?hours?`, 'Wh'], local: ['瓦时'] },
+  { key: 'unit:kW', english: [String.raw`kilowatts?`, 'kW'], local: ['千瓦'] },
+  { key: 'unit:MW', english: [String.raw`megawatts?`, 'MW'], local: ['兆瓦'] },
+  { key: 'unit:GW', english: [String.raw`gigawatts?`, 'GW'], local: ['吉瓦'] },
+  { key: 'unit:tonne', english: [String.raw`metric\s+tonnes?`, String.raw`tonnes?`, String.raw`tons?`], local: ['公吨', '吨'] },
+  { key: 'unit:token', english: [String.raw`tokens?`], local: ['令牌', '词元'] },
+  { key: 'unit:second', english: [String.raw`seconds?`, String.raw`secs?`], local: ['秒'] },
+  { key: 'unit:month', english: [String.raw`months?`], local: ['个月', '月'] },
+  { key: 'unit:basis_point', english: [String.raw`basis\s+points?`, 'bps'], local: ['个基点', '基点'] },
+  { key: 'unit:celsius', local: ['°C'] },
+  { key: 'unit:fahrenheit', local: ['°F'] },
+];
+
+function boundarySafeEnglishSource(alternatives) {
+  const longestFirst = [...alternatives].sort((left, right) => right.length - left.length);
+  return String.raw`(?<![A-Za-z0-9_])(?:${longestFirst.join('|')})(?![-A-Za-z0-9_])`;
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+const ENGLISH_UNIT_SOURCE = boundarySafeEnglishSource(UNIT_DEFINITIONS.flatMap(({ english = [] }) => english));
+const LOCAL_UNIT_SOURCE = UNIT_DEFINITIONS
+  .flatMap(({ local = [] }) => local)
+  .sort((left, right) => right.length - left.length)
+  .map(escapeRegExp)
+  .join('|');
+const UNIT_SOURCE = String.raw`(?:${ENGLISH_UNIT_SOURCE}|${LOCAL_UNIT_SOURCE})`;
 const FACT_QUALIFIER_SOURCE = String.raw`(?:%|‰|percent|per\s+cent|${SCALE_SOURCE}(?:\s*(?:${CURRENCY_TOKEN_SOURCE}|${UNIT_SOURCE}))?|${CURRENCY_TOKEN_SOURCE}|${UNIT_SOURCE})`;
 const CURRENCY_PREFIX = new RegExp(`${CURRENCY_TOKEN_SOURCE}\\s*$`, 'i');
 const FACT_QUALIFIER_SUFFIX = new RegExp(`^\\s*${FACT_QUALIFIER_SOURCE}`, 'i');
@@ -952,29 +989,11 @@ function canonicalFactQualifier(value) {
   const currency = currencies.find(([pattern]) => pattern.test(normalized));
   if (currency) parts.push(currency[1]);
 
-  const units = [
-    [/(?:kilomet(?:er|re)s?|\bkm\b|公里|千米)/, 'unit:km'],
-    [/(?:kilograms?|\bkg\b)/, 'unit:kg'],
-    [/(?:gigabytes?|\bgb\b)/, 'unit:GB'],
-    [/(?:megabytes?|\bmb\b)/, 'unit:MB'],
-    [/(?:terabytes?|\btb\b)/, 'unit:TB'],
-    [/(?:kilowatt[ -]?hours?|\bkwh\b|千瓦时)/, 'unit:kWh'],
-    [/(?:megawatt[ -]?hours?|\bmwh\b|兆瓦时)/, 'unit:MWh'],
-    [/(?:gigawatt[ -]?hours?|\bgwh\b|吉瓦时)/, 'unit:GWh'],
-    [/(?:watt[ -]?hours?|\bwh\b|瓦时)/, 'unit:Wh'],
-    [/(?:kilowatts?|\bkw\b|千瓦)/, 'unit:kW'],
-    [/(?:megawatts?|\bmw\b|兆瓦)/, 'unit:MW'],
-    [/(?:gigawatts?|\bgw\b|吉瓦)/, 'unit:GW'],
-    [/(?:metric tonnes?|tonnes?|tons?|公吨|吨)/, 'unit:tonne'],
-    [/(?:tokens?|令牌|词元)/, 'unit:token'],
-    [/(?:seconds?|secs?|秒)/, 'unit:second'],
-    [/(?:months?|个月|月)/, 'unit:month'],
-    [/(?:basis points?|\bbps\b|个?基点)/, 'unit:basis_point'],
-    [/°c/, 'unit:celsius'],
-    [/°f/, 'unit:fahrenheit'],
-  ];
-  const unit = units.find(([pattern]) => pattern.test(normalized));
-  if (unit) parts.push(unit[1]);
+  const unit = UNIT_DEFINITIONS.find(({ english = [], local = [] }) => (
+    (english.length && new RegExp(boundarySafeEnglishSource(english), 'i').test(normalized))
+      || local.some((token) => normalized.includes(token.toLowerCase()))
+  ));
+  if (unit) parts.push(unit.key);
   return parts.join('|');
 }
 
@@ -1002,11 +1021,27 @@ function rangesOverlap(left, right) {
 
 function sharedQualifierAnchors(lines, group) {
   const anchors = [];
-  for (const line of lines) {
+  for (let lineIndex = 0; lineIndex < lines.length; lineIndex += 1) {
+    const line = lines[lineIndex];
+    const tableHeader = lineIndex + 1 < lines.length
+      && isTableDivider(lines[lineIndex + 1].text)
+      && lines.slice(lineIndex + 2).some(({ text }) => /\d/u.test(text));
+    const caption = line.text.match(/^\s*(?:表格?|图(?:表|示)?|figure|fig\.?|chart)\s*\d*\s*[:：.\-]?\s*/iu);
+    const captionHasData = Boolean(caption) && (
+      /\d/u.test(line.text.slice(caption[0].length))
+        || lines.some(({ text }, index) => index !== lineIndex && /\d/u.test(text) && !isTableDivider(text))
+    );
+    if (!tableHeader && !captionHasData) continue;
     const candidates = [];
+    const exactQualifierPattern = new RegExp(
+      `^(?:(?:单位|unit)\\s*[:：]\\s*)?(${FACT_QUALIFIER_SOURCE})$`,
+      'iu',
+    );
     for (const match of line.text.matchAll(/[（(]([^（）()\n]{1,60})[）)]/gu)) {
       if (/\d/u.test(match[1])) continue;
-      candidates.push({ text: match[0], value: match[1], index: match.index });
+      const exactQualifier = match[1].trim().match(exactQualifierPattern);
+      if (!exactQualifier) continue;
+      candidates.push({ text: match[0], value: exactQualifier[1], index: match.index });
     }
     const unitPattern = new RegExp(`(?:单位|unit)\\s*[:：]\\s*(${FACT_QUALIFIER_SOURCE})`, 'giu');
     for (const match of line.text.matchAll(unitPattern)) {

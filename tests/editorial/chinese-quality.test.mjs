@@ -859,6 +859,38 @@ test('fails when expanded business, energy, time, or AI units are removed', () =
   }
 });
 
+test('does not treat longer English words as second or token units', () => {
+  const cases = [
+    ['42 secondary markets', '42 个次级市场'],
+    ['42 second-order effects', '42 个二阶效应'],
+    ['42 tokenization methods', '42 种分词方法'],
+  ];
+
+  for (const [beforeFact, polishedFact] of cases) {
+    const report = verifyPolishedChinese({
+      original: `# Analysis\n\nThe study covered ${beforeFact}.`,
+      before: `# 分析\n\n研究覆盖 ${beforeFact}。`,
+      polished: `# 分析\n\n研究覆盖 ${polishedFact}。`,
+      glossary: {},
+    });
+    assert.equal(report.ok, true, beforeFact);
+    assert.deepEqual(report.issues, [], beforeFact);
+  }
+});
+
+test('recognizes exact singular plural and abbreviated second and token units', () => {
+  for (const qualifier of ['second', 'seconds', 'sec', 'secs', 'token', 'tokens']) {
+    const report = captureCustomFailure({
+      original: `# Fact\n\nThe value was 42 ${qualifier}.`,
+      before: `# 事实\n\n该数值为 42 ${qualifier}。`,
+      polished: '# 事实\n\n该数值为 42。',
+    });
+    assert.ok(report.issues.some(({ code, item }) => (
+      code === 'missing_factual_qualifier' && item === `42 ${qualifier}`
+    )), qualifier);
+  }
+});
+
 test('preserves both scale and unit in composite factual qualifiers', () => {
   const report = captureCustomFailure({
     original: '# Tokens\n\nThe model processed 42 million tokens.',
@@ -891,6 +923,27 @@ test('preserves shared table and figure qualifiers when numeric rows remain', ()
   assert.ok(figureReport.issues.some(({ code, item }) => (
     code === 'missing_factual_qualifier' && item.includes('MW')
   )));
+});
+
+test('does not treat ordinary prose parentheticals as shared factual qualifiers', () => {
+  const report = verifyPolishedChinese({
+    original: '# Update\n\nThe study covered 42 markets and performed well this month (as of this month).',
+    before: '# 更新\n\n研究覆盖 42 个市场，本月表现良好（截至本月）。',
+    polished: '# 更新\n\n研究覆盖 42 个市场，本月表现良好。',
+    glossary: {},
+  });
+
+  assert.equal(report.ok, true);
+  assert.deepEqual(report.issues, []);
+
+  const tableReport = verifyPolishedChinese({
+    original: '# Results\n\n| Metric | Performance (as of this month) |\n| --- | --- |\n| A | 42 |',
+    before: '# 结果\n\n| 指标 | 表现（截至本月） |\n| --- | --- |\n| A | 42 |',
+    polished: '# 结果\n\n| 指标 | 表现 |\n| --- | --- |\n| A | 42 |',
+    glossary: {},
+  });
+  assert.equal(tableReport.ok, true);
+  assert.deepEqual(tableReport.issues, []);
 });
 
 test('distinguishes regional dollar prefixes without matching their dollar substring', () => {
