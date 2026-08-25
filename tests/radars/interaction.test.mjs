@@ -201,16 +201,17 @@ test('HR ranked library keeps 12 matrix points and exposes all 20 scenarios', as
   assert.equal(document.querySelectorAll('.scenario-badge-observe').length, 8);
   assert.equal(document.querySelector('#hr-11 .scenario-badge').textContent, '风险边界');
   assert.equal(document.querySelector('#hr-12 .scenario-badge').textContent, '风险边界');
+  assert.equal(document.querySelector('#hr-15 .company-case-empty').textContent, '暂无公开可核验案例');
   assert.deepEqual([...document.querySelectorAll('[data-scenario-sort]')].map((button) => button.textContent), ['按时间', '按打分']);
   assert.deepEqual(
     [...document.querySelectorAll('.scenario')].map((scenario) => scenario.id),
-    ['hr-01', 'hr-04', 'hr-05', 'hr-13', 'hr-14', 'hr-15', 'hr-16', 'hr-17', 'hr-18', 'hr-19', 'hr-20', 'hr-02', 'hr-03', 'hr-06', 'hr-07', 'hr-08', 'hr-09', 'hr-10', 'hr-11', 'hr-12'],
+    ['hr-01', 'hr-04', 'hr-05', 'hr-13', 'hr-14', 'hr-15', 'hr-16', 'hr-17', 'hr-18', 'hr-19', 'hr-20', 'hr-09', 'hr-07', 'hr-08', 'hr-10', 'hr-11', 'hr-03', 'hr-12', 'hr-02', 'hr-06'],
   );
   assert.ok(document.querySelector('#hr-20'));
 
   const scoreButton = [...document.querySelectorAll('[data-scenario-sort]')].find((button) => button.textContent === '按打分');
   scoreButton.click();
-  assert.deepEqual([...document.querySelectorAll('.scenario')].slice(0, 3).map((scenario) => scenario.id), ['hr-01', 'hr-02', 'hr-03']);
+  assert.deepEqual([...document.querySelectorAll('.scenario')].slice(0, 3).map((scenario) => scenario.id), ['hr-01', 'hr-03', 'hr-02']);
   const payrollFilter = document.querySelector('[data-category-filter="payroll"]');
   payrollFilter.click();
   assert.equal(document.querySelectorAll('.scenario:not([hidden])').length, 3);

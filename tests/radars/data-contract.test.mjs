@@ -159,6 +159,7 @@ test('hr radar satisfies the ranked-library contract', async () => {
   assert.match(attendanceRisk, /必须转交具名 HR 复核/);
 
   const sourceIds = new Set(hr.sources.map((source) => source.id));
+  const sourceById = new Map(hr.sources.map((source) => [source.id, source]));
   for (const scenario of hr.scenarios) {
     assert.match(scenario.title, /^(用 AI|让 AI)/);
     assert.ok(scenario.shortTitle.length >= 4 && scenario.shortTitle.length <= 14, `${scenario.id}.shortTitle`);
@@ -172,6 +173,10 @@ test('hr radar satisfies the ranked-library contract', async () => {
     assert.ok(scenario.scorecard.prerequisite.trim(), `${scenario.id}.scorecard.prerequisite`);
     assert.equal(typeof scenario.scorecard.redLine, 'boolean');
     assert.ok(Array.isArray(scenario.companyCases));
+    assert.ok(
+      scenario.evidenceIds.some((sourceId) => /^\d{4}-\d{2}-\d{2}$/.test(sourceById.get(sourceId)?.publishedAt ?? '')),
+      `${scenario.id} needs at least one dated evidence source`,
+    );
     for (const companyCase of scenario.companyCases) {
       for (const field of ['company', 'summary', 'sourceId', 'caseType', 'caveat', 'market']) assert.ok(companyCase[field]?.trim(), `${scenario.id}.${field}`);
       assert.ok(['中国', '国际'].includes(companyCase.market), `${scenario.id}.${companyCase.company}.market`);
@@ -180,6 +185,53 @@ test('hr radar satisfies the ranked-library contract', async () => {
   }
   const chinaCases = hr.scenarios.flatMap((scenario) => scenario.companyCases).filter((item) => item.market === '中国');
   assert.ok(new Set(chinaCases.map((item) => item.company)).size >= 2, 'hr needs at least two Chinese companies');
+});
+
+test('hr radar records exact publication dates for the core research sources', async () => {
+  const hr = await loadRadarFile(`${radarRoot}/data/hr.js`);
+  assert.equal(hr.updatedAt, '2026-08-26');
+  assert.deepEqual(
+    Object.fromEntries(hr.sources.filter((source) => /^hr-src-(0[1-9]|10)$/.test(source.id)).map((source) => [source.id, source.publishedAt])),
+    {
+      'hr-src-01': '2026-06-03',
+      'hr-src-02': '2026-06-17',
+      'hr-src-03': '2026-02-23',
+      'hr-src-04': '2026-03-05',
+      'hr-src-05': '2026-05-12',
+      'hr-src-06': '2026-05-18',
+      'hr-src-07': '2026-04-22',
+      'hr-src-08': '2026-07-27',
+      'hr-src-09': '2026-07-08',
+      'hr-src-10': '2026-06-17',
+    },
+  );
+  assert.equal(hr.sources.find((source) => source.id === 'hr-src-01')?.title, 'AI at Work: Strategy Matters More Than Tools');
+});
+
+test('hr compliance and relations additions preserve official and method-source provenance', async () => {
+  const hr = await loadRadarFile(`${radarRoot}/data/hr.js`);
+  const expectedSources = [
+    ['hr-src-16', '用人单位职工申报年度缴费工资', '国家税务总局浙江省税务局', 'https://zhejiang.chinatax.gov.cn/art/2025/10/31/art_26351_644153.html', '政府办事指南', '2025-10-31', '仅适用浙江省用人单位年度缴费工资申报；不支持 AI 成效、准确率或自动申报结论。'],
+    ['hr-src-17', '2025住房公积金年度缴存基数申报常见问题解答', '北京住房公积金管理中心', 'https://gjj.beijing.gov.cn/web/zwfw5/1747335/1747336/743669918/', '政府办事指南', '2025-06-20', '仅适用北京 2025–2026 住房公积金年度；不可外推到其他地区，不支持 AI 自动提交。'],
+    ['hr-src-18', 'Making a formal offer — Settlement agreements', 'Acas', 'https://www.acas.org.uk/settlement-agreements/making-a-formal-offer', '专业机构指引', '2026-03-25', '仅适用英国和解协议语境，不能作为中国劳动协议效力依据；未提供 AI 起草准确率。'],
+    ['hr-src-19', '白云区劳动人事争议仲裁申请材料清单', '广州市白云区人力资源和社会保障局', 'https://www.by.gov.cn/gzjg/qrlzyhshbzj/zcgg/cjgg/content/post_10451075.html', '政府仲裁材料指南', '2025-09-17', '仅为广州市白云区地方立案材料要求，不是全国统一规则；不支持 AI 作出证据可采性判断。'],
+    ['hr-src-20', 'How CoCounsel Legal gives litigators back 6 weeks a year', 'Thomson Reuters', 'https://legal.thomsonreuters.com/blog/how-cocounsel-legal-gives-litigators-back-6-weeks-a-year/', '供应商产品方法说明', '2026-05-05', '供应商自述，只支持诉讼材料时间线和文档分析工作流；非劳动争议证据，也无独立准确率，不引用其效率数字。'],
+  ];
+  assert.deepEqual(
+    hr.sources.filter((source) => expectedSources.some(([id]) => id === source.id)).map((source) => [source.id, source.title, source.publisher, source.url, source.evidenceType, source.publishedAt, source.limitation]),
+    expectedSources,
+  );
+
+  const sourceById = new Map(hr.sources.map((source) => [source.id, source]));
+  for (const scenario of hr.scenarios.slice(12)) {
+    assert.ok(
+      scenario.sourceFacts.some((fact) => {
+        const source = sourceById.get(fact.sourceId);
+        return fact.sourceId !== 'hr-src-11' && !/(客户案例|公司案例)/.test(source?.evidenceType ?? '') && fact.locator?.trim();
+      }),
+      `${scenario.id} needs a locatable non-WorkBuddy method or official source`,
+    );
+  }
 });
 
 test('legal radar preserves the attachment scenarios, scores, and sources', async () => {
@@ -350,7 +402,7 @@ test('hr radar preserves the ranked-library boundary scenarios and evidence guar
         feasibility: 3.5,
         dimensions: { businessValue: 20, processFit: 16, readiness: 10, evidence: 7, riskControl: 8 },
         total: 61,
-        evidenceIds: ['hr-src-11', 'hr-case-13'],
+        evidenceIds: ['hr-src-11', 'hr-case-13', 'hr-src-16', 'hr-src-17'],
         companyCaseSourceIds: ['hr-case-13'],
       },
       {
@@ -363,7 +415,7 @@ test('hr radar preserves the ranked-library boundary scenarios and evidence guar
         feasibility: 3,
         dimensions: { businessValue: 18, processFit: 14, readiness: 9, evidence: 6, riskControl: 7 },
         total: 54,
-        evidenceIds: ['hr-src-11', 'hr-case-12'],
+        evidenceIds: ['hr-src-11', 'hr-case-12', 'hr-src-18'],
         companyCaseSourceIds: ['hr-case-12'],
       },
       {
@@ -376,7 +428,7 @@ test('hr radar preserves the ranked-library boundary scenarios and evidence guar
         feasibility: 3,
         dimensions: { businessValue: 20, processFit: 15, readiness: 9, evidence: 7, riskControl: 8 },
         total: 59,
-        evidenceIds: ['hr-src-11', 'hr-case-12'],
+        evidenceIds: ['hr-src-11', 'hr-case-12', 'hr-src-19', 'hr-src-20'],
         companyCaseSourceIds: ['hr-case-12'],
       },
       {
@@ -430,6 +482,11 @@ test('hr radar preserves the ranked-library boundary scenarios and evidence guar
     ['hr-17', 'hr-src-11', '第二个工作流：人员全生命周期管理；第四个工作流：社保公积金业务操作'],
     ['hr-18', 'hr-src-11', '第五个工作流：员工关系处理'],
     ['hr-19', 'hr-src-11', '第五个工作流：员工关系处理'],
+    ['hr-17', 'hr-src-16', '七、申请条件；九、申请材料目录；十一、办理基本流程'],
+    ['hr-17', 'hr-src-17', '三、由谁办理年度缴存基数申报；四、如何办理“年度缴存基数申报”；五、如何合并申报“五险一金”缴存基数'],
+    ['hr-18', 'hr-src-18', 'Putting the agreement in writing; Getting independent advice'],
+    ['hr-19', 'hr-src-19', '白云区劳动人事争议仲裁申请材料清单第 4–5 项；文书填写说明第 2 项'],
+    ['hr-19', 'hr-src-20', 'Timeline creation drops from hours to minutes; Document review accelerates from days to under an hour'],
   ];
   for (const [scenarioId, sourceId, locator] of expectedLocators) {
     const scenario = hr.scenarios.find((item) => item.id === scenarioId);
