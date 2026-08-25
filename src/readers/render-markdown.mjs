@@ -13,29 +13,42 @@ function isSafeHref(href) {
   try { return ['http:', 'https:'].includes(new URL(decoded).protocol); } catch { return false; }
 }
 
-export function renderInline(source) {
-  let value = escapeHtml(source);
+function renderEscapedFormatting(source) {
+  let value = source;
   const tokens = [];
   const preserve = (html) => {
-    const token = `\u0000TOKEN${tokens.length}\u0000`;
+    const token = `\u0000FORMAT${tokens.length}\u0000`;
     tokens.push(html);
     return token;
   };
   value = value.replace(/`([^`\n]+)`/g, (_, code) => {
     return preserve(`<code>${code}</code>`);
   });
-  value = value.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+&quot;[^&]*&quot;)?\)/g, (_, alt) => preserve(`<span class="image-alt">图：${alt}</span>`));
-  value = value.replace(/\[\]\(([^)\s]+)(?:\s+&quot;[^&]*&quot;)?\)/g, '');
-  value = value.replace(/\[([^\]]+)\]\(([^)\s]+)(?:\s+&quot;[^&]*&quot;)?\)/g, (_, label, href) => {
-    if (!isSafeHref(href)) return label;
-    const external = /^https?:/i.test(href);
-    return preserve(`<a href="${href}"${external ? ' target="_blank" rel="noreferrer"' : ''}>${label}</a>`);
-  });
   value = value.replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>');
   value = value.replace(/__([^_\n]+)__/g, '<strong>$1</strong>');
   value = value.replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<em>$2</em>');
   value = value.replace(/(^|[^_])_([^_\n]+)_/g, '$1<em>$2</em>');
-  tokens.forEach((html, index) => { value = value.replace(`\u0000TOKEN${index}\u0000`, html); });
+  tokens.forEach((html, index) => { value = value.replace(`\u0000FORMAT${index}\u0000`, html); });
+  return value;
+}
+
+export function renderInline(source) {
+  let value = escapeHtml(source);
+  const tokens = [];
+  const preserve = (html) => {
+    const token = `\u0000NODE${tokens.length}\u0000`;
+    tokens.push(html);
+    return token;
+  };
+  value = value.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+&quot;[^&]*&quot;)?\)/g, (_, alt) => preserve(`<span class="image-alt">图：${alt}</span>`));
+  value = value.replace(/\[\]\(([^)\s]+)(?:\s+&quot;[^&]*&quot;)?\)/g, '');
+  value = value.replace(/\[([^\[\]]+)\]\(([^)\s]+)(?:\s+&quot;[^&]*&quot;)?\)/g, (_, label, href) => {
+    if (!isSafeHref(href)) return label;
+    const external = /^https?:/i.test(href);
+    return preserve(`<a href="${href}"${external ? ' target="_blank" rel="noreferrer"' : ''}>${renderEscapedFormatting(label)}</a>`);
+  });
+  value = renderEscapedFormatting(value);
+  tokens.forEach((html, index) => { value = value.replace(`\u0000NODE${index}\u0000`, html); });
   return value;
 }
 
@@ -76,7 +89,7 @@ function renderTableCell(cell) {
   return cell.split(/<br\s*\/?\s*>/i).map((part) => renderInline(part)).join('<br>');
 }
 
-function renderTable(lines, start) {
+function renderTable(lines, start, tableNumber) {
   const headers = splitTableRow(lines[start]);
   const rows = [];
   let index = start + 2;
@@ -89,7 +102,7 @@ function renderTable(lines, start) {
   const head = `<thead><tr>${headers.map((cell) => `<th>${renderTableCell(cell)}</th>`).join('')}</tr></thead>`;
   const body = `<tbody>${rows.map((row) => `<tr>${row.map((cell) => `<td>${renderTableCell(cell)}</td>`).join('')}</tr>`).join('')}</tbody>`;
   return {
-    html: `<div class="table-scroll" role="region" aria-label="可横向滚动的数据表" tabindex="0"><table>${head}${body}</table></div>`,
+    html: `<div class="table-scroll" role="region" aria-label="数据表 ${tableNumber}" tabindex="0"><table>${head}${body}</table></div>`,
     nextIndex: index,
   };
 }
@@ -104,12 +117,14 @@ export function renderMarkdown(markdown) {
   const lines = normalized.split('\n');
   const output = [];
   let index = 0;
+  let tableNumber = 0;
   while (index < lines.length) {
     const line = lines[index];
     if (!line.trim()) { index += 1; continue; }
 
     if (isTableStart(lines, index)) {
-      const table = renderTable(lines, index);
+      tableNumber += 1;
+      const table = renderTable(lines, index, tableNumber);
       output.push(table.html);
       index = table.nextIndex;
       continue;

@@ -199,6 +199,10 @@ test('archives the complete Gartner 2H26 CIO report foundation', async () => {
   assert.equal((readerHtml.match(/<table>/g) || []).length, 8, 'Gartner reader must contain eight semantic tables');
   assert.equal((readerHtml.match(/<thead>/g) || []).length, 8);
   assert.equal((readerHtml.match(/<tbody>/g) || []).length, 8);
+  const tableLabels = [...readerHtml.matchAll(/class="table-scroll"[^>]+aria-label="([^"]+)"/g)].map((match) => match[1]);
+  assert.equal(tableLabels.length, 8, 'each Gartner table must have an accessible name');
+  assert.equal(new Set(tableLabels).size, 8, 'Gartner table accessible names must be unique');
+  tableLabels.forEach((label) => assert.ok(label.trim(), 'Gartner table accessible names must be nonempty'));
   assert.doesNotMatch(readerHtml, /<p>\| (?:步骤|领导群体) \|/);
   assert.doesNotMatch(readerHtml, /target="<em>|<em>blank|_blank<\/em>|rel=<em>/);
 

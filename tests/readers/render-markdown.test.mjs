@@ -44,13 +44,29 @@ test('keeps external anchor attributes intact when URLs contain underscores', ()
   assert.doesNotMatch(html, /target="<em>|<em>blank|rel=<em>|_blank<\/em>/);
 });
 
+test('renders formatted link labels safely without parsing nested links', () => {
+  const html = renderMarkdown(`[**加粗链接**](https://example.com/a_b)
+[*强调*](https://example.com/em)
+[\`代码\`](https://example.com/code)
+[<img src=x onerror=alert(1)>](https://example.com/safe)
+[外层 [内层](https://inner.example)](https://outer.example)`);
+
+  assert.match(html, /<a href="https:\/\/example\.com\/a_b" target="_blank" rel="noreferrer"><strong>加粗链接<\/strong><\/a>/);
+  assert.match(html, /<a href="https:\/\/example\.com\/em" target="_blank" rel="noreferrer"><em>强调<\/em><\/a>/);
+  assert.match(html, /<a href="https:\/\/example\.com\/code" target="_blank" rel="noreferrer"><code>代码<\/code><\/a>/);
+  assert.match(html, /<a href="https:\/\/example\.com\/safe" target="_blank" rel="noreferrer">&lt;img src=x onerror=alert\(1\)&gt;<\/a>/);
+  assert.doesNotMatch(html, /<img|href="https:\/\/outer\.example"|<a[^>]*>(?:(?!<\/a>)[\s\S])*<a/);
+  assert.equal((html.match(/href="https:\/\/inner\.example"/g) || []).length, 1);
+  assert.doesNotMatch(html, /target="<em>|<em>blank|rel=<em>|_blank<\/em>/);
+});
+
 test('renders GFM pipe tables as semantic, scrollable and safe HTML', () => {
   const html = renderMarkdown(`| 步骤 | Gartner 支持的行动 |
 | --- | --- |
 | 1. 评估 | [查看工具](https://example.com/a_b_c)<br>- 第一项<br>- 第二项 |
 | 2. 验证 | <img src=x onerror=alert(1)> |`);
 
-  assert.match(html, /^<div class="table-scroll" role="region" aria-label="可横向滚动的数据表" tabindex="0"><table>/);
+  assert.match(html, /^<div class="table-scroll" role="region" aria-label="数据表 1" tabindex="0"><table>/);
   assert.match(html, /<thead><tr><th>步骤<\/th><th>Gartner 支持的行动<\/th><\/tr><\/thead>/);
   assert.match(html, /<tbody><tr><td>1\. 评估<\/td><td><a href="https:\/\/example\.com\/a_b_c" target="_blank" rel="noreferrer">查看工具<\/a><br>- 第一项<br>- 第二项<\/td><\/tr>/);
   assert.match(html, /<tr><td>2\. 验证<\/td><td>&lt;img src=x onerror=alert\(1\)&gt;<\/td><\/tr><\/tbody><\/table><\/div>$/);
