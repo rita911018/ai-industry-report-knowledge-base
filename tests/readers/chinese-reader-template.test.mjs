@@ -16,6 +16,8 @@ test('renders one self-contained editorial reading page', () => {
   assert.match(html, /中文摘要。/);
   assert.match(html, /max-width:\s*760px/);
   assert.match(html, /line-height:\s*1\.9/);
+  assert.match(html, /\.table-scroll\{[^}]*overflow-x:auto/);
+  assert.match(html, /\.article-body table\{[^}]*border-collapse:collapse/);
   assert.match(html, /@media\s*\(max-width:\s*390px\)/);
   assert.match(html, /prefers-reduced-motion:\s*reduce/);
   assert.match(html, /@media\s+print/);

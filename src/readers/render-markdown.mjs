@@ -15,29 +15,87 @@ function isSafeHref(href) {
 
 export function renderInline(source) {
   let value = escapeHtml(source);
-  const codeTokens = [];
-  value = value.replace(/`([^`\n]+)`/g, (_, code) => {
-    const token = `\u0000CODE${codeTokens.length}\u0000`;
-    codeTokens.push(`<code>${code}</code>`);
+  const tokens = [];
+  const preserve = (html) => {
+    const token = `\u0000TOKEN${tokens.length}\u0000`;
+    tokens.push(html);
     return token;
+  };
+  value = value.replace(/`([^`\n]+)`/g, (_, code) => {
+    return preserve(`<code>${code}</code>`);
   });
-  value = value.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+&quot;[^&]*&quot;)?\)/g, (_, alt) => `<span class="image-alt">图：${alt}</span>`);
+  value = value.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+&quot;[^&]*&quot;)?\)/g, (_, alt) => preserve(`<span class="image-alt">图：${alt}</span>`));
   value = value.replace(/\[\]\(([^)\s]+)(?:\s+&quot;[^&]*&quot;)?\)/g, '');
   value = value.replace(/\[([^\]]+)\]\(([^)\s]+)(?:\s+&quot;[^&]*&quot;)?\)/g, (_, label, href) => {
     if (!isSafeHref(href)) return label;
     const external = /^https?:/i.test(href);
-    return `<a href="${href}"${external ? ' target="_blank" rel="noreferrer"' : ''}>${label}</a>`;
+    return preserve(`<a href="${href}"${external ? ' target="_blank" rel="noreferrer"' : ''}>${label}</a>`);
   });
   value = value.replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>');
   value = value.replace(/__([^_\n]+)__/g, '<strong>$1</strong>');
   value = value.replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<em>$2</em>');
   value = value.replace(/(^|[^_])_([^_\n]+)_/g, '$1<em>$2</em>');
-  codeTokens.forEach((html, index) => { value = value.replace(`\u0000CODE${index}\u0000`, html); });
+  tokens.forEach((html, index) => { value = value.replace(`\u0000TOKEN${index}\u0000`, html); });
   return value;
 }
 
+function splitTableRow(line) {
+  let value = line.trim();
+  if (value.startsWith('|')) value = value.slice(1);
+  if (value.endsWith('|') && !value.endsWith('\\|')) value = value.slice(0, -1);
+  const cells = [];
+  let cell = '';
+  for (let index = 0; index < value.length; index += 1) {
+    if (value[index] === '\\' && value[index + 1] === '|') {
+      cell += '|';
+      index += 1;
+    } else if (value[index] === '|') {
+      cells.push(cell.trim());
+      cell = '';
+    } else {
+      cell += value[index];
+    }
+  }
+  cells.push(cell.trim());
+  return cells;
+}
+
+function isTableDelimiter(line) {
+  const cells = splitTableRow(line);
+  return cells.length > 0 && cells.every((cell) => /^:?-{3,}:?$/.test(cell));
+}
+
+function isTableStart(lines, index) {
+  if (index + 1 >= lines.length || !lines[index].includes('|')) return false;
+  const headers = splitTableRow(lines[index]);
+  const delimiters = splitTableRow(lines[index + 1]);
+  return headers.length > 0 && headers.length === delimiters.length && isTableDelimiter(lines[index + 1]);
+}
+
+function renderTableCell(cell) {
+  return cell.split(/<br\s*\/?\s*>/i).map((part) => renderInline(part)).join('<br>');
+}
+
+function renderTable(lines, start) {
+  const headers = splitTableRow(lines[start]);
+  const rows = [];
+  let index = start + 2;
+  while (index < lines.length && lines[index].trim() && lines[index].includes('|')) {
+    const cells = splitTableRow(lines[index]).slice(0, headers.length);
+    while (cells.length < headers.length) cells.push('');
+    rows.push(cells);
+    index += 1;
+  }
+  const head = `<thead><tr>${headers.map((cell) => `<th>${renderTableCell(cell)}</th>`).join('')}</tr></thead>`;
+  const body = `<tbody>${rows.map((row) => `<tr>${row.map((cell) => `<td>${renderTableCell(cell)}</td>`).join('')}</tr>`).join('')}</tbody>`;
+  return {
+    html: `<div class="table-scroll" role="region" aria-label="可横向滚动的数据表" tabindex="0"><table>${head}${body}</table></div>`,
+    nextIndex: index,
+  };
+}
+
 function startsBlock(line) {
-  return /^\s*$/.test(line) || /^#{1,6}\s+/.test(line) || /^```/.test(line) || /^>\s?/.test(line) || /^\s*(?:[-+*]|\d+\.)\s+/.test(line);
+  return /^\s*$/.test(line) || /^#{1,6}\s+/.test(line) || /^```/.test(line) || /^>\s?/.test(line) || /^\s*(?:[-+*]|\d+\.)\s+/.test(line) || /^\s*\|.*\|\s*$/.test(line);
 }
 
 export function renderMarkdown(markdown) {
@@ -49,6 +107,13 @@ export function renderMarkdown(markdown) {
   while (index < lines.length) {
     const line = lines[index];
     if (!line.trim()) { index += 1; continue; }
+
+    if (isTableStart(lines, index)) {
+      const table = renderTable(lines, index);
+      output.push(table.html);
+      index = table.nextIndex;
+      continue;
+    }
 
     const fence = line.match(/^```\s*([\w+-]*)\s*$/);
     if (fence) {

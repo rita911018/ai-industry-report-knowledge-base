@@ -38,6 +38,26 @@ test('keeps local links same-tab and strips unsafe link targets', () => {
   assert.match(html, /坏链接/);
 });
 
+test('keeps external anchor attributes intact when URLs contain underscores', () => {
+  const html = renderMarkdown('[YouTube](https://www.youtube.com/channel/UCSNX50LYGXWV_e5UWZGPGbw)');
+  assert.equal(html, '<p><a href="https://www.youtube.com/channel/UCSNX50LYGXWV_e5UWZGPGbw" target="_blank" rel="noreferrer">YouTube</a></p>');
+  assert.doesNotMatch(html, /target="<em>|<em>blank|rel=<em>|_blank<\/em>/);
+});
+
+test('renders GFM pipe tables as semantic, scrollable and safe HTML', () => {
+  const html = renderMarkdown(`| 步骤 | Gartner 支持的行动 |
+| --- | --- |
+| 1. 评估 | [查看工具](https://example.com/a_b_c)<br>- 第一项<br>- 第二项 |
+| 2. 验证 | <img src=x onerror=alert(1)> |`);
+
+  assert.match(html, /^<div class="table-scroll" role="region" aria-label="可横向滚动的数据表" tabindex="0"><table>/);
+  assert.match(html, /<thead><tr><th>步骤<\/th><th>Gartner 支持的行动<\/th><\/tr><\/thead>/);
+  assert.match(html, /<tbody><tr><td>1\. 评估<\/td><td><a href="https:\/\/example\.com\/a_b_c" target="_blank" rel="noreferrer">查看工具<\/a><br>- 第一项<br>- 第二项<\/td><\/tr>/);
+  assert.match(html, /<tr><td>2\. 验证<\/td><td>&lt;img src=x onerror=alert\(1\)&gt;<\/td><\/tr><\/tbody><\/table><\/div>$/);
+  assert.doesNotMatch(html, /<p>\| 步骤 \|/);
+  assert.equal((html.match(/<br>/g) || []).length, 2);
+});
+
 test('escapes hostile raw HTML and rejects blank input', () => {
   const hostile = renderMarkdown('# 标题\n\n<script>alert(1)</script>\n\n[x](javascript:alert(2))');
   assert.doesNotMatch(hostile, /<script|javascript:/i);
