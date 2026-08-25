@@ -846,6 +846,7 @@ function canonicalFactQualifier(value) {
 function sentenceSegments(text) {
   const segments = [];
   let start = 0;
+  let group = 0;
   for (let index = 0; index < text.length; index += 1) {
     const character = text[index];
     const decimalPoint = character === '.'
@@ -854,10 +855,11 @@ function sentenceSegments(text) {
     const sentenceBoundary = /[。！？!?；;]/u.test(character)
       || (character === '.' && !decimalPoint);
     if (!sentenceBoundary) continue;
-    if (index > start) segments.push({ text: text.slice(start, index), start });
+    if (index > start) segments.push({ text: text.slice(start, index), start, group });
     start = index + 1;
+    if (!/[；;]/u.test(character)) group += 1;
   }
-  if (start < text.length) segments.push({ text: text.slice(start), start });
+  if (start < text.length) segments.push({ text: text.slice(start), start, group });
   return segments;
 }
 
@@ -868,7 +870,9 @@ function rangesOverlap(left, right) {
 function numericFactAnchors(markdown, lineMap) {
   const anchors = [];
   const maximumAssociationDistance = 32;
+  let nextFactGroup = 0;
   for (const line of markdownLines(markdown, lineMap)) {
+    const lineFactGroups = new Map();
     for (const segment of sentenceSegments(line.text)) {
       const numbers = [...segment.text.matchAll(/\d+(?:[.,]\d+)*/g)].map((match) => {
         const numberStart = segment.start + match.index;
@@ -926,6 +930,11 @@ function numericFactAnchors(markdown, lineMap) {
         usedQualifiers.add(candidate.qualifierIndex);
         usedNumbers.add(candidate.numberIndex);
       }
+      if (numbers.length > 0 && !lineFactGroups.has(segment.group)) {
+        lineFactGroups.set(segment.group, nextFactGroup);
+        nextFactGroup += 1;
+      }
+      const group = lineFactGroups.get(segment.group);
       anchors.push(...numbers.map((number) => ({
         line: number.line,
         column: number.column,
@@ -933,6 +942,7 @@ function numericFactAnchors(markdown, lineMap) {
         number: number.number,
         qualifier: number.qualifier,
         key: `${number.number}|${number.qualifier}`,
+        group,
       })));
     }
   }
@@ -949,6 +959,23 @@ function additionalSourceFacts(beforeFacts, originalFacts) {
     if (occurrence > (represented.get(fact.key) || 0)) extras.push(fact);
   }
   return extras;
+}
+
+function missingQualifiedFacts(expected, actual) {
+  const availableByGroup = new Map();
+  for (const item of actual.filter(({ qualifier }) => qualifier)) {
+    if (!availableByGroup.has(item.group)) availableByGroup.set(item.group, new Map());
+    const available = availableByGroup.get(item.group);
+    available.set(item.key, (available.get(item.key) || 0) + 1);
+  }
+  const missing = [];
+  for (const item of expected.filter(({ qualifier }) => qualifier)) {
+    const available = availableByGroup.get(item.group);
+    const remaining = available?.get(item.key) || 0;
+    if (remaining > 0) available.set(item.key, remaining - 1);
+    else missing.push(item);
+  }
+  return missing;
 }
 
 function missingLocated(expected, actual, canonical = (value) => value) {
@@ -987,26 +1014,9 @@ function factualIssues(original, before, polished, originalLineMap, beforeLineMa
   const beforeAnchors = numericFactAnchors(before, beforeLineMap);
   const originalAnchors = numericFactAnchors(original, originalLineMap);
   const polishedAnchors = numericFactAnchors(polished);
-  const actualByNumber = new Map();
-  for (const anchor of polishedAnchors) {
-    if (!actualByNumber.has(anchor.number)) actualByNumber.set(anchor.number, []);
-    actualByNumber.get(anchor.number).push(anchor);
-  }
-  const seenBeforeNumbers = new Map();
-  const missingFacts = [];
-  for (const item of beforeAnchors) {
-    const occurrence = (seenBeforeNumbers.get(item.number) || 0) + 1;
-    seenBeforeNumbers.set(item.number, occurrence);
-    if (!item.qualifier) continue;
-    const actual = actualByNumber.get(item.number)?.[occurrence - 1];
-    if (!actual || actual.qualifier !== item.qualifier) missingFacts.push(item);
-  }
+  const missingFacts = missingQualifiedFacts(beforeAnchors, polishedAnchors);
   const sourceExtras = additionalSourceFacts(beforeAnchors, originalAnchors);
-  missingFacts.push(...missingByKey(
-    sourceExtras,
-    polishedAnchors.filter(({ qualifier }) => qualifier),
-    ({ key }) => key,
-  ));
+  missingFacts.push(...missingQualifiedFacts(sourceExtras, polishedAnchors));
   for (const item of missingFacts) {
     issues.push({
       code: 'missing_factual_qualifier',

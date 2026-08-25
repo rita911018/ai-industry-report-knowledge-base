@@ -759,6 +759,28 @@ test('allows bounded same-clause reordering of unit and currency qualifiers', ()
   assert.deepEqual(report.issues, []);
 });
 
+test('allows repeated equal values with distinct qualifiers to reorder within one sentence', () => {
+  const report = verifyPolishedChinese({
+    original: '# Facts\n\nRevenue was 42 dollars; distance was 42 km.',
+    before: '# 事实\n\n收入为 42 美元；距离为 42 公里。',
+    polished: '# 事实\n\n距离为 42 公里；收入为 42 美元。',
+    glossary: {},
+  });
+
+  assert.equal(report.ok, true);
+  assert.deepEqual(report.issues, []);
+});
+
+test('does not satisfy two distinct repeated-value facts by duplicating one qualifier', () => {
+  const report = captureCustomFailure({
+    original: '# Facts\n\nRevenue was 42 dollars; distance was 42 km.',
+    before: '# 事实\n\n收入为 42 美元；距离为 42 公里。',
+    polished: '# 事实\n\n收入甲为 42 美元；收入乙为 42 美元。',
+  });
+
+  assert.ok(report.issues.some(({ code, item }) => code === 'missing_factual_qualifier' && item === '42 公里'));
+});
+
 test('does not let a later unrelated unit mask an earlier dropped qualifier', () => {
   const report = captureCustomFailure({
     original: '# Facts\n\nDistance was 42 km. The sample contained 42 items.',
