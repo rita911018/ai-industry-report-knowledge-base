@@ -29,6 +29,61 @@ test('extended radar rejects an invalid matrix rank', async () => {
   assert.throws(() => validateRadarData(data, { radarRoot }), /matrixRank/);
 });
 
+test('ranked libraries require an explicit matrixRank field', async () => {
+  for (const mutateRank of [
+    (scenario) => delete scenario.matrixRank,
+    (scenario) => { scenario.matrixRank = undefined; },
+  ]) {
+    const data = await loadRadarFile(fileURLToPath(new URL('./fixtures/extended-radar.js', import.meta.url)));
+    delete data.schemaVersion;
+    data.libraryMode = 'ranked';
+    mutateRank(data.scenarios[12]);
+    assert.throws(() => validateRadarData(data, { radarRoot }), /matrixRank/);
+  }
+});
+
+test('ranked legacy radar accepts ranked P3 red-line points without schema-v2-only fields', async () => {
+  const data = await loadRadarFile(fileURLToPath(new URL('./fixtures/extended-radar.js', import.meta.url)));
+  delete data.schemaVersion;
+  data.libraryMode = 'ranked';
+  for (const scenario of data.scenarios) {
+    delete scenario.confidence;
+    delete scenario.humanHandoff;
+    delete scenario.evidenceWindow;
+    delete scenario.acceptanceMetrics;
+    delete scenario.sourceFacts;
+  }
+  data.scenarios[10].priority = 'P3';
+  data.scenarios[10].scorecard.redLine = true;
+
+  assert.deepEqual(validateRadarData(data, { radarRoot }), {
+    id: 'fixture', scenarios: 24, p0: 3, pilots: 3, scenarioCount: 24, matrixCount: 12,
+  });
+});
+
+test('schema-v2 radar rejects ranked P3 red-line points', async () => {
+  const data = await loadRadarFile(fileURLToPath(new URL('./fixtures/extended-radar.js', import.meta.url)));
+  data.scenarios[10].priority = 'P3';
+  data.scenarios[10].scorecard.redLine = true;
+  assert.throws(() => validateRadarData(data, { radarRoot }), /matrixRank cannot include a P3 or red-line scenario/);
+});
+
+test('validator accepts omitted, null, and leap-day source publishedAt dates', async () => {
+  const data = await loadRadarFile(fileURLToPath(new URL('./fixtures/extended-radar.js', import.meta.url)));
+  delete data.sources[0].publishedAt;
+  data.sources[1].publishedAt = null;
+  data.sources[2].publishedAt = '2024-02-29';
+  assert.doesNotThrow(() => validateRadarData(data, { radarRoot }));
+});
+
+test('validator rejects invalid source publishedAt dates', async () => {
+  for (const publishedAt of ['2026-02-30', '2100-02-29', '2026-13-01', '2026-04-31', '2026-2-1']) {
+    const data = await loadRadarFile(fileURLToPath(new URL('./fixtures/extended-radar.js', import.meta.url)));
+    data.sources[0].publishedAt = publishedAt;
+    assert.throws(() => validateRadarData(data, { radarRoot }), /publishedAt/);
+  }
+});
+
 test('extended P0 scenarios require evidence from two distinct publishers', async () => {
   const data = await loadRadarFile(fileURLToPath(new URL('./fixtures/extended-radar.js', import.meta.url)));
   data.scenarios[0].evidenceIds = ['fixture-research-a', 'fixture-case-cn-a'];

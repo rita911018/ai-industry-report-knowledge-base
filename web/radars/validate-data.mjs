@@ -73,6 +73,12 @@ function validSourceUrl(value) {
   try { return new URL(value).protocol === 'https:'; } catch { return false; }
 }
 
+function validIsoDate(value) {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const date = new Date(`${value}T00:00:00.000Z`);
+  return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value;
+}
+
 function validateLocalSource(source, { radarRoot, archiveRoot }, errors) {
   if (!source.url?.startsWith('/archive/')) return;
   const resolvedArchive = path.resolve(archiveRoot || path.resolve(radarRoot, '../../work/archive'));
@@ -101,14 +107,16 @@ export function validateRadarData(data, options = {}) {
   const errors = [];
   pushMissing(errors, data, REQUIRED_TEXT, 'radar');
   const isExtended = data?.schemaVersion === '2.0';
+  const isRankedLibrary = isExtended || data?.libraryMode === 'ranked';
 
   const scenarios = Array.isArray(data?.scenarios) ? data.scenarios : [];
   const pilots = Array.isArray(data?.pilots) ? data.pilots : [];
   const sources = Array.isArray(data?.sources) ? data.sources : [];
 
-  if (isExtended) {
-    if (data?.scenarioCount !== scenarios.length || scenarios.length < 20 || scenarios.length > 30) errors.push('extended radar.scenarioCount must match 20–30 scenarios');
-    if (data?.p0Count !== scenarios.filter((item) => item.priority === 'P0').length) errors.push('extended radar.p0Count must match the actual P0 count');
+  if (isRankedLibrary) {
+    const radarKind = isExtended ? 'extended' : 'ranked';
+    if (data?.scenarioCount !== scenarios.length || scenarios.length < 20 || scenarios.length > 30) errors.push(`${radarKind} radar.scenarioCount must match 20–30 scenarios`);
+    if (data?.p0Count !== scenarios.filter((item) => item.priority === 'P0').length) errors.push(`${radarKind} radar.p0Count must match the actual P0 count`);
   } else {
     if (data?.scenarioCount !== 12 || scenarios.length !== 12) errors.push('radar.scenarioCount and scenarios.length must both equal 12');
     if (data?.p0Count !== 3 || scenarios.filter((item) => item.priority === 'P0').length !== 3) errors.push('radar.p0Count and actual P0 count must both equal 3');
@@ -131,12 +139,15 @@ export function validateRadarData(data, options = {}) {
     for (const field of ['x', 'y']) if (typeof scenario?.matrix?.[field] !== 'number' || scenario.matrix[field] < 0 || scenario.matrix[field] > 100) errors.push(`${prefix}.matrix.${field} must be in [0,100]`);
     if (!Array.isArray(scenario?.evidenceIds) || scenario.evidenceIds.length === 0) errors.push(`${prefix}.evidenceIds must be non-empty`);
     else for (const id of scenario.evidenceIds) if (!sourceIds.has(id)) errors.push(`${prefix}.evidenceIds contains unknown source ${id}`);
-    if (isExtended) {
+    if (isRankedLibrary) {
       if (typeof scenario?.matrixEligible !== 'boolean') errors.push(`${prefix}.matrixEligible must be boolean`);
-      const hasRank = scenario?.matrixRank !== null && scenario?.matrixRank !== undefined;
-      if (hasRank && (!Number.isInteger(scenario.matrixRank) || scenario.matrixRank < 1 || scenario.matrixRank > 12)) errors.push(`${prefix}.matrixRank must be an integer in [1,12] or null`);
+      const hasExplicitMatrixRank = typeof scenario === 'object' && scenario !== null && Object.hasOwn(scenario, 'matrixRank') && scenario.matrixRank !== undefined;
+      const hasRank = hasExplicitMatrixRank && scenario.matrixRank !== null;
+      if (!hasExplicitMatrixRank || (hasRank && (!Number.isInteger(scenario.matrixRank) || scenario.matrixRank < 1 || scenario.matrixRank > 12))) errors.push(`${prefix}.matrixRank must be an integer in [1,12] or null`);
       if (hasRank && !scenario?.matrixEligible) errors.push(`${prefix}.matrixRank requires matrixEligible to be true`);
-      if (hasRank && (scenario?.priority === 'P3' || scenario?.scorecard?.redLine)) errors.push(`${prefix}.matrixRank cannot include a P3 or red-line scenario`);
+      if (isExtended && hasRank && (scenario?.priority === 'P3' || scenario?.scorecard?.redLine)) errors.push(`${prefix}.matrixRank cannot include a P3 or red-line scenario`);
+    }
+    if (isExtended) {
       if (!scenario?.confidence || !CONFIDENCE_LEVELS.has(scenario.confidence.level) || !nonEmpty(scenario.confidence.reason)) errors.push(`${prefix}.confidence requires a valid level and reason`);
       if (!nonEmpty(scenario?.humanHandoff)) errors.push(`${prefix}.humanHandoff must be non-empty text`);
       if (!EVIDENCE_WINDOWS.has(scenario?.evidenceWindow)) errors.push(`${prefix}.evidenceWindow must be current or legacy_reference`);
@@ -175,6 +186,7 @@ export function validateRadarData(data, options = {}) {
   sources.forEach((source, index) => {
     pushMissing(errors, source, ['id', 'title', 'publisher', 'evidenceType', 'limitation'], `sources[${index}]`);
     if (!validSourceUrl(source?.url)) errors.push(`sources[${index}].url must be an HTTPS or /archive/ URL`);
+    if (source?.publishedAt !== null && source?.publishedAt !== undefined && !validIsoDate(source.publishedAt)) errors.push(`sources[${index}].publishedAt must be a valid YYYY-MM-DD date`);
     validateLocalSource(source, options, errors);
   });
   if (data?.id === 'legal' && sources.length < 16) errors.push('legal radar must contain at least 16 sources');
@@ -184,15 +196,15 @@ export function validateRadarData(data, options = {}) {
   }
 
   let matrixCount = 0;
-  if (isExtended) {
+  if (isRankedLibrary) {
     const ranks = scenarios.map((scenario) => scenario.matrixRank).filter((rank) => rank !== null && rank !== undefined).sort((a, b) => a - b);
     matrixCount = ranks.length;
-    if (ranks.length !== 12 || ranks.some((rank, index) => rank !== index + 1)) errors.push('extended radar must contain each matrixRank from 1 through 12 exactly once');
+    if (ranks.length !== 12 || ranks.some((rank, index) => rank !== index + 1)) errors.push(`${isExtended ? 'extended' : 'ranked'} radar must contain each matrixRank from 1 through 12 exactly once`);
   }
 
   if (errors.length) throw new Error(errors.join('\n'));
   const summary = { id: data.id, scenarios: scenarios.length, p0: scenarios.filter((item) => item.priority === 'P0').length, pilots: pilots.length };
-  if (isExtended) Object.assign(summary, { scenarioCount: scenarios.length, matrixCount });
+  if (isRankedLibrary) Object.assign(summary, { scenarioCount: scenarios.length, matrixCount });
   return summary;
 }
 
