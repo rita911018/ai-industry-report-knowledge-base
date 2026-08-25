@@ -1015,6 +1015,52 @@ test('allows bounded same-clause reordering of unit and currency qualifiers', ()
   assert.deepEqual(report.issues, []);
 });
 
+test('does not attach ordinary time prose to a nearby number', () => {
+  const report = verifyPolishedChinese({
+    original: '# Coverage\n\nThis month, coverage reached 42 companies.',
+    before: '# 覆盖\n\n本月覆盖 42 家公司。',
+    polished: '# 覆盖\n\n截至目前，共覆盖 42 家公司。',
+    glossary: {},
+  });
+
+  assert.equal(report.ok, true);
+  assert.deepEqual(report.issues, []);
+});
+
+test('keeps adjacent Chinese unit qualifiers enforced', () => {
+  const report = captureCustomFailure({
+    original: '# Duration\n\nContext.',
+    before: '# 周期\n\n周期为 42 个月。',
+    polished: '# 周期\n\n周期为 42。',
+  });
+
+  assert.ok(report.issues.some(({ code, item, details }) => (
+    code === 'missing_factual_qualifier'
+      && item === '42 个月'
+      && details.qualifier === 'unit:month'
+  )));
+});
+
+test('keeps explicitly cued detached qualifiers enforced', () => {
+  const cueForms = [
+    '以公里计，距离为 42。',
+    '按公里计算，距离为 42。',
+    '单位为公里，距离为 42。',
+    '以公里为单位，距离为 42。',
+  ];
+
+  for (const beforeFact of cueForms) {
+    const report = captureCustomFailure({
+      original: '# Distance\n\nContext.',
+      before: `# 距离\n\n${beforeFact}`,
+      polished: '# 距离\n\n距离为 42。',
+    });
+    assert.ok(report.issues.some(({ code, details }) => (
+      code === 'missing_factual_qualifier' && details.qualifier === 'unit:km'
+    )), beforeFact);
+  }
+});
+
 test('allows repeated equal values with distinct qualifiers to reorder within one sentence', () => {
   const report = verifyPolishedChinese({
     original: '# Facts\n\nRevenue was 42 dollars; distance was 42 km.',

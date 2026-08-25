@@ -1042,6 +1042,14 @@ const UNIT_SOURCE = qualifierDefinitionsSource(UNIT_DEFINITIONS);
 const FACT_QUALIFIER_SOURCE = String.raw`(?:${RATE_SOURCE}|${SCALE_SOURCE}(?:\s*(?:${CURRENCY_TOKEN_SOURCE}|${UNIT_SOURCE}))?|${CURRENCY_TOKEN_SOURCE}|${UNIT_SOURCE})`;
 const CURRENCY_PREFIX = new RegExp(`${CURRENCY_TOKEN_SOURCE}\\s*$`, 'i');
 const FACT_QUALIFIER_SUFFIX = new RegExp(`^\\s*${FACT_QUALIFIER_SOURCE}`, 'i');
+const DETACHED_QUALIFIER_CUE_SOURCES = [
+  String.raw`以\s*(${FACT_QUALIFIER_SOURCE})\s*(?:为单位|计)`,
+  String.raw`按\s*(${FACT_QUALIFIER_SOURCE})\s*(?:计算|计)`,
+  String.raw`单位\s*(?:为|是|[:：=])\s*(${FACT_QUALIFIER_SOURCE})`,
+  String.raw`(?:measured|expressed|calculated)\s+in\s+(${FACT_QUALIFIER_SOURCE})`,
+  String.raw`(?:the\s+)?unit\s*(?:is|was|[:=])\s*(${FACT_QUALIFIER_SOURCE})`,
+  String.raw`using\s+(${FACT_QUALIFIER_SOURCE})\s+as\s+(?:the\s+)?unit`,
+];
 
 function canonicalFactQualifier(value) {
   const normalized = value.normalize('NFKC').toLowerCase().replace(/\s+/g, ' ').trim();
@@ -1073,6 +1081,23 @@ function sentenceSegments(text) {
 
 function rangesOverlap(left, right) {
   return left.start < right.end && right.start < left.end;
+}
+
+function detachedQualifierCues(text, offset) {
+  const found = [];
+  for (const source of DETACHED_QUALIFIER_CUE_SOURCES) {
+    for (const match of text.matchAll(new RegExp(source, 'giu'))) {
+      const qualifierText = match[1];
+      const start = offset + match.index + match[0].indexOf(qualifierText);
+      found.push({
+        text: qualifierText,
+        qualifier: canonicalFactQualifier(qualifierText),
+        start,
+        end: start + qualifierText.length,
+      });
+    }
+  }
+  return found.filter(({ qualifier }) => qualifier);
 }
 
 function sharedQualifierAnchors(lines, group) {
@@ -1163,14 +1188,7 @@ function numericFactAnchors(markdown, lineMap) {
         });
 
         const directRanges = numbers.flatMap(({ qualifierRanges }) => qualifierRanges);
-        const qualifierPattern = new RegExp(FACT_QUALIFIER_SOURCE, 'gi');
-        const detachedQualifiers = [...segment.text.matchAll(qualifierPattern)]
-          .map((match) => ({
-            text: match[0],
-            qualifier: canonicalFactQualifier(match[0]),
-            start: segment.start + match.index,
-            end: segment.start + match.index + match[0].length,
-          }))
+        const detachedQualifiers = detachedQualifierCues(segment.text, segment.start)
           .filter((qualifier) => qualifier.qualifier && !directRanges.some((range) => rangesOverlap(range, qualifier)));
 
         const unresolvedNumbers = numbers.filter(({ qualifier }) => !qualifier);
