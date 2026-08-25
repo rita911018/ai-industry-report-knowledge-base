@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
+import { renderMarkdown } from '../src/readers/render-markdown.mjs';
 import { verifyTranslation } from '../src/translation/verify-translation.mjs';
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -11,7 +12,7 @@ const articleDirectory = path.join(
   repoRoot,
   'work/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report',
 );
-const sourcePdf = '/Users/rita/Downloads/cio-report-h2-2026.pdf';
+const expectedPdfSha256 = '189a969d299c8080d5fccb11dec6f0b5229d8aec99661f939c138c111d911e2e';
 const officialUrl = 'https://www.gartner.com/en/chief-information-officer/products/gartner-for-cios';
 
 const files = {
@@ -34,6 +35,10 @@ function occurrenceCount(text, literal) {
   return text.split(literal).length - 1;
 }
 
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 function assertFourFiveStepPlans(markdown, label) {
   const starts = [...markdown.matchAll(new RegExp(`^## ${label} \\d+$`, 'gm'))];
   assert.equal(starts.length, 4, `${label} count`);
@@ -46,13 +51,41 @@ function assertFourFiveStepPlans(markdown, label) {
   });
 }
 
+function section(markdown, heading, nextHeading) {
+  const start = markdown.indexOf(heading);
+  assert.notEqual(start, -1, `missing section ${heading}`);
+  const end = nextHeading ? markdown.indexOf(nextHeading, start + heading.length) : markdown.length;
+  return markdown.slice(start, end === -1 ? markdown.length : end);
+}
+
+function assertActionPlanDetails(markdown, label, plans) {
+  plans.forEach((plan, index) => {
+    const number = index + 1;
+    const content = section(markdown, `## ${label} ${number}`, number < plans.length ? `## ${label} ${number + 1}` : undefined);
+    plan.steps.forEach((step) => assert.match(content, new RegExp(`^\\| \\d+\\. ${escapeRegExp(step)} \\|`, 'm')));
+    assert.ok(content.includes(plan.outcome), `${label} ${number} missing representative outcome`);
+    assert.ok(content.includes(plan.action), `${label} ${number} missing representative action`);
+  });
+}
+
+function assertLeadershipRows(markdown, label, groups) {
+  groups.forEach((expectedGroups, index) => {
+    const number = index + 1;
+    const content = section(markdown, `## ${label} ${number}`, number < groups.length ? `## ${label} ${number + 1}` : undefined);
+    expectedGroups.forEach((group) => assert.ok(content.includes(`| ${group} |`), `${label} ${number} missing ${group}`));
+  });
+}
+
 test('archives the complete Gartner 2H26 CIO report foundation', async () => {
   for (const [name, filePath] of Object.entries(files)) {
     const content = await readFile(filePath);
     assert.ok(content.length > 0, `${name} must exist and be nonempty`);
   }
 
-  assert.equal(await sha256(files.pdf), await sha256(sourcePdf), 'archived PDF must be byte-identical');
+  assert.equal(await sha256(files.pdf), expectedPdfSha256, 'archived PDF must match the immutable source digest');
+  if (process.env.GARTNER_CIO_SOURCE_PDF) {
+    assert.equal(await sha256(files.pdf), await sha256(process.env.GARTNER_CIO_SOURCE_PDF), 'opt-in source PDF comparison failed');
+  }
 
   const metadata = JSON.parse(await readFile(files.metadata, 'utf8'));
   assert.equal(metadata.id, 'gartner-cio-report-h2-2026');
@@ -65,13 +98,16 @@ test('archives the complete Gartner 2H26 CIO report foundation', async () => {
   assert.equal(metadata.documentType, 'Report');
   assert.equal(metadata.sourceUrl, officialUrl);
   assert.equal(metadata.canonicalUrl, officialUrl);
-  assert.equal(metadata.provenance.sourceFile, sourcePdf);
+  assert.equal(metadata.provenance.sourceFile, '/Users/rita/Downloads/cio-report-h2-2026.pdf');
   assert.match(metadata.provenance.extractionBasis, /PDF extraction/i);
   assert.match(metadata.provenance.visualVerification, /page/i);
   assert.equal(metadata.provenance.originalArtifact, '原始报告.pdf');
 
   const english = await readFile(files.english, 'utf8');
   const chinese = await readFile(files.chinese, 'utf8');
+  assert.equal(metadata.snapshotSha256, await sha256(files.pdf));
+  assert.equal(metadata.englishMarkdownSha256, await sha256(files.english));
+  assert.equal(metadata.chineseMarkdownSha256, await sha256(files.chinese));
   const keyNumbers = ['50%', '73%', '85%', '24%', '70%', '30%', '90%', '20%', '48%', '51%', '56%', '40%'];
   for (const token of keyNumbers) {
     assert.ok(english.includes(token), `English missing ${token}`);
@@ -114,8 +150,32 @@ test('archives the complete Gartner 2H26 CIO report foundation', async () => {
   assert.equal(sectionCount(chinese, 'Gartner 解答'), 4);
   assertFourFiveStepPlans(english, 'Sample Action Plan');
   assertFourFiveStepPlans(chinese, '行动计划示例');
+  assertActionPlanDetails(english, 'Sample Action Plan', [
+    { steps: ['Define enterprise strategy and ambition', 'Determine future scenarios for EA', 'Transform the EA operating model', 'Modernize EA products and services', 'Achieve EA success by enabling rapid business adaptation'], outcome: "A clarified understanding of your organization's strategy and vision.", action: 'Strategic Planning Toolkit' },
+    { steps: ['Align operating model vision to business value', 'Design operating model elements', 'Implement operating model changes', 'Implement rightsourcing and shared services', 'Manage and optimize operating model performance'], outcome: 'A resilient foundation designed to withstand disruption', action: 'AI Use Case Insights' },
+    { steps: ['Define business-outcome-aligned platform strategy', 'Architect for modular, composable platforms', 'Assess market and select vendor relationships', 'Implement enterprise platforms', 'Establish governance for continuous value realization'], outcome: 'A flexible foundation that reduces legacy debt', action: 'Proposal Review' },
+    { steps: ['Define an AI-driven talent strategy', 'Assess future-readiness of the workforce', 'Design organizational balance of technology and human resources', 'Scale human readiness for AI', 'Evolve human-AI workforce agility'], outcome: 'Clear visibility into current workforce capabilities', action: 'AI Maturity Assessment' },
+  ]);
+  assertActionPlanDetails(chinese, '行动计划示例', [
+    { steps: ['明确企业战略和愿景', '确定企业架构的未来情景', '转型企业架构运营模式', '实现企业架构产品和服务现代化', '通过业务快速适应实现企业架构成功'], outcome: '清晰理解组织的战略与愿景。', action: '战略规划工具包' },
+    { steps: ['将运营模式愿景与业务价值对齐', '设计运营模式要素', '实施运营模式变革', '优化寻源策略与共享服务', '管理并优化运营模式绩效'], outcome: '建立能够承受中断', action: 'AI Use Case Insights' },
+    { steps: ['制定与业务成果对齐的平台战略', '设计模块化、可组合的平台', '评估市场并选择供应商关系', '实施企业平台', '建立持续实现价值的治理机制'], outcome: '建立灵活的基础，减少遗留技术债', action: 'Proposal Review' },
+    { steps: ['制定 AI 驱动的人才战略', '评估员工队伍面向未来的准备度', '设计技术与人力资源之间的组织平衡', '大规模提升员工面向 AI 的准备度', '提升人机协作员工队伍的敏捷性'], outcome: '清楚掌握当前员工队伍能力', action: 'AI 成熟度评估' },
+  ]);
   assert.equal(sectionCount(english, 'Essential Leadership Roles'), 4);
   assert.equal(sectionCount(chinese, '关键领导角色'), 4);
+  assertLeadershipRows(english, 'Essential Leadership Roles', [
+    ['Executive leadership', 'Data and analytics', 'Security', 'Application development', 'Vendor management'],
+    ['Executive leadership', 'Security', 'Operations', 'Procurement and vendor management', 'Data and analytics', 'HR and workforce'],
+    ['Security', 'Executive leadership', 'Application development', 'Investment and value oversight', 'Change management', 'Vendor management'],
+    ['IT leadership', 'Tech professionals', 'IT management', 'Human resources', 'Vendor management'],
+  ]);
+  assertLeadershipRows(chinese, '关键领导角色', [
+    ['企业领导层', '数据与分析', '安全', '应用开发', '供应商管理'],
+    ['企业领导层', '安全', '运营', '采购与供应商管理', '数据与分析', '人力资源与员工队伍'],
+    ['安全', '企业领导层', '应用开发', '投资与价值监督', '变革管理', '供应商管理'],
+    ['IT 领导层', '技术专业人员', 'IT 管理层', '人力资源', '供应商管理'],
+  ]);
   for (const markdown of [english, chinese]) {
     assert.doesNotMatch(markdown, /Follow Us on LinkedIn/);
     assert.doesNotMatch(markdown, /^.*Gartner for CIOs.*Follow Us on LinkedIn.*Become a Client.*$/m);
@@ -131,6 +191,16 @@ test('archives the complete Gartner 2H26 CIO report foundation', async () => {
     assert.ok(english.includes(url), `English missing page 22 social link: ${url}`);
     assert.ok(chinese.includes(url), `Chinese missing page 22 social link: ${url}`);
   }
+  assert.ok(chinese.includes('新兴技术评估目标涵盖四项活动：'));
+  assert.ok(chinese.includes('完整领导角色体系'));
+  assert.ok(chinese.includes('Gartner 根据每年 **510,000+** 次客户互动积累的洞察设计会议议程。'));
+
+  const readerHtml = renderMarkdown(chinese);
+  assert.equal((readerHtml.match(/<table>/g) || []).length, 8, 'Gartner reader must contain eight semantic tables');
+  assert.equal((readerHtml.match(/<thead>/g) || []).length, 8);
+  assert.equal((readerHtml.match(/<tbody>/g) || []).length, 8);
+  assert.doesNotMatch(readerHtml, /<p>\| (?:步骤|领导群体) \|/);
+  assert.doesNotMatch(readerHtml, /target="<em>|<em>blank|_blank<\/em>|rel=<em>/);
 
   const wrapper = await readFile(files.wrapper, 'utf8');
   assert.ok(wrapper.includes('href="./原始报告.pdf"'));
