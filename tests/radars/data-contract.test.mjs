@@ -129,6 +129,35 @@ test('hr radar satisfies the ranked-library contract', async () => {
   assert.equal(hr.scenarios.slice(12).length, 8);
   assert.ok(hr.scenarios.slice(12).every((scenario) => scenario.matrixRank === null));
 
+  const expectedLowConfidence = {
+    level: 'low',
+    reason: 'WorkBuddy 文章提供流程示例；供应商资料和客户案例只能支持方向判断，效果需在本企业重新验证。',
+  };
+  const expectedHumanHandoff = '低置信度、规则冲突、个人权益或任何不可逆动作必须转交具名 HR；工资、申报和法律文件不得由 AI 独立生效。';
+  for (const scenario of hr.scenarios.slice(12)) {
+    assert.deepEqual(scenario.confidence, expectedLowConfidence, `${scenario.id}.confidence`);
+    assert.equal(scenario.humanHandoff, expectedHumanHandoff, `${scenario.id}.humanHandoff`);
+    assert.equal(scenario.evidenceWindow, 'current', `${scenario.id}.evidenceWindow`);
+    assert.ok(Array.isArray(scenario.sourceFacts) && scenario.sourceFacts.length >= 2, `${scenario.id}.sourceFacts`);
+    assert.ok(Array.isArray(scenario.acceptanceMetrics) && scenario.acceptanceMetrics.length === 4, `${scenario.id}.acceptanceMetrics`);
+    assert.ok(scenario.acceptanceMetrics.some((metric) => /(准确|正确|质量|完整|一致)/.test(metric)), `${scenario.id}.acceptanceMetrics accuracy/quality`);
+    assert.ok(scenario.acceptanceMetrics.some((metric) => /人工复核.*(修改|变更|覆盖|退回|调整)/.test(metric)), `${scenario.id}.acceptanceMetrics review changes`);
+    assert.ok(scenario.acceptanceMetrics.some((metric) => /(周转时间|处理时间|时长|周期)/.test(metric)), `${scenario.id}.acceptanceMetrics turnaround`);
+    assert.ok(scenario.acceptanceMetrics.some((metric) => /(未经授权|未授权).*(自动|不可逆).*(次数|数量|为\s*0)/.test(metric)), `${scenario.id}.acceptanceMetrics unauthorized actions`);
+    assert.equal(scenario.matrixEligible, false, `${scenario.id}.matrixEligible`);
+    assert.equal(Object.hasOwn(scenario, 'matrixRank'), true, `${scenario.id}.matrixRank must be explicit`);
+    assert.equal(scenario.matrixRank, null, `${scenario.id}.matrixRank`);
+    for (const [index, fact] of scenario.sourceFacts.entries()) {
+      assert.ok(scenario.evidenceIds.includes(fact.sourceId), `${scenario.id}.sourceFacts[${index}].sourceId`);
+      assert.ok(fact.text?.trim(), `${scenario.id}.sourceFacts[${index}].text`);
+      assert.ok(fact.locator?.trim(), `${scenario.id}.sourceFacts[${index}].locator`);
+    }
+  }
+  const attendanceRisk = hr.scenarios.find((scenario) => scenario.id === 'hr-13')?.risk ?? '';
+  assert.match(attendanceRisk, /模型推断.*不得直接写入薪酬/);
+  assert.match(attendanceRisk, /有争议的记录.*规则冲突.*低置信度结果/);
+  assert.match(attendanceRisk, /必须转交具名 HR 复核/);
+
   const sourceIds = new Set(hr.sources.map((source) => source.id));
   for (const scenario of hr.scenarios) {
     assert.match(scenario.title, /^(用 AI|让 AI)/);
@@ -194,6 +223,7 @@ test('legal radar preserves the attachment scenarios, scores, and sources', asyn
 
 test('hr radar preserves the approved scenarios and high-impact decision boundary', async () => {
   const hr = await loadRadarFile(`${radarRoot}/data/hr.js`);
+  assert.deepEqual(Object.keys(hr.categoryLabels), ['service', 'skills', 'lifecycle', 'planning', 'listening', 'payroll', 'compliance', 'relations', 'highrisk']);
   const expectedScenarios = [
     ['用 AI 即时回答 HR 政策问题，并把复杂个案转给对的人', 'P0', 5, 5],
     ['用 AI 看清员工技能，并匹配内部岗位和项目', 'P0', 5, 4],
@@ -209,6 +239,23 @@ test('hr radar preserves the approved scenarios and high-impact decision boundar
     ['让 AI 决定录用、晋升、调薪或解雇（禁止）', 'P3', 4.5, 1],
   ];
   assert.deepEqual(hr.scenarios.slice(0, 12).map(({ title, priority, value, feasibility }) => [title, priority, value, feasibility]), expectedScenarios);
+  assert.deepEqual(
+    hr.scenarios.slice(0, 12).map(({ id, number, matrix, matrixRank, scorecard }) => [id, number, matrix, matrixRank, scorecard.total]),
+    [
+      ['hr-01', '01', { x: 90, y: 8 }, 1, 94],
+      ['hr-02', '02', { x: 68, y: 8 }, 2, 87],
+      ['hr-03', '03', { x: 82, y: 20 }, 3, 87],
+      ['hr-04', '04', { x: 66, y: 32 }, 4, 78],
+      ['hr-05', '05', { x: 58, y: 20 }, 5, 70],
+      ['hr-06', '06', { x: 46, y: 8 }, 6, 72],
+      ['hr-07', '07', { x: 88, y: 32 }, 7, 68],
+      ['hr-08', '08', { x: 68, y: 44 }, 8, 64],
+      ['hr-09', '09', { x: 44, y: 32 }, 9, 61],
+      ['hr-10', '10', { x: 46, y: 44 }, 10, 58],
+      ['hr-11', '11', { x: 24, y: 56 }, 11, 50],
+      ['hr-12', '12', { x: 12, y: 26 }, 12, 55],
+    ],
+  );
   assert.match(hr.scenarios[11].risk, /禁止.*具名人员/);
   assert.equal(new Set(hr.scenarios.flatMap((item) => item.evidenceIds)).size >= 10, true);
 });
@@ -373,4 +420,19 @@ test('hr radar preserves the ranked-library boundary scenarios and evidence guar
   assert.match(hr.scenarios.find((scenario) => scenario.id === 'hr-14')?.risk ?? '', /(不得|不能|禁止).*发薪/);
   assert.match(hr.scenarios.find((scenario) => scenario.id === 'hr-17')?.risk ?? '', /(不得|不能|禁止).*自动.*(提交|申报)/);
   assert.match(hr.scenarios.find((scenario) => scenario.id === 'hr-18')?.risk ?? '', /(?=.*(须|需|必须|应当))(?=.*(法务|律师))(?=.*(复核|审核))/);
+  assert.match(hr.scenarios.find((scenario) => scenario.id === 'hr-18')?.risk ?? '', /具名 HR 与法务或律师共同复核/);
+
+  const expectedLocators = [
+    ['hr-13', 'hr-case-13', '一体共享，让数据多跑腿'],
+    ['hr-16', 'hr-case-13', '一体共享，让数据多跑腿'],
+    ['hr-17', 'hr-case-13', '一体共享，让数据多跑腿'],
+    ['hr-15', 'hr-src-11', '第三个工作流：考勤+工资核算'],
+    ['hr-17', 'hr-src-11', '第二个工作流：人员全生命周期管理；第四个工作流：社保公积金业务操作'],
+    ['hr-18', 'hr-src-11', '第五个工作流：员工关系处理'],
+    ['hr-19', 'hr-src-11', '第五个工作流：员工关系处理'],
+  ];
+  for (const [scenarioId, sourceId, locator] of expectedLocators) {
+    const scenario = hr.scenarios.find((item) => item.id === scenarioId);
+    assert.equal(scenario?.sourceFacts.find((fact) => fact.sourceId === sourceId)?.locator, locator, `${scenarioId}.${sourceId}.locator`);
+  }
 });
