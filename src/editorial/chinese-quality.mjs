@@ -495,7 +495,7 @@ function markdownLines(markdown, lineMap) {
 
 function headings(markdown, lineMap) {
   return markdownLines(markdown, lineMap).flatMap((entry) => {
-    const match = entry.text.match(/^(#{1,6})\s+(.+?)\s*$/);
+    const match = entry.text.match(/^ {0,3}(#{1,6})\s+(.+?)\s*$/);
     return match ? [{ ...entry, level: match[1].length, label: match[2] }] : [];
   });
 }
@@ -964,7 +964,7 @@ const CURRENCY_DEFINITIONS = [
     key: 'currency:CNY',
     symbols: ['¥'],
     english: ['CNY', 'RMB', 'yuan'],
-    local: ['人民币', '元'],
+    local: ['元人民币', '人民币', '元'],
   },
 ];
 const UNIT_DEFINITIONS = [
@@ -1005,43 +1005,92 @@ function literalAlternativesSource(alternatives) {
     .join('|');
 }
 
+const QUALIFIER_DEFINITION_GROUPS = [
+  { category: 'rate', definitions: RATE_DEFINITIONS },
+  { category: 'scale', definitions: SCALE_DEFINITIONS },
+  { category: 'currency', definitions: CURRENCY_DEFINITIONS },
+  { category: 'unit', definitions: UNIT_DEFINITIONS },
+];
+const ALL_LOCAL_QUALIFIER_TOKENS = QUALIFIER_DEFINITION_GROUPS
+  .flatMap(({ definitions }) => definitions)
+  .flatMap(({ local = [] }) => local);
+const ALL_LOCAL_QUALIFIER_SOURCE = literalAlternativesSource(ALL_LOCAL_QUALIFIER_TOKENS);
+
+function boundarySafeLocalSource(alternatives) {
+  const rightBoundary = String.raw`(?=$|[^\p{Script=Han}]|(?:${ALL_LOCAL_QUALIFIER_SOURCE})|(?:(?:为单位|计算|计)(?!\p{Script=Han})))`;
+  return [...alternatives]
+    .sort((left, right) => right.length - left.length)
+    .map((token) => `${escapeRegExp(token)}${rightBoundary}`)
+    .join('|');
+}
+
 function qualifierDefinitionsSource(definitions) {
   const english = definitions.flatMap(({ english = [] }) => english);
-  const literals = definitions.flatMap(({ symbols = [], local = [] }) => [...symbols, ...local]);
+  const symbols = definitions.flatMap(({ symbols = [] }) => symbols);
+  const local = definitions.flatMap(({ local = [] }) => local);
   return `(?:${[
     english.length ? boundarySafeEnglishSource(english) : '',
-    literalAlternativesSource(literals),
+    literalAlternativesSource(symbols),
+    boundarySafeLocalSource(local),
   ].filter(Boolean).join('|')})`;
 }
 
-function findQualifierDefinition(value, definitions) {
-  const matches = definitions.flatMap((definition, definitionIndex) => {
-    const englishMatch = definition.english?.length
-      ? new RegExp(boundarySafeEnglishSource(definition.english), 'i').exec(value)
-      : null;
-    const literalMatches = [...(definition.symbols || []), ...(definition.local || [])]
-      .map((token) => ({ index: value.indexOf(token.toLowerCase()), length: token.length }))
-      .filter(({ index }) => index >= 0);
-    return [
-      ...(englishMatch ? [{ index: englishMatch.index, length: englishMatch[0].length }] : []),
-      ...literalMatches,
-    ].map((match) => ({ ...match, definition, definitionIndex }));
-  });
-  matches.sort((left, right) => (
+function literalTokenMatches(value, token) {
+  const matches = [];
+  const normalizedToken = token.toLowerCase();
+  let index = value.indexOf(normalizedToken);
+  while (index >= 0) {
+    matches.push({ index, length: normalizedToken.length, text: value.slice(index, index + normalizedToken.length) });
+    index = value.indexOf(normalizedToken, index + 1);
+  }
+  return matches;
+}
+
+function localTokenHasRightBoundary(value, match) {
+  const end = match.index + match.length;
+  if (end >= value.length || !/\p{Script=Han}/u.test(value[end])) return true;
+  return ALL_LOCAL_QUALIFIER_TOKENS.some((token) => value.startsWith(token.toLowerCase(), end));
+}
+
+function qualifierTokens(value) {
+  const candidates = QUALIFIER_DEFINITION_GROUPS.flatMap(({ category, definitions }, categoryIndex) => (
+    definitions.flatMap((definition, definitionIndex) => {
+      const englishMatches = definition.english?.length
+        ? [...value.matchAll(new RegExp(boundarySafeEnglishSource(definition.english), 'gi'))]
+          .map((match) => ({ index: match.index, length: match[0].length, text: match[0] }))
+        : [];
+      const symbolMatches = (definition.symbols || []).flatMap((token) => literalTokenMatches(value, token));
+      const localMatches = (definition.local || [])
+        .flatMap((token) => literalTokenMatches(value, token))
+        .filter((match) => localTokenHasRightBoundary(value, match));
+      return [...englishMatches, ...symbolMatches, ...localMatches]
+        .map((match) => ({ ...match, category, categoryIndex, definition, definitionIndex }));
+    })
+  ));
+  candidates.sort((left, right) => (
     left.index - right.index
       || right.length - left.length
+      || left.categoryIndex - right.categoryIndex
       || left.definitionIndex - right.definitionIndex
   ));
-  return matches[0]?.definition;
+
+  const selected = [];
+  let cursor = 0;
+  for (const candidate of candidates) {
+    if (candidate.index < cursor) continue;
+    selected.push(candidate);
+    cursor = candidate.index + candidate.length;
+  }
+  return selected;
 }
 
 const RATE_SOURCE = qualifierDefinitionsSource(RATE_DEFINITIONS);
 const SCALE_SOURCE = qualifierDefinitionsSource(SCALE_DEFINITIONS);
 const CURRENCY_TOKEN_SOURCE = qualifierDefinitionsSource(CURRENCY_DEFINITIONS);
 const UNIT_SOURCE = qualifierDefinitionsSource(UNIT_DEFINITIONS);
-const FACT_QUALIFIER_SOURCE = String.raw`(?:${RATE_SOURCE}|${SCALE_SOURCE}(?:\s*(?:${CURRENCY_TOKEN_SOURCE}|${UNIT_SOURCE}))?|${CURRENCY_TOKEN_SOURCE}|${UNIT_SOURCE})`;
-const CURRENCY_PREFIX = new RegExp(`${CURRENCY_TOKEN_SOURCE}\\s*$`, 'i');
-const FACT_QUALIFIER_SUFFIX = new RegExp(`^\\s*${FACT_QUALIFIER_SOURCE}`, 'i');
+const FACT_QUALIFIER_SOURCE = String.raw`(?:${RATE_SOURCE}|${CURRENCY_TOKEN_SOURCE}|${UNIT_SOURCE}|${SCALE_SOURCE}(?:\s*(?:${CURRENCY_TOKEN_SOURCE}|${UNIT_SOURCE}))?)`;
+const CURRENCY_PREFIX = new RegExp(`${CURRENCY_TOKEN_SOURCE}\\s*$`, 'iu');
+const FACT_QUALIFIER_SUFFIX = new RegExp(`^\\s*${FACT_QUALIFIER_SOURCE}`, 'iu');
 const DETACHED_QUALIFIER_CUE_SOURCES = [
   String.raw`以\s*(${FACT_QUALIFIER_SOURCE})\s*(?:为单位|计)`,
   String.raw`按\s*(${FACT_QUALIFIER_SOURCE})\s*(?:计算|计)`,
@@ -1053,12 +1102,15 @@ const DETACHED_QUALIFIER_CUE_SOURCES = [
 
 function canonicalFactQualifier(value) {
   const normalized = value.normalize('NFKC').toLowerCase().replace(/\s+/g, ' ').trim();
-  const parts = [];
-  for (const definitions of [RATE_DEFINITIONS, SCALE_DEFINITIONS, CURRENCY_DEFINITIONS, UNIT_DEFINITIONS]) {
-    const match = findQualifierDefinition(normalized, definitions);
-    if (match) parts.push(match.key);
+  const tokens = qualifierTokens(normalized);
+  const unique = new Map();
+  for (const token of tokens) {
+    if (!unique.has(token.definition.key)) unique.set(token.definition.key, token);
   }
-  return parts.join('|');
+  return [...unique.values()]
+    .sort((left, right) => left.categoryIndex - right.categoryIndex || left.index - right.index)
+    .map(({ definition }) => definition.key)
+    .join('|');
 }
 
 function sentenceSegments(text) {

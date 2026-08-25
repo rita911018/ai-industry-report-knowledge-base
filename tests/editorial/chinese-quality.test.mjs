@@ -319,6 +319,19 @@ Second explanation.`;
   assert.equal(issue?.line, 5);
 });
 
+test('preserves ATX headings with up to three leading spaces while protecting four-space code', () => {
+  const report = captureCustomFailure({
+    original: '# Source\n\nContext.',
+    before: '# 根标题\n\n   ## 必须保留\n\n    ## 代码中的伪标题',
+    polished: '# 根标题',
+  });
+
+  assert.deepEqual(
+    report.issues.filter(({ code }) => code === 'missing_heading').map(({ item }) => item),
+    ['   ## 必须保留'],
+  );
+});
+
 test('reports the first deleted same-shape list item instead of the retained later item', () => {
   const repeatedOriginal = `# Report
 
@@ -1001,6 +1014,52 @@ test('allows equivalent Chinese and English-adjacent factual unit forms', () => 
 
   assert.equal(report.ok, true);
   assert.deepEqual(report.issues, []);
+});
+
+test('matches English units to longest Chinese semantic unit tokens', () => {
+  const cases = [
+    ['km', '千米'],
+    ['kW', '千瓦'],
+    ['kWh', '千瓦时'],
+  ];
+
+  for (const [englishUnit, chineseUnit] of cases) {
+    const report = verifyPolishedChinese({
+      original: `# Fact\n\nThe value was 42 ${englishUnit}.`,
+      before: `# 事实\n\n数值为 42 ${chineseUnit}。`,
+      polished: `# 事实\n\n数值为 42 ${chineseUnit}。`,
+      glossary: {},
+    });
+    assert.equal(report.ok, true, `${englishUnit} ↔ ${chineseUnit}`);
+    assert.deepEqual(report.issues, [], `${englishUnit} ↔ ${chineseUnit}`);
+  }
+});
+
+test('does not treat 元 inside 元素 as a currency qualifier', () => {
+  const report = verifyPolishedChinese({
+    original: '# Elements\n\nThe sample contained 42 elements.',
+    before: '# 元素\n\n样本包含 42 元素。',
+    polished: '# 元素\n\n样本包含 42 个元素。',
+    glossary: {},
+  });
+
+  assert.equal(report.ok, true);
+  assert.deepEqual(report.issues, []);
+});
+
+test('keeps actual Chinese yuan qualifiers enforced', () => {
+  for (const qualifier of ['元', '元人民币']) {
+    const report = captureCustomFailure({
+      original: '# Price\n\nContext.',
+      before: `# 价格\n\n价格为 42 ${qualifier}。`,
+      polished: '# 价格\n\n价格为 42。',
+    });
+    assert.ok(report.issues.some(({ code, item, details }) => (
+      code === 'missing_factual_qualifier'
+        && item === `42 ${qualifier}`
+        && details.qualifier === 'currency:CNY'
+    )), qualifier);
+  }
 });
 
 test('allows bounded same-clause reordering of unit and currency qualifiers', () => {
