@@ -568,6 +568,44 @@ test('preserves reference-style links, images, and their definitions', () => {
   }
 });
 
+test('preserves shortcut reference links and images with their definitions', () => {
+  const shortcutBefore = `# 资料
+
+[指南]
+
+![图表]
+
+[指南]: ./guide.md
+[图表]: ./chart.png`;
+  const report = captureCustomFailure({
+    original: '# Resources\n\nEnglish context.',
+    before: shortcutBefore,
+    polished: `# 资料
+
+指南
+
+图表
+
+[指南]: ./guide.md
+[图表]: ./chart.png`,
+  });
+
+  assert.ok(report.issues.some(({ code, item }) => code === 'missing_reference_link' && item === '[指南]'));
+  assert.ok(report.issues.some(({ code, item }) => code === 'missing_reference_image' && item === '![图表]'));
+});
+
+test('does not parse Markdown-looking text inside inline code as structure', () => {
+  const report = verifyPolishedChinese({
+    original: '# Code\n\nEnglish context.',
+    before: '# 代码\n\n示例为 `[伪链接](./fake.md)` 和 ``![伪图][chart]``。',
+    polished: '# 代码\n\n示例代码已经重写。',
+    glossary: {},
+  });
+
+  assert.equal(report.ok, true);
+  assert.deepEqual(report.issues, []);
+});
+
 test('extracts and preserves empty-alt inline and reference images', () => {
   const inlineBefore = '# 图表\n\n![](./inline-chart.png)';
   const inlineReport = captureCustomFailure({
@@ -699,6 +737,66 @@ code rewritten
   );
 });
 
+test('keeps four-space and tab-indented nested list items structurally visible', () => {
+  const nestedBefore = `# 方法
+
+- 一级项目
+    - 必须保留的二级项目
+\t- 必须保留的制表符项目`;
+  const report = captureCustomFailure({
+    original: '# Method\n\n- Primary item',
+    before: nestedBefore,
+    polished: '# 方法\n\n- 一级项目',
+  });
+
+  assert.deepEqual(
+    report.issues.filter(({ code }) => code === 'missing_list_item').map(({ item }) => item),
+    ['    - 必须保留的二级项目', '\t- 必须保留的制表符项目'],
+  );
+});
+
+test('keeps nested links and indented list-body facts visible', () => {
+  const beforeWithListBody = `# 方法
+
+1. **测量方法**
+
+    方法说明见 [二级资料](./nested.md)，测量距离为 42 公里。`;
+  const polished = `# 方法
+
+1. **测量方法**
+
+    方法说明已更新，测量距离为 42。`;
+  const report = captureCustomFailure({
+    original: '# Method\n\n1. Measurement method',
+    before: beforeWithListBody,
+    polished,
+  });
+
+  assert.ok(report.issues.some(({ code, item }) => code === 'missing_markdown_link' && item.includes('[二级资料]')));
+  assert.ok(report.issues.some(({ code, item }) => code === 'missing_factual_qualifier' && item === '42 公里'));
+});
+
+test('continues to protect true top-level and list-contained indented code', () => {
+  const protectedMarkdown = `# 方法
+
+    [代码链接](./not-structure.md)
+
+- 示例
+
+      [列表代码](./also-not-structure.md)
+
+正文。`;
+  const report = verifyPolishedChinese({
+    original: '# Method\n\nContext.',
+    before: protectedMarkdown,
+    polished: '# 方法\n\n- 示例\n\n正文。',
+    glossary: {},
+  });
+
+  assert.equal(report.ok, true);
+  assert.deepEqual(report.issues, []);
+});
+
 test('fails when percent and per-mille qualifiers drift despite the same number', () => {
   const report = captureCustomFailure({
     original: '# Rate\n\nThe rate was 42%.',
@@ -733,6 +831,79 @@ test('fails when English-adjacent currency or data-unit qualifiers are removed',
     report.issues.filter(({ code }) => code === 'missing_factual_qualifier').map(({ item }) => item),
     ['$42 million', '5 GB'],
   );
+});
+
+test('fails when expanded business, energy, time, or AI units are removed', () => {
+  const cases = [
+    ['MW', 'MW'],
+    ['GW', 'GW'],
+    ['kWh', 'kWh'],
+    ['tonnes', 'tonnes'],
+    ['tokens', 'tokens'],
+    ['seconds', 'seconds'],
+    ['months', 'months'],
+    ['basis points', 'basis points'],
+    ['个基点', '个基点'],
+  ];
+
+  for (const [label, qualifier] of cases) {
+    const report = captureCustomFailure({
+      original: `# Fact\n\nThe value was 42 ${qualifier}.`,
+      before: `# 事实\n\n该数值为 42 ${qualifier}。`,
+      polished: '# 事实\n\n该数值为 42。',
+    });
+    assert.ok(
+      report.issues.some(({ code, item }) => code === 'missing_factual_qualifier' && item.includes('42')),
+      label,
+    );
+  }
+});
+
+test('preserves both scale and unit in composite factual qualifiers', () => {
+  const report = captureCustomFailure({
+    original: '# Tokens\n\nThe model processed 42 million tokens.',
+    before: '# 词元\n\n模型处理了 42 million tokens。',
+    polished: '# 词元\n\n模型处理了 42 million。',
+  });
+
+  assert.ok(report.issues.some(({ code, item, details }) => (
+    code === 'missing_factual_qualifier'
+      && item === '42 million tokens'
+      && details.qualifier === 'scale:million|unit:token'
+  )));
+});
+
+test('preserves shared table and figure qualifiers when numeric rows remain', () => {
+  const tableReport = captureCustomFailure({
+    original: '# Results\n\n| Metric | Revenue (million dollars) |\n| --- | --- |\n| A | 42 |',
+    before: '# 结果\n\n| 指标 | 收入（百万美元） |\n| --- | --- |\n| A | 42 |',
+    polished: '# 结果\n\n| 指标 | 收入 |\n| --- | --- |\n| A | 42 |',
+  });
+  assert.ok(tableReport.issues.some(({ code, item }) => (
+    code === 'missing_factual_qualifier' && item.includes('百万美元')
+  )));
+
+  const figureReport = captureCustomFailure({
+    original: '# Capacity\n\nFigure: Capacity (unit: MW), value 42.',
+    before: '# 产能\n\n图示：产能（单位：MW），数值为 42。',
+    polished: '# 产能\n\n图示：产能，数值为 42。',
+  });
+  assert.ok(figureReport.issues.some(({ code, item }) => (
+    code === 'missing_factual_qualifier' && item.includes('MW')
+  )));
+});
+
+test('distinguishes regional dollar prefixes without matching their dollar substring', () => {
+  for (const currency of ['HK$', 'A$', 'C$', 'S$']) {
+    const report = captureCustomFailure({
+      original: `# Revenue\n\nRevenue was ${currency}42.`,
+      before: `# 收入\n\n收入为 ${currency}42。`,
+      polished: '# 收入\n\n收入为 US$42。',
+    });
+    assert.ok(report.issues.some(({ code, item }) => (
+      code === 'missing_factual_qualifier' && item === `${currency}42`
+    )), currency);
+  }
 });
 
 test('allows equivalent Chinese and English-adjacent factual unit forms', () => {
@@ -825,6 +996,34 @@ test('does not associate a detached qualifier across an ASCII sentence boundary'
   assert.ok(report.issues.some(({ code, item }) => code === 'missing_factual_qualifier' && item === '42 公里'));
 });
 
+test('matches English-only repaired facts globally across cross-language paragraph differences', () => {
+  const report = verifyPolishedChinese({
+    original: '# Facts\n\nContext retained in English.\n\nCapacity was 42 MW.',
+    before: '# 事实\n\n旧译只保留了背景说明。',
+    polished: '# 事实\n\n修订译文补充：容量为 42 兆瓦。',
+    glossary: {},
+  });
+
+  assert.equal(report.ok, true);
+  assert.deepEqual(report.issues, []);
+});
+
+test('reports omitted English-only facts from the original source line', () => {
+  const report = captureCustomFailure({
+    original: '# Facts\n\nContext retained in English.\n\nCapacity was 42 MW.',
+    before: '# 事实\n\n旧译只保留了背景说明。',
+    polished: '# 事实\n\n修订译文只补上数字 42，未保留单位。',
+  });
+
+  assert.ok(report.issues.some(({ code, line, item, details, message }) => (
+    code === 'missing_factual_qualifier'
+      && line === 5
+      && item === '42 MW'
+      && details.source === 'original'
+      && /original line 5/i.test(message)
+  )));
+});
+
 test('verifyPolishedChinese does not require classified noise or its URL to survive', () => {
   const noisyOriginal = `${original}\n\n[Print](https://example.com/print)`;
   const noisyBefore = `${before}\n\n[Print](https://example.com/print)`;
@@ -855,6 +1054,15 @@ test('scanChineseStyle reports glossary, UI-word, punctuation, and repetition ri
   );
   assert.ok(risks.every(({ message, line }) => message && line >= 1));
   assert.equal(markdown, '# 标题\n\n该代理将执行任务,结果很好!!\n\nShare');
+});
+
+test('masks variable-length inline code spans from all Chinese style risks', () => {
+  const markdown = '# 标题\n\n正文保留，代码示例为 ``代理,!! 与 `内层` 标记``。';
+  const risks = scanChineseStyle(markdown, {
+    agent: { preferred: '智能体', prohibited: ['代理'] },
+  });
+
+  assert.deepEqual(risks, []);
 });
 
 test('abnormal shortening and expansion are review risks, not automatic failures', () => {

@@ -157,9 +157,31 @@ function closesFence(line, fence) {
   return Boolean(match && match[1][0] === fence.marker && match[1].length >= fence.length);
 }
 
+function indentation(line) {
+  let columns = 0;
+  let index = 0;
+  while (index < line.length && /[ \t]/u.test(line[index])) {
+    columns += line[index] === '\t' ? 4 - (columns % 4) : 1;
+    index += 1;
+  }
+  return { columns, index, content: line.slice(index) };
+}
+
+function listMarker(line) {
+  const leading = indentation(line);
+  const match = leading.content.match(/^([-+*]|\d+[.)])([ \t]+)/u);
+  if (!match) return null;
+  const spacing = indentation(match[2]).columns;
+  return {
+    markerIndent: leading.columns,
+    contentIndent: leading.columns + match[1].length + spacing,
+  };
+}
+
 function scanMarkdownLines(markdown, lineMap) {
   const lines = [];
   let fence = null;
+  let listStack = [];
   let lineIndex = 0;
   for (const match of markdown.matchAll(/[^\r\n]*(?:\r\n|\n|$)/g)) {
     const raw = match[0];
@@ -167,7 +189,28 @@ function scanMarkdownLines(markdown, lineMap) {
     const text = raw.replace(/\r?\n$/, '');
     const opening = fence ? null : fenceOpening(text);
     const closing = fence ? closesFence(text, fence) : false;
-    const protectedLine = Boolean(fence || opening || /^(?: {4}|\t)/.test(text));
+    const possibleMarker = fence || opening ? null : listMarker(text);
+    const leading = indentation(text);
+    const parentList = possibleMarker && [...listStack]
+      .reverse()
+      .find(({ contentIndent }) => possibleMarker.markerIndent >= contentIndent);
+    const marker = possibleMarker && (possibleMarker.markerIndent < 4 || parentList)
+      ? possibleMarker
+      : null;
+    let indentedCode = false;
+    if (!fence && !opening && marker) {
+      listStack = listStack.filter(({ markerIndent }) => markerIndent < marker.markerIndent);
+      listStack.push(marker);
+    } else if (!fence && !opening && leading.content) {
+      const listContext = [...listStack]
+        .reverse()
+        .find(({ contentIndent }) => leading.columns >= contentIndent);
+      indentedCode = listContext
+        ? leading.columns >= listContext.contentIndent + 4
+        : leading.columns >= 4;
+      if (!listContext && leading.columns < 4) listStack = [];
+    }
+    const protectedLine = Boolean(fence || opening || indentedCode);
     lines.push({
       raw,
       text,
@@ -184,11 +227,61 @@ function scanMarkdownLines(markdown, lineMap) {
   return lines;
 }
 
+function maskInlineCode(text) {
+  const characters = text.split('');
+  for (let index = 0; index < text.length;) {
+    if (text[index] !== '`') {
+      index += 1;
+      continue;
+    }
+    let openingLength = 1;
+    while (text[index + openingLength] === '`') openingLength += 1;
+    let cursor = index + openingLength;
+    let closingEnd = -1;
+    while (cursor < text.length) {
+      if (text[cursor] !== '`') {
+        cursor += 1;
+        continue;
+      }
+      let closingLength = 1;
+      while (text[cursor + closingLength] === '`') closingLength += 1;
+      if (closingLength === openingLength) {
+        closingEnd = cursor + closingLength;
+        break;
+      }
+      cursor += closingLength;
+    }
+    if (closingEnd === -1) {
+      index += openingLength;
+      continue;
+    }
+    for (let maskIndex = index; maskIndex < closingEnd; maskIndex += 1) {
+      if (!/[\r\n]/u.test(characters[maskIndex])) characters[maskIndex] = ' ';
+    }
+    index = closingEnd;
+  }
+  return characters.join('');
+}
+
+function maskScannedLines(lines) {
+  const codeProtected = lines
+    .map((line) => (line.protected ? line.raw.replace(/[^\r\n]/g, ' ') : line.raw))
+    .join('');
+  const masked = maskInlineCode(codeProtected);
+  let offset = 0;
+  return lines.map((line) => {
+    const raw = masked.slice(offset, offset + line.raw.length);
+    offset += line.raw.length;
+    return { ...line, raw, text: raw.replace(/\r?\n$/, '') };
+  });
+}
+
 function splitMarkdownBlocks(markdown, lineMap) {
   const lines = scanMarkdownLines(markdown, lineMap);
   const blocks = [];
   let chunks = [];
   let blockLineMap = [];
+  let blockLines = [];
   let blockLine = 1;
   let protectedBlock = false;
 
@@ -196,9 +289,10 @@ function splitMarkdownBlocks(markdown, lineMap) {
     if (!chunks.length) return;
     let block = chunks.join('');
     if (beforeBlank) block = block.replace(/\r?\n$/, '');
-    blocks.push({ block, line: blockLine, lineMap: blockLineMap, protected: protectedBlock });
+    blocks.push({ block, line: blockLine, lineMap: blockLineMap, lines: blockLines, protected: protectedBlock });
     chunks = [];
     blockLineMap = [];
+    blockLines = [];
     protectedBlock = false;
   };
 
@@ -214,6 +308,7 @@ function splitMarkdownBlocks(markdown, lineMap) {
     protectedBlock ||= line.protected;
     chunks.push(line.raw);
     blockLineMap.push(line.line);
+    blockLines.push(line);
   }
   flush();
   return blocks;
@@ -285,10 +380,9 @@ function mappedLocationAt(text, index, lineMap) {
 }
 
 function sanitizeProtectedMarkdown(markdown) {
-  return scanMarkdownLines(markdown)
-    .map((line) => (line.protected ? line.raw.replace(/[^\r\n]/g, ' ') : line.raw))
+  return maskScannedLines(scanMarkdownLines(markdown))
+    .map((line) => line.raw)
     .join('')
-    .replace(/`[^`\n]*`/g, (value) => ' '.repeat(value.length))
     .replace(/(?:https?:\/\/|mailto:|tel:)[^\s)>\]"']+/g, (value) => ' '.repeat(value.length));
 }
 
@@ -394,7 +488,7 @@ export function scanChineseStyle(markdown, glossary = {}) {
 }
 
 function markdownLines(markdown, lineMap) {
-  return scanMarkdownLines(markdown, lineMap)
+  return maskScannedLines(scanMarkdownLines(markdown, lineMap))
     .filter((line) => !line.protected)
     .map(({ text, line, start }) => ({ text, line, start }));
 }
@@ -482,10 +576,14 @@ function referenceMarkdownStructures(markdown, lineMap) {
   const images = [];
   const definitions = [];
   const usagePattern = /(!?)\[([^\]\n]*)]\[([^\]\n]*)]/g;
+  const shortcutPattern = /(?<!\])(!?)\[([^\]\n]+)](?![[(])/g;
   const definitionPattern = /^ {0,3}\[([^\]^][^\]]*)]:\s*(<?\S+>?)(?:\s+.*)?$/;
-  for (const line of markdownLines(markdown, lineMap)) {
+  const lines = markdownLines(markdown, lineMap);
+  const definitionLines = new Set();
+  for (const line of lines) {
     const definition = line.text.match(definitionPattern);
     if (definition) {
+      definitionLines.add(line.start);
       definitions.push({
         line: line.line,
         column: line.text.indexOf('[') + 1,
@@ -493,8 +591,11 @@ function referenceMarkdownStructures(markdown, lineMap) {
         id: definition[1].trim().toLowerCase(),
         destination: definition[2].replace(/^<|>$/g, ''),
       });
-      continue;
     }
+  }
+  const definitionIds = new Set(definitions.map(({ id }) => id));
+  for (const line of lines) {
+    if (definitionLines.has(line.start)) continue;
     for (const match of line.text.matchAll(usagePattern)) {
       const item = {
         line: line.line,
@@ -502,6 +603,18 @@ function referenceMarkdownStructures(markdown, lineMap) {
         text: match[0],
         label: match[2],
         id: (match[3] || match[2]).trim().toLowerCase(),
+      };
+      (match[1] ? images : links).push(item);
+    }
+    for (const match of line.text.matchAll(shortcutPattern)) {
+      const id = match[2].trim().toLowerCase();
+      if (id.startsWith('^') || !definitionIds.has(id)) continue;
+      const item = {
+        line: line.line,
+        column: match.index + 1,
+        text: match[0],
+        label: match[2],
+        id,
       };
       (match[1] ? images : links).push(item);
     }
@@ -803,8 +916,11 @@ function locatedNumbers(markdown, lineMap) {
   return found;
 }
 
-const CURRENCY_PREFIX = /(?:US\$|HK\$|A\$|[$€£¥]|USD|EUR|GBP|CNY|RMB|人民币)\s*$/i;
-const FACT_QUALIFIER_SOURCE = String.raw`(?:%|‰|percent|per\s+cent|(?:thousand|million|billion|trillion|万亿|十亿|百万|千|万)\s*(?:(?:US\s+)?dollars?|euros?|pounds?|yuan|美元|欧元|英镑|人民币|元)?|US\$|HK\$|A\$|[$€£¥]|USD|EUR|GBP|CNY|RMB|(?:US\s+)?dollars?|euros?|pounds?|yuan|美元|欧元|英镑|人民币|元|kilomet(?:er|re)s?|km|公里|千米|kilograms?|kg|gigabytes?|GB|megabytes?|MB|terabytes?|TB|°C|°F)`;
+const CURRENCY_TOKEN_SOURCE = String.raw`(?:US\$|HK\$|A\$|C\$|S\$|USD|HKD|AUD|CAD|SGD|EUR|GBP|CNY|RMB|[$€£¥]|(?:US\s+)?dollars?|Hong\s+Kong\s+dollars?|Australian\s+dollars?|Canadian\s+dollars?|Singapore\s+dollars?|euros?|pounds?|yuan|美元|港元|港币|澳元|加元|新加坡元|新元|欧元|英镑|人民币|元)`;
+const SCALE_SOURCE = String.raw`(?:thousand|million|billion|trillion|万亿|十亿|百万|千|万)`;
+const UNIT_SOURCE = String.raw`(?:basis\s+points?|bps|个?基点|kilomet(?:er|re)s?|km|公里|千米|kilograms?|kg|公斤|gigabytes?|GB|megabytes?|MB|terabytes?|TB|kilowatts?|kW|千瓦|megawatts?|MW|兆瓦|gigawatts?|GW|吉瓦|watt[ -]?hours?|Wh|瓦时|kilowatt[ -]?hours?|kWh|千瓦时|megawatt[ -]?hours?|MWh|兆瓦时|gigawatt[ -]?hours?|GWh|吉瓦时|metric\s+tonnes?|tonnes?|tons?|公吨|吨|tokens?|令牌|词元|seconds?|secs?|秒|months?|个月|月|°C|°F)`;
+const FACT_QUALIFIER_SOURCE = String.raw`(?:%|‰|percent|per\s+cent|${SCALE_SOURCE}(?:\s*(?:${CURRENCY_TOKEN_SOURCE}|${UNIT_SOURCE}))?|${CURRENCY_TOKEN_SOURCE}|${UNIT_SOURCE})`;
+const CURRENCY_PREFIX = new RegExp(`${CURRENCY_TOKEN_SOURCE}\\s*$`, 'i');
 const FACT_QUALIFIER_SUFFIX = new RegExp(`^\\s*${FACT_QUALIFIER_SOURCE}`, 'i');
 
 function canonicalFactQualifier(value) {
@@ -824,7 +940,11 @@ function canonicalFactQualifier(value) {
   if (scale) parts.push(scale[1]);
 
   const currencies = [
-    [/(?:us\$|\$|usd|dollars?|美元)/, 'currency:USD'],
+    [/(?:(?<![a-z])hk\$|hkd|hong kong dollars?|港元|港币)/, 'currency:HKD'],
+    [/(?:(?<![a-z])a\$|aud|australian dollars?|澳元)/, 'currency:AUD'],
+    [/(?:(?<![a-z])c\$|cad|canadian dollars?|加元)/, 'currency:CAD'],
+    [/(?:(?<![a-z])s\$|sgd|singapore dollars?|新加坡元|新元)/, 'currency:SGD'],
+    [/(?:us\$|usd|(?<![a-z])\$|(?:us )?dollars?|美元)/, 'currency:USD'],
     [/(?:€|eur|euros?|欧元)/, 'currency:EUR'],
     [/(?:£|gbp|pounds?|英镑)/, 'currency:GBP'],
     [/(?:¥|cny|rmb|yuan|人民币|元)/, 'currency:CNY'],
@@ -838,6 +958,18 @@ function canonicalFactQualifier(value) {
     [/(?:gigabytes?|\bgb\b)/, 'unit:GB'],
     [/(?:megabytes?|\bmb\b)/, 'unit:MB'],
     [/(?:terabytes?|\btb\b)/, 'unit:TB'],
+    [/(?:kilowatt[ -]?hours?|\bkwh\b|千瓦时)/, 'unit:kWh'],
+    [/(?:megawatt[ -]?hours?|\bmwh\b|兆瓦时)/, 'unit:MWh'],
+    [/(?:gigawatt[ -]?hours?|\bgwh\b|吉瓦时)/, 'unit:GWh'],
+    [/(?:watt[ -]?hours?|\bwh\b|瓦时)/, 'unit:Wh'],
+    [/(?:kilowatts?|\bkw\b|千瓦)/, 'unit:kW'],
+    [/(?:megawatts?|\bmw\b|兆瓦)/, 'unit:MW'],
+    [/(?:gigawatts?|\bgw\b|吉瓦)/, 'unit:GW'],
+    [/(?:metric tonnes?|tonnes?|tons?|公吨|吨)/, 'unit:tonne'],
+    [/(?:tokens?|令牌|词元)/, 'unit:token'],
+    [/(?:seconds?|secs?|秒)/, 'unit:second'],
+    [/(?:months?|个月|月)/, 'unit:month'],
+    [/(?:basis points?|\bbps\b|个?基点)/, 'unit:basis_point'],
     [/°c/, 'unit:celsius'],
     [/°f/, 'unit:fahrenheit'],
   ];
@@ -868,15 +1000,51 @@ function rangesOverlap(left, right) {
   return left.start < right.end && right.start < left.end;
 }
 
+function sharedQualifierAnchors(lines, group) {
+  const anchors = [];
+  for (const line of lines) {
+    const candidates = [];
+    for (const match of line.text.matchAll(/[（(]([^（）()\n]{1,60})[）)]/gu)) {
+      if (/\d/u.test(match[1])) continue;
+      candidates.push({ text: match[0], value: match[1], index: match.index });
+    }
+    const unitPattern = new RegExp(`(?:单位|unit)\\s*[:：]\\s*(${FACT_QUALIFIER_SOURCE})`, 'giu');
+    for (const match of line.text.matchAll(unitPattern)) {
+      candidates.push({ text: match[0], value: match[1], index: match.index });
+    }
+    const seen = new Set();
+    for (const candidate of candidates) {
+      const qualifier = canonicalFactQualifier(candidate.value);
+      const key = `shared|${qualifier}`;
+      if (!qualifier || seen.has(key)) continue;
+      seen.add(key);
+      anchors.push({
+        line: line.line,
+        column: candidate.index + 1,
+        item: candidate.text,
+        number: 'shared',
+        qualifier,
+        key,
+        group,
+      });
+    }
+  }
+  return anchors;
+}
+
 function numericFactAnchors(markdown, lineMap) {
   const anchors = [];
   const maximumAssociationDistance = 32;
   let group = 0;
   for (const block of splitMarkdownBlocks(markdown, lineMap)) {
-    if (block.protected || classifyNoiseBlock(block.block)) continue;
+    const visibleLines = maskScannedLines(block.lines)
+      .filter((line) => !line.protected)
+      .map(({ text, line, start }) => ({ text, line, start }));
+    if (!visibleLines.length || (!block.protected && classifyNoiseBlock(block.block))) continue;
     const blockGroup = group;
     group += 1;
-    for (const line of markdownLines(block.block, block.lineMap)) {
+    anchors.push(...sharedQualifierAnchors(visibleLines, blockGroup));
+    for (const line of visibleLines) {
       for (const segment of sentenceSegments(line.text)) {
         const numbers = [...segment.text.matchAll(/\d+(?:[.,]\d+)*/g)].map((match) => {
           const numberStart = segment.start + match.index;
@@ -1014,17 +1182,23 @@ function factualIssues(original, before, polished, originalLineMap, beforeLineMa
   const beforeAnchors = numericFactAnchors(before, beforeLineMap);
   const originalAnchors = numericFactAnchors(original, originalLineMap);
   const polishedAnchors = numericFactAnchors(polished);
-  const missingFacts = missingQualifiedFacts(beforeAnchors, polishedAnchors);
+  const missingFacts = missingQualifiedFacts(beforeAnchors, polishedAnchors)
+    .map((item) => ({ ...item, source: 'before' }));
   const sourceExtras = additionalSourceFacts(beforeAnchors, originalAnchors);
-  missingFacts.push(...missingQualifiedFacts(sourceExtras, polishedAnchors));
+  missingFacts.push(...missingByKey(
+    sourceExtras,
+    polishedAnchors.filter(({ qualifier }) => qualifier),
+    ({ key }) => key,
+  ).map((item) => ({ ...item, source: 'original' })));
   for (const item of missingFacts) {
+    const sourceLabel = item.source === 'original' ? 'original' : 'baseline';
     issues.push({
       code: 'missing_factual_qualifier',
       line: item.line,
       column: item.column,
       item: item.item,
-      details: { number: item.number, qualifier: item.qualifier },
-      message: `Missing or altered factual qualifier from baseline line ${item.line}: ${item.item}`,
+      details: { number: item.number, qualifier: item.qualifier, source: item.source },
+      message: `Missing or altered factual qualifier from ${sourceLabel} line ${item.line}: ${item.item}`,
     });
   }
   return issues;
