@@ -59,10 +59,10 @@
   "extractionMethod": "pdftotext -layout plus visual PDF verification",
   "headingCount": 47,
   "paragraphCount": 66,
-  "characterCount": 44772,
+  "characterCount": 44797,
   "snapshotSha256": "189a969d299c8080d5fccb11dec6f0b5229d8aec99661f939c138c111d911e2e",
-  "englishMarkdownSha256": "23d1c368988de155408a98760a2b6e163c279f3b1fef623c414e4e3c17f782e4",
-  "chineseMarkdownSha256": "364056941d7a07ca77402b8049a69d6b22a51ff52d70a701102dd511baaf5053",
+  "englishMarkdownSha256": "32b325b2179638dbf64e54f359f8343c59a0a43e8e78bb29ba054c6808b70a79",
+  "chineseMarkdownSha256": "f6d3f55b8fd3e0b3dfbfbc9e28c8676cc513ceba0c1df039c60b68a312780087",
   "files": {
     "originalHtml": "Gartner CIO Report · 2H26/articles/001-the-cio-report/原始网页.html",
     "originalPdf": "Gartner CIO Report · 2H26/articles/001-the-cio-report/原始报告.pdf",

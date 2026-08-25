@@ -30,6 +30,10 @@ function sectionCount(markdown, label) {
   return (markdown.match(new RegExp(`^## ${label} \\d+$`, 'gm')) || []).length;
 }
 
+function occurrenceCount(text, literal) {
+  return text.split(literal).length - 1;
+}
+
 function assertFourFiveStepPlans(markdown, label) {
   const starts = [...markdown.matchAll(new RegExp(`^## ${label} \\d+$`, 'gm'))];
   assert.equal(starts.length, 4, `${label} count`);
@@ -89,6 +93,23 @@ test('archives the complete Gartner 2H26 CIO report foundation', async () => {
   englishQuestions.forEach((question) => assert.ok(english.includes(question), `English missing question: ${question}`));
   chineseQuestions.forEach((question) => assert.ok(chinese.includes(question), `Chinese missing question: ${question}`));
 
+  const pageSevenQuestion = 'How can we make our IT operating model more resilient against economic, geopolitical or supply chain disruptions?';
+  const pageSevenQuestionZh = '如何增强 IT 运营模式抵御经济、地缘政治或供应链中断的韧性？';
+  assert.equal(occurrenceCount(english, englishQuestions[1]), 1, 'page 2 question must use "resilient to" once');
+  assert.equal(occurrenceCount(english, pageSevenQuestion), 1, 'page 7 question must use "resilient against" once');
+  assert.equal(occurrenceCount(chinese, chineseQuestions[1]), 1, 'Chinese page 2 and page 7 questions must remain distinct');
+  assert.equal(occurrenceCount(chinese, pageSevenQuestionZh), 1, 'Chinese page 7 question must reflect "resilient against"');
+
+  assert.ok(english.includes('[Gartner Score for CIOs](https://www.gartner.com/en/information-technology/research/gartner-it-score-for-cios) to measure critical activities'));
+  assert.ok(chinese.includes('[Gartner Score for CIOs（面向 CIO 的 Gartner 评分）](https://www.gartner.com/en/information-technology/research/gartner-it-score-for-cios)衡量关键活动'));
+  assert.ok(english.includes('[CIO Score](https://www.gartner.com/en/information-technology/research/it-budget-and-efficiency-benchmark)'));
+  assert.ok(chinese.includes('[CIO Score（CIO 评分）](https://www.gartner.com/en/information-technology/research/it-budget-and-efficiency-benchmark)'));
+
+  assert.ok(english.includes("**Don't miss out**"));
+  assert.ok(english.includes("View the Gartner conference calendar today and find one that's right for you."));
+  assert.ok(chinese.includes('**不要错过**'));
+  assert.ok(chinese.includes('立即查看 Gartner 大会日历，找到适合你的会议。'));
+
   assert.equal(sectionCount(english, 'Gartner Answer'), 4);
   assert.equal(sectionCount(chinese, 'Gartner 解答'), 4);
   assertFourFiveStepPlans(english, 'Sample Action Plan');
@@ -97,8 +118,18 @@ test('archives the complete Gartner 2H26 CIO report foundation', async () => {
   assert.equal(sectionCount(chinese, '关键领导角色'), 4);
   for (const markdown of [english, chinese]) {
     assert.doesNotMatch(markdown, /Follow Us on LinkedIn/);
-    assert.doesNotMatch(markdown, /Become a Client/);
+    assert.doesNotMatch(markdown, /^.*Gartner for CIOs.*Follow Us on LinkedIn.*Become a Client.*$/m);
     assert.doesNotMatch(markdown, /The CIO Report\s+\d+\s*$/m);
+  }
+  assert.equal(occurrenceCount(english, '[Become a Client]('), 1, 'page 22 CTA must appear exactly once');
+  assert.equal(occurrenceCount(chinese, '[成为 Gartner 客户]('), 1, 'Chinese page 22 CTA must appear exactly once');
+  for (const url of [
+    'https://www.linkedin.com/showcase/gartner-for-it-leaders/',
+    'https://x.com/Gartner_inc',
+    'https://www.youtube.com/channel/UCSNX50LYGXWV_e5UWZGPGbw',
+  ]) {
+    assert.ok(english.includes(url), `English missing page 22 social link: ${url}`);
+    assert.ok(chinese.includes(url), `Chinese missing page 22 social link: ${url}`);
   }
 
   const wrapper = await readFile(files.wrapper, 'utf8');
