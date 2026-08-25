@@ -30341,5 +30341,99 @@
       "discoveryMethod": "official_insights_index",
       "discoveryReason": "New in window; named enterprise agentic case"
     }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "gartner-cio-report-h2-2026",
+    "radarTitle": "Gartner CIO Report · 2H26",
+    "publisher": "Gartner",
+    "sourceUrl": "https://www.gartner.com/en/chief-information-officer/products/gartner-for-cios",
+    "canonicalUrl": "https://www.gartner.com/en/chief-information-officer/products/gartner-for-cios",
+    "titleOriginal": "2H26 The CIO Report",
+    "titleZh": "Gartner 2026 下半年 CIO 报告",
+    "publishedAt": "2026-08-15",
+    "documentType": "Report",
+    "authorRaw": "Gartner",
+    "category": {
+      "primary": "技术、数据与架构",
+      "secondary": [
+        "AI 战略与价值",
+        "组织、人才与工作",
+        "治理、风险与安全"
+      ],
+      "taxonomyVersion": "zh-management-v1"
+    },
+    "tags": {
+      "topics": [
+        "技术、数据与架构",
+        "AI 战略与价值",
+        "组织、人才与工作",
+        "治理、风险与安全"
+      ],
+      "geography": [
+        "全球"
+      ],
+      "horizon": [
+        "未来6–18个月"
+      ],
+      "domains": [
+        "Enterprise Architecture",
+        "Operating Model",
+        "Legacy Modernization",
+        "Human-AI Collaboration",
+        "AI Transformation"
+      ]
+    },
+    "priority": "must-read",
+    "score": {
+      "total": 92,
+      "dimensions": {
+        "content": 28,
+        "impact": 24,
+        "relevance": 22,
+        "evidence": 18
+      },
+      "sourceScale": 100,
+      "tier": "high"
+    },
+    "confidence": {
+      "level": "high",
+      "reason": "基于 Gartner 官方 PDF 与完整本地归档，英文原文、中文全文及原始文件均已核验。"
+    },
+    "coreView": {
+      "original": null,
+      "zh": "Gartner 将 2026 年下半年 CIO 议程归纳为四项相互关联的任务：以 AI、云和边缘计算重构企业架构，增强 IT 运营韧性，分阶段现代化遗留系统，并建立可持续的人机协作与技能提升机制。"
+    },
+    "evidence": [
+      {
+        "statementOriginal": "50% of CIOs say IT cannot keep pace with business needs, while 85% plan to implement AI-enabled services within the next three years.",
+        "statementZh": "50% 的 CIO 表示 IT 无法跟上业务需求变化；85% 计划在未来三年内实施 AI 支持的服务。",
+        "locator": "PDF pages 3–6"
+      },
+      {
+        "statementOriginal": "Only 24% of CIOs report highly effective flexible operating models; by 2028, 50% of enterprises will fail to realize AI value because of outdated operating models.",
+        "statementZh": "仅 24% 的 CIO 认为其灵活运营模式高度有效；到 2028 年，50% 的企业将因运营模式过时而无法实现 AI 价值。",
+        "locator": "PDF pages 7–10"
+      },
+      {
+        "statementOriginal": "Organizations can achieve up to 30% cost reduction by 2028; by 2029, 90% of modernization projects will use AI-augmented tools, up from less than 20% in 2026.",
+        "statementZh": "到 2028 年，组织可实现最高 30% 的成本降低；到 2029 年，90% 的现代化项目将使用 AI 增强工具，高于 2026 年的不足 20%。",
+        "locator": "PDF pages 11–14"
+      },
+      {
+        "statementOriginal": "51% cite the AI skills gap as the primary challenge, 56% plan to augment rather than replace employees, and 40% have a strategy to address skills atrophy.",
+        "statementZh": "51% 将 AI 技能差距视为首要挑战，56% 计划用 AI 增强而非取代员工，40% 已制定应对技能退化的战略。",
+        "locator": "PDF pages 15–18"
+      }
+    ],
+    "impactZh": "该报告将企业架构、IT 运营韧性、遗留系统现代化与人机协作纳入同一 CIO 转型议程，影响未来 6–18 个月的技术投资与组织设计。",
+    "implicationZh": "CIO 应建立分阶段路线图，优先验证 AI 与平台架构、韧性运营、遗留现代化和技能提升项目，并以可量化业务价值持续复盘。",
+    "archiveIndex": 1,
+    "provenance": {
+      "sourceFile": "work/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report/原始报告.pdf",
+      "extractionBasis": "local_pdf_fulltext_verified",
+      "pageCount": 22,
+      "pdfSha256": "189a969d299c8080d5fccb11dec6f0b5229d8aec99661f939c138c111d911e2e"
+    }
   }
 ]

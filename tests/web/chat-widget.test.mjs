@@ -99,7 +99,7 @@ test('shows generic model setup guidance without breaking article browsing', asy
 test('welcomes the user and answers supported small talk without calling the model', async () => {
   const { dom, document, calls } = await bootWidget();
   document.querySelector('#knowledge-chat-button').click();
-  assert.match(document.querySelector('#answer').textContent, /你好.*469 篇归档文章/s);
+  assert.match(document.querySelector('#answer').textContent, /你好.*470 篇归档文章/s);
 
   await submitQuestion(dom, document, '你好');
   assert.match(document.querySelector('#answer').textContent, /文章来源.*原文链接/s);

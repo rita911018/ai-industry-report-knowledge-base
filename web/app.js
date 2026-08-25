@@ -99,7 +99,7 @@
     $('#sort-control').addEventListener('change', () => $('#article-results').scrollIntoView({ block: 'start', behavior: 'smooth' }));
   }
 
-  $('#article-count').textContent = String(articles.length || 469);
+  $('#article-count').textContent = String(articles.length || 470);
   $('#load-more').addEventListener('click', () => { state.visible += 30; renderArticles(); });
   $('#article-dialog .dialog-close').addEventListener('click', () => $('#article-dialog').close());
   initFilters();

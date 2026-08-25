@@ -35,10 +35,10 @@
   function smallTalkReply(value) {
     const message = normalizeMessage(value);
     if (/^(你好|您好|嗨|hi|hello|早上好|下午好|晚上好)$/.test(message)) {
-      return { title: '你好', text: '你好！我可以检索 469 篇归档文章、比较不同机构观点、解释 AI 机会场景，并提供文章来源与原文链接。' };
+      return { title: '你好', text: '你好！我可以检索 470 篇归档文章、比较不同机构观点、解释 AI 机会场景，并提供文章来源与原文链接。' };
     }
     if (/^(你是谁|你能干什么|你会什么|能做什么|怎么用|如何使用)$/.test(message)) {
-      return { title: '我能帮你做什么', text: '我可以检索 469 篇归档文章、比较不同机构观点、解释 AI 机会场景，并在知识回答中标注文章来源与原文链接。' };
+      return { title: '我能帮你做什么', text: '我可以检索 470 篇归档文章、比较不同机构观点、解释 AI 机会场景，并在知识回答中标注文章来源与原文链接。' };
     }
     if (/^(谢谢|感谢|多谢|辛苦了|thankyou|thanks)$/.test(message)) {
       return { title: '不客气', text: '不客气。你可以继续追问某篇文章、某个机构观点，或一个具体 AI 机会场景。' };
@@ -282,7 +282,7 @@
       else if (!drawer.hidden) setDrawerOpen(false);
     });
 
-    renderTextAnswer('你好', '你好！我可以检索 469 篇归档文章、比较不同机构观点、解释 AI 机会场景，并提供文章来源与原文链接。');
+    renderTextAnswer('你好', '你好！我可以检索 470 篇归档文章、比较不同机构观点、解释 AI 机会场景，并提供文章来源与原文链接。');
     renderHistory();
     checkHealth();
   }

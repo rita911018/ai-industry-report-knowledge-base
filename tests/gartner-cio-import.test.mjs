@@ -214,3 +214,116 @@ test('archives the complete Gartner 2H26 CIO report foundation', async () => {
 
   assert.equal(verifyTranslation(english, chinese).ok, true);
 });
+
+test('adds the Gartner report as the canonical 470th knowledge-library record', async () => {
+  const ledger = JSON.parse(await readFile(path.join(repoRoot, 'work/normalized/articles.json'), 'utf8'));
+  const matches = ledger.filter((article) => article.id === 'gartner-cio-report-h2-2026');
+  assert.equal(ledger.length, 470);
+  assert.equal(matches.length, 1);
+  assert.equal(ledger.at(-1).id, 'gartner-cio-report-h2-2026', 'Gartner must be appended without reordering the original records');
+
+  const article = matches[0];
+  assert.deepEqual({
+    schemaVersion: article.schemaVersion,
+    id: article.id,
+    archiveIndex: article.archiveIndex,
+    radarTitle: article.radarTitle,
+    publisher: article.publisher,
+    sourceUrl: article.sourceUrl,
+    canonicalUrl: article.canonicalUrl,
+    titleOriginal: article.titleOriginal,
+    titleZh: article.titleZh,
+    publishedAt: article.publishedAt,
+    documentType: article.documentType,
+    authorRaw: article.authorRaw,
+  }, {
+    schemaVersion: '1.0.0',
+    id: 'gartner-cio-report-h2-2026',
+    archiveIndex: 1,
+    radarTitle: 'Gartner CIO Report · 2H26',
+    publisher: 'Gartner',
+    sourceUrl: officialUrl,
+    canonicalUrl: officialUrl,
+    titleOriginal: '2H26 The CIO Report',
+    titleZh: 'Gartner 2026 下半年 CIO 报告',
+    publishedAt: '2026-08-15',
+    documentType: 'Report',
+    authorRaw: 'Gartner',
+  });
+  assert.deepEqual(article.category, {
+    primary: '技术、数据与架构',
+    secondary: ['AI 战略与价值', '组织、人才与工作', '治理、风险与安全'],
+    taxonomyVersion: 'zh-management-v1',
+  });
+  assert.deepEqual(article.tags, {
+    topics: ['技术、数据与架构', 'AI 战略与价值', '组织、人才与工作', '治理、风险与安全'],
+    geography: ['全球'],
+    horizon: ['未来6–18个月'],
+    domains: ['Enterprise Architecture', 'Operating Model', 'Legacy Modernization', 'Human-AI Collaboration', 'AI Transformation'],
+  });
+  assert.equal(article.priority, 'must-read');
+  assert.deepEqual(article.score, {
+    total: 92,
+    dimensions: { content: 28, impact: 24, relevance: 22, evidence: 18 },
+    sourceScale: 100,
+    tier: 'high',
+  });
+  assert.equal(article.confidence.level, 'high');
+  assert.match(article.confidence.reason, /官方 PDF/);
+  assert.match(article.confidence.reason, /完整本地归档/);
+  assert.deepEqual(article.coreView, {
+    original: null,
+    zh: 'Gartner 将 2026 年下半年 CIO 议程归纳为四项相互关联的任务：以 AI、云和边缘计算重构企业架构，增强 IT 运营韧性，分阶段现代化遗留系统，并建立可持续的人机协作与技能提升机制。',
+  });
+  assert.equal(article.evidence.length, 4);
+  const evidenceText = article.evidence.map((item) => `${item.statementOriginal}\n${item.statementZh}`).join('\n');
+  for (const fact of ['50%', '85%', '24%', '2028', '30%', '90%', '2029', '51%', '56%', '40%']) assert.ok(evidenceText.includes(fact), `missing evidence fact ${fact}`);
+  assert.deepEqual(article.evidence.map((item) => item.locator), [
+    'PDF pages 3–6',
+    'PDF pages 7–10',
+    'PDF pages 11–14',
+    'PDF pages 15–18',
+  ]);
+  assert.ok(article.impactZh?.length > 20);
+  assert.ok(article.implicationZh?.length > 20);
+  assert.deepEqual(article.provenance, {
+    sourceFile: 'work/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report/原始报告.pdf',
+    extractionBasis: 'local_pdf_fulltext_verified',
+    pageCount: 22,
+    pdfSha256: expectedPdfSha256,
+  });
+
+  const packageJson = JSON.parse(await readFile(path.join(repoRoot, 'package.json'), 'utf8'));
+  assert.match(packageJson.scripts.readers, /--expected 470(?:\s|$)/);
+  assert.match(packageJson.scripts['verify:readers'], /--expected 470(?:\s|$)/);
+  for (const relativePath of ['web/index.html', 'web/app.js', 'web/chat-widget.js']) {
+    const runtime = await readFile(path.join(repoRoot, relativePath), 'utf8');
+    assert.match(runtime, /470/, `${relativePath} must expose the new live count`);
+  }
+});
+
+test('publishes the Gartner reader and searchable generated artifacts', async () => {
+  const reader = await readFile(path.join(articleDirectory, '中文全文.html'), 'utf8');
+  assert.match(reader, /Gartner 2026 下半年 CIO 报告/);
+  assert.match(reader, new RegExp(escapeRegExp(officialUrl)));
+
+  const corpus = JSON.parse(await readFile(path.join(repoRoot, 'work/knowledge/corpus.json'), 'utf8'));
+  assert.equal(corpus.length, 470);
+  const corpusMatches = corpus.filter((article) => article.id === 'gartner-cio-report-h2-2026');
+  assert.equal(corpusMatches.length, 1);
+  assert.ok(corpusMatches[0].chunks.length > 0);
+  assert.deepEqual(corpusMatches[0].localPaths, {
+    chinese: '/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report/中文全文.html',
+    chineseMarkdown: '/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report/中文全文.md',
+    original: '/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report/英文原文.md',
+    snapshot: '/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report/原始网页.html',
+  });
+
+  const browserScript = await readFile(path.join(repoRoot, 'web/data/articles.js'), 'utf8');
+  const browserArticles = JSON.parse(browserScript.replace(/^window\.ARTICLE_INDEX = /, '').replace(/;\s*$/, ''));
+  assert.equal(browserArticles.length, 470);
+  const browserMatches = browserArticles.filter((article) => article.id === 'gartner-cio-report-h2-2026');
+  assert.equal(browserMatches.length, 1);
+  assert.ok(browserMatches[0].chunkCount > 0);
+  assert.equal(browserMatches[0].localPaths.chinese, corpusMatches[0].localPaths.chinese);
+});
