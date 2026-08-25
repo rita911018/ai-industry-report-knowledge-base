@@ -2,7 +2,7 @@ import { access, readFile, readdir, rename, stat, unlink, writeFile } from 'node
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { renderMarkdown } from './render-markdown.mjs';
-import { renderChineseReader } from './chinese-reader-template.mjs';
+import { ARCHIVED_PDF_FILENAME, renderChineseReader } from './chinese-reader-template.mjs';
 
 async function exists(filePath) {
   try { await access(filePath); return true; } catch { return false; }
@@ -43,32 +43,49 @@ function mergedArticle(archived, ledgerRecord, markdown) {
   return article;
 }
 
-async function prepareReader(archived, ledgerRecord) {
+async function archivedPdfFilename(directory, statFile = stat) {
+  try {
+    const fileStat = await statFile(path.join(directory, ARCHIVED_PDF_FILENAME));
+    return fileStat.isFile() ? ARCHIVED_PDF_FILENAME : null;
+  } catch (error) {
+    if (error?.code === 'ENOENT') return null;
+    throw error;
+  }
+}
+
+async function prepareReader(archived, ledgerRecord, statFile = stat) {
   const id = archived.metadata?.id || archived.directory;
   if (!await exists(archived.markdownPath)) throw new Error(`Missing Chinese Markdown: ${id}`);
   const markdown = await readFile(archived.markdownPath, 'utf8');
   const bodyHtml = renderMarkdown(markdown);
   const article = mergedArticle(archived, ledgerRecord, markdown);
-  const html = renderChineseReader({ article, bodyHtml, returnHref: '/' });
-  return { article, html, outputPath: path.join(archived.directory, '中文全文.html') };
+  const pdfHref = await archivedPdfFilename(archived.directory, statFile);
+  const html = renderChineseReader({ article, bodyHtml, returnHref: '/', pdfHref });
+  return { article, html, pdfHref, outputPath: path.join(archived.directory, '中文全文.html') };
 }
 
-export async function validateChineseReader(filePath, article) {
+export async function validateChineseReader(filePath, article, { pdfHref = null } = {}) {
   const html = await readFile(filePath, 'utf8');
   if ((await stat(filePath)).size === 0 || !/<article class="article-body">[\s\S]+<\/article>/.test(html)) throw new Error(`Empty Chinese reader: ${article.id}`);
   for (const value of [article.titleZh, article.publisher, article.sourceUrl]) if (!html.includes(String(value).replaceAll('&', '&amp;'))) throw new Error(`Chinese reader missing required metadata for ${article.id}`);
   if (!/<meta charset="utf-8">/i.test(html)) throw new Error(`Chinese reader missing UTF-8 declaration: ${article.id}`);
   if (/<\s*(script|iframe|object|embed)\b|<[^>]+\son\w+\s*=|javascript:/i.test(html)) throw new Error(`Unsafe Chinese reader: ${article.id}`);
+  const expectedPdfLink = `href="${ARCHIVED_PDF_FILENAME}" target="_blank" rel="noreferrer">查看原始报告 PDF ↗</a>`;
+  const pdfLinkCount = html.split(expectedPdfLink).length - 1;
+  const pdfHrefCount = (html.match(/href\s*=\s*["']原始报告\.pdf["']/gi) || []).length;
+  if (pdfHref && pdfLinkCount !== 2) throw new Error(`Chinese reader missing archived PDF links: ${article.id}`);
+  const expectedPdfCount = pdfHref ? 2 : 0;
+  if (pdfHrefCount !== expectedPdfCount || (!pdfHref && pdfLinkCount !== 0)) throw new Error(`Chinese reader has unexpected archived PDF links: ${article.id}`);
   return true;
 }
 
-export async function generateChineseReader({ archived, ledgerRecord }) {
-  const prepared = await prepareReader(archived, ledgerRecord);
+export async function generateChineseReader({ archived, ledgerRecord, statFile = stat }) {
+  const prepared = await prepareReader(archived, ledgerRecord, statFile);
   const temporaryPath = `${prepared.outputPath}.tmp`;
   try {
     await writeFile(temporaryPath, prepared.html, 'utf8');
     await rename(temporaryPath, prepared.outputPath);
-    await validateChineseReader(prepared.outputPath, prepared.article);
+    await validateChineseReader(prepared.outputPath, prepared.article, { pdfHref: prepared.pdfHref });
     return prepared.outputPath;
   } catch (error) {
     await unlink(temporaryPath).catch(() => {});
@@ -90,10 +107,10 @@ async function loadCollection({ ledgerPath, archiveRoot, expected }) {
 export async function generateChineseReaders(options) {
   const collection = await loadCollection(options);
   const prepared = [];
-  for (const archived of collection.archived) prepared.push(await prepareReader(archived, collection.ledgerById.get(archived.metadata.id)));
+  for (const archived of collection.archived) prepared.push(await prepareReader(archived, collection.ledgerById.get(archived.metadata.id), options.statFile));
   let generated = 0;
   for (let index = 0; index < collection.archived.length; index += 1) {
-    await generateChineseReader({ archived: collection.archived[index], ledgerRecord: collection.ledgerById.get(collection.archived[index].metadata.id) });
+    await generateChineseReader({ archived: collection.archived[index], ledgerRecord: collection.ledgerById.get(collection.archived[index].metadata.id), statFile: options.statFile });
     generated += 1;
   }
   return { expected: collection.expected, generated, verified: generated };
@@ -105,7 +122,8 @@ export async function verifyChineseReaders(options) {
   for (const archived of collection.archived) {
     const markdown = await readFile(archived.markdownPath, 'utf8');
     const article = mergedArticle(archived, collection.ledgerById.get(archived.metadata.id), markdown);
-    await validateChineseReader(path.join(archived.directory, '中文全文.html'), article);
+    const pdfHref = await archivedPdfFilename(archived.directory, options.statFile);
+    await validateChineseReader(path.join(archived.directory, '中文全文.html'), article, { pdfHref });
     verified += 1;
   }
   return { expected: collection.expected, verified };

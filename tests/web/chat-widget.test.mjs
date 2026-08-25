@@ -24,6 +24,7 @@ const askResponse = {
       chinese: '/archive/a/中文全文.html',
       original: '/archive/a/英文原文.md',
       snapshot: '/archive/a/原始网页.html',
+      pdf: '/archive/a/原始报告.pdf',
     },
   }],
 };
@@ -71,12 +72,48 @@ test('opens the drawer, renders cited sources, and reads Chinese full text on th
   assert.equal(document.querySelector('#source-reader').hidden, false);
   assert.equal(document.querySelector('#source-reader-frame').getAttribute('src'), '/archive/a/中文全文.html');
   assert.equal(document.querySelector('#source-reader-original').getAttribute('href'), '/archive/a/原始网页.html');
+  assert.equal(document.querySelector('#source-reader-pdf').hidden, false);
+  assert.equal(document.querySelector('#source-reader-pdf').getAttribute('href'), '/archive/a/原始报告.pdf');
+  assert.equal(document.querySelector('#source-reader-pdf').getAttribute('target'), '_blank');
+  assert.equal(document.querySelector('#source-reader-pdf').getAttribute('rel'), 'noreferrer');
   assert.equal(document.querySelector('#source-reader-official').getAttribute('href'), 'https://example.com/official');
+  const pdfCardLink = [...document.querySelectorAll('.chat-source-card a')].find((link) => link.textContent === '打开原始报告 PDF');
+  assert.ok(pdfCardLink);
+  assert.equal(pdfCardLink.getAttribute('href'), '/archive/a/原始报告.pdf');
+  assert.equal(pdfCardLink.getAttribute('target'), '_blank');
+  assert.equal(pdfCardLink.getAttribute('rel'), 'noreferrer');
   assert.equal(calls.filter((call) => call.url === '/api/ask').length, 1);
 
   document.querySelector('#source-reader-close').click();
   assert.equal(document.querySelector('#source-reader').hidden, true);
   assert.match(document.querySelector('#answer').textContent, /应先建立人工监督和审计/);
+  dom.window.close();
+});
+
+test('clears the source reader PDF link when switching from a PDF source to a source without one', async () => {
+  const noPdfSource = structuredClone(askResponse.sources[0]);
+  noPdfSource.chunkId = 'b:001';
+  noPdfSource.titleZh = '无 PDF 来源';
+  delete noPdfSource.localPaths.pdf;
+  const answer = {
+    ...askResponse,
+    claims: [{ text: '两个来源。', kind: 'source_fact', citations: ['a:001', 'b:001'] }],
+    sources: [askResponse.sources[0], noPdfSource],
+  };
+  const { dom, document } = await bootWidget({ answer });
+  document.querySelector('#knowledge-chat-button').click();
+  await submitQuestion(dom, document, '比较两个来源');
+
+  document.querySelector('[data-source-id="a:001"]').click();
+  const pdfLink = document.querySelector('#source-reader-pdf');
+  assert.equal(pdfLink.hidden, false);
+  assert.equal(pdfLink.getAttribute('href'), '/archive/a/原始报告.pdf');
+  document.querySelector('#source-reader-back').click();
+
+  document.querySelector('[data-source-id="b:001"]').click();
+  assert.equal(pdfLink.hidden, true);
+  assert.equal(pdfLink.hasAttribute('href'), false);
+  assert.equal([...document.querySelectorAll('.chat-source-card')].filter((card) => card.textContent.includes('打开原始报告 PDF')).length, 1);
   dom.window.close();
 });
 

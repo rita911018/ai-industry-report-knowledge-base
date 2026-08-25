@@ -372,6 +372,12 @@ test('adds the Gartner report as the canonical 470th knowledge-library record', 
   assert.equal(occurrenceCount(chatScript, '470 篇归档文章'), 3, 'chat welcome and capability copy must all use 470');
 });
 
+test('generated Gartner Chinese reader links the archived PDF in both navigation bars', async () => {
+  const reader = await readFile(path.join(articleDirectory, '中文全文.html'), 'utf8');
+  const pdfLink = /href="原始报告\.pdf" target="_blank" rel="noreferrer">查看原始报告 PDF ↗<\/a>/g;
+  assert.equal((reader.match(pdfLink) || []).length, 2);
+});
+
 test('builds the Gartner corpus contract without a pre-generated corpus file', async () => {
   const records = await loadArchiveRecords({
     ledgerPath: path.join(repoRoot, 'work/normalized/articles.json'),

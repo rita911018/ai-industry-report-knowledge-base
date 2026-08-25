@@ -1,5 +1,7 @@
 import { escapeHtml } from './render-markdown.mjs';
 
+export const ARCHIVED_PDF_FILENAME = '原始报告.pdf';
+
 function validHttpUrl(value) {
   try { return ['http:', 'https:'].includes(new URL(value).protocol); } catch { return false; }
 }
@@ -9,7 +11,7 @@ function categoryLabel(category) {
   return category?.primary || '';
 }
 
-export function renderChineseReader({ article, bodyHtml, returnHref = '/' }) {
+export function renderChineseReader({ article, bodyHtml, returnHref = '/', pdfHref = null }) {
   const id = article?.id || 'unknown';
   for (const field of ['titleZh', 'publisher', 'sourceUrl']) {
     if (!String(article?.[field] || '').trim()) throw new Error(`${id}: missing ${field}`);
@@ -17,6 +19,7 @@ export function renderChineseReader({ article, bodyHtml, returnHref = '/' }) {
   if (!validHttpUrl(article.sourceUrl)) throw new Error(`${id}: invalid sourceUrl`);
   if (!String(bodyHtml || '').trim()) throw new Error(`${id}: missing bodyHtml`);
   if (/<\s*(script|iframe|object|embed)\b|<[^>]+\son\w+\s*=/i.test(bodyHtml)) throw new Error(`${id}: unsafe bodyHtml`);
+  if (pdfHref !== null && pdfHref !== undefined && pdfHref !== ARCHIVED_PDF_FILENAME) throw new Error(`${id}: invalid pdfHref`);
 
   const sourceUrl = escapeHtml(article.sourceUrl);
   const safeReturn = escapeHtml(returnHref || '/');
@@ -26,7 +29,8 @@ export function renderChineseReader({ article, bodyHtml, returnHref = '/' }) {
     article.priority && ['优先级', article.priority],
   ].filter(Boolean);
   const summary = article.coreView?.zh || article.summary || '';
-  const nav = `<nav class="reader-nav" aria-label="文章导航"><a href="${safeReturn}">← 返回知识库</a><a href="${sourceUrl}" target="_blank" rel="noreferrer">查看官网原文 ↗</a></nav>`;
+  const pdfLink = pdfHref ? `<a href="${ARCHIVED_PDF_FILENAME}" target="_blank" rel="noreferrer">查看原始报告 PDF ↗</a>` : '';
+  const nav = `<nav class="reader-nav" aria-label="文章导航"><a href="${safeReturn}">← 返回知识库</a>${pdfLink}<a href="${sourceUrl}" target="_blank" rel="noreferrer">查看官网原文 ↗</a></nav>`;
 
   return `<!doctype html>
 <html lang="zh-CN">

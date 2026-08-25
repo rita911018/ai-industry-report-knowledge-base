@@ -29,6 +29,22 @@ test('renders one self-contained editorial reading page', () => {
 test('omits absent optional metadata without empty labels', () => {
   const html = renderChineseReader({ article: { id: 'a-2', titleZh: '标题', publisher: 'MIT Sloan', sourceUrl: 'https://example.com' }, bodyHtml: '<p>正文</p>' });
   assert.doesNotMatch(html, /英文原标题|发布日期|文章类别|优先级/);
+  assert.doesNotMatch(html, /查看原始报告 PDF|\.pdf/);
+});
+
+test('renders a safe archived PDF filename in both reader navigation bars', () => {
+  const html = renderChineseReader({
+    article,
+    bodyHtml: '<p>正文</p>',
+    pdfHref: '原始报告.pdf',
+  });
+  assert.equal((html.match(/href="原始报告\.pdf" target="_blank" rel="noreferrer">查看原始报告 PDF ↗<\/a>/g) || []).length, 2);
+});
+
+test('rejects unsafe archived PDF hrefs', () => {
+  for (const pdfHref of ['javascript:alert(1)', '//evil.example/report.pdf', '../report.pdf', 'folder/report.pdf', 'report.pdf?download=1']) {
+    assert.throws(() => renderChineseReader({ article, bodyHtml: '<p>正文</p>', pdfHref }), /a-1.*pdfHref/);
+  }
 });
 
 test('rejects missing required article fields', () => {

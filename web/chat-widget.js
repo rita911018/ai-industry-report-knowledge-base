@@ -67,6 +67,7 @@
     const readerSection = $('#source-reader-section');
     const readerChinese = $('#source-reader-chinese');
     const readerOriginal = $('#source-reader-original');
+    const readerPdf = $('#source-reader-pdf');
     const readerOfficial = $('#source-reader-official');
     const readerClose = $('#source-reader-close');
     const readerBack = $('#source-reader-back');
@@ -121,6 +122,7 @@
       const original = source.localPaths?.snapshot || source.localPaths?.original;
       setLink(readerOriginal, original);
       readerOriginal.dataset.inline = source.localPaths?.snapshot ? 'true' : 'false';
+      setLink(readerPdf, source.localPaths?.pdf);
       setLink(readerOfficial, source.sourceUrl);
       readerFrame.setAttribute('src', chinese);
       reader.hidden = false;
@@ -148,6 +150,7 @@
       );
       const actions = node('div', { className: 'source-links' });
       actions.append(sourceButton(source, '左侧阅读中文全文', 'text-button source-read-button'));
+      if (source.localPaths?.pdf) actions.append(node('a', { text: '打开原始报告 PDF', attrs: { href: source.localPaths.pdf, target: '_blank', rel: 'noreferrer' } }));
       const archive = source.localPaths?.snapshot || source.localPaths?.original;
       if (archive) actions.append(node('a', { text: '打开原文归档', attrs: { href: archive, target: '_blank' } }));
       if (source.sourceUrl) actions.append(node('a', { text: '访问官网原文', attrs: { href: source.sourceUrl, target: '_blank', rel: 'noreferrer' } }));

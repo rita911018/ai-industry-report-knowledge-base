@@ -12,6 +12,8 @@ async function fixture(overrides = {}) {
   const metadata = { id: 'a', status: 'downloaded', titleZh: '中文标题', titleOriginal: 'English title', publisher: 'BCG', sourceUrl: 'https://example.com/a', ...overrides.metadata };
   await writeFile(path.join(articleDir, 'metadata.json'), JSON.stringify(metadata));
   if (!overrides.noMarkdown) await writeFile(path.join(articleDir, '中文全文.md'), overrides.markdown ?? '# 中文标题\n\n第一段。\n\n- 列表\n\n<div onclick="x">原始标签</div>');
+  if (overrides.pdf === 'file') await writeFile(path.join(articleDir, '原始报告.pdf'), 'fixture pdf');
+  if (overrides.pdf === 'directory') await mkdir(path.join(articleDir, '原始报告.pdf'));
   const ledgerPath = path.join(root, 'articles.json');
   const ledger = overrides.ledger ?? [{ ...metadata, coreView: { zh: '导读摘要。' }, category: { primary: 'AI 战略' }, priority: 'must-read' }];
   await writeFile(ledgerPath, JSON.stringify(ledger));
@@ -43,6 +45,56 @@ test('renders canonical ledger topics instead of archived legacy topics', async 
 
   assert.match(html, /AI 战略/);
   assert.doesNotMatch(html, /legacy-english-topic/);
+});
+
+test('links a regular archived PDF twice and verify requires both links', async () => {
+  const { root, articleDir, ledgerPath } = await fixture({ pdf: 'file' });
+  await generateChineseReaders({ ledgerPath, archiveRoot: root, expected: 1 });
+  const readerPath = path.join(articleDir, '中文全文.html');
+  const html = await readFile(readerPath, 'utf8');
+  const pdfLink = /href="原始报告\.pdf" target="_blank" rel="noreferrer">查看原始报告 PDF ↗<\/a>/g;
+  assert.equal((html.match(pdfLink) || []).length, 2);
+  await writeFile(readerPath, html.replace('</body>', '<a href="原始报告.pdf">extra PDF link</a></body>'));
+  await assert.rejects(
+    verifyChineseReaders({ ledgerPath, archiveRoot: root, expected: 1 }),
+    /Chinese reader has unexpected archived PDF links: a/,
+  );
+  await writeFile(readerPath, html.replace('查看原始报告 PDF ↗', 'PDF link removed'));
+  await assert.rejects(
+    verifyChineseReaders({ ledgerPath, archiveRoot: root, expected: 1 }),
+    /Chinese reader missing archived PDF links: a/,
+  );
+});
+
+test('verify rejects any archived PDF link when no regular PDF exists', async () => {
+  const { root, articleDir, ledgerPath } = await fixture();
+  await generateChineseReaders({ ledgerPath, archiveRoot: root, expected: 1 });
+  const readerPath = path.join(articleDir, '中文全文.html');
+  const html = await readFile(readerPath, 'utf8');
+  await writeFile(readerPath, html.replace('</body>', '<a href="原始报告.pdf">unexpected PDF link</a></body>'));
+  await assert.rejects(
+    verifyChineseReaders({ ledgerPath, archiveRoot: root, expected: 1 }),
+    /Chinese reader has unexpected archived PDF links: a/,
+  );
+});
+
+test('omits the PDF entry when the archived path is absent or not a regular file', async () => {
+  for (const pdf of [undefined, 'directory']) {
+    const { root, articleDir, ledgerPath } = await fixture({ pdf });
+    await generateChineseReaders({ ledgerPath, archiveRoot: root, expected: 1 });
+    const html = await readFile(path.join(articleDir, '中文全文.html'), 'utf8');
+    assert.doesNotMatch(html, /查看原始报告 PDF|href="原始报告\.pdf"/);
+  }
+});
+
+test('treats only ENOENT as an absent PDF and rethrows other stat errors', async () => {
+  const { root, articleDir, ledgerPath } = await fixture();
+  const denied = Object.assign(new Error('permission denied'), { code: 'EACCES' });
+  await assert.rejects(
+    generateChineseReaders({ ledgerPath, archiveRoot: root, expected: 1, statFile: async () => { throw denied; } }),
+    (error) => error === denied,
+  );
+  await assert.rejects(stat(path.join(articleDir, '中文全文.html')));
 });
 
 for (const [label, overrides, pattern] of [
