@@ -79,6 +79,38 @@ test('does not expose an unavailable optional PDF path', async () => {
   assert.equal(record.localPaths.metadata, '/archive/Radar/articles/001-a/metadata.json');
 });
 
+test('does not expose a directory masquerading as the optional PDF', async () => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'corpus-pdf-directory-'));
+  const articleDir = path.join(root, 'Radar', 'articles', '001-a');
+  const ledgerPath = path.join(root, 'ledger.json');
+  await mkdir(articleDir, { recursive: true });
+  await writeFile(ledgerPath, JSON.stringify([fixture]));
+  await writeFile(path.join(articleDir, 'metadata.json'), JSON.stringify({ id: fixture.id }));
+  await writeFile(path.join(articleDir, '中文全文.md'), fixture.translationMarkdown);
+  await writeFile(path.join(articleDir, '英文原文.md'), '# A');
+  await mkdir(path.join(articleDir, '原始报告.pdf'));
+
+  const [record] = await loadArchiveRecords({ ledgerPath, archiveRoot: root });
+  assert.equal(record.localPaths.pdf, undefined);
+});
+
+test('rethrows non-ENOENT errors while inspecting the optional PDF', async () => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'corpus-pdf-stat-error-'));
+  const articleDir = path.join(root, 'Radar', 'articles', '001-a');
+  const ledgerPath = path.join(root, 'ledger.json');
+  await mkdir(articleDir, { recursive: true });
+  await writeFile(ledgerPath, JSON.stringify([fixture]));
+  await writeFile(path.join(articleDir, 'metadata.json'), JSON.stringify({ id: fixture.id }));
+  await writeFile(path.join(articleDir, '中文全文.md'), fixture.translationMarkdown);
+  await writeFile(path.join(articleDir, '英文原文.md'), '# A');
+  const denied = Object.assign(new Error('permission denied'), { code: 'EACCES' });
+
+  await assert.rejects(
+    loadArchiveRecords({ ledgerPath, archiveRoot: root, statFile: async () => { throw denied; } }),
+    (error) => error === denied,
+  );
+});
+
 test('heading-aware chunks retain section paths and overlap long content', () => {
   const long = `${'人工智能治理需要责任边界。'.repeat(140)}\n\n${'组织应建立审计机制。'.repeat(140)}`;
   const [article] = buildCorpus([{ ...fixture, translationMarkdown: `# 甲\n\n## 治理\n\n${long}` }], { targetCharacters: 900, overlapCharacters: 100 });

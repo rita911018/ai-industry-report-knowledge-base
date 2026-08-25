@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { access, mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -121,7 +121,7 @@ async function walkMetadata(root) {
   return found;
 }
 
-export async function loadArchiveRecords({ ledgerPath, archiveRoot }) {
+export async function loadArchiveRecords({ ledgerPath, archiveRoot, statFile = stat }) {
   const ledger = JSON.parse(await readFile(ledgerPath, 'utf8'));
   const sourceRecords = Array.isArray(ledger) ? ledger : ledger.articles;
   const archive = await walkMetadata(archiveRoot);
@@ -140,9 +140,11 @@ export async function loadArchiveRecords({ ledgerPath, archiveRoot }) {
       metadata: `/archive/${relativeDirectory}/metadata.json`,
     };
     try {
-      await access(pdfPath);
-      localPaths.pdf = `/archive/${relativeDirectory}/原始报告.pdf`;
-    } catch {}
+      const pdfStat = await statFile(pdfPath);
+      if (pdfStat.isFile()) localPaths.pdf = `/archive/${relativeDirectory}/原始报告.pdf`;
+    } catch (error) {
+      if (error?.code !== 'ENOENT') throw error;
+    }
     return {
       ...saved.metadata,
       ...record,

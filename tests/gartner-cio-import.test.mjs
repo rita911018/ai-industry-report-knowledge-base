@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
+import { buildCorpus, loadArchiveRecords } from '../src/knowledge/build-corpus.mjs';
 import { renderMarkdown } from '../src/readers/render-markdown.mjs';
 import { verifyTranslation } from '../src/translation/verify-translation.mjs';
 
@@ -344,12 +345,12 @@ test('adds the Gartner report as the canonical 470th knowledge-library record', 
   assert.equal(occurrenceCount(chatScript, '470 篇归档文章'), 3, 'chat welcome and capability copy must all use 470');
 });
 
-test('publishes the Gartner reader and searchable generated artifacts', async () => {
-  const reader = await readFile(path.join(articleDirectory, '中文全文.html'), 'utf8');
-  assert.match(reader, /Gartner 2026 下半年 CIO 报告/);
-  assert.match(reader, new RegExp(escapeRegExp(officialUrl)));
-
-  const corpus = JSON.parse(await readFile(path.join(repoRoot, 'work/knowledge/corpus.json'), 'utf8'));
+test('builds the Gartner corpus contract without a pre-generated corpus file', async () => {
+  const records = await loadArchiveRecords({
+    ledgerPath: path.join(repoRoot, 'work/normalized/articles.json'),
+    archiveRoot: path.join(repoRoot, 'work/archive'),
+  });
+  const corpus = buildCorpus(records);
   assert.equal(corpus.length, 470);
   const corpusMatches = corpus.filter((article) => article.id === 'gartner-cio-report-h2-2026');
   assert.equal(corpusMatches.length, 1);
