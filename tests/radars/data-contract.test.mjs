@@ -37,35 +37,66 @@ test('extended P0 scenarios require evidence from two distinct publishers', asyn
   assert.throws(() => validateRadarData(data, { radarRoot }), /P0 requires evidence from at least two distinct publishers/);
 });
 
-for (const domain of ['legal', 'hr']) {
-  test(`${domain} radar satisfies the shared contract`, async () => {
-    const data = await loadRadarFile(`${radarRoot}/data/${domain}.js`);
-    const result = validateRadarData(data, { radarRoot });
-    assert.deepEqual(result, { id: domain, scenarios: 12, p0: 3, pilots: 3 });
-    const sourceIds = new Set(data.sources.map((source) => source.id));
-    for (const scenario of data.scenarios) {
-      assert.match(scenario.title, /^(用 AI|让 AI)/);
-      assert.ok(scenario.shortTitle.length >= 4 && scenario.shortTitle.length <= 14, `${scenario.id}.shortTitle`);
-      assert.ok(Array.isArray(scenario.problem) && scenario.problem.length >= 3, `${scenario.id}.problem`);
-      assert.ok(Array.isArray(scenario.aiValue) && scenario.aiValue.length >= 4, `${scenario.id}.aiValue`);
-      assert.ok(scenario.problem.every((item) => item.trim()), `${scenario.id}.problem entries`);
-      assert.ok(scenario.aiValue.every((item) => item.trim()), `${scenario.id}.aiValue entries`);
-      assert.deepEqual(Object.keys(scenario.scorecard.dimensions).sort(), ['businessValue', 'evidence', 'processFit', 'readiness', 'riskControl']);
-      assert.equal(Object.values(scenario.scorecard.dimensions).reduce((sum, score) => sum + score, 0), scenario.scorecard.total);
-      assert.ok(scenario.scorecard.rationale.trim(), `${scenario.id}.scorecard.rationale`);
-      assert.ok(scenario.scorecard.prerequisite.trim(), `${scenario.id}.scorecard.prerequisite`);
-      assert.equal(typeof scenario.scorecard.redLine, 'boolean');
-      assert.ok(Array.isArray(scenario.companyCases));
-      for (const companyCase of scenario.companyCases) {
-        for (const field of ['company', 'summary', 'sourceId', 'caseType', 'caveat', 'market']) assert.ok(companyCase[field]?.trim(), `${scenario.id}.${field}`);
-        assert.ok(['中国', '国际'].includes(companyCase.market), `${scenario.id}.${companyCase.company}.market`);
-        assert.ok(sourceIds.has(companyCase.sourceId), `${scenario.id} references ${companyCase.sourceId}`);
-      }
+test('legal radar satisfies the shared contract', async () => {
+  const data = await loadRadarFile(`${radarRoot}/data/legal.js`);
+  const result = validateRadarData(data, { radarRoot });
+  assert.deepEqual(result, { id: 'legal', scenarios: 12, p0: 3, pilots: 3 });
+  const sourceIds = new Set(data.sources.map((source) => source.id));
+  for (const scenario of data.scenarios) {
+    assert.match(scenario.title, /^(用 AI|让 AI)/);
+    assert.ok(scenario.shortTitle.length >= 4 && scenario.shortTitle.length <= 14, `${scenario.id}.shortTitle`);
+    assert.ok(Array.isArray(scenario.problem) && scenario.problem.length >= 3, `${scenario.id}.problem`);
+    assert.ok(Array.isArray(scenario.aiValue) && scenario.aiValue.length >= 4, `${scenario.id}.aiValue`);
+    assert.ok(scenario.problem.every((item) => item.trim()), `${scenario.id}.problem entries`);
+    assert.ok(scenario.aiValue.every((item) => item.trim()), `${scenario.id}.aiValue entries`);
+    assert.deepEqual(Object.keys(scenario.scorecard.dimensions).sort(), ['businessValue', 'evidence', 'processFit', 'readiness', 'riskControl']);
+    assert.equal(Object.values(scenario.scorecard.dimensions).reduce((sum, score) => sum + score, 0), scenario.scorecard.total);
+    assert.ok(scenario.scorecard.rationale.trim(), `${scenario.id}.scorecard.rationale`);
+    assert.ok(scenario.scorecard.prerequisite.trim(), `${scenario.id}.scorecard.prerequisite`);
+    assert.equal(typeof scenario.scorecard.redLine, 'boolean');
+    assert.ok(Array.isArray(scenario.companyCases));
+    for (const companyCase of scenario.companyCases) {
+      for (const field of ['company', 'summary', 'sourceId', 'caseType', 'caveat', 'market']) assert.ok(companyCase[field]?.trim(), `${scenario.id}.${field}`);
+      assert.ok(['中国', '国际'].includes(companyCase.market), `${scenario.id}.${companyCase.company}.market`);
+      assert.ok(sourceIds.has(companyCase.sourceId), `${scenario.id} references ${companyCase.sourceId}`);
     }
-    const chinaCases = data.scenarios.flatMap((scenario) => scenario.companyCases).filter((item) => item.market === '中国');
-    assert.ok(new Set(chinaCases.map((item) => item.company)).size >= 2, `${domain} needs at least two Chinese companies`);
-  });
-}
+  }
+  const chinaCases = data.scenarios.flatMap((scenario) => scenario.companyCases).filter((item) => item.market === '中国');
+  assert.ok(new Set(chinaCases.map((item) => item.company)).size >= 2, 'legal needs at least two Chinese companies');
+});
+
+test('hr radar satisfies the ranked-library contract', async () => {
+  const hr = await loadRadarFile(`${radarRoot}/data/hr.js`);
+  const result = validateRadarData(hr, { radarRoot });
+  assert.deepEqual(result, { id: 'hr', scenarios: 20, p0: 3, pilots: 3, scenarioCount: 20, matrixCount: 12 });
+  assert.equal(hr.libraryMode, 'ranked');
+  assert.deepEqual(hr.scenarios.filter((scenario) => Number.isInteger(scenario.matrixRank)).map((scenario) => scenario.matrixRank), Array.from({ length: 12 }, (_, index) => index + 1));
+  assert.equal(hr.scenarios.slice(12).length, 8);
+  assert.ok(hr.scenarios.slice(12).every((scenario) => scenario.matrixRank === null));
+
+  const sourceIds = new Set(hr.sources.map((source) => source.id));
+  for (const scenario of hr.scenarios) {
+    assert.match(scenario.title, /^(用 AI|让 AI)/);
+    assert.ok(scenario.shortTitle.length >= 4 && scenario.shortTitle.length <= 14, `${scenario.id}.shortTitle`);
+    assert.ok(Array.isArray(scenario.problem) && scenario.problem.length >= 3, `${scenario.id}.problem`);
+    assert.ok(Array.isArray(scenario.aiValue) && scenario.aiValue.length >= 4, `${scenario.id}.aiValue`);
+    assert.ok(scenario.problem.every((item) => item.trim()), `${scenario.id}.problem entries`);
+    assert.ok(scenario.aiValue.every((item) => item.trim()), `${scenario.id}.aiValue entries`);
+    assert.deepEqual(Object.keys(scenario.scorecard.dimensions).sort(), ['businessValue', 'evidence', 'processFit', 'readiness', 'riskControl']);
+    assert.equal(Object.values(scenario.scorecard.dimensions).reduce((sum, score) => sum + score, 0), scenario.scorecard.total);
+    assert.ok(scenario.scorecard.rationale.trim(), `${scenario.id}.scorecard.rationale`);
+    assert.ok(scenario.scorecard.prerequisite.trim(), `${scenario.id}.scorecard.prerequisite`);
+    assert.equal(typeof scenario.scorecard.redLine, 'boolean');
+    assert.ok(Array.isArray(scenario.companyCases));
+    for (const companyCase of scenario.companyCases) {
+      for (const field of ['company', 'summary', 'sourceId', 'caseType', 'caveat', 'market']) assert.ok(companyCase[field]?.trim(), `${scenario.id}.${field}`);
+      assert.ok(['中国', '国际'].includes(companyCase.market), `${scenario.id}.${companyCase.company}.market`);
+      assert.ok(sourceIds.has(companyCase.sourceId), `${scenario.id} references ${companyCase.sourceId}`);
+    }
+  }
+  const chinaCases = hr.scenarios.flatMap((scenario) => scenario.companyCases).filter((item) => item.market === '中国');
+  assert.ok(new Set(chinaCases.map((item) => item.company)).size >= 2, 'hr needs at least two Chinese companies');
+});
 
 test('legal radar preserves the attachment scenarios, scores, and sources', async () => {
   const legal = await loadRadarFile(`${radarRoot}/data/legal.js`);
@@ -122,7 +153,169 @@ test('hr radar preserves the approved scenarios and high-impact decision boundar
     ['用 AI 监测员工行为与情绪（高风险，默认不做）', 'P3', 3.5, 2],
     ['让 AI 决定录用、晋升、调薪或解雇（禁止）', 'P3', 4.5, 1],
   ];
-  assert.deepEqual(hr.scenarios.map(({ title, priority, value, feasibility }) => [title, priority, value, feasibility]), expectedScenarios);
+  assert.deepEqual(hr.scenarios.slice(0, 12).map(({ title, priority, value, feasibility }) => [title, priority, value, feasibility]), expectedScenarios);
   assert.match(hr.scenarios[11].risk, /禁止.*具名人员/);
   assert.equal(new Set(hr.scenarios.flatMap((item) => item.evidenceIds)).size >= 10, true);
+});
+
+test('hr radar preserves the ranked-library boundary scenarios and evidence guardrails', async () => {
+  const hr = await loadRadarFile(`${radarRoot}/data/hr.js`);
+  assert.deepEqual(
+    hr.scenarios.slice(12).map(({
+      id,
+      title,
+      category,
+      shortTitle,
+      priority,
+      value,
+      feasibility,
+      scorecard,
+      evidenceIds,
+      companyCases,
+    }) => ({
+      id,
+      title,
+      category,
+      shortTitle,
+      priority,
+      value,
+      feasibility,
+      dimensions: scorecard?.dimensions,
+      total: scorecard?.total,
+      evidenceIds,
+      companyCaseSourceIds: companyCases.map(({ sourceId }) => sourceId),
+    })),
+    [
+      {
+        id: 'hr-13',
+        title: '用 AI 清洗考勤数据并识别异常记录',
+        category: 'payroll',
+        shortTitle: '考勤清洗检查',
+        priority: 'P1',
+        value: 4.5,
+        feasibility: 4.5,
+        dimensions: { businessValue: 26, processFit: 18, readiness: 12, evidence: 8, riskControl: 13 },
+        total: 77,
+        evidenceIds: ['hr-src-11', 'hr-src-15', 'hr-case-13'],
+        companyCaseSourceIds: ['hr-case-13'],
+      },
+      {
+        id: 'hr-14',
+        title: '用 AI 生成工资初算表和计算公式，但不执行发薪',
+        category: 'payroll',
+        shortTitle: '工资初算草稿',
+        priority: 'P2',
+        value: 4,
+        feasibility: 3,
+        dimensions: { businessValue: 25, processFit: 16, readiness: 10, evidence: 6, riskControl: 5 },
+        total: 62,
+        evidenceIds: ['hr-src-11', 'hr-src-15', 'hr-case-14'],
+        companyCaseSourceIds: ['hr-case-14'],
+      },
+      {
+        id: 'hr-15',
+        title: '用 AI 复核薪资波动、缺项和计算异常',
+        category: 'payroll',
+        shortTitle: '薪资异常复核',
+        priority: 'P1',
+        value: 4.5,
+        feasibility: 4,
+        dimensions: { businessValue: 24, processFit: 18, readiness: 11, evidence: 9, riskControl: 11 },
+        total: 73,
+        evidenceIds: ['hr-src-11', 'hr-src-12'],
+        companyCaseSourceIds: [],
+      },
+      {
+        id: 'hr-16',
+        title: '用 AI 回答社保公积金问题，并引用属地政策',
+        category: 'compliance',
+        shortTitle: '社保政策问答',
+        priority: 'P1',
+        value: 4,
+        feasibility: 4,
+        dimensions: { businessValue: 22, processFit: 17, readiness: 10, evidence: 8, riskControl: 12 },
+        total: 69,
+        evidenceIds: ['hr-src-11', 'hr-src-14', 'hr-case-13'],
+        companyCaseSourceIds: ['hr-case-13'],
+      },
+      {
+        id: 'hr-17',
+        title: '用 AI 准备社保增减员、基数调整和申报清单',
+        category: 'compliance',
+        shortTitle: '社保申报清单',
+        priority: 'P2',
+        value: 4,
+        feasibility: 3.5,
+        dimensions: { businessValue: 20, processFit: 16, readiness: 10, evidence: 7, riskControl: 8 },
+        total: 61,
+        evidenceIds: ['hr-src-11', 'hr-case-13'],
+        companyCaseSourceIds: ['hr-case-13'],
+      },
+      {
+        id: 'hr-18',
+        title: '用 AI 起草员工关系沟通方案和协议初稿',
+        category: 'relations',
+        shortTitle: '员工关系初稿',
+        priority: 'P2',
+        value: 3.5,
+        feasibility: 3,
+        dimensions: { businessValue: 18, processFit: 14, readiness: 9, evidence: 6, riskControl: 7 },
+        total: 54,
+        evidenceIds: ['hr-src-11', 'hr-case-12'],
+        companyCaseSourceIds: ['hr-case-12'],
+      },
+      {
+        id: 'hr-19',
+        title: '用 AI 整理劳动争议事实、证据和事件时间线',
+        category: 'relations',
+        shortTitle: '争议证据时间线',
+        priority: 'P2',
+        value: 4,
+        feasibility: 3,
+        dimensions: { businessValue: 20, processFit: 15, readiness: 9, evidence: 7, riskControl: 8 },
+        total: 59,
+        evidenceIds: ['hr-src-11', 'hr-case-12'],
+        companyCaseSourceIds: ['hr-case-12'],
+      },
+      {
+        id: 'hr-20',
+        title: '用 AI 检查人事制度、表单版本、签字和到期风险',
+        category: 'compliance',
+        shortTitle: '人事文档风险',
+        priority: 'P1',
+        value: 4.5,
+        feasibility: 4,
+        dimensions: { businessValue: 23, processFit: 17, readiness: 11, evidence: 9, riskControl: 14 },
+        total: 74,
+        evidenceIds: ['hr-src-11', 'hr-src-13', 'hr-case-14'],
+        companyCaseSourceIds: ['hr-case-14'],
+      },
+    ],
+  );
+
+  const source11 = hr.sources.find((source) => source.id === 'hr-src-11');
+  assert.equal(source11?.url, 'https://mp.weixin.qq.com/s/-8a1_8-ifOsFP_JP-1RAuw');
+  assert.equal(source11?.evidenceType, '个人实务流程示例');
+  assert.equal(source11?.publishedAt, '2026-08-21');
+  assert.match(source11?.limitation ?? '', /没有.*独立.*效果评估|未提供.*独立.*效果评估/);
+  assert.match(source11?.limitation ?? '', /没有.*样本|未提供.*样本/);
+  assert.match(source11?.limitation ?? '', /没有.*对照组|未提供.*对照组|没有.*控制组|未提供.*控制组/);
+  assert.match(source11?.limitation ?? '', /没有.*审计.*指标|未提供.*审计.*指标/);
+
+  assert.equal(
+    hr.scenarios.flatMap((scenario) => scenario.companyCases).some((companyCase) => companyCase.sourceId === 'hr-src-11'),
+    false,
+  );
+  const workBuddyPublisher = source11?.publisher;
+  for (const scenario of hr.scenarios.filter((item) => item.priority === 'P0' && item.evidenceIds.includes('hr-src-11'))) {
+    const nonWorkBuddyEvidenceIds = scenario.evidenceIds.filter((evidenceId) => evidenceId !== 'hr-src-11');
+    assert.ok(nonWorkBuddyEvidenceIds.length >= 1, `${scenario.id} needs non-WorkBuddy evidence`);
+    assert.ok(
+      nonWorkBuddyEvidenceIds.some((evidenceId) => hr.sources.find((source) => source.id === evidenceId)?.publisher !== workBuddyPublisher),
+      `${scenario.id} needs at least one non-WorkBuddy publisher`,
+    );
+  }
+  assert.match(hr.scenarios.find((scenario) => scenario.id === 'hr-14')?.risk ?? '', /(不得|不能|禁止).*发薪/);
+  assert.match(hr.scenarios.find((scenario) => scenario.id === 'hr-17')?.risk ?? '', /(不得|不能|禁止).*自动.*(提交|申报)/);
+  assert.match(hr.scenarios.find((scenario) => scenario.id === 'hr-18')?.risk ?? '', /(?=.*(须|需|必须|应当))(?=.*(法务|律师))(?=.*(复核|审核))/);
 });
