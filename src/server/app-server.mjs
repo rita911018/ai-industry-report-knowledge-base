@@ -17,7 +17,7 @@ const MIME = new Map([
 const ARCHIVE_BASENAMES = new Set([
   '中文全文.html', '中文全文.md', '英文原文.md', '原始网页.html', 'metadata.json', '原始报告.pdf',
 ]);
-const ARCHIVE_HTML_CSP = "sandbox allow-popups; default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'; frame-ancestors 'self'";
+const ARCHIVE_HTML_CSP = "sandbox allow-popups allow-popups-to-escape-sandbox; default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'; frame-ancestors 'self'";
 
 function json(res, status, body) {
   const payload = JSON.stringify(body);

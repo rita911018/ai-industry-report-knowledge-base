@@ -24,9 +24,9 @@ test('unified page exposes an accessible cited research workspace', async () => 
   assert.match(html, /id="source-reader"/);
   assert.match(html, /id="source-reader-frame"/);
   const readerFrame = html.match(/<iframe\b[^>]*id="source-reader-frame"[^>]*>/)?.[0] || '';
-  assert.match(readerFrame, /sandbox="allow-popups"/);
+  assert.match(readerFrame, /sandbox="allow-popups allow-popups-to-escape-sandbox"/);
   assert.match(readerFrame, /referrerpolicy="no-referrer"/);
-  assert.doesNotMatch(readerFrame, /allow-scripts|allow-same-origin/);
+  assert.doesNotMatch(readerFrame, /\ballow-(?:scripts|same-origin)\b/);
   assert.match(html, /id="source-reader-back"/);
   assert.match(html, /id="source-reader-pdf"[^>]+hidden/);
   assert.match(html, /<nav[^>]+aria-label="主导航"/);

@@ -7,7 +7,7 @@ import path from 'node:path';
 import test from 'node:test';
 import { createAppServer } from '../src/server/app-server.mjs';
 
-const ARCHIVE_CSP = "sandbox allow-popups; default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'; frame-ancestors 'self'";
+const ARCHIVE_CSP = "sandbox allow-popups allow-popups-to-escape-sandbox; default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'; frame-ancestors 'self'";
 const ALLOWED_ARCHIVE_BASENAMES = new Set([
   '中文全文.html',
   '中文全文.md',
@@ -57,7 +57,7 @@ async function withStaticServer(run) {
   await writeFile(path.join(articleRoot, '中文全文.html'), '<!doctype html><h1>中文全文</h1>');
   await writeFile(path.join(articleRoot, '中文全文.md'), '# 中文全文');
   await writeFile(path.join(articleRoot, '英文原文.md'), '# Original');
-  await writeFile(path.join(articleRoot, '原始网页.html'), '<!doctype html><h1>原始网页</h1>');
+  await writeFile(path.join(articleRoot, '原始网页.html'), '<!doctype html><h1>原始网页</h1><script>globalThis.snapshotScriptRan = true</script>');
   await writeFile(path.join(articleRoot, 'metadata.json'), '{"id":"report"}');
   await writeFile(path.join(articleRoot, '原始报告.pdf'), '%PDF-1.7\n');
   await writeFile(path.join(articleRoot, '.env.local'), 'ARTICLE_SECRET=must-not-leak');
@@ -116,6 +116,14 @@ test('archive HTML responses are sandboxed, including original page snapshots', 
     assert.equal(response.headers['content-security-policy'], ARCHIVE_CSP, basename);
     assert.equal(response.headers['x-content-type-options'], 'nosniff', basename);
     assert.equal(response.headers['referrer-policy'], 'no-referrer', basename);
+    const sandboxTokens = response.headers['content-security-policy']
+      .match(/(?:^|;\s*)sandbox\s+([^;]+)/)?.[1]
+      .trim()
+      .split(/\s+/);
+    assert.deepEqual(sandboxTokens, ['allow-popups', 'allow-popups-to-escape-sandbox'], basename);
+    assert.doesNotMatch(response.headers['content-security-policy'], /\ballow-(?:scripts|same-origin)\b/, basename);
+    assert.match(response.headers['content-security-policy'], /(?:^|;\s*)default-src 'none'(?:;|$)/, basename);
+    if (basename === '原始网页.html') assert.match(response.body, /snapshotScriptRan/, basename);
   }
 }));
 
