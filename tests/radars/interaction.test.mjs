@@ -140,6 +140,7 @@ test('shared renderer builds only the four approved decision sections', async ()
   assert.equal(document.querySelectorAll('.governance-section').length, 0);
   assert.equal(document.querySelectorAll('.calibration-section').length, 0);
   assert.equal(document.querySelectorAll('.sources-section').length, 0);
+  assert.equal(document.querySelectorAll('[data-scenario-sort]').length, 0);
   assert.match(document.querySelector('.portfolio-section h2').textContent, /AI 能解决哪些业务问题/);
   assert.match(document.querySelector('.roadmap-section h2').textContent, /建议优先启动的 3 个场景/);
   assert.equal(document.querySelector('.matrix-section h2').textContent, '哪些 AI 场景应该优先启动？');
@@ -157,6 +158,7 @@ test('extended renderer shows the ranked 12 in the matrix and all 24 in the libr
   assert.match(document.querySelector('.portfolio-section .section-description').textContent, /完整 24 个/);
   assert.equal(document.querySelectorAll('.scenario-badge-core').length, 12);
   assert.equal(document.querySelectorAll('.scenario-badge-observe').length, 12);
+  assert.deepEqual([...document.querySelectorAll('[data-scenario-sort]')].map((button) => button.textContent), ['按编号', '按总分']);
 
   extended.scenarios[23].scorecard.dimensions = { businessValue: 25, processFit: 16, readiness: 12, evidence: 12, riskControl: 14 };
   extended.scenarios[23].scorecard.total = 79;
@@ -178,6 +180,94 @@ test('extended renderer shows the ranked 12 in the matrix and all 24 in the libr
   assert.match(report, /24 个场景完整详情/);
   assert.match(report, /第 2 节：流程机会/);
   assert.match(report, /平均处理时间下降至少 20%/);
+
+  const boundaryExtended = structuredClone(await loadRadarFile(fileURLToPath(extendedPath)));
+  boundaryExtended.scenarios[0].scorecard.redLine = true;
+  const boundaryDom = await setup(boundaryExtended);
+  assert.equal(boundaryDom.window.document.querySelector('#fixture-01 .scenario-badge').textContent, '风险边界');
+});
+
+test('HR ranked library keeps 12 matrix points and exposes all 20 scenarios', async () => {
+  const hr = await loadRadarFile(fileURLToPath(hrPath));
+  const dom = await setup(hr, 'http://127.0.0.1/radars/hr.html');
+  const { document } = dom.window;
+  assert.equal(document.querySelectorAll('.matrix-point').length, 12);
+  assert.equal(document.querySelectorAll('.scenario').length, 20);
+  assert.equal(document.querySelectorAll('[data-toc-scenario]').length, 20);
+  assert.equal(document.querySelector('#scenario-result-count').textContent, '20 个场景');
+  assert.match(document.querySelector('.matrix-section .section-description').textContent, /前 12 个/);
+  assert.equal(document.querySelectorAll('.scenario-badge-core').length, 10);
+  assert.equal(document.querySelectorAll('.scenario-badge-boundary').length, 2);
+  assert.equal(document.querySelectorAll('.scenario-badge-observe').length, 8);
+  assert.equal(document.querySelector('#hr-11 .scenario-badge').textContent, '风险边界');
+  assert.equal(document.querySelector('#hr-12 .scenario-badge').textContent, '风险边界');
+  assert.deepEqual([...document.querySelectorAll('[data-scenario-sort]')].map((button) => button.textContent), ['按时间', '按打分']);
+  assert.deepEqual(
+    [...document.querySelectorAll('.scenario')].map((scenario) => scenario.id),
+    ['hr-01', 'hr-04', 'hr-05', 'hr-13', 'hr-14', 'hr-15', 'hr-16', 'hr-17', 'hr-18', 'hr-19', 'hr-20', 'hr-02', 'hr-03', 'hr-06', 'hr-07', 'hr-08', 'hr-09', 'hr-10', 'hr-11', 'hr-12'],
+  );
+  assert.ok(document.querySelector('#hr-20'));
+
+  const scoreButton = [...document.querySelectorAll('[data-scenario-sort]')].find((button) => button.textContent === '按打分');
+  scoreButton.click();
+  assert.deepEqual([...document.querySelectorAll('.scenario')].slice(0, 3).map((scenario) => scenario.id), ['hr-01', 'hr-02', 'hr-03']);
+  const payrollFilter = document.querySelector('[data-category-filter="payroll"]');
+  payrollFilter.click();
+  assert.equal(document.querySelectorAll('.scenario:not([hidden])').length, 3);
+  const link = document.querySelector('[data-toc-scenario="hr-20"]');
+  assert.doesNotThrow(() => link.click());
+  assert.equal(document.querySelector('#hr-20 .scenario-header').getAttribute('aria-expanded'), 'true');
+
+  const report = dom.window.OpportunityRadar.buildStandaloneReport(hr, new Date('2026-08-25T08:00:00+08:00'));
+  assert.equal((report.match(/data-export-target=/g) || []).length, 12);
+  assert.equal((report.match(/class="export-scenario"/g) || []).length, 20);
+  assert.equal((report.match(/data-export-toc-scenario=/g) || []).length, 20);
+  assert.match(report, /教你用 WorkBuddy 搞定公司日常人事工作/);
+
+  const newerEvidenceHr = structuredClone(hr);
+  newerEvidenceHr.sources.find((source) => source.id === 'hr-src-12').publishedAt = '2026-08-22';
+  const newerEvidenceDom = await setup(newerEvidenceHr, 'http://127.0.0.1/radars/hr.html');
+  assert.equal(newerEvidenceDom.window.document.querySelector('.scenario').id, 'hr-15');
+});
+
+test('score sorting uses evidence, latest source date, and stable ID tie-breakers for every ranked mode', async () => {
+  const hr = structuredClone(await loadRadarFile(fileURLToPath(hrPath)));
+  const tieIds = ['evidence-winner', 'date-winner', 'score-Z', 'score-a', 'score.a', 'score/a', 'score:a', 'score_a', 'missing-date'];
+  const evidenceScores = [11, 10, 10, 10, 10, 10, 10, 10, 10];
+  const publishedDates = [null, '2026-08-21', '2026-08-20', '2026-08-20', '2026-08-20', '2026-08-20', '2026-08-20', '2026-08-20', null];
+  hr.scenarios.forEach((scenario) => { scenario.scorecard.total = 0; });
+  hr.scenarios.slice(0, 9).forEach((scenario, index) => {
+    const sourceId = `score-source-${index}`;
+    scenario.id = tieIds[index];
+    scenario.scorecard.total = 99;
+    scenario.scorecard.dimensions.evidence = evidenceScores[index];
+    scenario.evidenceIds = [sourceId];
+    hr.sources.push({
+      id: sourceId,
+      title: `排序证据 ${index}`,
+      publisher: '排序测试',
+      url: `https://example.com/score-${index}`,
+      evidenceType: '测试证据',
+      publishedAt: publishedDates[index],
+      limitation: '仅用于排序回归测试。',
+    });
+  });
+  const hrDom = await setup(hr, 'http://127.0.0.1/radars/hr.html');
+  hrDom.window.document.querySelector('[data-scenario-sort="score"]').click();
+  assert.deepEqual(
+    [...hrDom.window.document.querySelectorAll('.scenario')].slice(0, 9).map((scenario) => scenario.id),
+    ['evidence-winner', 'date-winner', 'score-Z', 'score-a', 'score.a', 'score/a', 'score:a', 'score_a', 'missing-date'],
+  );
+
+  const extended = structuredClone(await loadRadarFile(fileURLToPath(extendedPath)));
+  extended.scenarios.forEach((scenario) => { scenario.scorecard.total = 0; });
+  extended.scenarios[0].scorecard.total = 99;
+  extended.scenarios[0].scorecard.dimensions.evidence = 10;
+  extended.scenarios[1].scorecard.total = 99;
+  extended.scenarios[1].scorecard.dimensions.evidence = 11;
+  const extendedDom = await setup(extended);
+  extendedDom.window.document.querySelector('[data-scenario-sort="score"]').click();
+  assert.equal(extendedDom.window.document.querySelector('.scenario').id, 'fixture-02');
 });
 
 test('each scenario contains only five linked decision blocks', async () => {

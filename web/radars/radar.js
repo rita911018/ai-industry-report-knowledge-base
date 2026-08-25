@@ -39,8 +39,12 @@
     return ({ legal: '企业法务', hr: '人力资源', retail: '零售', supply_chain: '供应链', finance: '财务', marketing: '市场营销' })[data.id] || data.title.replace(/\s*AI\s*机会雷达\s*$/, '');
   }
 
+  function isRankedLibrary(data) {
+    return data.schemaVersion === '2.0' || data.libraryMode === 'ranked';
+  }
+
   function matrixScenarios(data) {
-    if (data.schemaVersion !== '2.0') return data.scenarios;
+    if (!isRankedLibrary(data)) return data.scenarios;
     return data.scenarios.filter((scenario) => Number.isInteger(scenario.matrixRank)).sort((a, b) => a.matrixRank - b.matrixRank);
   }
 
@@ -149,7 +153,7 @@
     state.inspectorContent = inspectorContent;
     const inspector = createElement('aside', { className: 'matrix-inspector' }, [inspectorContent]);
     return createElement('section', { className: 'radar-section matrix-section', attrs: { id: 'priority-matrix' } }, [
-      createElement('div', { className: 'radar-shell' }, [sectionHead('01', 'PRIORITY', '哪些 AI 场景应该优先启动？', `${data.schemaVersion === '2.0' ? '矩阵展示前 12 个场景；' : ''}先看业务价值和落地可行性，再通过证据与风险门槛。点击点位，在右侧查看完整判断。`), createElement('div', { className: 'matrix-layout' }, [matrixWrap, inspector])]),
+      createElement('div', { className: 'radar-shell' }, [sectionHead('01', 'PRIORITY', '哪些 AI 场景应该优先启动？', `${isRankedLibrary(data) ? '矩阵展示前 12 个场景；' : ''}先看业务价值和落地可行性，再通过证据与风险门槛。点击点位，在右侧查看完整判断。`), createElement('div', { className: 'matrix-layout' }, [matrixWrap, inspector])]),
     ]);
   }
 
@@ -266,11 +270,11 @@
 
   function renderScenario(scenario, data, state) {
     const detailId = `${scenario.id}-detail`;
-    const statusClass = Number.isInteger(scenario.matrixRank) ? 'core' : (scenario.priority === 'P3' || scenario.scorecard.redLine ? 'boundary' : 'observe');
+    const statusClass = scenario.priority === 'P3' || scenario.scorecard.redLine ? 'boundary' : (Number.isInteger(scenario.matrixRank) ? 'core' : 'observe');
     const statusLabel = ({ core: '核心矩阵', observe: '观察', boundary: '风险边界' })[statusClass];
     const titleGroup = createElement('span', { className: 'scenario-title-group' }, [
       createElement('span', { className: 'scenario-title', text: scenario.title }),
-      data.schemaVersion === '2.0' ? createElement('small', { className: `scenario-badge scenario-badge-${statusClass}`, text: statusLabel }) : null,
+      isRankedLibrary(data) ? createElement('small', { className: `scenario-badge scenario-badge-${statusClass}`, text: statusLabel }) : null,
     ]);
     const header = createElement('button', {
       className: 'scenario-header',
@@ -313,10 +317,41 @@
     filterScenarios(state, state.filters);
   }
 
+  function scenarioEvidenceTime(scenario, data) {
+    const timestamps = scenario.evidenceIds
+      .map((id) => data.sources.find((source) => source.id === id)?.publishedAt)
+      .filter(Boolean)
+      .map((value) => Date.parse(`${value}T00:00:00Z`))
+      .filter(Number.isFinite);
+    return timestamps.length ? Math.max(...timestamps) : null;
+  }
+
+  function compareBinaryStrings(a, b) {
+    return a < b ? -1 : (a > b ? 1 : 0);
+  }
+
   function sortScenarios(state, mode) {
     state.sortMode = mode;
     const scenarios = [...state.data.scenarios].sort((a, b) => {
-      if (mode === 'score') return b.scorecard.total - a.scorecard.total || a.number.localeCompare(b.number);
+      if (mode === 'score') {
+        const totalDifference = b.scorecard.total - a.scorecard.total;
+        if (totalDifference) return totalDifference;
+        const evidenceDifference = b.scorecard.dimensions.evidence - a.scorecard.dimensions.evidence;
+        if (evidenceDifference) return evidenceDifference;
+        const aTime = scenarioEvidenceTime(a, state.data);
+        const bTime = scenarioEvidenceTime(b, state.data);
+        if (aTime === null && bTime !== null) return 1;
+        if (aTime !== null && bTime === null) return -1;
+        if (aTime !== bTime) return bTime - aTime;
+        return compareBinaryStrings(a.id, b.id);
+      }
+      if (mode === 'date') {
+        const aTime = scenarioEvidenceTime(a, state.data);
+        const bTime = scenarioEvidenceTime(b, state.data);
+        if (aTime === null && bTime !== null) return 1;
+        if (aTime !== null && bTime === null) return -1;
+        if (aTime !== bTime) return bTime - aTime;
+      }
       return a.number.localeCompare(b.number);
     });
     for (const scenario of scenarios) state.list.append(state.cards.get(scenario.id));
@@ -330,10 +365,12 @@
     categoryControls.append(filterButton('全部', 'data-category-filter', 'all', state));
     for (const [value, label] of Object.entries(data.categoryLabels || {})) categoryControls.append(filterButton(label, 'data-category-filter', value, state));
     const controlChildren = [createElement('span', { text: '优先级' }), priorityControls, createElement('span', { text: '类别' }), categoryControls];
-    if (data.schemaVersion === '2.0') {
+    if (isRankedLibrary(data)) {
       const sortControls = createElement('div', { className: 'filter-group', attrs: { role: 'group', 'aria-label': '场景排序' } });
-      for (const [value, label] of [['number', '按编号'], ['score', '按总分']]) {
-        const button = createElement('button', { className: 'filter-button', text: label, attrs: { type: 'button', 'data-scenario-sort': value, 'aria-pressed': String(value === 'number') } });
+      const sortOptions = data.libraryMode === 'ranked' ? [['date', '按时间'], ['score', '按打分']] : [['number', '按编号'], ['score', '按总分']];
+      const defaultSort = data.libraryMode === 'ranked' ? 'date' : 'number';
+      for (const [value, label] of sortOptions) {
+        const button = createElement('button', { className: 'filter-button', text: label, attrs: { type: 'button', 'data-scenario-sort': value, 'aria-pressed': String(value === defaultSort) } });
         button.addEventListener('click', () => sortScenarios(state, value));
         sortControls.append(button);
       }
@@ -351,6 +388,7 @@
     state.empty = empty;
     state.filterPanel = controls;
     state.list = list;
+    if (isRankedLibrary(data)) sortScenarios(state, data.libraryMode === 'ranked' ? 'date' : 'number');
     return createElement('section', { className: 'radar-section portfolio-section', attrs: { id: 'scenario-portfolio' } }, [
       createElement('div', { className: 'radar-shell' }, [sectionHead('02', 'BUSINESS PROBLEMS', 'AI 能解决哪些业务问题', `完整 ${data.scenarioCount} 个场景，可按优先级与类别筛选；点开后查看痛点、AI 价值、风险、证据和公司实践。`), controls, createElement('div', { className: 'result-line' }, [count, createElement('button', { className: 'text-reset', text: '重置筛选', attrs: { type: 'button' } })]), list, empty]),
     ]);
