@@ -14,6 +14,11 @@ const MIME = new Map([
   ['.jpg', 'image/jpeg'], ['.jpeg', 'image/jpeg'], ['.webp', 'image/webp'], ['.pdf', 'application/pdf'], ['.vtt', 'text/vtt; charset=utf-8'],
 ]);
 
+const ARCHIVE_BASENAMES = new Set([
+  '中文全文.html', '中文全文.md', '英文原文.md', '原始网页.html', 'metadata.json', '原始报告.pdf',
+]);
+const ARCHIVE_HTML_CSP = "sandbox allow-popups; default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'; frame-ancestors 'self'";
+
 function json(res, status, body) {
   const payload = JSON.stringify(body);
   res.writeHead(status, { 'content-type': 'application/json; charset=utf-8', 'content-length': Buffer.byteLength(payload), 'cache-control': 'no-store' });
@@ -43,22 +48,57 @@ function safePath(root, relative) {
   return resolved;
 }
 
-async function serveFile(res, root, relative) {
+async function serveFile(res, root, relative, { directoryIndex = true, headers = {} } = {}) {
   let target = safePath(root, relative);
   if (!target) return json(res, 403, { error: 'Forbidden path' });
   try {
     let info = await stat(target);
     if (info.isDirectory()) {
+      if (!directoryIndex) return json(res, 403, { error: 'Forbidden path' });
       target = safePath(root, path.join(relative, 'index.html'));
       if (!target) return json(res, 403, { error: 'Forbidden path' });
       info = await stat(target);
     }
     if (!info.isFile()) throw new Error('not a file');
-    res.writeHead(200, { 'content-type': MIME.get(path.extname(target).toLowerCase()) || 'application/octet-stream', 'content-length': info.size, 'x-content-type-options': 'nosniff' });
+    res.writeHead(200, { 'content-type': MIME.get(path.extname(target).toLowerCase()) || 'application/octet-stream', 'content-length': info.size, 'x-content-type-options': 'nosniff', ...headers });
     createReadStream(target).pipe(res);
   } catch {
     json(res, 404, { error: 'Not found' });
   }
+}
+
+function requestPathname(requestTarget) {
+  const absolute = requestTarget.match(/^[a-z][a-z\d+.-]*:\/\/[^/?#]*(\/[^?#]*)?/i);
+  if (absolute) return absolute[1] || '/';
+  return requestTarget.split('?', 1)[0];
+}
+
+function isArchivePath(rawPathname) {
+  const asciiDecoded = rawPathname.replace(/%([\da-f]{2})/gi, (_, hex) => String.fromCharCode(Number.parseInt(hex, 16)));
+  return asciiDecoded === '/archive' || asciiDecoded.startsWith('/archive/');
+}
+
+function decodeArchivePath(rawPathname) {
+  if (/%(?:2e|2f|5c)/i.test(rawPathname)) return null;
+  if (!rawPathname.startsWith('/archive/')) return null;
+  let decoded;
+  try { decoded = decodeURIComponent(rawPathname); }
+  catch { return null; }
+  if (!decoded.startsWith('/archive/')) return null;
+  const relative = decoded.slice('/archive/'.length);
+  const parts = relative.split('/');
+  if (parts.length !== 4) return null;
+  const [radar, articles, article, basename] = parts;
+  if (!radar || radar.startsWith('.') || articles !== 'articles' || !article || article.startsWith('.')) return null;
+  if (parts.some((part) => part === '.' || part === '..' || part.includes('\\'))) return null;
+  if (!ARCHIVE_BASENAMES.has(basename)) return null;
+  return relative;
+}
+
+function archiveHeaders(relative) {
+  const headers = { 'referrer-policy': 'no-referrer' };
+  if (path.posix.extname(relative).toLowerCase() === '.html') headers['content-security-policy'] = ARCHIVE_HTML_CSP;
+  return headers;
 }
 
 export function createAppServer({
@@ -72,8 +112,14 @@ export function createAppServer({
   const chunks = corpus.flatMap((article) => article.chunks);
   const index = createSearchIndex(chunks);
   return createServer(async (req, res) => {
-    const url = new URL(req.url, 'http://127.0.0.1');
     try {
+      const rawPathname = requestPathname(req.url);
+      if (req.method === 'GET' && isArchivePath(rawPathname)) {
+        const relative = decodeArchivePath(rawPathname);
+        if (!relative) return json(res, 403, { error: 'Forbidden path' });
+        return serveFile(res, archiveRoot, relative, { directoryIndex: false, headers: archiveHeaders(relative) });
+      }
+      const url = new URL(req.url, 'http://127.0.0.1');
       if (req.method === 'GET' && url.pathname === '/api/health') {
         return json(res, 200, {
           status: 'ok',
@@ -103,9 +149,6 @@ export function createAppServer({
         }));
         const raw = await askImpl({ question: body.question, evidence, config: llmConfig });
         return json(res, 200, validateAnswer(raw, evidence));
-      }
-      if (req.method === 'GET' && url.pathname.startsWith('/archive/')) {
-        return serveFile(res, archiveRoot, decodeURIComponent(url.pathname.slice('/archive/'.length)));
       }
       if (req.method === 'GET') {
         const relative = decodeURIComponent(url.pathname === '/' ? 'index.html' : url.pathname.slice(1));

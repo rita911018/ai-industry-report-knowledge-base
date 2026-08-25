@@ -23,6 +23,10 @@ test('unified page exposes an accessible cited research workspace', async () => 
   assert.match(html, /id="knowledge-chat-drawer"[^>]+role="dialog"[^>]+aria-modal="false"/);
   assert.match(html, /id="source-reader"/);
   assert.match(html, /id="source-reader-frame"/);
+  const readerFrame = html.match(/<iframe\b[^>]*id="source-reader-frame"[^>]*>/)?.[0] || '';
+  assert.match(readerFrame, /sandbox="allow-popups"/);
+  assert.match(readerFrame, /referrerpolicy="no-referrer"/);
+  assert.doesNotMatch(readerFrame, /allow-scripts|allow-same-origin/);
   assert.match(html, /id="source-reader-back"/);
   assert.match(html, /id="source-reader-pdf"[^>]+hidden/);
   assert.match(html, /<nav[^>]+aria-label="主导航"/);

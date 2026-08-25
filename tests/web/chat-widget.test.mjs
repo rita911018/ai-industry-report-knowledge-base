@@ -70,7 +70,11 @@ test('opens the drawer, renders cited sources, and reads Chinese full text on th
   sourceButton.click();
 
   assert.equal(document.querySelector('#source-reader').hidden, false);
-  assert.equal(document.querySelector('#source-reader-frame').getAttribute('src'), '/archive/a/中文全文.html');
+  const readerFrame = document.querySelector('#source-reader-frame');
+  assert.equal(readerFrame.getAttribute('src'), '/archive/a/中文全文.html');
+  assert.equal(readerFrame.getAttribute('sandbox'), 'allow-popups');
+  assert.equal(readerFrame.getAttribute('referrerpolicy'), 'no-referrer');
+  assert.doesNotMatch(readerFrame.getAttribute('sandbox'), /allow-scripts|allow-same-origin/);
   assert.equal(document.querySelector('#source-reader-original').getAttribute('href'), '/archive/a/原始网页.html');
   assert.equal(document.querySelector('#source-reader-pdf').hidden, false);
   assert.equal(document.querySelector('#source-reader-pdf').getAttribute('href'), '/archive/a/原始报告.pdf');

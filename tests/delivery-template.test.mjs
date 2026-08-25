@@ -12,7 +12,8 @@ test('desktop launcher keeps switchable model credentials server-side', async ()
     readFile(new URL('使用说明.md', root), 'utf8'),
   ]);
   assert.match(launcher, /source \.\/\.env\.local/);
-  assert.match(launcher, /--archive \.\./);
+  assert.match(launcher, /node src\/server\/app-server\.mjs --corpus corpus\.json --web web --archive work\/archive(?:\s|$)/);
+  assert.doesNotMatch(launcher, /--archive \.\.(?:\s|$)/);
   assert.match(configure, /chmod 600 \.env\.local/);
   assert.match(configure, /LLM_PROVIDER/);
   assert.match(configure, /deepseek/);
