@@ -76,11 +76,54 @@ const NOISE_LINE_PATTERNS = [
   },
 ];
 
-function unwrapNoiseLabel(line) {
-  let value = line.trim().replace(/^[-+*]\s+/, '').trim();
-  const markdownLink = value.match(/^\[([^\]]+)]\(<?https?:\/\/[^\s)>]+>?\)$/i);
-  if (markdownLink) value = markdownLink[1].trim();
-  return value;
+function standaloneMarkdownLink(line) {
+  const match = line.trim().match(/^\[([^\]]+)]\((<?[^\s)>]+>?)(?:\s+(["'])(.*?)\3)?\)$/);
+  if (!match) return null;
+  return {
+    label: match[1].trim(),
+    destination: match[2].replace(/^<|>$/g, ''),
+    title: match[4] || '',
+  };
+}
+
+function noiseCodeForLabels(labels) {
+  for (const category of NOISE_LINE_PATTERNS) {
+    if (labels.every((line) => category.patterns.some((pattern) => pattern.test(line)))) return category.code;
+  }
+  return null;
+}
+
+function strongUiLinkLabel(link) {
+  if (link.title || !/^https?:\/\//i.test(link.destination)) return null;
+  let signals;
+  try {
+    const url = new URL(link.destination);
+    signals = new Set([
+      ...url.pathname.toLowerCase().split('/').filter(Boolean),
+      ...[...url.searchParams.entries()].flatMap(([key, value]) => [key.toLowerCase(), value.toLowerCase()]),
+    ]);
+  } catch {
+    return null;
+  }
+  const label = link.label.toLowerCase();
+  const targetPatterns = [
+    { label: /^(?:print|打印)$/iu, signals: ['print', 'printable'] },
+    { label: /^(?:share|分享)$/iu, signals: ['share'] },
+    { label: /^(?:save|save (?:it )?for later|保存|稍后阅读)$/iu, signals: ['save'] },
+    { label: /^(?:subscribe|订阅|订阅简报)$/iu, signals: ['subscribe', 'newsletter'] },
+  ];
+  return targetPatterns.some((entry) => entry.label.test(label) && entry.signals.some((signal) => signals.has(signal)))
+    ? link.label
+    : null;
+}
+
+function possibleStandaloneUiBlock(block) {
+  const lines = block.split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
+  if (!lines.length) return false;
+  return lines.every((line) => {
+    const link = standaloneMarkdownLink(line);
+    return Boolean(link && noiseCodeForLabels([link.label]));
+  });
 }
 
 export function classifyNoiseBlock(block) {
@@ -88,15 +131,15 @@ export function classifyNoiseBlock(block) {
   if (/^(?: {4}|\t)/.test(block)) return null;
   if (/\r?\n[ \t]*\r?\n/.test(block)) return null;
 
-  const lines = block.split(/\r?\n/).map(unwrapNoiseLabel).filter(Boolean);
+  const lines = block.split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
   if (!lines.length) return null;
-
-  for (const category of NOISE_LINE_PATTERNS) {
-    if (lines.every((line) => category.patterns.some((pattern) => pattern.test(line)))) {
-      return category.code;
-    }
-  }
-  return null;
+  if (lines.some((line) => /^[-+*]\s+/.test(line))) return null;
+  const labels = lines.map((line) => {
+    const link = standaloneMarkdownLink(line);
+    return link ? strongUiLinkLabel(link) : line;
+  });
+  if (labels.some((label) => !label)) return null;
+  return noiseCodeForLabels(labels);
 }
 
 function hashBlock(block) {
@@ -114,51 +157,66 @@ function closesFence(line, fence) {
   return Boolean(match && match[1][0] === fence.marker && match[1].length >= fence.length);
 }
 
-function splitMarkdownBlocks(markdown) {
-  const lines = [...markdown.matchAll(/[^\r\n]*(?:\r\n|\n|$)/g)]
-    .map((match) => match[0])
-    .filter(Boolean);
+function scanMarkdownLines(markdown, lineMap) {
+  const lines = [];
+  let fence = null;
+  let lineIndex = 0;
+  for (const match of markdown.matchAll(/[^\r\n]*(?:\r\n|\n|$)/g)) {
+    const raw = match[0];
+    if (!raw) continue;
+    const text = raw.replace(/\r?\n$/, '');
+    const opening = fence ? null : fenceOpening(text);
+    const closing = fence ? closesFence(text, fence) : false;
+    const protectedLine = Boolean(fence || opening || /^(?: {4}|\t)/.test(text));
+    lines.push({
+      raw,
+      text,
+      start: match.index,
+      line: lineMap?.[lineIndex] ?? lineIndex + 1,
+      protected: protectedLine,
+      fenceOpening: Boolean(opening),
+      fenceClosing: closing,
+    });
+    if (opening) fence = opening;
+    else if (closing) fence = null;
+    lineIndex += 1;
+  }
+  return lines;
+}
+
+function splitMarkdownBlocks(markdown, lineMap) {
+  const lines = scanMarkdownLines(markdown, lineMap);
   const blocks = [];
   let chunks = [];
   let blockLine = 1;
-  let lineNumber = 1;
-  let protectedFence = false;
-  let fence = null;
+  let protectedBlock = false;
 
   const flush = ({ beforeBlank = false } = {}) => {
     if (!chunks.length) return;
     let block = chunks.join('');
     if (beforeBlank) block = block.replace(/\r?\n$/, '');
-    blocks.push({ block, line: blockLine, protected: protectedFence });
+    blocks.push({ block, line: blockLine, protected: protectedBlock });
     chunks = [];
-    protectedFence = false;
+    protectedBlock = false;
   };
 
-  for (const lineWithEnding of lines) {
-    const line = lineWithEnding.replace(/\r?\n$/, '');
-    const blank = /^[ \t]*$/.test(line);
+  for (const line of lines) {
+    const blank = /^[ \t]*$/.test(line.text);
 
-    if (!fence && blank) {
+    if (!line.protected && blank) {
       flush({ beforeBlank: true });
-      lineNumber += 1;
       continue;
     }
 
-    if (!chunks.length) blockLine = lineNumber;
-    const opening = fence ? null : fenceOpening(line);
-    if (opening) {
-      fence = opening;
-      protectedFence = true;
-    }
-    chunks.push(lineWithEnding);
-    if (fence && closesFence(line, fence) && !opening) fence = null;
-    lineNumber += 1;
+    if (!chunks.length) blockLine = line.line;
+    protectedBlock ||= line.protected;
+    chunks.push(line.raw);
   }
   flush();
   return blocks;
 }
 
-export function cleanBaseline(markdown) {
+function cleanBaselineInternal(markdown) {
   if (typeof markdown !== 'string') throw new TypeError('markdown must be a string');
   const separator = markdown.includes('\r\n') ? '\r\n\r\n' : '\n\n';
   const blocks = splitMarkdownBlocks(markdown);
@@ -180,7 +238,7 @@ export function cleanBaseline(markdown) {
   const retained = [];
   for (const item of classified) {
     if (!item.code || !NOISE_CODES.has(item.code)) {
-      retained.push(item.block);
+      retained.push(item);
       continue;
     }
     const key = `${item.code}\0${item.block}`;
@@ -197,10 +255,18 @@ export function cleanBaseline(markdown) {
     });
   }
 
-  return {
-    markdown: retained.join(separator),
-    removals,
-  };
+  const lineMap = [];
+  for (let index = 0; index < retained.length; index += 1) {
+    if (index) lineMap.push(null);
+    const lineCount = retained[index].block.split(/\r?\n/).length;
+    for (let offset = 0; offset < lineCount; offset += 1) lineMap.push(retained[index].line + offset);
+  }
+  return { markdown: retained.map(({ block }) => block).join(separator), removals, lineMap };
+}
+
+export function cleanBaseline(markdown) {
+  const { markdown: cleanedMarkdown, removals } = cleanBaselineInternal(markdown);
+  return { markdown: cleanedMarkdown, removals };
 }
 
 function locationAt(text, index) {
@@ -210,11 +276,17 @@ function locationAt(text, index) {
   return { line, column: index - lastNewline };
 }
 
+function mappedLocationAt(text, index, lineMap) {
+  const location = locationAt(text, index);
+  return { ...location, line: lineMap?.[location.line - 1] ?? location.line };
+}
+
 function sanitizeProtectedMarkdown(markdown) {
-  return markdown
-    .replace(/```[\s\S]*?```|~~~[\s\S]*?~~~/g, (value) => value.replace(/[^\n]/g, ' '))
+  return scanMarkdownLines(markdown)
+    .map((line) => (line.protected ? line.raw.replace(/[^\r\n]/g, ' ') : line.raw))
+    .join('')
     .replace(/`[^`\n]*`/g, (value) => ' '.repeat(value.length))
-    .replace(/https?:\/\/[^\s)>\]"']+/g, (value) => ' '.repeat(value.length));
+    .replace(/(?:https?:\/\/|mailto:|tel:)[^\s)>\]"']+/g, (value) => ' '.repeat(value.length));
 }
 
 function glossaryEntries(glossary) {
@@ -280,6 +352,11 @@ export function scanChineseStyle(markdown, glossary = {}) {
     const code = protectedBlock ? null : classifyNoiseBlock(block);
     const index = markdown.indexOf(block, searchFrom);
     searchFrom = index + block.length;
+    if (!code && !protectedBlock && possibleStandaloneUiBlock(block)) {
+      const label = block.trim();
+      pushRisk(risks, markdown, 'possible_webpage_ui', index, `Possible standalone webpage UI link requires review: ${label}`, { block: label });
+      continue;
+    }
     if (!code) continue;
     const label = block.trim();
     const riskCode = /^[\x00-\x7f\s\p{P}]+$/u.test(label)
@@ -313,30 +390,21 @@ export function scanChineseStyle(markdown, glossary = {}) {
   return risks;
 }
 
-function markdownLines(markdown) {
-  const lines = markdown.split(/\r?\n/);
-  const entries = [];
-  let fenced = false;
-  for (let index = 0; index < lines.length; index += 1) {
-    const line = lines[index];
-    if (/^\s*(?:```|~~~)/.test(line)) {
-      fenced = !fenced;
-      continue;
-    }
-    if (!fenced) entries.push({ text: line, line: index + 1 });
-  }
-  return entries;
+function markdownLines(markdown, lineMap) {
+  return scanMarkdownLines(markdown, lineMap)
+    .filter((line) => !line.protected)
+    .map(({ text, line, start }) => ({ text, line, start }));
 }
 
-function headings(markdown) {
-  return markdownLines(markdown).flatMap((entry) => {
+function headings(markdown, lineMap) {
+  return markdownLines(markdown, lineMap).flatMap((entry) => {
     const match = entry.text.match(/^(#{1,6})\s+(.+?)\s*$/);
     return match ? [{ ...entry, level: match[1].length, label: match[2] }] : [];
   });
 }
 
-function listItems(markdown) {
-  return markdownLines(markdown).flatMap((entry) => {
+function listItems(markdown, lineMap) {
+  return markdownLines(markdown, lineMap).flatMap((entry) => {
     const match = entry.text.match(/^(\s*)([-+*]|\d+[.)])\s+(.+)$/);
     if (!match) return [];
     return [{
@@ -360,8 +428,8 @@ function isTableDivider(line) {
   return cells.length > 0 && cells.every((cell) => /^:?-{3,}:?$/.test(cell));
 }
 
-function tables(markdown) {
-  const lines = markdownLines(markdown);
+function tables(markdown, lineMap) {
+  const lines = markdownLines(markdown, lineMap);
   const found = [];
   for (let index = 0; index < lines.length - 1; index += 1) {
     const header = lines[index];
@@ -379,37 +447,79 @@ function tables(markdown) {
       columns: tableCells(header.text).length,
       headers: tableCells(header.text),
       rows: rows.length - 1,
+      fingerprint: rows.map(({ text }) => text).join('\n'),
     });
     index = next - 1;
   }
   return found;
 }
 
-function images(markdown) {
-  const found = [];
-  const pattern = /!\[([^\]]*)]\(([^)\s]+)(?:\s+["'][^"']*["'])?\)/g;
-  for (const match of markdown.matchAll(pattern)) {
-    const location = locationAt(markdown, match.index);
-    found.push({ ...location, text: match[0], alt: match[1], url: match[2] });
+function inlineMarkdownStructures(markdown, lineMap) {
+  const links = [];
+  const images = [];
+  const pattern = /(!?)\[([^\]\n]+)]\(\s*(<[^>\n]+>|[^\s)]+)(?:\s+(?:"[^"]*"|'[^']*'|\([^)]*\)))?\s*\)/g;
+  for (const line of markdownLines(markdown, lineMap)) {
+    for (const match of line.text.matchAll(pattern)) {
+      const destination = match[3].replace(/^<|>$/g, '');
+      const item = {
+        line: line.line,
+        column: match.index + 1,
+        text: match[0],
+        label: match[2],
+        destination,
+      };
+      (match[1] ? images : links).push(item);
+    }
   }
-  return found;
+  return { links, images };
 }
 
-function footnotes(markdown) {
+function referenceMarkdownStructures(markdown, lineMap) {
+  const links = [];
+  const images = [];
+  const definitions = [];
+  const usagePattern = /(!?)\[([^\]\n]+)]\[([^\]\n]*)]/g;
+  const definitionPattern = /^ {0,3}\[([^\]^][^\]]*)]:\s*(<?\S+>?)(?:\s+.*)?$/;
+  for (const line of markdownLines(markdown, lineMap)) {
+    const definition = line.text.match(definitionPattern);
+    if (definition) {
+      definitions.push({
+        line: line.line,
+        column: line.text.indexOf('[') + 1,
+        text: line.text.trim(),
+        id: definition[1].trim().toLowerCase(),
+        destination: definition[2].replace(/^<|>$/g, ''),
+      });
+      continue;
+    }
+    for (const match of line.text.matchAll(usagePattern)) {
+      const item = {
+        line: line.line,
+        column: match.index + 1,
+        text: match[0],
+        label: match[2],
+        id: (match[3] || match[2]).trim().toLowerCase(),
+      };
+      (match[1] ? images : links).push(item);
+    }
+  }
+  return { links, images, definitions };
+}
+
+function footnotes(markdown, lineMap) {
   const definitions = [];
   const references = [];
-  const definitionRanges = [];
-  const definitionPattern = /^\[\^([^\]]+)]\s*:/gm;
-  for (const match of markdown.matchAll(definitionPattern)) {
-    const location = locationAt(markdown, match.index);
-    definitions.push({ ...location, id: match[1], text: match[0] });
-    definitionRanges.push([match.index, match.index + match[0].length]);
-  }
+  const definitionPattern = /^\[\^([^\]]+)]\s*:/;
   const referencePattern = /\[\^([^\]]+)]/g;
-  for (const match of markdown.matchAll(referencePattern)) {
-    if (definitionRanges.some(([start, end]) => match.index >= start && match.index < end)) continue;
-    const location = locationAt(markdown, match.index);
-    references.push({ ...location, id: match[1], text: match[0] });
+  for (const line of markdownLines(markdown, lineMap)) {
+    const definition = line.text.match(definitionPattern);
+    if (definition) {
+      definitions.push({ line: line.line, column: 1, id: definition[1], text: definition[0] });
+      continue;
+    }
+    for (const match of line.text.matchAll(referencePattern)) {
+      references.push({ line: line.line, column: match.index + 1, id: match[1], text: match[0] });
+    }
   }
   return { definitions, references };
 }
@@ -437,7 +547,7 @@ function labelDistance(left, right) {
   return previous[target.length] / Math.max(source.length, target.length);
 }
 
-function missingByAlignedSequence(expected, actual, signature, label) {
+function alignSequence(expected, actual, signature, label) {
   const deletionCost = 0.75;
   const insertionCost = 0.75;
   const costs = Array.from({ length: expected.length + 1 }, () => Array(actual.length + 1).fill(0));
@@ -474,11 +584,13 @@ function missingByAlignedSequence(expected, actual, signature, label) {
   }
 
   const missing = [];
+  const pairs = [];
   let expectedIndex = expected.length;
   let actualIndex = actual.length;
   while (expectedIndex || actualIndex) {
     const action = actions[expectedIndex][actualIndex];
     if (action === 'align') {
+      pairs.push([expected[expectedIndex - 1], actual[actualIndex - 1]]);
       expectedIndex -= 1;
       actualIndex -= 1;
     } else if (action === 'insert') {
@@ -488,7 +600,11 @@ function missingByAlignedSequence(expected, actual, signature, label) {
       expectedIndex -= 1;
     }
   }
-  return missing.reverse();
+  return { missing: missing.reverse(), pairs: pairs.reverse() };
+}
+
+function missingByAlignedSequence(expected, actual, signature, label) {
+  return alignSequence(expected, actual, signature, label).missing;
 }
 
 function countBy(values, key) {
@@ -497,9 +613,21 @@ function countBy(values, key) {
   return counts;
 }
 
-function structuralIssues(baseline, polished) {
+function missingByKey(expected, actual, key) {
+  const available = countBy(actual, key);
+  const missing = [];
+  for (const item of expected) {
+    const itemKey = key(item);
+    const remaining = available.get(itemKey) || 0;
+    if (remaining) available.set(itemKey, remaining - 1);
+    else missing.push(item);
+  }
+  return missing;
+}
+
+function structuralIssues(baseline, polished, baselineLineMap) {
   const issues = [];
-  const expectedHeadings = headings(baseline);
+  const expectedHeadings = headings(baseline, baselineLineMap);
   const actualHeadings = headings(polished);
   for (const item of missingByAlignedSequence(
     expectedHeadings,
@@ -515,7 +643,7 @@ function structuralIssues(baseline, polished) {
     });
   }
 
-  const expectedListItems = listItems(baseline);
+  const expectedListItems = listItems(baseline, baselineLineMap);
   const actualListItems = listItems(polished);
   for (const item of missingByAlignedSequence(
     expectedListItems,
@@ -531,34 +659,39 @@ function structuralIssues(baseline, polished) {
     });
   }
 
-  const expectedTables = tables(baseline);
+  const expectedTables = tables(baseline, baselineLineMap);
   const actualTables = tables(polished);
-  for (let index = 0; index < expectedTables.length; index += 1) {
-    const expected = expectedTables[index];
-    const actual = actualTables[index];
-    if (!actual) {
-      issues.push({
-        code: 'missing_table',
-        line: expected.line,
-        item: expected.text,
-        message: `Missing table from baseline line ${expected.line}: ${expected.text}`,
-      });
-      continue;
-    }
+  const tableAlignment = alignSequence(
+    expectedTables,
+    actualTables,
+    () => 'table',
+    ({ fingerprint }) => fingerprint,
+  );
+  for (const expected of tableAlignment.missing) {
+    issues.push({
+      code: 'missing_table',
+      line: expected.line,
+      item: expected.text,
+      message: `Missing table from baseline line ${expected.line}: ${expected.text}`,
+    });
+  }
+  for (const [expected, actual] of tableAlignment.pairs) {
     if (actual.columns < expected.columns) {
       const expectedHeaders = expected.headers.map((label, headerIndex) => ({ label, headerIndex }));
       const actualHeaders = actual.headers.map((label, headerIndex) => ({ label, headerIndex }));
-      const missing = missingByAlignedSequence(
+      const missingColumns = missingByAlignedSequence(
         expectedHeaders,
         actualHeaders,
         () => 'column',
         ({ label }) => label,
-      ).map(({ label, headerIndex }) => `${headerIndex + 1} "${label}"`);
+      ).map(({ label, headerIndex }) => ({ index: headerIndex + 1, label }));
+      const item = missingColumns.map(({ index, label }) => `${index} "${label}"`).join(', ');
       issues.push({
         code: 'missing_table_column',
         line: expected.line,
-        item: missing,
-        message: `Missing table from baseline line ${expected.line}, column(s): ${missing.join(', ')} (actual=${actual.columns}, expected=${expected.columns})`,
+        item,
+        details: { missingColumns, actualColumns: actual.columns, expectedColumns: expected.columns },
+        message: `Missing table from baseline line ${expected.line}, column(s): ${item} (actual=${actual.columns}, expected=${expected.columns})`,
       });
     }
     if (actual.rows < expected.rows) {
@@ -571,22 +704,59 @@ function structuralIssues(baseline, polished) {
     }
   }
 
-  const expectedImages = images(baseline);
-  const actualImageCounts = countBy(images(polished), ({ url }) => url);
-  const seenImages = new Map();
-  for (const item of expectedImages) {
-    const occurrence = (seenImages.get(item.url) || 0) + 1;
-    seenImages.set(item.url, occurrence);
-    if (occurrence <= (actualImageCounts.get(item.url) || 0)) continue;
+  const expectedInline = inlineMarkdownStructures(baseline, baselineLineMap);
+  const actualInline = inlineMarkdownStructures(polished);
+  for (const item of missingByKey(expectedInline.links, actualInline.links, ({ destination }) => destination)) {
+    issues.push({
+      code: 'missing_markdown_link',
+      line: item.line,
+      column: item.column,
+      item: item.text,
+      details: { destination: item.destination },
+      message: `Missing Markdown link from baseline line ${item.line}: ${item.text}`,
+    });
+  }
+  for (const item of missingByKey(expectedInline.images, actualInline.images, ({ destination }) => destination)) {
     issues.push({
       code: 'missing_image',
       line: item.line,
+      column: item.column,
       item: item.text,
+      details: { destination: item.destination },
       message: `Missing image from baseline line ${item.line}: ${item.text}`,
     });
   }
 
-  const expectedFootnotes = footnotes(baseline);
+  const expectedReferences = referenceMarkdownStructures(baseline, baselineLineMap);
+  const actualReferences = referenceMarkdownStructures(polished);
+  for (const [kind, code] of [['links', 'missing_reference_link'], ['images', 'missing_reference_image']]) {
+    for (const item of missingByKey(expectedReferences[kind], actualReferences[kind], ({ id }) => id)) {
+      issues.push({
+        code,
+        line: item.line,
+        column: item.column,
+        item: item.text,
+        details: { referenceId: item.id },
+        message: `Missing reference-style ${kind === 'links' ? 'link' : 'image'} from baseline line ${item.line}: ${item.text}`,
+      });
+    }
+  }
+  for (const item of missingByKey(
+    expectedReferences.definitions,
+    actualReferences.definitions,
+    ({ id, destination }) => `${id}\0${destination}`,
+  )) {
+    issues.push({
+      code: 'missing_link_definition',
+      line: item.line,
+      column: item.column,
+      item: item.text,
+      details: { referenceId: item.id, destination: item.destination },
+      message: `Missing link definition from baseline line ${item.line}: ${item.text}`,
+    });
+  }
+
+  const expectedFootnotes = footnotes(baseline, baselineLineMap);
   const actualFootnotes = footnotes(polished);
   for (const kind of ['references', 'definitions']) {
     const actualCounts = countBy(actualFootnotes[kind], ({ id }) => id);
@@ -607,23 +777,103 @@ function structuralIssues(baseline, polished) {
   return issues;
 }
 
-function locatedUrls(markdown) {
+function locatedUrls(markdown, lineMap) {
   const found = [];
   const pattern = /https?:\/\/[^\s)>\]"']+/g;
   for (const match of markdown.matchAll(pattern)) {
     const value = match[0].replace(/[.,;:!?]+$/g, '');
-    found.push({ ...locationAt(markdown, match.index), item: value });
+    found.push({ ...mappedLocationAt(markdown, match.index, lineMap), item: value });
   }
   return found;
 }
 
-function locatedNumbers(markdown) {
+function locatedNumbers(markdown, lineMap) {
   const found = [];
   const pattern = /\d+(?:[.,]\d+)*(?:%|‰)?/g;
   for (const match of markdown.matchAll(pattern)) {
-    found.push({ ...locationAt(markdown, match.index), item: match[0] });
+    found.push({ ...mappedLocationAt(markdown, match.index, lineMap), item: match[0] });
   }
   return found;
+}
+
+const CURRENCY_PREFIX = /(?:US\$|HK\$|A\$|[$€£¥]|USD|EUR|GBP|CNY|RMB|人民币)\s*$/i;
+const FACT_QUALIFIER_SUFFIX = /^\s*(?:%|‰|percent|per\s+cent|(?:thousand|million|billion|trillion|千|万|百万|十亿|万亿)\s*(?:(?:US\s+)?dollars?|euros?|pounds?|yuan|美元|欧元|英镑|人民币|元)?|(?:US\s+)?dollars?|euros?|pounds?|yuan|美元|欧元|英镑|人民币|元|kilomet(?:er|re)s?|km|公里|千米|kilograms?|kg|gigabytes?|GB|megabytes?|MB|terabytes?|TB|°C|°F)/i;
+
+function canonicalFactQualifier(value) {
+  const normalized = value.normalize('NFKC').toLowerCase().replace(/\s+/g, ' ').trim();
+  const parts = [];
+  if (normalized.includes('‰')) parts.push('rate:permille');
+  else if (normalized.includes('%') || /\b(?:percent|per cent)\b/.test(normalized)) parts.push('rate:percent');
+
+  const scales = [
+    [/trillion|万亿/, 'scale:trillion'],
+    [/billion|十亿/, 'scale:billion'],
+    [/million|百万/, 'scale:million'],
+    [/thousand|千/, 'scale:thousand'],
+    [/万/, 'scale:ten_thousand'],
+  ];
+  const scale = scales.find(([pattern]) => pattern.test(normalized));
+  if (scale) parts.push(scale[1]);
+
+  const currencies = [
+    [/(?:us\$|\$|usd|dollars?|美元)/, 'currency:USD'],
+    [/(?:€|eur|euros?|欧元)/, 'currency:EUR'],
+    [/(?:£|gbp|pounds?|英镑)/, 'currency:GBP'],
+    [/(?:¥|cny|rmb|yuan|人民币|元)/, 'currency:CNY'],
+  ];
+  const currency = currencies.find(([pattern]) => pattern.test(normalized));
+  if (currency) parts.push(currency[1]);
+
+  const units = [
+    [/(?:kilomet(?:er|re)s?|\bkm\b|公里|千米)/, 'unit:km'],
+    [/(?:kilograms?|\bkg\b)/, 'unit:kg'],
+    [/(?:gigabytes?|\bgb\b)/, 'unit:GB'],
+    [/(?:megabytes?|\bmb\b)/, 'unit:MB'],
+    [/(?:terabytes?|\btb\b)/, 'unit:TB'],
+    [/°c/, 'unit:celsius'],
+    [/°f/, 'unit:fahrenheit'],
+  ];
+  const unit = units.find(([pattern]) => pattern.test(normalized));
+  if (unit) parts.push(unit[1]);
+  return parts.join('|');
+}
+
+function qualifiedFacts(markdown, lineMap) {
+  const facts = [];
+  const numberPattern = /\d+(?:[.,]\d+)*/g;
+  for (const line of markdownLines(markdown, lineMap)) {
+    for (const match of line.text.matchAll(numberPattern)) {
+      const prefix = line.text.slice(0, match.index).match(CURRENCY_PREFIX);
+      const suffix = line.text.slice(match.index + match[0].length).match(FACT_QUALIFIER_SUFFIX);
+      if (!prefix && !suffix) continue;
+      const start = match.index - (prefix?.[0].length || 0);
+      const end = match.index + match[0].length + (suffix?.[0].length || 0);
+      const item = line.text.slice(start, end).trim();
+      const qualifier = canonicalFactQualifier(`${prefix?.[0] || ''}${suffix?.[0] || ''}`);
+      if (!qualifier) continue;
+      facts.push({
+        line: line.line,
+        column: start + 1,
+        item,
+        number: match[0],
+        qualifier,
+        key: `${match[0]}|${qualifier}`,
+      });
+    }
+  }
+  return facts;
+}
+
+function mergeFactBaselines(beforeFacts, originalFacts) {
+  const merged = [...beforeFacts];
+  const represented = countBy(beforeFacts, ({ key }) => key);
+  const seenOriginal = new Map();
+  for (const fact of originalFacts) {
+    const occurrence = (seenOriginal.get(fact.key) || 0) + 1;
+    seenOriginal.set(fact.key, occurrence);
+    if (occurrence > (represented.get(fact.key) || 0)) merged.push(fact);
+  }
+  return merged;
 }
 
 function missingLocated(expected, actual, canonical = (value) => value) {
@@ -638,9 +888,9 @@ function missingLocated(expected, actual, canonical = (value) => value) {
   return missing;
 }
 
-function factualIssues(original, polished) {
+function factualIssues(original, before, polished, originalLineMap, beforeLineMap) {
   const issues = [];
-  for (const item of missingLocated(locatedUrls(original), locatedUrls(polished))) {
+  for (const item of missingLocated(locatedUrls(original, originalLineMap), locatedUrls(polished))) {
     issues.push({
       code: 'missing_url',
       line: item.line,
@@ -650,13 +900,27 @@ function factualIssues(original, polished) {
     });
   }
   const canonicalNumber = (value) => value.replace(/[%‰]$/, '');
-  for (const item of missingLocated(locatedNumbers(original), locatedNumbers(polished), canonicalNumber)) {
+  for (const item of missingLocated(locatedNumbers(original, originalLineMap), locatedNumbers(polished), canonicalNumber)) {
     issues.push({
       code: 'missing_numeric_token',
       line: item.line,
       column: item.column,
       item: item.item,
       message: `Missing numeric token from original line ${item.line}: ${item.item}`,
+    });
+  }
+  const expectedFacts = mergeFactBaselines(
+    qualifiedFacts(before, beforeLineMap),
+    qualifiedFacts(original, originalLineMap),
+  );
+  for (const item of missingByKey(expectedFacts, qualifiedFacts(polished), ({ key }) => key)) {
+    issues.push({
+      code: 'missing_factual_qualifier',
+      line: item.line,
+      column: item.column,
+      item: item.item,
+      details: { number: item.number, qualifier: item.qualifier },
+      message: `Missing or altered factual qualifier from baseline line ${item.line}: ${item.item}`,
     });
   }
   return issues;
@@ -667,22 +931,37 @@ export function verifyPolishedChinese({ original, before, polished, glossary = {
     if (typeof value !== 'string') throw new TypeError(`${name} must be a string`);
   }
 
-  const cleanedOriginal = cleanBaseline(original);
-  const cleanedBefore = cleanBaseline(before);
+  const cleanedOriginal = cleanBaselineInternal(original);
+  const cleanedBefore = cleanBaselineInternal(before);
   const errors = [];
+  let translationErrors = [];
   let translationReport;
   try {
     translationReport = verifyTranslation(cleanedOriginal.markdown, polished);
   } catch (error) {
     if (!error.report) throw error;
     translationReport = error.report;
-    errors.push(...error.report.errors);
+    translationErrors = error.report.errors;
   }
 
   const issues = [
-    ...factualIssues(cleanedOriginal.markdown, polished),
-    ...structuralIssues(cleanedBefore.markdown, polished),
+    ...factualIssues(
+      cleanedOriginal.markdown,
+      cleanedBefore.markdown,
+      polished,
+      cleanedOriginal.lineMap,
+      cleanedBefore.lineMap,
+    ),
+    ...structuralIssues(cleanedBefore.markdown, polished, cleanedBefore.lineMap),
   ];
+  const issueCodes = new Set(issues.map(({ code }) => code));
+  translationErrors = translationErrors.filter((message) => {
+    if (/^Missing URL\(s\):/i.test(message) && issueCodes.has('missing_url')) return false;
+    if (/^Missing or altered numeric token\(s\):/i.test(message) && issueCodes.has('missing_numeric_token')) return false;
+    if (/^Missing heading\(s\):/i.test(message) && issueCodes.has('missing_heading')) return false;
+    return true;
+  });
+  errors.push(...translationErrors);
   errors.push(...issues.map(({ message }) => message));
   const risks = scanChineseStyle(polished, glossary);
   const baselineLength = cleanedBefore.markdown.trim().length;

@@ -24,8 +24,24 @@ test('classifies only isolated whole webpage-noise blocks', () => {
   assert.equal(classifyNoiseBlock('企业需要分享经验'), null);
   assert.equal(classifyNoiseBlock('`print(value)`'), null);
   assert.equal(classifyNoiseBlock('    Print'), null);
+  assert.equal(classifyNoiseBlock('- Print'), null);
   assert.equal(classifyNoiseBlock('[源码](https://example.com/tools/print.mjs)'), null);
+  assert.equal(classifyNoiseBlock('[Print](https://example.com/research/article)'), null);
+  assert.equal(classifyNoiseBlock('[Print](https://example.com/print-history)'), null);
+  assert.equal(classifyNoiseBlock('[Print](./print)'), null);
+  assert.equal(classifyNoiseBlock('[Print](https://example.com/print "Print this article")'), null);
+  assert.equal(classifyNoiseBlock('[Print](https://example.com/print)'), 'save_share_print');
   assert.equal(classifyNoiseBlock('这是正文。\n\nShare'), null);
+});
+
+test('retains ambiguous standalone UI links and flags them for review', () => {
+  const markdown = '[Print](./print)';
+  const cleaned = cleanBaseline(markdown);
+  const risks = scanChineseStyle(markdown, {});
+
+  assert.equal(cleaned.markdown, markdown);
+  assert.deepEqual(cleaned.removals, []);
+  assert.ok(risks.some(({ code, block }) => code === 'possible_webpage_ui' && block === markdown));
 });
 
 test('cleanBaseline removes classified blocks while preserving all non-noise Markdown', () => {
@@ -221,10 +237,12 @@ test('verifyPolishedChinese preserves existing translation invariants with exact
   const missingNumber = captureFailure(before.replace('| 收入 | 42 | 报告 |', '| 收入 | 四十二 | 报告 |'));
   assert.ok(missingNumber.errors.some((message) => /numeric token.*42/i.test(message)));
   assert.ok(missingNumber.issues.some(({ code, line, item }) => code === 'missing_numeric_token' && line === 12 && item === '42'));
+  assert.equal(missingNumber.errors.filter((message) => /numeric token.*42/i.test(message)).length, 1);
 
   const missingUrl = captureFailure(before.replace('https://example.com/report', 'report-source'));
   assert.ok(missingUrl.errors.some((message) => /URL.*https:\/\/example\.com\/report/i.test(message)));
   assert.ok(missingUrl.issues.some(({ code, line, item }) => code === 'missing_url' && line === 3 && item === 'https://example.com/report'));
+  assert.equal(missingUrl.errors.filter((message) => /URL.*https:\/\/example\.com\/report/i.test(message)).length, 1);
 });
 
 test('verifyPolishedChinese identifies the exact missing Markdown structure', () => {
@@ -350,8 +368,82 @@ English context.
   const report = captureCustomFailure({ original: tableOriginal, before: tableBefore, polished: tablePolished });
 
   const issue = report.issues.find(({ code }) => code === 'missing_table_column');
-  assert.deepEqual(issue?.item, ['2 "乙"']);
+  assert.equal(issue?.item, '2 "乙"');
+  assert.deepEqual(issue?.details?.missingColumns, [{ index: 2, label: '乙' }]);
   assert.match(issue?.message || '', /column.*2 "乙"/i);
+});
+
+test('reports locations from the original pre-edit article after earlier noise removal', () => {
+  const mappedOriginal = `# Report
+
+Print
+
+## Evidence
+
+English context.`;
+  const mappedBefore = `# 报告
+
+Print
+
+## 证据
+
+中文内容。`;
+  const report = captureCustomFailure({
+    original: mappedOriginal,
+    before: mappedBefore,
+    polished: '# 报告\n\n中文内容。',
+  });
+
+  const issue = report.issues.find(({ code }) => code === 'missing_heading');
+  assert.equal(issue?.item, '## 证据');
+  assert.equal(issue?.line, 5);
+});
+
+test('matches repeated tables by content and order before reporting the deleted first table', () => {
+  const repeatedTableOriginal = `# Report
+
+English context.
+
+| Category A | Value |
+| --- | --- |
+| Alpha | High |
+
+Between tables.
+
+| Category B | Value |
+| --- | --- |
+| Beta | Low |`;
+  const repeatedTableBefore = `# 报告
+
+中文背景。
+
+| 甲类 | 数值 |
+| --- | --- |
+| 甲 | 高 |
+
+表格之间的说明。
+
+| 乙类 | 数值 |
+| --- | --- |
+| 乙 | 低 |`;
+  const repeatedTablePolished = `# 报告
+
+中文背景。
+
+表格之间的说明。
+
+| 乙类 | 数值 |
+| --- | --- |
+| 乙 | 低 |`;
+  const report = captureCustomFailure({
+    original: repeatedTableOriginal,
+    before: repeatedTableBefore,
+    polished: repeatedTablePolished,
+  });
+
+  const issue = report.issues.find(({ code }) => code === 'missing_table');
+  assert.equal(issue?.item, '| 甲类 | 数值 |');
+  assert.equal(issue?.line, 5);
 });
 
 test('allows editorial wording changes when heading and list structure remains complete', () => {
@@ -396,6 +488,194 @@ English conclusion.`;
     original: wordingOriginal,
     before: wordingBefore,
     polished: wordingPolished,
+    glossary: {},
+  });
+
+  assert.equal(report.ok, true);
+  assert.deepEqual(report.issues, []);
+});
+
+test('fails when relative, mailto, or tel Markdown links lose link structure', () => {
+  const linkBefore = `# 联系与指南
+
+请查看[指南](./guide.md)，或[发送邮件](mailto:editor@example.com)，也可[致电](tel:+861012345678)。`;
+  const linkPolished = `# 联系与指南
+
+请查看指南，或发送邮件，也可致电。`;
+  const report = captureCustomFailure({
+    original: '# Contact and guide\n\nEnglish context.',
+    before: linkBefore,
+    polished: linkPolished,
+  });
+
+  const missingLinks = report.issues.filter(({ code }) => code === 'missing_markdown_link');
+  assert.deepEqual(missingLinks.map(({ item }) => item), [
+    '[指南](./guide.md)',
+    '[发送邮件](mailto:editor@example.com)',
+    '[致电](tel:+861012345678)',
+  ]);
+});
+
+test('fails when an HTTP Markdown link is flattened to a bare URL', () => {
+  const linkBefore = '# 资料\n\n请阅读[完整报告](https://example.com/report)。';
+  const linkPolished = '# 资料\n\n请阅读 https://example.com/report。';
+  const report = captureCustomFailure({
+    original: '# Source\n\nRead https://example.com/report.',
+    before: linkBefore,
+    polished: linkPolished,
+  });
+
+  assert.ok(report.issues.some(({ code, item }) => code === 'missing_markdown_link' && item === '[完整报告](https://example.com/report)'));
+});
+
+test('preserves reference-style links, images, and their definitions', () => {
+  const referenceBefore = `# 资料
+
+请查看[指南][guide]。
+
+![图][chart]
+
+[guide]: ./guide.md
+[chart]: ./chart.png`;
+  const variants = [
+    {
+      polished: referenceBefore.replace('[指南][guide]', '指南'),
+      code: 'missing_reference_link',
+      item: '[指南][guide]',
+    },
+    {
+      polished: referenceBefore.replace('![图][chart]', '图'),
+      code: 'missing_reference_image',
+      item: '![图][chart]',
+    },
+    {
+      polished: referenceBefore.replace('[chart]: ./chart.png', ''),
+      code: 'missing_link_definition',
+      item: '[chart]: ./chart.png',
+    },
+  ];
+
+  for (const variant of variants) {
+    const report = captureCustomFailure({
+      original: '# Source\n\nEnglish context.',
+      before: referenceBefore,
+      polished: variant.polished,
+    });
+    assert.ok(
+      report.issues.some(({ code, item }) => code === variant.code && item === variant.item),
+      `${variant.code}: ${report.errors.join('; ')}`,
+    );
+  }
+});
+
+test('uses matching fences and indented-code protection for style and structure extraction', () => {
+  const protectedMarkdown = `# 标题
+
+\`\`\`\`markdown
+## 伪标题
+
+- Print
+
+[伪链接](./fake.md)
+
+该代理执行,很好!!
+
+\`\`\`
+
+Share
+\`\`\`\`
+
+    ## 缩进伪标题
+    - Print
+    该代理执行,很好!!
+
+~~~~text
+## 波浪伪标题
+
+- Print
+
+[波浪伪链接](./tilde.md)
+~~~~
+
+## 真实标题
+
+- 真实项
+
+[真实指南](./guide.md)`;
+  const risks = scanChineseStyle(protectedMarkdown, {
+    agent: { preferred: '智能体', prohibited: ['代理'] },
+  });
+  assert.deepEqual(risks.map(({ code }) => code), []);
+
+  const polished = `# 标题
+
+\`\`\`\`markdown
+code rewritten
+\`\`\`\`
+
+    code rewritten
+
+~~~~text
+code rewritten
+~~~~
+
+## 真实标题
+
+- 真实项
+
+真实指南`;
+  const report = captureCustomFailure({
+    original: '# Source\n\nEnglish context.\n\n## Real heading\n\n- Real item\n\nGuide.',
+    before: protectedMarkdown,
+    polished,
+  });
+  assert.deepEqual(
+    report.issues.filter(({ code }) => /heading|list_item|markdown_link/.test(code)).map(({ code, item }) => ({ code, item })),
+    [{ code: 'missing_markdown_link', item: '[真实指南](./guide.md)' }],
+  );
+});
+
+test('fails when percent and per-mille qualifiers drift despite the same number', () => {
+  const report = captureCustomFailure({
+    original: '# Rate\n\nThe rate was 42%.',
+    before: '# 比例\n\n该比例为 42%。',
+    polished: '# 比例\n\n该比例为 42‰。',
+  });
+
+  assert.ok(report.issues.some(({ code, item }) => code === 'missing_factual_qualifier' && item === '42%'));
+});
+
+test('fails when Chinese currency-scale or unit qualifiers are removed', () => {
+  const report = captureCustomFailure({
+    original: '# Facts\n\nInvestment was 42 million dollars and distance was 42 km.',
+    before: '# 事实\n\n投资额为 42 百万美元，距离为 42 公里。',
+    polished: '# 事实\n\n投资额为 42，距离为 42。',
+  });
+
+  assert.deepEqual(
+    report.issues.filter(({ code }) => code === 'missing_factual_qualifier').map(({ item }) => item),
+    ['42 百万美元', '42 公里'],
+  );
+});
+
+test('fails when English-adjacent currency or data-unit qualifiers are removed', () => {
+  const report = captureCustomFailure({
+    original: '# Facts\n\nRevenue was $42 million and capacity was 5 GB.',
+    before: '# 事实\n\n收入为 $42 million，容量为 5 GB。',
+    polished: '# 事实\n\n收入为 42，容量为 5。',
+  });
+
+  assert.deepEqual(
+    report.issues.filter(({ code }) => code === 'missing_factual_qualifier').map(({ item }) => item),
+    ['$42 million', '5 GB'],
+  );
+});
+
+test('allows equivalent Chinese and English-adjacent factual unit forms', () => {
+  const report = verifyPolishedChinese({
+    original: '# Facts\n\nInvestment was 42 million dollars and distance was 5 kilometers.',
+    before: '# 事实\n\n投资额为 42 million dollars，距离为 5 kilometers。',
+    polished: '# 事实\n\n投资额为 42 百万美元，距离为 5 公里。',
     glossary: {},
   });
 
