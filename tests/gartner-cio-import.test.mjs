@@ -22,6 +22,14 @@ const files = {
   wrapper: path.join(articleDirectory, '原始网页.html'),
   pdf: path.join(articleDirectory, '原始报告.pdf'),
 };
+const expectedLocalPaths = {
+  chinese: '/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report/中文全文.html',
+  chineseMarkdown: '/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report/中文全文.md',
+  original: '/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report/英文原文.md',
+  snapshot: '/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report/原始网页.html',
+  metadata: '/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report/metadata.json',
+  pdf: '/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report/原始报告.pdf',
+};
 
 async function sha256(filePath) {
   return createHash('sha256').update(await readFile(filePath)).digest('hex');
@@ -276,14 +284,35 @@ test('adds the Gartner report as the canonical 470th knowledge-library record', 
     zh: 'Gartner 将 2026 年下半年 CIO 议程归纳为四项相互关联的任务：以 AI、云和边缘计算重构企业架构，增强 IT 运营韧性，分阶段现代化遗留系统，并建立可持续的人机协作与技能提升机制。',
   });
   assert.equal(article.evidence.length, 4);
-  const evidenceText = article.evidence.map((item) => `${item.statementOriginal}\n${item.statementZh}`).join('\n');
-  for (const fact of ['50%', '85%', '24%', '2028', '30%', '90%', '2029', '51%', '56%', '40%']) assert.ok(evidenceText.includes(fact), `missing evidence fact ${fact}`);
-  assert.deepEqual(article.evidence.map((item) => item.locator), [
-    'PDF pages 3–6',
-    'PDF pages 7–10',
-    'PDF pages 11–14',
-    'PDF pages 15–18',
-  ]);
+  const evidenceText = (item) => `${item.statementOriginal}\n${item.statementZh}`;
+  const [architecture, resilience, modernization, humanAi] = article.evidence;
+  assert.equal(architecture.locator, 'PDF pages 3–6');
+  assert.match(evidenceText(architecture), /50%/);
+  assert.match(evidenceText(architecture), /85%/);
+  assert.match(evidenceText(architecture), /cannot keep pace/i);
+  assert.match(evidenceText(architecture), /next three years/i);
+
+  assert.equal(resilience.locator, 'PDF pages 7–10');
+  assert.match(evidenceText(resilience), /24%/);
+  assert.match(evidenceText(resilience), /50%/);
+  assert.match(evidenceText(resilience), /2028/);
+  assert.match(evidenceText(resilience), /outdated operating models/i);
+
+  assert.equal(modernization.locator, 'PDF pages 11–14');
+  assert.match(evidenceText(modernization), /30%/);
+  assert.match(evidenceText(modernization), /2028/);
+  assert.match(evidenceText(modernization), /90%/);
+  assert.match(evidenceText(modernization), /2029/);
+  assert.match(evidenceText(modernization), /less than 20% in 2026/i);
+  assert.match(evidenceText(modernization), /AI-augmented tools/i);
+
+  assert.equal(humanAi.locator, 'PDF pages 15–18');
+  assert.match(evidenceText(humanAi), /51%/);
+  assert.match(evidenceText(humanAi), /56%/);
+  assert.match(evidenceText(humanAi), /40%/);
+  assert.match(evidenceText(humanAi), /skills gap/i);
+  assert.match(evidenceText(humanAi), /augment rather than replace/i);
+  assert.match(evidenceText(humanAi), /skills atrophy/i);
   assert.ok(article.impactZh?.length > 20);
   assert.ok(article.implicationZh?.length > 20);
   assert.deepEqual(article.provenance, {
@@ -294,12 +323,25 @@ test('adds the Gartner report as the canonical 470th knowledge-library record', 
   });
 
   const packageJson = JSON.parse(await readFile(path.join(repoRoot, 'package.json'), 'utf8'));
-  assert.match(packageJson.scripts.readers, /--expected 470(?:\s|$)/);
-  assert.match(packageJson.scripts['verify:readers'], /--expected 470(?:\s|$)/);
-  for (const relativePath of ['web/index.html', 'web/app.js', 'web/chat-widget.js']) {
-    const runtime = await readFile(path.join(repoRoot, relativePath), 'utf8');
-    assert.match(runtime, /470/, `${relativePath} must expose the new live count`);
+  assert.equal(packageJson.scripts.readers, 'node src/readers/generate-chinese-html.mjs --ledger work/normalized/articles.json --archive work/archive --expected 470');
+  assert.equal(packageJson.scripts['verify:readers'], 'node src/readers/generate-chinese-html.mjs --ledger work/normalized/articles.json --archive work/archive --expected 470 --verify');
+
+  const indexHtml = await readFile(path.join(repoRoot, 'web/index.html'), 'utf8');
+  const appScript = await readFile(path.join(repoRoot, 'web/app.js'), 'utf8');
+  const chatScript = await readFile(path.join(repoRoot, 'web/chat-widget.js'), 'utf8');
+  for (const [name, runtime] of [['web/index.html', indexHtml], ['web/app.js', appScript], ['web/chat-widget.js', chatScript]]) {
+    assert.doesNotMatch(runtime, /\b469\b/, `${name} must not retain the old live count`);
   }
+  for (const snippet of [
+    'Gartner 的 470 篇 AI 管理洞察',
+    '<strong id="article-count">470</strong> 篇归档',
+    '浏览 470 篇文章 ↓',
+    '470 articles · global search',
+    '向 470 篇全文提问',
+    '归档来源：BCG · Anthropic · McKinsey · MIT · Bain · Gartner',
+  ]) assert.ok(indexHtml.includes(snippet), `web/index.html missing: ${snippet}`);
+  assert.ok(appScript.includes("String(articles.length || 470)"), 'web/app.js must use the 470 fallback');
+  assert.equal(occurrenceCount(chatScript, '470 篇归档文章'), 3, 'chat welcome and capability copy must all use 470');
 });
 
 test('publishes the Gartner reader and searchable generated artifacts', async () => {
@@ -312,12 +354,7 @@ test('publishes the Gartner reader and searchable generated artifacts', async ()
   const corpusMatches = corpus.filter((article) => article.id === 'gartner-cio-report-h2-2026');
   assert.equal(corpusMatches.length, 1);
   assert.ok(corpusMatches[0].chunks.length > 0);
-  assert.deepEqual(corpusMatches[0].localPaths, {
-    chinese: '/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report/中文全文.html',
-    chineseMarkdown: '/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report/中文全文.md',
-    original: '/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report/英文原文.md',
-    snapshot: '/archive/Gartner CIO Report · 2H26/articles/001-the-cio-report/原始网页.html',
-  });
+  assert.deepEqual(corpusMatches[0].localPaths, expectedLocalPaths);
 
   const browserScript = await readFile(path.join(repoRoot, 'web/data/articles.js'), 'utf8');
   const browserArticles = JSON.parse(browserScript.replace(/^window\.ARTICLE_INDEX = /, '').replace(/;\s*$/, ''));
@@ -325,5 +362,5 @@ test('publishes the Gartner reader and searchable generated artifacts', async ()
   const browserMatches = browserArticles.filter((article) => article.id === 'gartner-cio-report-h2-2026');
   assert.equal(browserMatches.length, 1);
   assert.ok(browserMatches[0].chunkCount > 0);
-  assert.equal(browserMatches[0].localPaths.chinese, corpusMatches[0].localPaths.chinese);
+  assert.deepEqual(browserMatches[0].localPaths, expectedLocalPaths);
 });

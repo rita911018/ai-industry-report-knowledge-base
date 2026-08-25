@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { access, mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -130,17 +130,24 @@ export async function loadArchiveRecords({ ledgerPath, archiveRoot }) {
     if (!saved) throw new Error(`Missing archived record: ${record.id}`);
     const translationPath = path.join(saved.directory, '中文全文.md');
     const originalPath = path.join(saved.directory, '英文原文.md');
+    const pdfPath = path.join(saved.directory, '原始报告.pdf');
     const relativeDirectory = path.relative(archiveRoot, saved.directory).split(path.sep).join('/');
+    const localPaths = {
+      chinese: `/archive/${relativeDirectory}/中文全文.html`,
+      chineseMarkdown: `/archive/${relativeDirectory}/中文全文.md`,
+      original: `/archive/${relativeDirectory}/英文原文.md`,
+      snapshot: `/archive/${relativeDirectory}/原始网页.html`,
+      metadata: `/archive/${relativeDirectory}/metadata.json`,
+    };
+    try {
+      await access(pdfPath);
+      localPaths.pdf = `/archive/${relativeDirectory}/原始报告.pdf`;
+    } catch {}
     return {
       ...saved.metadata,
       ...record,
       translationMarkdown: await readFile(translationPath, 'utf8'),
-      localPaths: {
-        chinese: `/archive/${relativeDirectory}/中文全文.html`,
-        chineseMarkdown: `/archive/${relativeDirectory}/中文全文.md`,
-        original: `/archive/${relativeDirectory}/英文原文.md`,
-        snapshot: `/archive/${relativeDirectory}/原始网页.html`,
-      },
+      localPaths,
     };
   }));
 }
