@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "gartner-cio-report-h2-2026",
+  "archiveIndex": 1,
+  "radarTitle": "Gartner CIO Report · 2H26",
+  "publisher": "Gartner",
+  "sourceUrl": "https://www.gartner.com/en/chief-information-officer/products/gartner-for-cios",
+  "canonicalUrl": "https://www.gartner.com/en/chief-information-officer/products/gartner-for-cios",
+  "finalUrl": "https://www.gartner.com/en/chief-information-officer/products/gartner-for-cios",
+  "titleOriginal": "2H26 The CIO Report",
+  "titleZh": "Gartner 2026 下半年 CIO 报告",
+  "byline": null,
+  "publishedAt": "2026-08-15",
+  "documentType": "Report",
+  "priority": "lead",
+  "score": {
+    "total": 91,
+    "dimensions": {
+      "content": 28,
+      "impact": 25,
+      "relevance": 24,
+      "evidence": 14
+    },
+    "sourceScale": 100
+  },
+  "tags": {
+    "topics": [
+      "strategy-value",
+      "enterprise-architecture",
+      "it-operating-model",
+      "legacy-modernization",
+      "organization-talent"
+    ],
+    "geography": [],
+    "horizon": [
+      "2026-2029"
+    ],
+    "domains": [
+      "CIO"
+    ]
+  },
+  "category": {
+    "primary": "strategy-value",
+    "secondary": [
+      "technology-data-architecture",
+      "organization-talent-change"
+    ]
+  },
+  "provenance": {
+    "sourceFile": "/Users/rita/Downloads/cio-report-h2-2026.pdf",
+    "extractionBasis": "PDF extraction with layout-preserving text review",
+    "visualVerification": "Representative pages visually inspected: 2-6, 8, 11, 15, 19, 21 and 22",
+    "originalArtifact": "原始报告.pdf",
+    "pdfPages": 22,
+    "pdfCreationDate": "2026-08-15T01:51:37+08:00"
+  },
+  "status": "downloaded",
+  "extractionStatus": "extracted",
+  "extractionMethod": "pdftotext -layout plus visual PDF verification",
+  "headingCount": 47,
+  "paragraphCount": 66,
+  "characterCount": 44772,
+  "snapshotSha256": "189a969d299c8080d5fccb11dec6f0b5229d8aec99661f939c138c111d911e2e",
+  "englishMarkdownSha256": "23d1c368988de155408a98760a2b6e163c279f3b1fef623c414e4e3c17f782e4",
+  "chineseMarkdownSha256": "364056941d7a07ca77402b8049a69d6b22a51ff52d70a701102dd511baaf5053",
+  "files": {
+    "originalHtml": "Gartner CIO Report · 2H26/articles/001-the-cio-report/原始网页.html",
+    "originalPdf": "Gartner CIO Report · 2H26/articles/001-the-cio-report/原始报告.pdf",
+    "englishMarkdown": "Gartner CIO Report · 2H26/articles/001-the-cio-report/英文原文.md",
+    "chineseMarkdown": "Gartner CIO Report · 2H26/articles/001-the-cio-report/中文全文.md",
+    "metadata": "Gartner CIO Report · 2H26/articles/001-the-cio-report/metadata.json"
+  }
+}
