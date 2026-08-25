@@ -916,8 +916,57 @@ function locatedNumbers(markdown, lineMap) {
   return found;
 }
 
-const CURRENCY_TOKEN_SOURCE = String.raw`(?:US\$|HK\$|A\$|C\$|S\$|USD|HKD|AUD|CAD|SGD|EUR|GBP|CNY|RMB|[$€£¥]|(?:US\s+)?dollars?|Hong\s+Kong\s+dollars?|Australian\s+dollars?|Canadian\s+dollars?|Singapore\s+dollars?|euros?|pounds?|yuan|美元|港元|港币|澳元|加元|新加坡元|新元|欧元|英镑|人民币|元)`;
-const SCALE_SOURCE = String.raw`(?:thousand|million|billion|trillion|万亿|十亿|百万|千|万)`;
+const RATE_DEFINITIONS = [
+  { key: 'rate:permille', symbols: ['‰'] },
+  { key: 'rate:percent', symbols: ['%'], english: ['percent', String.raw`per\s+cent`] },
+];
+const SCALE_DEFINITIONS = [
+  { key: 'scale:trillion', english: ['trillion'], local: ['万亿'] },
+  { key: 'scale:billion', english: ['billion'], local: ['十亿'] },
+  { key: 'scale:million', english: ['million'], local: ['百万'] },
+  { key: 'scale:thousand', english: ['thousand'], local: ['千'] },
+  { key: 'scale:ten_thousand', local: ['万'] },
+];
+const CURRENCY_DEFINITIONS = [
+  {
+    key: 'currency:HKD',
+    symbols: ['HK$'],
+    english: ['HKD', String.raw`Hong\s+Kong\s+dollars?`],
+    local: ['港元', '港币'],
+  },
+  {
+    key: 'currency:AUD',
+    symbols: ['A$'],
+    english: ['AUD', String.raw`Australian\s+dollars?`],
+    local: ['澳元'],
+  },
+  {
+    key: 'currency:CAD',
+    symbols: ['C$'],
+    english: ['CAD', String.raw`Canadian\s+dollars?`],
+    local: ['加元'],
+  },
+  {
+    key: 'currency:SGD',
+    symbols: ['S$'],
+    english: ['SGD', String.raw`Singapore\s+dollars?`],
+    local: ['新加坡元', '新元'],
+  },
+  {
+    key: 'currency:USD',
+    symbols: ['US$', '$'],
+    english: ['USD', String.raw`(?:US\s+)?dollars?`],
+    local: ['美元'],
+  },
+  { key: 'currency:EUR', symbols: ['€'], english: ['EUR', String.raw`euros?`], local: ['欧元'] },
+  { key: 'currency:GBP', symbols: ['£'], english: ['GBP', String.raw`pounds?`], local: ['英镑'] },
+  {
+    key: 'currency:CNY',
+    symbols: ['¥'],
+    english: ['CNY', 'RMB', 'yuan'],
+    local: ['人民币', '元'],
+  },
+];
 const UNIT_DEFINITIONS = [
   { key: 'unit:km', english: [String.raw`kilomet(?:er|re)s?`, 'km'], local: ['公里', '千米'] },
   { key: 'unit:kg', english: [String.raw`kilograms?`, 'kg'], local: ['公斤'] },
@@ -949,51 +998,58 @@ function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-const ENGLISH_UNIT_SOURCE = boundarySafeEnglishSource(UNIT_DEFINITIONS.flatMap(({ english = [] }) => english));
-const LOCAL_UNIT_SOURCE = UNIT_DEFINITIONS
-  .flatMap(({ local = [] }) => local)
-  .sort((left, right) => right.length - left.length)
-  .map(escapeRegExp)
-  .join('|');
-const UNIT_SOURCE = String.raw`(?:${ENGLISH_UNIT_SOURCE}|${LOCAL_UNIT_SOURCE})`;
-const FACT_QUALIFIER_SOURCE = String.raw`(?:%|‰|percent|per\s+cent|${SCALE_SOURCE}(?:\s*(?:${CURRENCY_TOKEN_SOURCE}|${UNIT_SOURCE}))?|${CURRENCY_TOKEN_SOURCE}|${UNIT_SOURCE})`;
+function literalAlternativesSource(alternatives) {
+  return [...alternatives]
+    .sort((left, right) => right.length - left.length)
+    .map(escapeRegExp)
+    .join('|');
+}
+
+function qualifierDefinitionsSource(definitions) {
+  const english = definitions.flatMap(({ english = [] }) => english);
+  const literals = definitions.flatMap(({ symbols = [], local = [] }) => [...symbols, ...local]);
+  return `(?:${[
+    english.length ? boundarySafeEnglishSource(english) : '',
+    literalAlternativesSource(literals),
+  ].filter(Boolean).join('|')})`;
+}
+
+function findQualifierDefinition(value, definitions) {
+  const matches = definitions.flatMap((definition, definitionIndex) => {
+    const englishMatch = definition.english?.length
+      ? new RegExp(boundarySafeEnglishSource(definition.english), 'i').exec(value)
+      : null;
+    const literalMatches = [...(definition.symbols || []), ...(definition.local || [])]
+      .map((token) => ({ index: value.indexOf(token.toLowerCase()), length: token.length }))
+      .filter(({ index }) => index >= 0);
+    return [
+      ...(englishMatch ? [{ index: englishMatch.index, length: englishMatch[0].length }] : []),
+      ...literalMatches,
+    ].map((match) => ({ ...match, definition, definitionIndex }));
+  });
+  matches.sort((left, right) => (
+    left.index - right.index
+      || right.length - left.length
+      || left.definitionIndex - right.definitionIndex
+  ));
+  return matches[0]?.definition;
+}
+
+const RATE_SOURCE = qualifierDefinitionsSource(RATE_DEFINITIONS);
+const SCALE_SOURCE = qualifierDefinitionsSource(SCALE_DEFINITIONS);
+const CURRENCY_TOKEN_SOURCE = qualifierDefinitionsSource(CURRENCY_DEFINITIONS);
+const UNIT_SOURCE = qualifierDefinitionsSource(UNIT_DEFINITIONS);
+const FACT_QUALIFIER_SOURCE = String.raw`(?:${RATE_SOURCE}|${SCALE_SOURCE}(?:\s*(?:${CURRENCY_TOKEN_SOURCE}|${UNIT_SOURCE}))?|${CURRENCY_TOKEN_SOURCE}|${UNIT_SOURCE})`;
 const CURRENCY_PREFIX = new RegExp(`${CURRENCY_TOKEN_SOURCE}\\s*$`, 'i');
 const FACT_QUALIFIER_SUFFIX = new RegExp(`^\\s*${FACT_QUALIFIER_SOURCE}`, 'i');
 
 function canonicalFactQualifier(value) {
   const normalized = value.normalize('NFKC').toLowerCase().replace(/\s+/g, ' ').trim();
   const parts = [];
-  if (normalized.includes('‰')) parts.push('rate:permille');
-  else if (normalized.includes('%') || /\b(?:percent|per cent)\b/.test(normalized)) parts.push('rate:percent');
-
-  const scales = [
-    [/trillion|万亿/, 'scale:trillion'],
-    [/billion|十亿/, 'scale:billion'],
-    [/million|百万/, 'scale:million'],
-    [/thousand|千/, 'scale:thousand'],
-    [/万/, 'scale:ten_thousand'],
-  ];
-  const scale = scales.find(([pattern]) => pattern.test(normalized));
-  if (scale) parts.push(scale[1]);
-
-  const currencies = [
-    [/(?:(?<![a-z])hk\$|hkd|hong kong dollars?|港元|港币)/, 'currency:HKD'],
-    [/(?:(?<![a-z])a\$|aud|australian dollars?|澳元)/, 'currency:AUD'],
-    [/(?:(?<![a-z])c\$|cad|canadian dollars?|加元)/, 'currency:CAD'],
-    [/(?:(?<![a-z])s\$|sgd|singapore dollars?|新加坡元|新元)/, 'currency:SGD'],
-    [/(?:us\$|usd|(?<![a-z])\$|(?:us )?dollars?|美元)/, 'currency:USD'],
-    [/(?:€|eur|euros?|欧元)/, 'currency:EUR'],
-    [/(?:£|gbp|pounds?|英镑)/, 'currency:GBP'],
-    [/(?:¥|cny|rmb|yuan|人民币|元)/, 'currency:CNY'],
-  ];
-  const currency = currencies.find(([pattern]) => pattern.test(normalized));
-  if (currency) parts.push(currency[1]);
-
-  const unit = UNIT_DEFINITIONS.find(({ english = [], local = [] }) => (
-    (english.length && new RegExp(boundarySafeEnglishSource(english), 'i').test(normalized))
-      || local.some((token) => normalized.includes(token.toLowerCase()))
-  ));
-  if (unit) parts.push(unit.key);
+  for (const definitions of [RATE_DEFINITIONS, SCALE_DEFINITIONS, CURRENCY_DEFINITIONS, UNIT_DEFINITIONS]) {
+    const match = findQualifierDefinition(normalized, definitions);
+    if (match) parts.push(match.key);
+  }
   return parts.join('|');
 }
 

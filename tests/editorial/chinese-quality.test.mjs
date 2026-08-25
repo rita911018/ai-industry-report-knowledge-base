@@ -878,6 +878,38 @@ test('does not treat longer English words as second or token units', () => {
   }
 });
 
+test('does not treat longer English scale, rate, or currency words as qualifiers', () => {
+  const cases = [
+    ['42 millionaires', '42 位百万富翁'],
+    ['42 percentile points', '42 个百分位点'],
+    ['42 dollarization projects', '42 个货币化项目'],
+  ];
+
+  for (const [beforeFact, polishedFact] of cases) {
+    const report = verifyPolishedChinese({
+      original: `# Analysis\n\nThe study covered ${beforeFact}.`,
+      before: `# 分析\n\n研究覆盖 ${beforeFact}。`,
+      polished: `# 分析\n\n研究覆盖 ${polishedFact}。`,
+      glossary: {},
+    });
+    assert.equal(report.ok, true, beforeFact);
+    assert.deepEqual(report.issues, [], beforeFact);
+  }
+});
+
+test('recognizes exact English scale, rate, and currency qualifier variants', () => {
+  for (const qualifier of ['million', 'billion', 'percent', 'per cent', 'dollars', 'USD']) {
+    const report = captureCustomFailure({
+      original: `# Fact\n\nThe value was 42 ${qualifier}.`,
+      before: `# 事实\n\n该数值为 42 ${qualifier}。`,
+      polished: '# 事实\n\n该数值为 42。',
+    });
+    assert.ok(report.issues.some(({ code, item }) => (
+      code === 'missing_factual_qualifier' && item === `42 ${qualifier}`
+    )), qualifier);
+  }
+});
+
 test('recognizes exact singular plural and abbreviated second and token units', () => {
   for (const qualifier of ['second', 'seconds', 'sec', 'secs', 'token', 'tokens']) {
     const report = captureCustomFailure({
