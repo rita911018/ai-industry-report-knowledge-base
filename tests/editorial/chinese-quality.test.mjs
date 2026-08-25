@@ -568,6 +568,70 @@ test('preserves reference-style links, images, and their definitions', () => {
   }
 });
 
+test('extracts and preserves empty-alt inline and reference images', () => {
+  const inlineBefore = '# 图表\n\n![](./inline-chart.png)';
+  const inlineReport = captureCustomFailure({
+    original: '# Chart\n\nEnglish context.',
+    before: inlineBefore,
+    polished: '# 图表\n\n[chart](./inline-chart.png)',
+  });
+  assert.ok(inlineReport.issues.some(({ code, item }) => code === 'missing_image' && item === '![](./inline-chart.png)'));
+
+  const referenceBefore = '# 图表\n\n![][chart]\n\n[chart]: ./reference-chart.png';
+  const referenceReport = captureCustomFailure({
+    original: '# Chart\n\nEnglish context.',
+    before: referenceBefore,
+    polished: '# 图表\n\n[chart]: ./reference-chart.png',
+  });
+  assert.ok(referenceReport.issues.some(({ code, item }) => code === 'missing_reference_image' && item === '![][chart]'));
+});
+
+test('treats inline and reference Markdown forms with the same destination as equivalent', () => {
+  const inlineBefore = `# 资料
+
+[报告](./report.md)
+
+![图](./chart.png)`;
+  const referencePolished = `# 资料
+
+[研究报告][report]
+
+![研究图][chart]
+
+[report]: ./report.md
+[chart]: ./chart.png`;
+  const inlineToReference = verifyPolishedChinese({
+    original: '# Materials\n\nEnglish context.',
+    before: inlineBefore,
+    polished: referencePolished,
+    glossary: {},
+  });
+  assert.equal(inlineToReference.ok, true);
+  assert.deepEqual(inlineToReference.issues, []);
+
+  const referenceBefore = `# 资料
+
+[报告][report]
+
+![图][chart]
+
+[report]: ./report.md
+[chart]: ./chart.png`;
+  const inlinePolished = `# 资料
+
+[研究报告](./report.md)
+
+![研究图](./chart.png)`;
+  const referenceToInline = verifyPolishedChinese({
+    original: '# Materials\n\nEnglish context.',
+    before: referenceBefore,
+    polished: inlinePolished,
+    glossary: {},
+  });
+  assert.equal(referenceToInline.ok, true);
+  assert.deepEqual(referenceToInline.issues, []);
+});
+
 test('uses matching fences and indented-code protection for style and structure extraction', () => {
   const protectedMarkdown = `# 标题
 
@@ -681,6 +745,38 @@ test('allows equivalent Chinese and English-adjacent factual unit forms', () => 
 
   assert.equal(report.ok, true);
   assert.deepEqual(report.issues, []);
+});
+
+test('allows bounded same-clause reordering of unit and currency qualifiers', () => {
+  const report = verifyPolishedChinese({
+    original: '# Facts\n\nDistance was 42 km; budget was 42 dollars.',
+    before: '# 事实\n\n距离为 42 公里；预算为 42 美元。',
+    polished: '# 事实\n\n以公里计，距离为 42；以美元计，预算为 42。',
+    glossary: {},
+  });
+
+  assert.equal(report.ok, true);
+  assert.deepEqual(report.issues, []);
+});
+
+test('does not let a later unrelated unit mask an earlier dropped qualifier', () => {
+  const report = captureCustomFailure({
+    original: '# Facts\n\nDistance was 42 km. The sample contained 42 items.',
+    before: '# 事实\n\n距离为 42 公里。样本数为 42。',
+    polished: '# 事实\n\n距离为 42。样本数为 42 公里。',
+  });
+
+  assert.ok(report.issues.some(({ code, item }) => code === 'missing_factual_qualifier' && item === '42 公里'));
+});
+
+test('does not associate a detached qualifier across an ASCII sentence boundary', () => {
+  const report = captureCustomFailure({
+    original: '# Facts\n\nDistance was 42 km.',
+    before: '# 事实\n\n距离为 42 公里。',
+    polished: '# 事实\n\n距离为 42. 公里是下一句讨论的单位。',
+  });
+
+  assert.ok(report.issues.some(({ code, item }) => code === 'missing_factual_qualifier' && item === '42 公里'));
 });
 
 test('verifyPolishedChinese does not require classified noise or its URL to survive', () => {

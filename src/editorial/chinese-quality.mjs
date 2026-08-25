@@ -457,7 +457,7 @@ function tables(markdown, lineMap) {
 function inlineMarkdownStructures(markdown, lineMap) {
   const links = [];
   const images = [];
-  const pattern = /(!?)\[([^\]\n]+)]\(\s*(<[^>\n]+>|[^\s)]+)(?:\s+(?:"[^"]*"|'[^']*'|\([^)]*\)))?\s*\)/g;
+  const pattern = /(!?)\[([^\]\n]*)]\(\s*(<[^>\n]+>|[^\s)]+)(?:\s+(?:"[^"]*"|'[^']*'|\([^)]*\)))?\s*\)/g;
   for (const line of markdownLines(markdown, lineMap)) {
     for (const match of line.text.matchAll(pattern)) {
       const destination = match[3].replace(/^<|>$/g, '');
@@ -478,7 +478,7 @@ function referenceMarkdownStructures(markdown, lineMap) {
   const links = [];
   const images = [];
   const definitions = [];
-  const usagePattern = /(!?)\[([^\]\n]+)]\[([^\]\n]*)]/g;
+  const usagePattern = /(!?)\[([^\]\n]*)]\[([^\]\n]*)]/g;
   const definitionPattern = /^ {0,3}\[([^\]^][^\]]*)]:\s*(<?\S+>?)(?:\s+.*)?$/;
   for (const line of markdownLines(markdown, lineMap)) {
     const definition = line.text.match(definitionPattern);
@@ -504,6 +504,26 @@ function referenceMarkdownStructures(markdown, lineMap) {
     }
   }
   return { links, images, definitions };
+}
+
+function semanticMarkdownStructures(inline, references) {
+  const definitions = new Map(references.definitions.map((definition) => [definition.id, definition]));
+  const resolve = (kind) => {
+    const resolvedReferences = references[kind].map((item) => {
+      const definition = definitions.get(item.id);
+      return { ...item, syntax: 'reference', destination: definition?.destination || null, definition };
+    });
+    return [
+      ...inline[kind].map((item) => ({ ...item, syntax: 'inline' })),
+      ...resolvedReferences.filter(({ destination }) => destination),
+    ];
+  };
+  return {
+    links: resolve('links'),
+    images: resolve('images'),
+    unresolved: [...references.links, ...references.images]
+      .filter((item) => !definitions.has(item.id)),
+  };
 }
 
 function footnotes(markdown, lineMap) {
@@ -706,53 +726,37 @@ function structuralIssues(baseline, polished, baselineLineMap) {
 
   const expectedInline = inlineMarkdownStructures(baseline, baselineLineMap);
   const actualInline = inlineMarkdownStructures(polished);
-  for (const item of missingByKey(expectedInline.links, actualInline.links, ({ destination }) => destination)) {
-    issues.push({
-      code: 'missing_markdown_link',
-      line: item.line,
-      column: item.column,
-      item: item.text,
-      details: { destination: item.destination },
-      message: `Missing Markdown link from baseline line ${item.line}: ${item.text}`,
-    });
-  }
-  for (const item of missingByKey(expectedInline.images, actualInline.images, ({ destination }) => destination)) {
-    issues.push({
-      code: 'missing_image',
-      line: item.line,
-      column: item.column,
-      item: item.text,
-      details: { destination: item.destination },
-      message: `Missing image from baseline line ${item.line}: ${item.text}`,
-    });
-  }
-
   const expectedReferences = referenceMarkdownStructures(baseline, baselineLineMap);
   const actualReferences = referenceMarkdownStructures(polished);
-  for (const [kind, code] of [['links', 'missing_reference_link'], ['images', 'missing_reference_image']]) {
-    for (const item of missingByKey(expectedReferences[kind], actualReferences[kind], ({ id }) => id)) {
+  const expectedSemantics = semanticMarkdownStructures(expectedInline, expectedReferences);
+  const actualSemantics = semanticMarkdownStructures(actualInline, actualReferences);
+  for (const kind of ['links', 'images']) {
+    for (const item of missingByKey(expectedSemantics[kind], actualSemantics[kind], ({ destination }) => destination)) {
+      const code = kind === 'images'
+        ? (item.syntax === 'reference' ? 'missing_reference_image' : 'missing_image')
+        : (item.syntax === 'reference' ? 'missing_reference_link' : 'missing_markdown_link');
       issues.push({
         code,
         line: item.line,
         column: item.column,
         item: item.text,
-        details: { referenceId: item.id },
-        message: `Missing reference-style ${kind === 'links' ? 'link' : 'image'} from baseline line ${item.line}: ${item.text}`,
+        details: { destination: item.destination, sourceSyntax: item.syntax },
+        message: `Missing Markdown ${kind === 'links' ? 'link' : 'image'} from baseline line ${item.line}: ${item.text}`,
       });
     }
   }
-  for (const item of missingByKey(
-    expectedReferences.definitions,
-    actualReferences.definitions,
-    ({ id, destination }) => `${id}\0${destination}`,
-  )) {
+
+  const expectedDefinitions = new Map(expectedReferences.definitions.map((definition) => [definition.id, definition]));
+  for (const unresolved of actualSemantics.unresolved) {
+    const expectedDefinition = expectedDefinitions.get(unresolved.id);
+    const item = expectedDefinition || unresolved;
     issues.push({
       code: 'missing_link_definition',
       line: item.line,
       column: item.column,
       item: item.text,
-      details: { referenceId: item.id, destination: item.destination },
-      message: `Missing link definition from baseline line ${item.line}: ${item.text}`,
+      details: { referenceId: unresolved.id, destination: expectedDefinition?.destination || null },
+      message: `Missing link definition required by reference "${unresolved.id}" at line ${unresolved.line}: ${item.text}`,
     });
   }
 
@@ -797,7 +801,8 @@ function locatedNumbers(markdown, lineMap) {
 }
 
 const CURRENCY_PREFIX = /(?:US\$|HK\$|A\$|[$€£¥]|USD|EUR|GBP|CNY|RMB|人民币)\s*$/i;
-const FACT_QUALIFIER_SUFFIX = /^\s*(?:%|‰|percent|per\s+cent|(?:thousand|million|billion|trillion|千|万|百万|十亿|万亿)\s*(?:(?:US\s+)?dollars?|euros?|pounds?|yuan|美元|欧元|英镑|人民币|元)?|(?:US\s+)?dollars?|euros?|pounds?|yuan|美元|欧元|英镑|人民币|元|kilomet(?:er|re)s?|km|公里|千米|kilograms?|kg|gigabytes?|GB|megabytes?|MB|terabytes?|TB|°C|°F)/i;
+const FACT_QUALIFIER_SOURCE = String.raw`(?:%|‰|percent|per\s+cent|(?:thousand|million|billion|trillion|万亿|十亿|百万|千|万)\s*(?:(?:US\s+)?dollars?|euros?|pounds?|yuan|美元|欧元|英镑|人民币|元)?|US\$|HK\$|A\$|[$€£¥]|USD|EUR|GBP|CNY|RMB|(?:US\s+)?dollars?|euros?|pounds?|yuan|美元|欧元|英镑|人民币|元|kilomet(?:er|re)s?|km|公里|千米|kilograms?|kg|gigabytes?|GB|megabytes?|MB|terabytes?|TB|°C|°F)`;
+const FACT_QUALIFIER_SUFFIX = new RegExp(`^\\s*${FACT_QUALIFIER_SOURCE}`, 'i');
 
 function canonicalFactQualifier(value) {
   const normalized = value.normalize('NFKC').toLowerCase().replace(/\s+/g, ' ').trim();
@@ -838,42 +843,112 @@ function canonicalFactQualifier(value) {
   return parts.join('|');
 }
 
-function qualifiedFacts(markdown, lineMap) {
-  const facts = [];
-  const numberPattern = /\d+(?:[.,]\d+)*/g;
-  for (const line of markdownLines(markdown, lineMap)) {
-    for (const match of line.text.matchAll(numberPattern)) {
-      const prefix = line.text.slice(0, match.index).match(CURRENCY_PREFIX);
-      const suffix = line.text.slice(match.index + match[0].length).match(FACT_QUALIFIER_SUFFIX);
-      if (!prefix && !suffix) continue;
-      const start = match.index - (prefix?.[0].length || 0);
-      const end = match.index + match[0].length + (suffix?.[0].length || 0);
-      const item = line.text.slice(start, end).trim();
-      const qualifier = canonicalFactQualifier(`${prefix?.[0] || ''}${suffix?.[0] || ''}`);
-      if (!qualifier) continue;
-      facts.push({
-        line: line.line,
-        column: start + 1,
-        item,
-        number: match[0],
-        qualifier,
-        key: `${match[0]}|${qualifier}`,
-      });
-    }
+function sentenceSegments(text) {
+  const segments = [];
+  let start = 0;
+  for (let index = 0; index < text.length; index += 1) {
+    const character = text[index];
+    const decimalPoint = character === '.'
+      && /\d/u.test(text[index - 1] ?? '')
+      && /\d/u.test(text[index + 1] ?? '');
+    const sentenceBoundary = /[。！？!?；;]/u.test(character)
+      || (character === '.' && !decimalPoint);
+    if (!sentenceBoundary) continue;
+    if (index > start) segments.push({ text: text.slice(start, index), start });
+    start = index + 1;
   }
-  return facts;
+  if (start < text.length) segments.push({ text: text.slice(start), start });
+  return segments;
 }
 
-function mergeFactBaselines(beforeFacts, originalFacts) {
-  const merged = [...beforeFacts];
-  const represented = countBy(beforeFacts, ({ key }) => key);
+function rangesOverlap(left, right) {
+  return left.start < right.end && right.start < left.end;
+}
+
+function numericFactAnchors(markdown, lineMap) {
+  const anchors = [];
+  const maximumAssociationDistance = 32;
+  for (const line of markdownLines(markdown, lineMap)) {
+    for (const segment of sentenceSegments(line.text)) {
+      const numbers = [...segment.text.matchAll(/\d+(?:[.,]\d+)*/g)].map((match) => {
+        const numberStart = segment.start + match.index;
+        const numberEnd = numberStart + match[0].length;
+        const prefix = segment.text.slice(0, match.index).match(CURRENCY_PREFIX);
+        const suffix = segment.text.slice(match.index + match[0].length).match(FACT_QUALIFIER_SUFFIX);
+        const start = numberStart - (prefix?.[0].length || 0);
+        const end = numberEnd + (suffix?.[0].length || 0);
+        const qualifier = canonicalFactQualifier(`${prefix?.[0] || ''}${suffix?.[0] || ''}`);
+        return {
+          line: line.line,
+          column: start + 1,
+          item: line.text.slice(start, end).trim() || match[0],
+          number: match[0],
+          qualifier,
+          start,
+          end,
+          numberStart,
+          numberEnd,
+          qualifierRanges: [
+            ...(prefix ? [{ start, end: numberStart }] : []),
+            ...(suffix ? [{ start: numberEnd, end }] : []),
+          ],
+        };
+      });
+
+      const directRanges = numbers.flatMap(({ qualifierRanges }) => qualifierRanges);
+      const qualifierPattern = new RegExp(FACT_QUALIFIER_SOURCE, 'gi');
+      const detachedQualifiers = [...segment.text.matchAll(qualifierPattern)]
+        .map((match) => ({
+          text: match[0],
+          qualifier: canonicalFactQualifier(match[0]),
+          start: segment.start + match.index,
+          end: segment.start + match.index + match[0].length,
+        }))
+        .filter((qualifier) => qualifier.qualifier && !directRanges.some((range) => rangesOverlap(range, qualifier)));
+
+      const unresolvedNumbers = numbers.filter(({ qualifier }) => !qualifier);
+      const candidates = detachedQualifiers.flatMap((qualifier, qualifierIndex) => unresolvedNumbers.map((number, numberIndex) => ({
+        qualifier,
+        qualifierIndex,
+        number,
+        numberIndex,
+        distance: qualifier.end <= number.numberStart
+          ? number.numberStart - qualifier.end
+          : qualifier.start - number.numberEnd,
+      }))).filter(({ distance }) => distance >= 0 && distance <= maximumAssociationDistance)
+        .sort((left, right) => left.distance - right.distance || left.qualifier.start - right.qualifier.start || left.number.numberStart - right.number.numberStart);
+      const usedQualifiers = new Set();
+      const usedNumbers = new Set();
+      for (const candidate of candidates) {
+        if (usedQualifiers.has(candidate.qualifierIndex) || usedNumbers.has(candidate.numberIndex)) continue;
+        candidate.number.qualifier = candidate.qualifier.qualifier;
+        candidate.number.item = `${candidate.number.number} … ${candidate.qualifier.text}`;
+        usedQualifiers.add(candidate.qualifierIndex);
+        usedNumbers.add(candidate.numberIndex);
+      }
+      anchors.push(...numbers.map((number) => ({
+        line: number.line,
+        column: number.column,
+        item: number.item,
+        number: number.number,
+        qualifier: number.qualifier,
+        key: `${number.number}|${number.qualifier}`,
+      })));
+    }
+  }
+  return anchors;
+}
+
+function additionalSourceFacts(beforeFacts, originalFacts) {
+  const represented = countBy(beforeFacts.filter(({ qualifier }) => qualifier), ({ key }) => key);
+  const extras = [];
   const seenOriginal = new Map();
-  for (const fact of originalFacts) {
+  for (const fact of originalFacts.filter(({ qualifier }) => qualifier)) {
     const occurrence = (seenOriginal.get(fact.key) || 0) + 1;
     seenOriginal.set(fact.key, occurrence);
-    if (occurrence > (represented.get(fact.key) || 0)) merged.push(fact);
+    if (occurrence > (represented.get(fact.key) || 0)) extras.push(fact);
   }
-  return merged;
+  return extras;
 }
 
 function missingLocated(expected, actual, canonical = (value) => value) {
@@ -909,11 +984,30 @@ function factualIssues(original, before, polished, originalLineMap, beforeLineMa
       message: `Missing numeric token from original line ${item.line}: ${item.item}`,
     });
   }
-  const expectedFacts = mergeFactBaselines(
-    qualifiedFacts(before, beforeLineMap),
-    qualifiedFacts(original, originalLineMap),
-  );
-  for (const item of missingByKey(expectedFacts, qualifiedFacts(polished), ({ key }) => key)) {
+  const beforeAnchors = numericFactAnchors(before, beforeLineMap);
+  const originalAnchors = numericFactAnchors(original, originalLineMap);
+  const polishedAnchors = numericFactAnchors(polished);
+  const actualByNumber = new Map();
+  for (const anchor of polishedAnchors) {
+    if (!actualByNumber.has(anchor.number)) actualByNumber.set(anchor.number, []);
+    actualByNumber.get(anchor.number).push(anchor);
+  }
+  const seenBeforeNumbers = new Map();
+  const missingFacts = [];
+  for (const item of beforeAnchors) {
+    const occurrence = (seenBeforeNumbers.get(item.number) || 0) + 1;
+    seenBeforeNumbers.set(item.number, occurrence);
+    if (!item.qualifier) continue;
+    const actual = actualByNumber.get(item.number)?.[occurrence - 1];
+    if (!actual || actual.qualifier !== item.qualifier) missingFacts.push(item);
+  }
+  const sourceExtras = additionalSourceFacts(beforeAnchors, originalAnchors);
+  missingFacts.push(...missingByKey(
+    sourceExtras,
+    polishedAnchors.filter(({ qualifier }) => qualifier),
+    ({ key }) => key,
+  ));
+  for (const item of missingFacts) {
     issues.push({
       code: 'missing_factual_qualifier',
       line: item.line,
