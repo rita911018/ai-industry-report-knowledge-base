@@ -771,6 +771,18 @@ test('allows repeated equal values with distinct qualifiers to reorder within on
   assert.deepEqual(report.issues, []);
 });
 
+test('allows repeated equal values with distinct qualifiers to reorder sentences within a paragraph', () => {
+  const report = verifyPolishedChinese({
+    original: '# Facts\n\nRevenue was 42 dollars. Distance was 42 km.',
+    before: '# 事实\n\n收入为 42 美元。距离为 42 公里。',
+    polished: '# 事实\n\n距离为 42 公里。收入为 42 美元。',
+    glossary: {},
+  });
+
+  assert.equal(report.ok, true);
+  assert.deepEqual(report.issues, []);
+});
+
 test('does not satisfy two distinct repeated-value facts by duplicating one qualifier', () => {
   const report = captureCustomFailure({
     original: '# Facts\n\nRevenue was 42 dollars; distance was 42 km.',
@@ -781,11 +793,23 @@ test('does not satisfy two distinct repeated-value facts by duplicating one qual
   assert.ok(report.issues.some(({ code, item }) => code === 'missing_factual_qualifier' && item === '42 公里'));
 });
 
-test('does not let a later unrelated unit mask an earlier dropped qualifier', () => {
+test('does not let the same value and unit in a later paragraph mask an earlier loss', () => {
   const report = captureCustomFailure({
-    original: '# Facts\n\nDistance was 42 km. The sample contained 42 items.',
-    before: '# 事实\n\n距离为 42 公里。样本数为 42。',
-    polished: '# 事实\n\n距离为 42。样本数为 42 公里。',
+    original: '# Facts\n\nPrimary distance was 42 km.\n\nSecondary distance was 42 km.',
+    before: '# 事实\n\n主要距离为 42 公里。\n\n次要距离为 42 公里。',
+    polished: '# 事实\n\n主要距离为 42。\n\n次要距离为 42 公里。',
+  });
+
+  assert.ok(report.issues.some(({ code, line, item }) => (
+    code === 'missing_factual_qualifier' && line === 3 && item === '42 公里'
+  )));
+});
+
+test('does not let a later unrelated paragraph unit mask an earlier dropped qualifier', () => {
+  const report = captureCustomFailure({
+    original: '# Facts\n\nDistance was 42 km.\n\nThe sample contained 42 items.',
+    before: '# 事实\n\n距离为 42 公里。\n\n样本数为 42。',
+    polished: '# 事实\n\n距离为 42。\n\n样本数为 42 公里。',
   });
 
   assert.ok(report.issues.some(({ code, item }) => code === 'missing_factual_qualifier' && item === '42 公里'));

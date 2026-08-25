@@ -188,6 +188,7 @@ function splitMarkdownBlocks(markdown, lineMap) {
   const lines = scanMarkdownLines(markdown, lineMap);
   const blocks = [];
   let chunks = [];
+  let blockLineMap = [];
   let blockLine = 1;
   let protectedBlock = false;
 
@@ -195,8 +196,9 @@ function splitMarkdownBlocks(markdown, lineMap) {
     if (!chunks.length) return;
     let block = chunks.join('');
     if (beforeBlank) block = block.replace(/\r?\n$/, '');
-    blocks.push({ block, line: blockLine, protected: protectedBlock });
+    blocks.push({ block, line: blockLine, lineMap: blockLineMap, protected: protectedBlock });
     chunks = [];
+    blockLineMap = [];
     protectedBlock = false;
   };
 
@@ -211,6 +213,7 @@ function splitMarkdownBlocks(markdown, lineMap) {
     if (!chunks.length) blockLine = line.line;
     protectedBlock ||= line.protected;
     chunks.push(line.raw);
+    blockLineMap.push(line.line);
   }
   flush();
   return blocks;
@@ -846,7 +849,6 @@ function canonicalFactQualifier(value) {
 function sentenceSegments(text) {
   const segments = [];
   let start = 0;
-  let group = 0;
   for (let index = 0; index < text.length; index += 1) {
     const character = text[index];
     const decimalPoint = character === '.'
@@ -855,11 +857,10 @@ function sentenceSegments(text) {
     const sentenceBoundary = /[。！？!?；;]/u.test(character)
       || (character === '.' && !decimalPoint);
     if (!sentenceBoundary) continue;
-    if (index > start) segments.push({ text: text.slice(start, index), start, group });
+    if (index > start) segments.push({ text: text.slice(start, index), start });
     start = index + 1;
-    if (!/[；;]/u.test(character)) group += 1;
   }
-  if (start < text.length) segments.push({ text: text.slice(start), start, group });
+  if (start < text.length) segments.push({ text: text.slice(start), start });
   return segments;
 }
 
@@ -870,80 +871,79 @@ function rangesOverlap(left, right) {
 function numericFactAnchors(markdown, lineMap) {
   const anchors = [];
   const maximumAssociationDistance = 32;
-  let nextFactGroup = 0;
-  for (const line of markdownLines(markdown, lineMap)) {
-    const lineFactGroups = new Map();
-    for (const segment of sentenceSegments(line.text)) {
-      const numbers = [...segment.text.matchAll(/\d+(?:[.,]\d+)*/g)].map((match) => {
-        const numberStart = segment.start + match.index;
-        const numberEnd = numberStart + match[0].length;
-        const prefix = segment.text.slice(0, match.index).match(CURRENCY_PREFIX);
-        const suffix = segment.text.slice(match.index + match[0].length).match(FACT_QUALIFIER_SUFFIX);
-        const start = numberStart - (prefix?.[0].length || 0);
-        const end = numberEnd + (suffix?.[0].length || 0);
-        const qualifier = canonicalFactQualifier(`${prefix?.[0] || ''}${suffix?.[0] || ''}`);
-        return {
-          line: line.line,
-          column: start + 1,
-          item: line.text.slice(start, end).trim() || match[0],
-          number: match[0],
+  let group = 0;
+  for (const block of splitMarkdownBlocks(markdown, lineMap)) {
+    if (block.protected || classifyNoiseBlock(block.block)) continue;
+    const blockGroup = group;
+    group += 1;
+    for (const line of markdownLines(block.block, block.lineMap)) {
+      for (const segment of sentenceSegments(line.text)) {
+        const numbers = [...segment.text.matchAll(/\d+(?:[.,]\d+)*/g)].map((match) => {
+          const numberStart = segment.start + match.index;
+          const numberEnd = numberStart + match[0].length;
+          const prefix = segment.text.slice(0, match.index).match(CURRENCY_PREFIX);
+          const suffix = segment.text.slice(match.index + match[0].length).match(FACT_QUALIFIER_SUFFIX);
+          const start = numberStart - (prefix?.[0].length || 0);
+          const end = numberEnd + (suffix?.[0].length || 0);
+          const qualifier = canonicalFactQualifier(`${prefix?.[0] || ''}${suffix?.[0] || ''}`);
+          return {
+            line: line.line,
+            column: start + 1,
+            item: line.text.slice(start, end).trim() || match[0],
+            number: match[0],
+            qualifier,
+            start,
+            end,
+            numberStart,
+            numberEnd,
+            qualifierRanges: [
+              ...(prefix ? [{ start, end: numberStart }] : []),
+              ...(suffix ? [{ start: numberEnd, end }] : []),
+            ],
+          };
+        });
+
+        const directRanges = numbers.flatMap(({ qualifierRanges }) => qualifierRanges);
+        const qualifierPattern = new RegExp(FACT_QUALIFIER_SOURCE, 'gi');
+        const detachedQualifiers = [...segment.text.matchAll(qualifierPattern)]
+          .map((match) => ({
+            text: match[0],
+            qualifier: canonicalFactQualifier(match[0]),
+            start: segment.start + match.index,
+            end: segment.start + match.index + match[0].length,
+          }))
+          .filter((qualifier) => qualifier.qualifier && !directRanges.some((range) => rangesOverlap(range, qualifier)));
+
+        const unresolvedNumbers = numbers.filter(({ qualifier }) => !qualifier);
+        const candidates = detachedQualifiers.flatMap((qualifier, qualifierIndex) => unresolvedNumbers.map((number, numberIndex) => ({
           qualifier,
-          start,
-          end,
-          numberStart,
-          numberEnd,
-          qualifierRanges: [
-            ...(prefix ? [{ start, end: numberStart }] : []),
-            ...(suffix ? [{ start: numberEnd, end }] : []),
-          ],
-        };
-      });
-
-      const directRanges = numbers.flatMap(({ qualifierRanges }) => qualifierRanges);
-      const qualifierPattern = new RegExp(FACT_QUALIFIER_SOURCE, 'gi');
-      const detachedQualifiers = [...segment.text.matchAll(qualifierPattern)]
-        .map((match) => ({
-          text: match[0],
-          qualifier: canonicalFactQualifier(match[0]),
-          start: segment.start + match.index,
-          end: segment.start + match.index + match[0].length,
-        }))
-        .filter((qualifier) => qualifier.qualifier && !directRanges.some((range) => rangesOverlap(range, qualifier)));
-
-      const unresolvedNumbers = numbers.filter(({ qualifier }) => !qualifier);
-      const candidates = detachedQualifiers.flatMap((qualifier, qualifierIndex) => unresolvedNumbers.map((number, numberIndex) => ({
-        qualifier,
-        qualifierIndex,
-        number,
-        numberIndex,
-        distance: qualifier.end <= number.numberStart
-          ? number.numberStart - qualifier.end
-          : qualifier.start - number.numberEnd,
-      }))).filter(({ distance }) => distance >= 0 && distance <= maximumAssociationDistance)
-        .sort((left, right) => left.distance - right.distance || left.qualifier.start - right.qualifier.start || left.number.numberStart - right.number.numberStart);
-      const usedQualifiers = new Set();
-      const usedNumbers = new Set();
-      for (const candidate of candidates) {
-        if (usedQualifiers.has(candidate.qualifierIndex) || usedNumbers.has(candidate.numberIndex)) continue;
-        candidate.number.qualifier = candidate.qualifier.qualifier;
-        candidate.number.item = `${candidate.number.number} … ${candidate.qualifier.text}`;
-        usedQualifiers.add(candidate.qualifierIndex);
-        usedNumbers.add(candidate.numberIndex);
+          qualifierIndex,
+          number,
+          numberIndex,
+          distance: qualifier.end <= number.numberStart
+            ? number.numberStart - qualifier.end
+            : qualifier.start - number.numberEnd,
+        }))).filter(({ distance }) => distance >= 0 && distance <= maximumAssociationDistance)
+          .sort((left, right) => left.distance - right.distance || left.qualifier.start - right.qualifier.start || left.number.numberStart - right.number.numberStart);
+        const usedQualifiers = new Set();
+        const usedNumbers = new Set();
+        for (const candidate of candidates) {
+          if (usedQualifiers.has(candidate.qualifierIndex) || usedNumbers.has(candidate.numberIndex)) continue;
+          candidate.number.qualifier = candidate.qualifier.qualifier;
+          candidate.number.item = `${candidate.number.number} … ${candidate.qualifier.text}`;
+          usedQualifiers.add(candidate.qualifierIndex);
+          usedNumbers.add(candidate.numberIndex);
+        }
+        anchors.push(...numbers.map((number) => ({
+          line: number.line,
+          column: number.column,
+          item: number.item,
+          number: number.number,
+          qualifier: number.qualifier,
+          key: `${number.number}|${number.qualifier}`,
+          group: blockGroup,
+        })));
       }
-      if (numbers.length > 0 && !lineFactGroups.has(segment.group)) {
-        lineFactGroups.set(segment.group, nextFactGroup);
-        nextFactGroup += 1;
-      }
-      const group = lineFactGroups.get(segment.group);
-      anchors.push(...numbers.map((number) => ({
-        line: number.line,
-        column: number.column,
-        item: number.item,
-        number: number.number,
-        qualifier: number.qualifier,
-        key: `${number.number}|${number.qualifier}`,
-        group,
-      })));
     }
   }
   return anchors;
