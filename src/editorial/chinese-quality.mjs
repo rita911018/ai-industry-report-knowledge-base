@@ -103,22 +103,70 @@ function hashBlock(block) {
   return createHash('sha256').update(block, 'utf8').digest('hex');
 }
 
-function lineAtBlock(blocks, index) {
-  let line = 1;
-  for (let current = 0; current < index; current += 1) {
-    line += (blocks[current].match(/\n/g) || []).length + 2;
+function fenceOpening(line) {
+  const match = line.match(/^ {0,3}(`{3,}|~{3,})(.*)$/);
+  if (!match || (match[1][0] === '`' && match[2].includes('`'))) return null;
+  return { marker: match[1][0], length: match[1].length };
+}
+
+function closesFence(line, fence) {
+  const match = line.match(/^ {0,3}(`+|~+)[ \t]*$/);
+  return Boolean(match && match[1][0] === fence.marker && match[1].length >= fence.length);
+}
+
+function splitMarkdownBlocks(markdown) {
+  const lines = [...markdown.matchAll(/[^\r\n]*(?:\r\n|\n|$)/g)]
+    .map((match) => match[0])
+    .filter(Boolean);
+  const blocks = [];
+  let chunks = [];
+  let blockLine = 1;
+  let lineNumber = 1;
+  let protectedFence = false;
+  let fence = null;
+
+  const flush = ({ beforeBlank = false } = {}) => {
+    if (!chunks.length) return;
+    let block = chunks.join('');
+    if (beforeBlank) block = block.replace(/\r?\n$/, '');
+    blocks.push({ block, line: blockLine, protected: protectedFence });
+    chunks = [];
+    protectedFence = false;
+  };
+
+  for (const lineWithEnding of lines) {
+    const line = lineWithEnding.replace(/\r?\n$/, '');
+    const blank = /^[ \t]*$/.test(line);
+
+    if (!fence && blank) {
+      flush({ beforeBlank: true });
+      lineNumber += 1;
+      continue;
+    }
+
+    if (!chunks.length) blockLine = lineNumber;
+    const opening = fence ? null : fenceOpening(line);
+    if (opening) {
+      fence = opening;
+      protectedFence = true;
+    }
+    chunks.push(lineWithEnding);
+    if (fence && closesFence(line, fence) && !opening) fence = null;
+    lineNumber += 1;
   }
-  return line;
+  flush();
+  return blocks;
 }
 
 export function cleanBaseline(markdown) {
   if (typeof markdown !== 'string') throw new TypeError('markdown must be a string');
   const separator = markdown.includes('\r\n') ? '\r\n\r\n' : '\n\n';
-  const blocks = markdown.split(/\r?\n(?:[ \t]*\r?\n)+/);
-  const classified = blocks.map((block, blockIndex) => ({
+  const blocks = splitMarkdownBlocks(markdown);
+  const classified = blocks.map(({ block, line, protected: protectedBlock }, blockIndex) => ({
     block,
+    line,
     blockIndex,
-    code: classifyNoiseBlock(block),
+    code: protectedBlock ? null : classifyNoiseBlock(block),
   }));
   const totals = new Map();
   for (const item of classified) {
@@ -145,7 +193,7 @@ export function cleanBaseline(markdown) {
       count: totals.get(key),
       occurrence,
       blockIndex: item.blockIndex,
-      line: lineAtBlock(blocks, item.blockIndex),
+      line: item.line,
     });
   }
 
@@ -226,10 +274,10 @@ export function scanChineseStyle(markdown, glossary = {}) {
     }
   }
 
-  const blocks = markdown.split(/\r?\n(?:[ \t]*\r?\n)+/);
+  const blocks = splitMarkdownBlocks(markdown);
   let searchFrom = 0;
-  for (const block of blocks) {
-    const code = classifyNoiseBlock(block);
+  for (const { block, protected: protectedBlock } of blocks) {
+    const code = protectedBlock ? null : classifyNoiseBlock(block);
     const index = markdown.indexOf(block, searchFrom);
     searchFrom = index + block.length;
     if (!code) continue;
@@ -366,15 +414,81 @@ function footnotes(markdown) {
   return { definitions, references };
 }
 
-function missingBySequence(expected, actual, signature) {
-  const missing = [];
-  let actualIndex = 0;
-  for (const item of expected) {
-    while (actualIndex < actual.length && signature(actual[actualIndex]) !== signature(item)) actualIndex += 1;
-    if (actualIndex < actual.length) actualIndex += 1;
-    else missing.push(item);
+function normalizedLabel(value) {
+  return String(value).normalize('NFKC').toLowerCase().replace(/[\s\p{P}\p{S}]+/gu, '');
+}
+
+function labelDistance(left, right) {
+  const source = [...normalizedLabel(left)];
+  const target = [...normalizedLabel(right)];
+  if (!source.length && !target.length) return 0;
+  const previous = Array.from({ length: target.length + 1 }, (_, index) => index);
+  for (let sourceIndex = 1; sourceIndex <= source.length; sourceIndex += 1) {
+    const current = [sourceIndex];
+    for (let targetIndex = 1; targetIndex <= target.length; targetIndex += 1) {
+      current[targetIndex] = Math.min(
+        current[targetIndex - 1] + 1,
+        previous[targetIndex] + 1,
+        previous[targetIndex - 1] + (source[sourceIndex - 1] === target[targetIndex - 1] ? 0 : 1),
+      );
+    }
+    previous.splice(0, previous.length, ...current);
   }
-  return missing;
+  return previous[target.length] / Math.max(source.length, target.length);
+}
+
+function missingByAlignedSequence(expected, actual, signature, label) {
+  const deletionCost = 0.75;
+  const insertionCost = 0.75;
+  const costs = Array.from({ length: expected.length + 1 }, () => Array(actual.length + 1).fill(0));
+  const actions = Array.from({ length: expected.length + 1 }, () => Array(actual.length + 1).fill(null));
+  for (let expectedIndex = 1; expectedIndex <= expected.length; expectedIndex += 1) {
+    costs[expectedIndex][0] = expectedIndex * deletionCost;
+    actions[expectedIndex][0] = 'delete';
+  }
+  for (let actualIndex = 1; actualIndex <= actual.length; actualIndex += 1) {
+    costs[0][actualIndex] = actualIndex * insertionCost;
+    actions[0][actualIndex] = 'insert';
+  }
+
+  for (let expectedIndex = 1; expectedIndex <= expected.length; expectedIndex += 1) {
+    for (let actualIndex = 1; actualIndex <= actual.length; actualIndex += 1) {
+      let bestCost = costs[expectedIndex - 1][actualIndex] + deletionCost;
+      let bestAction = 'delete';
+      const insertCost = costs[expectedIndex][actualIndex - 1] + insertionCost;
+      if (insertCost < bestCost) {
+        bestCost = insertCost;
+        bestAction = 'insert';
+      }
+      if (signature(expected[expectedIndex - 1]) === signature(actual[actualIndex - 1])) {
+        const alignCost = costs[expectedIndex - 1][actualIndex - 1]
+          + labelDistance(label(expected[expectedIndex - 1]), label(actual[actualIndex - 1]));
+        if (alignCost <= bestCost) {
+          bestCost = alignCost;
+          bestAction = 'align';
+        }
+      }
+      costs[expectedIndex][actualIndex] = bestCost;
+      actions[expectedIndex][actualIndex] = bestAction;
+    }
+  }
+
+  const missing = [];
+  let expectedIndex = expected.length;
+  let actualIndex = actual.length;
+  while (expectedIndex || actualIndex) {
+    const action = actions[expectedIndex][actualIndex];
+    if (action === 'align') {
+      expectedIndex -= 1;
+      actualIndex -= 1;
+    } else if (action === 'insert') {
+      actualIndex -= 1;
+    } else {
+      missing.push(expected[expectedIndex - 1]);
+      expectedIndex -= 1;
+    }
+  }
+  return missing.reverse();
 }
 
 function countBy(values, key) {
@@ -387,7 +501,12 @@ function structuralIssues(baseline, polished) {
   const issues = [];
   const expectedHeadings = headings(baseline);
   const actualHeadings = headings(polished);
-  for (const item of missingBySequence(expectedHeadings, actualHeadings, ({ level }) => level)) {
+  for (const item of missingByAlignedSequence(
+    expectedHeadings,
+    actualHeadings,
+    ({ level }) => level,
+    ({ label }) => label,
+  )) {
     issues.push({
       code: 'missing_heading',
       line: item.line,
@@ -398,7 +517,12 @@ function structuralIssues(baseline, polished) {
 
   const expectedListItems = listItems(baseline);
   const actualListItems = listItems(polished);
-  for (const item of missingBySequence(expectedListItems, actualListItems, ({ depth, type }) => `${depth}:${type}`)) {
+  for (const item of missingByAlignedSequence(
+    expectedListItems,
+    actualListItems,
+    ({ depth, type }) => `${depth}:${type}`,
+    ({ label }) => label,
+  )) {
     issues.push({
       code: 'missing_list_item',
       line: item.line,
@@ -422,7 +546,14 @@ function structuralIssues(baseline, polished) {
       continue;
     }
     if (actual.columns < expected.columns) {
-      const missing = expected.headers.slice(actual.columns).map((header, missingIndex) => `${actual.columns + missingIndex + 1} "${header}"`);
+      const expectedHeaders = expected.headers.map((label, headerIndex) => ({ label, headerIndex }));
+      const actualHeaders = actual.headers.map((label, headerIndex) => ({ label, headerIndex }));
+      const missing = missingByAlignedSequence(
+        expectedHeaders,
+        actualHeaders,
+        () => 'column',
+        ({ label }) => label,
+      ).map(({ label, headerIndex }) => `${headerIndex + 1} "${label}"`);
       issues.push({
         code: 'missing_table_column',
         line: expected.line,

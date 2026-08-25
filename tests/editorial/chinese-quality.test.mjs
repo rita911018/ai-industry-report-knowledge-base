@@ -101,6 +101,64 @@ Share`;
   assert.deepEqual(shares.map(({ occurrence, count }) => [occurrence, count]), [[1, 2], [2, 2]]);
 });
 
+test('cleanBaseline preserves blank-line-separated noise labels inside matching fenced code', () => {
+  const markdown = `# 代码示例
+
+\`\`\`\`text
+保留代码
+
+Print
+
+Share
+
+\`\`\`
+
+en
+\`\`\`\`
+
+Subscribe
+
+~~~text
+Progress:
+
+en
+
+Print
+~~~
+
+正文结束。`;
+  const expected = `# 代码示例
+
+\`\`\`\`text
+保留代码
+
+Print
+
+Share
+
+\`\`\`
+
+en
+\`\`\`\`
+
+~~~text
+Progress:
+
+en
+
+Print
+~~~
+
+正文结束。`;
+
+  const cleaned = cleanBaseline(markdown);
+
+  assert.equal(cleaned.markdown, expected);
+  assert.deepEqual(cleaned.removals.map(({ code, originalBlock }) => ({ code, originalBlock })), [
+    { code: 'subscribe_newsletter', originalBlock: 'Subscribe' },
+  ]);
+});
+
 const original = `# Result
 
 Revenue grew in 2026. See [source](https://example.com/report).
@@ -142,6 +200,16 @@ const before = `# 结果
 function captureFailure(polished) {
   try {
     verifyPolishedChinese({ original, before, polished, glossary: {} });
+  } catch (error) {
+    assert.ok(error.report, 'failure includes a machine-readable report');
+    return error.report;
+  }
+  assert.fail('expected verification to fail');
+}
+
+function captureCustomFailure(input) {
+  try {
+    verifyPolishedChinese({ ...input, glossary: {} });
   } catch (error) {
     assert.ok(error.report, 'failure includes a machine-readable report');
     return error.report;
@@ -197,6 +265,142 @@ test('verifyPolishedChinese identifies the exact missing Markdown structure', ()
     const { errors } = captureFailure(polished);
     assert.ok(errors.some((message) => expected.test(message)), `${label}: ${errors.join('; ')}`);
   }
+});
+
+test('reports the first deleted same-level heading instead of the retained later heading', () => {
+  const repeatedOriginal = `# Report
+
+English context.
+
+## First section
+
+First explanation.
+
+## Second section
+
+Second explanation.`;
+  const repeatedBefore = `# 报告
+
+中文背景。
+
+## 第一节
+
+第一段说明。
+
+## 第二节
+
+第二段说明。`;
+  const report = captureCustomFailure({
+    original: repeatedOriginal,
+    before: repeatedBefore,
+    polished: repeatedBefore.replace('## 第一节\n\n', ''),
+  });
+
+  const issue = report.issues.find(({ code }) => code === 'missing_heading');
+  assert.equal(issue?.item, '## 第一节');
+  assert.equal(issue?.line, 5);
+});
+
+test('reports the first deleted same-shape list item instead of the retained later item', () => {
+  const repeatedOriginal = `# Report
+
+English context.
+
+- First item
+- Second item`;
+  const repeatedBefore = `# 报告
+
+中文背景。
+
+- 第一项
+- 第二项`;
+  const report = captureCustomFailure({
+    original: repeatedOriginal,
+    before: repeatedBefore,
+    polished: repeatedBefore.replace('- 第一项\n', ''),
+  });
+
+  const issue = report.issues.find(({ code }) => code === 'missing_list_item');
+  assert.equal(issue?.item, '- 第一项');
+  assert.equal(issue?.line, 5);
+});
+
+test('reports the deleted interior table column by its baseline header', () => {
+  const tableOriginal = `# Report
+
+English context.
+
+| A | B | C |
+| --- | --- | --- |
+| Left | Middle | Right |`;
+  const tableBefore = `# 报告
+
+中文背景。
+
+| 甲 | 乙 | 丙 |
+| --- | --- | --- |
+| 左 | 中 | 右 |`;
+  const tablePolished = `# 报告
+
+中文背景。
+
+| 甲 | 丙 |
+| --- | --- |
+| 左 | 右 |`;
+  const report = captureCustomFailure({ original: tableOriginal, before: tableBefore, polished: tablePolished });
+
+  const issue = report.issues.find(({ code }) => code === 'missing_table_column');
+  assert.deepEqual(issue?.item, ['2 "乙"']);
+  assert.match(issue?.message || '', /column.*2 "乙"/i);
+});
+
+test('allows editorial wording changes when heading and list structure remains complete', () => {
+  const wordingOriginal = `# Report
+
+English context.
+
+## First section
+
+- First item
+- Second item
+
+## Second section
+
+English conclusion.`;
+  const wordingBefore = `# 旧标题
+
+中文背景。
+
+## 旧章节甲
+
+- 旧要点甲
+- 旧要点乙
+
+## 旧章节乙
+
+中文结论。`;
+  const wordingPolished = `# 新报告标题
+
+经过润色的中文背景。
+
+## 全新的开篇
+
+- 重写后的第一个要点
+- 重写后的第二个要点
+
+## 全新的收束章节
+
+经过润色的中文结论。`;
+
+  const report = verifyPolishedChinese({
+    original: wordingOriginal,
+    before: wordingBefore,
+    polished: wordingPolished,
+    glossary: {},
+  });
+
+  assert.equal(report.ok, true);
+  assert.deepEqual(report.issues, []);
 });
 
 test('verifyPolishedChinese does not require classified noise or its URL to survive', () => {
