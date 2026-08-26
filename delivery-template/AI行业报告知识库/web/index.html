@@ -37,13 +37,10 @@
           <label for="question">你想从这 418 篇报告中了解什么？</label>
           <textarea id="question" name="question" rows="4" maxlength="1200" placeholder="例如：企业部署 AI Agent 时，治理重点和组织变化分别是什么？" required></textarea>
           <div class="ask-actions">
-            <span class="privacy-note">API Key 仅保存在本机服务器环境中</span>
             <button id="ask-button" type="submit">基于全文回答</button>
           </div>
         </form>
-        <div id="answer" class="answer" aria-live="polite" aria-atomic="false">
-          <p class="answer-placeholder">提出问题后，答案与经过校验的来源会显示在这里。</p>
-        </div>
+        <div id="answer" class="answer" aria-live="polite" aria-atomic="false"></div>
         <div id="question-history" class="history" aria-label="最近问题"></div>
       </div>
     </section>
