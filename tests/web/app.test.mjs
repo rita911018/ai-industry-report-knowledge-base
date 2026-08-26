@@ -22,8 +22,8 @@ function article(id, localPaths) {
   };
 }
 
-function bootApp() {
-  const dom = new JSDOM(html, { runScripts: 'outside-only', url: 'http://127.0.0.1:4318/' });
+function bootApp(url = 'http://127.0.0.1:4318/') {
+  const dom = new JSDOM(html, { runScripts: 'outside-only', url });
   let chatOptions;
   dom.window.ARTICLE_INDEX = [
     article('with-pdf', { chinese: '/archive/a/中文全文.html', original: '/archive/a/英文原文.md', pdf: '/archive/a/原始报告.pdf' }),
@@ -44,6 +44,17 @@ function bootApp() {
 test('connects the knowledge drawer to the streaming answer endpoint', () => {
   const { dom, chatOptions } = bootApp();
   assert.equal(chatOptions?.endpoint, '/api/ask/stream');
+  dom.window.close();
+});
+
+test('public GitHub Pages hides local-only controls and keeps official sources', () => {
+  const { dom, document, chatOptions } = bootApp('https://rita911018.github.io/ai-industry-report-knowledge-base/');
+  assert.equal(chatOptions, undefined);
+  assert.equal(document.querySelector('#knowledge-chat-button').hidden, true);
+  document.querySelector('[data-article-id="with-pdf"]').click();
+  assert.equal(document.querySelector('[data-link="chinese"]').hidden, true);
+  assert.equal(document.querySelector('[data-link="pdf"]').hidden, true);
+  assert.equal(document.querySelector('[data-link="official"]').getAttribute('href'), 'https://example.com/with-pdf');
   dom.window.close();
 });
 

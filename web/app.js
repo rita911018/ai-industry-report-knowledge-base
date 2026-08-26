@@ -1,6 +1,7 @@
 (() => {
   'use strict';
   const articles = Array.isArray(window.ARTICLE_INDEX) ? window.ARTICLE_INDEX : [];
+  const publicStatic = location.hostname.endsWith('.github.io');
   const byId = new Map(articles.map((article) => [article.id, article]));
   const state = { visible: 30, filtered: articles };
   const $ = (selector) => document.querySelector(selector);
@@ -81,9 +82,16 @@
     for (const value of [article.category?.primary, article.priority ? `优先级：${article.priority}` : '', `综合评分：${ArticleUtils.scoreText(article)}`, `全文片段：${article.chunkCount || 0}`]) if (value) meta.append(node('span', { text: value }));
     const dialog = $('#article-dialog');
     const links = new Map([...dialog.querySelectorAll('[data-link]')].map((link) => [link.dataset.link, link]));
-    links.get('chinese').href = article.localPaths?.chinese || '#';
+    const chineseLink = links.get('chinese');
+    if (publicStatic) {
+      chineseLink.removeAttribute('href');
+      chineseLink.hidden = true;
+    } else {
+      chineseLink.href = article.localPaths?.chinese || '#';
+      chineseLink.hidden = false;
+    }
     const pdfLink = links.get('pdf');
-    if (article.localPaths?.pdf) {
+    if (!publicStatic && article.localPaths?.pdf) {
       pdfLink.href = article.localPaths.pdf;
       pdfLink.hidden = false;
     } else {
@@ -110,5 +118,11 @@
   $('#article-dialog .dialog-close').addEventListener('click', () => $('#article-dialog').close());
   initFilters();
   filterArticles();
-  window.KnowledgeChat.init({ endpoint: '/api/ask/stream' });
+  if (publicStatic) {
+    $('#knowledge-chat-button').hidden = true;
+    $('#knowledge-chat-drawer').hidden = true;
+    $('#source-reader').hidden = true;
+  } else {
+    window.KnowledgeChat.init({ endpoint: '/api/ask/stream' });
+  }
 })();
