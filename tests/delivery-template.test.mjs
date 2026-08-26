@@ -24,5 +24,6 @@ test('desktop launcher keeps switchable model credentials server-side', async ()
   assert.match(instructions, /DeepSeek 或千问/);
   assert.match(instructions, /不会发送到浏览器/);
   assert.doesNotMatch(`${launcher}\n${configure}\n${legacyConfigure}`, /sk-[A-Za-z0-9]{12,}/);
+  assert.doesNotMatch(page, /答案只基于已归档全文，并逐条标注出处。没有足够证据时，系统会明确说明。/);
   assert.doesNotMatch(page, /API Key 仅保存在本机服务器环境中|提出问题后，(?:答案|回答)与经过校验的来源会显示在这里/);
 });

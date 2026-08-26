@@ -22,6 +22,7 @@ test('unified page exposes an accessible cited research workspace', async () => 
   assert.doesNotMatch(html, /id="api-status"/);
   assert.doesNotMatch(html, /class="mast-meta"|id="article-count"/);
   assert.doesNotMatch(html, /方法说明/);
+  assert.doesNotMatch(html, /答案只基于已归档全文，并逐条标注出处。没有足够证据时，系统会明确说明。/);
   assert.doesNotMatch(html, /API Key 仅保存在本机服务器环境中|提出问题后，(?:答案|回答)与经过校验的来源会显示在这里/);
   assert.match(html, /id="knowledge-chat-button"[^>]+aria-label="向我提问"[^>]*>\s*<span>向我提问<\/span>/);
   assert.match(html, /id="knowledge-chat-drawer"[^>]+role="dialog"[^>]+aria-modal="false"/);
