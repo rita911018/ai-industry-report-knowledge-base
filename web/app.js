@@ -110,5 +110,5 @@
   $('#article-dialog .dialog-close').addEventListener('click', () => $('#article-dialog').close());
   initFilters();
   filterArticles();
-  window.KnowledgeChat.init({ endpoint: '/api/ask' });
+  window.KnowledgeChat.init({ endpoint: '/api/ask/stream' });
 })();

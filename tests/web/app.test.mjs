@@ -24,6 +24,7 @@ function article(id, localPaths) {
 
 function bootApp() {
   const dom = new JSDOM(html, { runScripts: 'outside-only', url: 'http://127.0.0.1:4318/' });
+  let chatOptions;
   dom.window.ARTICLE_INDEX = [
     article('with-pdf', { chinese: '/archive/a/中文全文.html', original: '/archive/a/英文原文.md', pdf: '/archive/a/原始报告.pdf' }),
     article('without-pdf', { chinese: '/archive/b/中文全文.html', original: '/archive/b/英文原文.md' }),
@@ -33,12 +34,18 @@ function bootApp() {
     sortArticles: (items) => items,
     scoreText: () => '未评分',
   };
-  dom.window.KnowledgeChat = { init() {} };
+  dom.window.KnowledgeChat = { init(options) { chatOptions = options; } };
   dom.window.HTMLDialogElement.prototype.showModal = function showModal() { this.open = true; };
   dom.window.HTMLDialogElement.prototype.close = function close() { this.open = false; };
   dom.window.eval(script);
-  return { dom, document: dom.window.document };
+  return { dom, document: dom.window.document, chatOptions };
 }
+
+test('connects the knowledge drawer to the streaming answer endpoint', () => {
+  const { dom, chatOptions } = bootApp();
+  assert.equal(chatOptions?.endpoint, '/api/ask/stream');
+  dom.window.close();
+});
 
 test('article dialog shows an archived PDF and clears it for the next article without one', () => {
   const { dom, document } = bootApp();
