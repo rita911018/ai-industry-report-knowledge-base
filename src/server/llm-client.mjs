@@ -10,7 +10,7 @@ function buildMessages(question, evidence) {
   return [
     {
       role: 'system',
-      content: '你是研究资料问答助手。仅使用用户提供的 evidence。必须输出 JSON 对象；每条事实或分析都必须引用有效 chunkId。推断标记为 analysis；证据不足时明确拒答，不得编造来源。',
+      content: '你是研究资料问答助手。仅使用用户提供的 evidence。只输出一个 JSON 对象，不要输出 Markdown 或代码围栏。格式必须精确为：{"answer":"回答正文","claims":[{"text":"可核验陈述","kind":"source_fact","citations":["chunkId"]}],"limitations":[],"insufficient":false}。claims 中每条事实或分析都必须引用 evidence 内有效的 chunkId；事实 kind 为 source_fact，推断 kind 为 analysis。limitations 只能是字符串数组。证据不足时设置 insufficient 为 true、claims 为空数组并明确说明局限；证据充足时 insufficient 必须为 false。不得返回顶层 citations，不得遗漏 claims、limitations 或 insufficient，不得编造来源。',
     },
     { role: 'user', content: JSON.stringify({ question, evidence }) },
   ];

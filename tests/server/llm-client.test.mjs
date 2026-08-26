@@ -49,6 +49,11 @@ test('Qwen uses OpenAI-compatible JSON mode with thinking disabled', async () =>
   assert.deepEqual(body.response_format, { type: 'json_object' });
   assert.equal(body.enable_thinking, false);
   assert.match(body.messages[0].content, /JSON/);
+  assert.match(body.messages[0].content, /"answer":"回答正文"/);
+  assert.match(body.messages[0].content, /"claims":\[\{"text":"可核验陈述","kind":"source_fact","citations":\["chunkId"\]\}\]/);
+  assert.match(body.messages[0].content, /"limitations":\[\]/);
+  assert.match(body.messages[0].content, /"insufficient":false/);
+  assert.match(body.messages[0].content, /不得返回顶层 citations/);
   assert.deepEqual(answer, validAnswer);
 });
 
