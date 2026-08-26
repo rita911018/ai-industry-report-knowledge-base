@@ -88,13 +88,12 @@
     <div id="answer" class="answer" aria-live="polite" aria-atomic="false">
       <p class="answer-placeholder">提出问题后，回答与经过校验的来源会显示在这里。</p>
     </div>
-    <div id="question-history" class="history" aria-label="最近问题"></div>
     <form id="question-form" class="knowledge-chat-form">
       <label for="question">向 470 篇全文提问</label>
-      <textarea id="question" name="question" rows="4" maxlength="1200" placeholder="例如：企业部署 AI Agent 时，治理重点和组织变化分别是什么？" required></textarea>
+      <textarea id="question" name="question" rows="3" maxlength="1200" placeholder="例如：企业部署 AI Agent 时，治理重点和组织变化分别是什么？" required></textarea>
       <div class="ask-actions">
-        <span class="privacy-note">API Key 仅保存在本机服务器环境中</span>
-        <button id="ask-button" type="submit">基于全文回答</button>
+        <span class="submit-hint">Enter 发送 · Shift + Enter 换行</span>
+        <button id="ask-button" type="submit">提问</button>
       </div>
     </form>
   </aside>
@@ -105,7 +104,6 @@
       <div><span class="eyebrow" id="source-reader-publisher">Cited source</span><h2 id="source-reader-title" tabindex="-1">来源全文</h2><p id="source-reader-section"></p></div>
       <nav class="source-reader-links" aria-label="来源阅读入口">
         <a id="source-reader-chinese" href="#">中文全文</a>
-        <a id="source-reader-original" href="#" target="_blank">原文归档</a>
         <a id="source-reader-pdf" target="_blank" rel="noreferrer" hidden>打开原始报告 PDF</a>
         <a id="source-reader-official" href="#" target="_blank" rel="noreferrer">官网原文</a>
       </nav>
@@ -137,6 +135,7 @@
   <script src="data/topics.js"></script>
   <script src="data/articles.js"></script>
   <script src="article-utils.js"></script>
+  <script src="ndjson-stream.js"></script>
   <script src="chat-widget.js"></script>
   <script src="app.js"></script>
 </body>

@@ -29,6 +29,10 @@ test('unified page exposes an accessible cited research workspace', async () => 
   assert.doesNotMatch(readerFrame, /\ballow-(?:scripts|same-origin)\b/);
   assert.match(html, /id="source-reader-back"/);
   assert.match(html, /id="source-reader-pdf"[^>]+hidden/);
+  assert.doesNotMatch(html, /id="source-reader-original"/);
+  assert.doesNotMatch(html, /id="question-history"/);
+  assert.match(html, /class="submit-hint"[^>]*>Enter 发送 · Shift \+ Enter 换行/);
+  assert.match(html, /id="ask-button"[^>]*>提问<\/button>/);
   assert.match(html, /<nav[^>]+aria-label="主导航"/);
   assert.match(html, /href="radars\/index\.html"[^>]*>AI机会雷达<\/a>/);
   assert.match(html, /data-link="chinese"/);
@@ -40,7 +44,9 @@ test('unified page exposes an accessible cited research workspace', async () => 
   assert.match(html, /value="score"[^>]*>评分最高/);
   assert.match(html, /<script src="data\/topics\.js"><\/script>/);
   assert.match(html, /<script src="article-utils\.js"><\/script>/);
-  assert.match(html, /<script src="chat-widget\.js"><\/script>/);
+  const streamScript = html.indexOf('<script src="ndjson-stream.js"></script>');
+  const chatScript = html.indexOf('<script src="chat-widget.js"></script>');
+  assert.ok(streamScript >= 0 && chatScript > streamScript);
 });
 
 test('assets include responsive, accessible and safe rendering contracts', async () => {
@@ -53,12 +59,16 @@ test('assets include responsive, accessible and safe rendering contracts', async
   assert.doesNotMatch(js, /fetch\(['"]\/api\/ask/);
   assert.match(js, /KnowledgeChat\.init/);
   assert.doesNotMatch(chat, /\.innerHTML\s*=/);
-  assert.match(chat, /localStorage/);
+  assert.doesNotMatch(chat, /localStorage|HISTORY_KEY|question-history/);
   assert.match(chat, /\/api\/health/);
+  assert.match(chat, /\/api\/ask\/stream/);
   assert.doesNotMatch(css, /\.ask-workspace\s*\{/);
   assert.match(css, /\.knowledge-hero\s*\{[^}]*min-width:\s*0/);
   assert.match(css, /\.knowledge-hero-copy\s*\{[^}]*width:\s*min\(100%,\s*1180px\)/);
   assert.match(css, /\.knowledge-chat-drawer\s*\{[^}]*width:\s*min\(520px,\s*44vw\)/);
+  assert.match(css, /\.knowledge-chat-drawer \.answer\s*\{[^}]*font-size:\s*15px[^}]*line-height:\s*1\.72/);
+  assert.match(css, /\.answer-section h3\s*\{[^}]*font-size:\s*16px/);
+  assert.doesNotMatch(css, /\.(?:claim|limitations|history)\s*\{/);
   assert.match(css, /\.source-reader\s*\{[^}]*right:\s*min\(520px,\s*44vw\)/);
   assert.match(css, /@media\s*\(max-width:\s*760px\)[\s\S]*\.knowledge-chat-drawer\s*\{[^}]*width:\s*100vw/);
   assert.match(css, /@media\s*\(max-width:\s*760px\)[\s\S]*\.source-reader\s*\{[^}]*inset:\s*0/);

@@ -1,7 +1,6 @@
 (() => {
   'use strict';
 
-  const HISTORY_KEY = 'ai-report-questions';
   const $ = (selector) => document.querySelector(selector);
 
   function node(tag, options = {}, children = []) {
@@ -11,15 +10,6 @@
     if (options.attrs) for (const [key, value] of Object.entries(options.attrs)) element.setAttribute(key, value);
     for (const child of children) if (child) element.append(child);
     return element;
-  }
-
-  function storedQuestions() {
-    try {
-      const value = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
-      return Array.isArray(value) ? value.filter((item) => typeof item === 'string').slice(0, 5) : [];
-    } catch {
-      return [];
-    }
   }
 
   function providerName(provider) {
@@ -37,7 +27,7 @@
     if (/^(你好|您好|嗨|hi|hello|早上好|下午好|晚上好)$/.test(message)) {
       return { title: '你好', text: '你好！我可以检索 470 篇归档文章、比较不同机构观点、解释 AI 机会场景，并提供文章来源与原文链接。' };
     }
-    if (/^(你是谁|你能干什么|你会什么|能做什么|怎么用|如何使用)$/.test(message)) {
+    if (/^(你是谁|你能干什么|你能做什么|你会什么|能做什么|怎么用|如何使用)$/.test(message)) {
       return { title: '我能帮你做什么', text: '我可以检索 470 篇归档文章、比较不同机构观点、解释 AI 机会场景，并在知识回答中标注文章来源与原文链接。' };
     }
     if (/^(谢谢|感谢|多谢|辛苦了|thankyou|thanks)$/.test(message)) {
@@ -49,7 +39,7 @@
     return null;
   }
 
-  function init({ endpoint = '/api/ask' } = {}) {
+  function init({ endpoint = '/api/ask/stream' } = {}) {
     const button = $('#knowledge-chat-button');
     const drawer = $('#knowledge-chat-drawer');
     const closeButton = $('#knowledge-chat-close');
@@ -58,7 +48,6 @@
     const questionInput = $('#question');
     const askButton = $('#ask-button');
     const answer = $('#answer');
-    const historyBox = $('#question-history');
     const status = $('#api-status');
     const reader = $('#source-reader');
     const readerFrame = $('#source-reader-frame');
@@ -66,7 +55,6 @@
     const readerPublisher = $('#source-reader-publisher');
     const readerSection = $('#source-reader-section');
     const readerChinese = $('#source-reader-chinese');
-    const readerOriginal = $('#source-reader-original');
     const readerPdf = $('#source-reader-pdf');
     const readerOfficial = $('#source-reader-official');
     const readerClose = $('#source-reader-close');
@@ -74,14 +62,23 @@
     if (!button || !drawer || drawer.dataset.initialized === 'true') return;
     drawer.dataset.initialized = 'true';
 
-    const state = { sources: [], returnFocus: null, busy: false };
+    const state = {
+      sources: [], returnFocus: null, busy: false, lastQuestion: '', streamDone: false, failureRendered: false,
+    };
+
+    function questionNode() {
+      return node('p', { className: 'chat-question', text: state.lastQuestion });
+    }
 
     function renderTextAnswer(title, text) {
       state.sources = [];
-      answer.replaceChildren(
-        node('h2', { text: title }),
-        node('p', { className: 'answer-lead', text }),
-      );
+      const children = [];
+      if (state.lastQuestion) children.push(questionNode());
+      children.push(node('section', { className: 'answer-section' }, [
+        node('h3', { text: title }),
+        node('p', { text }),
+      ]));
+      answer.replaceChildren(...children);
     }
 
     function closeReader({ restoreFocus = true } = {}) {
@@ -119,9 +116,6 @@
       readerHeading.textContent = source.titleZh || source.titleOriginal || '来源全文';
       readerSection.textContent = source.sectionPath ? `引用位置：${source.sectionPath}` : '引用位置：正文';
       setLink(readerChinese, chinese);
-      const original = source.localPaths?.snapshot || source.localPaths?.original;
-      setLink(readerOriginal, original);
-      readerOriginal.dataset.inline = source.localPaths?.snapshot ? 'true' : 'false';
       setLink(readerPdf, source.localPaths?.pdf);
       setLink(readerOfficial, source.sourceUrl);
       readerFrame.setAttribute('src', chinese);
@@ -130,110 +124,110 @@
       readerHeading.focus();
     }
 
-    function sourceButton(source, label, className = 'source-chip') {
-      const sourceControl = node('button', {
-        className,
-        text: label,
+    function sourceButton(source) {
+      const control = node('button', {
+        className: 'text-button source-read-button',
+        text: '中文全文',
         attrs: { type: 'button', 'data-source-id': source?.chunkId || '' },
       });
-      if (!source?.localPaths?.chinese) sourceControl.disabled = true;
-      else sourceControl.addEventListener('click', () => openReader(source, sourceControl));
-      return sourceControl;
+      if (!source?.localPaths?.chinese) control.disabled = true;
+      else control.addEventListener('click', () => openReader(source, control));
+      return control;
     }
 
     function sourceCard(source) {
       const card = node('article', { className: 'chat-source-card' });
       card.append(
         node('p', { className: 'eyebrow', text: `${source.publisher || '来源'} · ${source.publishedAt ? String(source.publishedAt).slice(0, 10) : '日期未列出'}` }),
-        node('h3', { text: source.titleZh || source.titleOriginal || source.chunkId }),
+        node('h4', { text: source.titleZh || source.titleOriginal || source.chunkId }),
         node('p', { className: 'chat-source-section', text: source.sectionPath || '正文' }),
       );
-      const actions = node('div', { className: 'source-links' });
-      actions.append(sourceButton(source, '左侧阅读中文全文', 'text-button source-read-button'));
-      if (source.localPaths?.pdf) actions.append(node('a', { text: '打开原始报告 PDF', attrs: { href: source.localPaths.pdf, target: '_blank', rel: 'noreferrer' } }));
-      const archive = source.localPaths?.snapshot || source.localPaths?.original;
-      if (archive) actions.append(node('a', { text: '打开原文归档', attrs: { href: archive, target: '_blank' } }));
-      if (source.sourceUrl) actions.append(node('a', { text: '访问官网原文', attrs: { href: source.sourceUrl, target: '_blank', rel: 'noreferrer' } }));
+      const actions = node('div', { className: 'source-links' }, [sourceButton(source)]);
+      if (source.localPaths?.pdf) actions.append(node('a', { text: '原始报告 PDF', attrs: { href: source.localPaths.pdf, target: '_blank', rel: 'noreferrer' } }));
+      if (source.sourceUrl) actions.append(node('a', { text: '官网原文', attrs: { href: source.sourceUrl, target: '_blank', rel: 'noreferrer' } }));
       card.append(actions);
       return card;
     }
 
-    function renderAnswer(payload) {
-      state.sources = Array.isArray(payload.sources) ? payload.sources : [];
-      const sourceMap = new Map(state.sources.map((source) => [source.chunkId, source]));
+    function renderSection(section) {
+      const block = node('section', { className: 'answer-section' }, [node('h3', { text: section.heading })]);
+      if (section.body) block.append(node('p', { text: section.body }));
+      else {
+        const list = node('ul');
+        for (const item of section.items || []) list.append(node('li', { text: item }));
+        block.append(list);
+      }
+      answer.append(block);
+    }
+
+    function setProgress(message) {
       answer.replaceChildren(
-        node('h2', { text: payload.insufficient ? '资料范围说明' : '基于归档全文的回答' }),
-        node('p', { className: 'answer-lead', text: payload.answer || '' }),
+        questionNode(),
+        node('p', { className: 'answer-progress', text: message }),
       );
-      for (const claim of payload.claims || []) {
-        const claimBlock = node('div', { className: `claim ${claim.kind === 'analysis' ? 'analysis' : ''}` }, [node('p', { text: claim.text })]);
-        const citations = node('div', { className: 'claim-citations' });
-        for (const sourceId of claim.citations || []) {
-          const source = sourceMap.get(sourceId);
-          citations.append(sourceButton(source, source ? `${source.publisher} · ${source.sectionPath || '正文'}` : sourceId));
-        }
-        claimBlock.append(citations);
-        answer.append(claimBlock);
-      }
-      if (payload.limitations?.length) answer.append(node('p', { className: 'limitations', text: `边界：${payload.limitations.join('；')}` }));
-      if (state.sources.length) {
-        const sourceList = node('section', { className: 'chat-source-list', attrs: { 'aria-label': '回答来源' } }, [node('h3', { text: `文章来源 · ${state.sources.length}` })]);
-        for (const source of state.sources) sourceList.append(sourceCard(source));
-        answer.append(sourceList);
-      }
     }
 
-    function renderHistory() {
-      historyBox.replaceChildren();
-      for (const question of storedQuestions()) {
-        const historyButton = node('button', { text: question, attrs: { type: 'button' } });
-        historyButton.addEventListener('click', () => {
-          questionInput.value = question;
-          questionInput.focus();
-        });
-        historyBox.append(historyButton);
-      }
+    function renderSources(sources) {
+      state.sources = Array.isArray(sources) ? sources : [];
+      if (!state.sources.length) return;
+      const sourceList = node('section', { className: 'chat-source-list', attrs: { 'aria-label': '参考来源' } }, [
+        node('h3', { text: '参考来源' }),
+      ]);
+      for (const source of state.sources) sourceList.append(sourceCard(source));
+      answer.append(sourceList);
     }
 
-    function saveQuestion(question) {
-      const next = [question, ...storedQuestions().filter((item) => item !== question)].slice(0, 5);
-      localStorage.setItem(HISTORY_KEY, JSON.stringify(next));
-      renderHistory();
+    function renderFailure(message, { retry = false } = {}) {
+      state.failureRendered = true;
+      const children = [questionNode(), node('p', { className: 'answer-fallback', text: message })];
+      if (retry) {
+        const retryButton = node('button', { className: 'text-button retry-question', text: '重新提问', attrs: { type: 'button' } });
+        retryButton.addEventListener('click', () => ask(state.lastQuestion));
+        children.push(retryButton);
+      }
+      answer.replaceChildren(...children);
+    }
+
+    function handleStreamEvent(event) {
+      if (event.type === 'status') setProgress(event.message);
+      else if (event.type === 'answer_start') answer.replaceChildren(questionNode());
+      else if (event.type === 'section') renderSection(event.section);
+      else if (event.type === 'sources') renderSources(event.sources);
+      else if (event.type === 'insufficient') renderFailure(event.message);
+      else if (event.type === 'error') renderFailure(event.message || '刚刚没能完成回答，请再试一次。', { retry: true });
+      else if (event.type === 'done') state.streamDone = true;
     }
 
     async function ask(question) {
+      if (state.busy) return;
+      state.lastQuestion = question;
       const localReply = smallTalkReply(question);
       if (localReply) {
         renderTextAnswer(localReply.title, localReply.text);
         return;
       }
-      if (state.busy) return;
       state.busy = true;
+      state.streamDone = false;
+      state.failureRendered = false;
       askButton.disabled = true;
-      askButton.textContent = '正在检索全文…';
-      answer.replaceChildren(node('p', { className: 'answer-placeholder', text: '正在查找相关证据并校验来源，请稍候。' }));
+      askButton.textContent = '处理中…';
+      setProgress('正在发送问题…');
       try {
         const response = await fetch(endpoint, {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
           body: JSON.stringify({ question }),
         });
-        const payload = await response.json();
-        if (!response.ok) throw Object.assign(new Error(payload.error || '问答服务暂不可用'), { code: payload.code });
-        renderAnswer(payload);
-        saveQuestion(question);
-      } catch (error) {
-        const guidance = error.code === 'MISSING_API_KEY'
-          ? '尚未配置问答模型。请在启动服务的服务器环境变量中设置供应商、模型与 API Key 后重新启动。'
-          : error.message;
-        answer.replaceChildren(
-          node('h2', { text: '暂时无法生成回答' }),
-          node('p', { className: 'answer-placeholder', text: guidance }),
-        );
+        if (!response.ok) throw new Error('stream request failed');
+        await window.NdjsonStream.read(response, handleStreamEvent);
+        if (!state.streamDone) throw new Error('stream ended early');
+      } catch {
+        if (!state.failureRendered) renderFailure('刚刚没能完成回答，请再试一次。', { retry: true });
       } finally {
         state.busy = false;
         askButton.disabled = false;
-        askButton.textContent = '基于全文回答';
+        askButton.textContent = '提问';
+        questionInput.focus();
       }
     }
 
@@ -264,11 +258,6 @@
       event.preventDefault();
       readerFrame.setAttribute('src', readerChinese.getAttribute('href'));
     });
-    readerOriginal.addEventListener('click', (event) => {
-      if (readerOriginal.dataset.inline !== 'true') return;
-      event.preventDefault();
-      readerFrame.setAttribute('src', readerOriginal.getAttribute('href'));
-    });
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       const question = questionInput.value.trim();
@@ -286,7 +275,6 @@
     });
 
     renderTextAnswer('你好', '你好！我可以检索 470 篇归档文章、比较不同机构观点、解释 AI 机会场景，并提供文章来源与原文链接。');
-    renderHistory();
     checkHealth();
   }
 
