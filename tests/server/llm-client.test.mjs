@@ -5,6 +5,10 @@ import { askLlm } from '../../src/server/llm-client.mjs';
 
 const validAnswer = {
   answer: '答复',
+  sections: [
+    { heading: '核心结论', body: '答复' },
+    { heading: '建议动作', items: ['先试点', '再复盘'] },
+  ],
   claims: [{ text: '证据', kind: 'source_fact', citations: ['a:001'] }],
   limitations: [],
   insufficient: false,
@@ -50,6 +54,8 @@ test('Qwen uses OpenAI-compatible JSON mode with thinking disabled', async () =>
   assert.equal(body.enable_thinking, false);
   assert.match(body.messages[0].content, /JSON/);
   assert.match(body.messages[0].content, /"answer":"回答正文"/);
+  assert.match(body.messages[0].content, /"sections":\[\{"heading":"核心结论","body":"短段落"\},\{"heading":"建议动作","items":\["行动一","行动二"\]\}\]/);
+  assert.match(body.messages[0].content, /2[–-]4 个/);
   assert.match(body.messages[0].content, /"claims":\[\{"text":"可核验陈述","kind":"source_fact","citations":\["chunkId"\]\}\]/);
   assert.match(body.messages[0].content, /"limitations":\[\]/);
   assert.match(body.messages[0].content, /"insufficient":false/);
