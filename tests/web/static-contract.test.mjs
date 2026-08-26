@@ -9,6 +9,8 @@ test('unified page exposes an accessible cited research workspace', async () => 
   assert.equal((html.match(/<main\b/g) || []).length, 1);
   assert.doesNotMatch(html, /class="ask-console"/);
   assert.match(html, /<h1 id="knowledge-heading">洞察皆有出处。<\/h1>/);
+  assert.match(html, /<a class="hero-link" href="#library-heading">浏览 AI 行业报告 ↓<\/a>/);
+  assert.doesNotMatch(html, /浏览 470 篇文章/);
   assert.doesNotMatch(html, /<h1 id="knowledge-heading">AI 行业报告知识库/);
   assert.doesNotMatch(html, /问报告，也问证据。/);
   assert.doesNotMatch(html, /问报告，<br>/);

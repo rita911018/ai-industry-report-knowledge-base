@@ -362,7 +362,7 @@ test('adds the Gartner report as the canonical 470th knowledge-library record', 
   }
   for (const snippet of [
     'Gartner 的 470 篇 AI 管理洞察',
-    '浏览 470 篇文章 ↓',
+    '浏览 AI 行业报告 ↓',
     '470 articles · global search',
     '向 470 篇全文提问',
     '归档来源：BCG · Anthropic · McKinsey · MIT · Bain · Gartner',
