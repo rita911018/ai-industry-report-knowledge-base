@@ -25,6 +25,26 @@ function json(res, status, body) {
   res.end(payload);
 }
 
+function openNdjson(res) {
+  res.writeHead(200, {
+    'content-type': 'application/x-ndjson; charset=utf-8',
+    'cache-control': 'no-store',
+    'x-content-type-options': 'nosniff',
+  });
+}
+
+function ndjson(res, event) {
+  res.write(`${JSON.stringify(event)}\n`);
+}
+
+function evidenceFrom(results) {
+  return results.map((chunk) => ({
+    chunkId: chunk.chunkId, articleId: chunk.articleId, titleZh: chunk.titleZh, titleOriginal: chunk.titleOriginal,
+    publisher: chunk.publisher, publishedAt: chunk.publishedAt, sectionPath: chunk.sectionPath,
+    content: chunk.content, sourceUrl: chunk.sourceUrl, localPaths: chunk.localPaths,
+  }));
+}
+
 async function readJson(req, limit) {
   const chunks = [];
   let size = 0;
@@ -156,13 +176,45 @@ export function createAppServer({
         const retrieval = searchCorpus(index, body.question, body.filters || {});
         if (retrieval.insufficient) return json(res, 200, { answer: '现有归档资料不足以可靠回答这个问题。', claims: [], limitations: ['未检索到足够相关的文章证据。'], insufficient: true, sources: [] });
         if (!llmConfig.configured) return json(res, 503, { error: '尚未配置问答模型 API Key', code: 'MISSING_API_KEY' });
-        const evidence = retrieval.results.map((chunk) => ({
-          chunkId: chunk.chunkId, articleId: chunk.articleId, titleZh: chunk.titleZh, titleOriginal: chunk.titleOriginal,
-          publisher: chunk.publisher, publishedAt: chunk.publishedAt, sectionPath: chunk.sectionPath,
-          content: chunk.content, sourceUrl: chunk.sourceUrl, localPaths: chunk.localPaths,
-        }));
+        const evidence = evidenceFrom(retrieval.results);
         const raw = await askImpl({ question: body.question, evidence, config: llmConfig });
         return json(res, 200, validateAnswer(raw, evidence));
+      }
+      if (req.method === 'POST' && url.pathname === '/api/ask/stream') {
+        const body = await readJson(req, bodyLimit);
+        if (typeof body.question !== 'string' || !body.question.trim()) return json(res, 400, { error: 'question is required', code: 'INVALID_QUERY' });
+        openNdjson(res);
+        ndjson(res, { type: 'status', stage: 'retrieving', message: '正在检索归档全文…' });
+        try {
+          const retrieval = searchCorpus(index, body.question, body.filters || {});
+          if (retrieval.insufficient) {
+            ndjson(res, { type: 'insufficient', message: '这个问题我还在学习，目前归档资料不足以给出可靠结论。你可以换个问法，或先问我现有报告中的观点。' });
+            ndjson(res, { type: 'done' });
+            res.end();
+            return;
+          }
+          ndjson(res, { type: 'status', stage: 'generating', message: '正在组织回答…' });
+          if (!llmConfig.configured) {
+            const error = new Error('Question-answering model is not configured');
+            error.code = 'MISSING_API_KEY';
+            throw error;
+          }
+          const evidence = evidenceFrom(retrieval.results);
+          const raw = await askImpl({ question: body.question, evidence, config: llmConfig });
+          ndjson(res, { type: 'status', stage: 'validating', message: '正在核验来源…' });
+          const validated = validateAnswer(raw, evidence);
+          ndjson(res, { type: 'answer_start', answer: validated.answer });
+          for (const section of validated.sections) ndjson(res, { type: 'section', section });
+          ndjson(res, { type: 'sources', sources: validated.sources });
+          ndjson(res, { type: 'done' });
+          res.end();
+          return;
+        } catch {
+          ndjson(res, { type: 'error', message: '刚刚没能完成回答，请再试一次。' });
+          ndjson(res, { type: 'done' });
+          res.end();
+          return;
+        }
       }
       if (req.method === 'GET') {
         const relative = decodeURIComponent(url.pathname === '/' ? 'index.html' : url.pathname.slice(1));
