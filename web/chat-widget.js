@@ -12,12 +12,6 @@
     return element;
   }
 
-  function providerName(provider) {
-    if (provider === 'qwen') return '千问';
-    if (provider === 'deepseek') return 'DeepSeek';
-    return '问答模型';
-  }
-
   function normalizeMessage(value) {
     return String(value || '').trim().toLowerCase().replace(/[\s，。！？!?、,.]+/g, '');
   }
@@ -48,7 +42,6 @@
     const questionInput = $('#question');
     const askButton = $('#ask-button');
     const answer = $('#answer');
-    const status = $('#api-status');
     const reader = $('#source-reader');
     const readerFrame = $('#source-reader-frame');
     const readerHeading = $('#source-reader-title');
@@ -231,24 +224,6 @@
       }
     }
 
-    async function checkHealth() {
-      status.classList.remove('online', 'offline');
-      try {
-        const response = await fetch('/api/health');
-        const health = await response.json();
-        if (health.llmConfigured) {
-          status.textContent = `${providerName(health.provider)} · ${health.model} 已连接`;
-          status.classList.add('online');
-        } else {
-          status.textContent = '问答模型待配置 · 文章浏览不受影响';
-          status.classList.add('offline');
-        }
-      } catch {
-        status.textContent = '请通过本地服务启动 · 文章浏览不受影响';
-        status.classList.add('offline');
-      }
-    }
-
     button.addEventListener('click', () => setDrawerOpen(drawer.hidden));
     closeButton.addEventListener('click', () => setDrawerOpen(false));
     readerClose.addEventListener('click', () => closeReader());
@@ -261,7 +236,10 @@
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       const question = questionInput.value.trim();
-      if (question) ask(question);
+      if (question && !state.busy) {
+        questionInput.value = '';
+        ask(question);
+      }
     });
     questionInput.addEventListener('keydown', (event) => {
       if (event.key !== 'Enter' || event.shiftKey || event.isComposing) return;
@@ -275,7 +253,6 @@
     });
 
     renderTextAnswer('你好', '你好！我可以检索 470 篇归档文章、比较不同机构观点、解释 AI 机会场景，并提供文章来源与原文链接。');
-    checkHealth();
   }
 
   window.KnowledgeChat = { init };

@@ -18,7 +18,7 @@ test('unified page exposes an accessible cited research workspace', async () => 
   assert.match(html, /id="article-results"/);
   assert.doesNotMatch(html, /id="source-drawer"/);
   assert.match(html, /id="article-dialog"/);
-  assert.match(html, /id="api-status"/);
+  assert.doesNotMatch(html, /id="api-status"/);
   assert.match(html, /id="knowledge-chat-button"[^>]+aria-label="问整个知识库"/);
   assert.match(html, /id="knowledge-chat-drawer"[^>]+role="dialog"[^>]+aria-modal="false"/);
   assert.match(html, /id="source-reader"/);
@@ -60,7 +60,7 @@ test('assets include responsive, accessible and safe rendering contracts', async
   assert.match(js, /KnowledgeChat\.init/);
   assert.doesNotMatch(chat, /\.innerHTML\s*=/);
   assert.doesNotMatch(chat, /localStorage|HISTORY_KEY|question-history/);
-  assert.match(chat, /\/api\/health/);
+  assert.doesNotMatch(chat, /\/api\/health|providerName/);
   assert.match(chat, /\/api\/ask\/stream/);
   assert.doesNotMatch(css, /\.ask-workspace\s*\{/);
   assert.match(css, /\.knowledge-hero\s*\{[^}]*min-width:\s*0/);

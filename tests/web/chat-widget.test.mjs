@@ -81,9 +81,11 @@ test('renders structured streamed sections and compact traceable sources', async
   const { dom, document, calls } = await bootWidget();
   document.querySelector('#knowledge-chat-button').click();
   assert.equal(document.querySelector('#knowledge-chat-drawer').hidden, false);
-  assert.match(document.querySelector('#api-status').textContent, /千问.*qwen3\.8-max.*已连接/);
+  assert.equal(document.querySelector('#api-status'), null);
+  assert.equal(calls.filter((call) => call.url === '/api/health').length, 0);
 
   await submitQuestion(dom, document, '如何治理智能体？');
+  assert.equal(document.querySelector('#question').value, '');
   const text = document.querySelector('#answer').textContent;
   assert.match(text, /核心结论.*人工监督.*建议动作.*先试点/s);
   assert.doesNotMatch(text, /边界：|当前证据主要来自/);
@@ -114,6 +116,7 @@ test('answers common small talk locally without calling the stream endpoint', as
     ['再见', /下次可以直接问/],
   ]) {
     await submitQuestion(dom, document, question);
+    assert.equal(document.querySelector('#question').value, '');
     assert.match(document.querySelector('#answer').textContent, expected);
   }
   assert.equal(calls.filter((call) => call.url === '/api/ask/stream').length, 0);
