@@ -131,6 +131,10 @@ async function setup(data, url = 'http://127.0.0.1/radars/legal.html', options =
   return dom;
 }
 
+function decisionHeadings(root) {
+  return [...root.querySelectorAll('h4')].map((heading) => heading.textContent);
+}
+
 test('shared renderer builds only the four approved decision sections', async () => {
   const dom = await setup(await loadRadarFile(fileURLToPath(legalPath)));
   const { document } = dom.window;
@@ -278,7 +282,7 @@ test('each scenario contains only five linked decision blocks', async () => {
   first.querySelector('.scenario-header').click();
   assert.deepEqual(
     [...first.querySelectorAll('.detail-block > h4')].map((heading) => heading.textContent),
-    ['业务痛点', 'AI 价值｜可以做什么', '主要风险', '证据锚点', '哪些公司做过'],
+    ['业务痛点', 'AI 价值｜可以做什么', '主要风险', '哪些公司做过', '证据锚点'],
   );
   assert.equal(first.querySelectorAll('.detail-block ul li').length >= 7, true);
   const evidenceLink = first.querySelector('.evidence-link');
@@ -292,6 +296,26 @@ test('each scenario contains only five linked decision blocks', async () => {
 
   const prohibited = document.querySelector('#legal-12');
   assert.match(prohibited.querySelector('.company-cases').textContent, /暂无公开可核验案例/);
+});
+
+test('company cases precede evidence anchors in live and exported details', async () => {
+  const legal = await loadRadarFile(fileURLToPath(legalPath));
+  const dom = await setup(legal);
+  const { document } = dom.window;
+  const expected = ['业务痛点', 'AI 价值｜可以做什么', '主要风险', '哪些公司做过', '证据锚点'];
+
+  document.querySelector('[data-scenario-target="legal-07"]').click();
+  assert.deepEqual(decisionHeadings(document.querySelector('.matrix-inspector-details')), expected);
+
+  document.querySelector('#legal-07 .scenario-header').click();
+  assert.deepEqual(decisionHeadings(document.querySelector('#legal-07 .detail-grid')), expected);
+
+  const report = dom.window.OpportunityRadar.buildStandaloneReport(legal, new Date('2026-08-26T08:00:00+08:00'));
+  const exportDom = new JSDOM(report, { runScripts: 'dangerously', pretendToBeVisual: true });
+  assert.deepEqual(decisionHeadings(exportDom.window.document.querySelector('#export-inspector .five-details')), expected);
+  assert.deepEqual(decisionHeadings(exportDom.window.document.querySelector('#export-legal-07 .five-details')), expected);
+  exportDom.window.close();
+  dom.window.close();
 });
 
 test('filters, expands, resets, and selects a named matrix point without jumping', async () => {

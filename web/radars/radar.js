@@ -72,7 +72,7 @@
   function exportScenarioDetails(scenario, data) {
     const acceptance = Array.isArray(scenario.acceptanceMetrics) ? `<h5>8–12 周验收指标</h5>${exportTextList(scenario.acceptanceMetrics)}` : '';
     const handoff = scenario.humanHandoff ? `<h5>人工接管</h5><p>${escapeHtml(scenario.humanHandoff)}</p>` : '';
-    return `<div class="five-details"><section><h4>业务痛点</h4>${exportTextList(scenario.problem)}</section><section><h4>AI 价值｜可以做什么</h4>${exportTextList(scenario.aiValue)}${acceptance}</section><section><h4>主要风险</h4>${exportTextList(scenario.risk)}${handoff}</section><section><h4>证据锚点</h4><div class="links">${exportEvidence(scenario, data)}</div></section><section><h4>哪些公司做过</h4><div class="links">${exportCompanyCases(scenario, data)}</div></section></div>`;
+    return `<div class="five-details"><section><h4>业务痛点</h4>${exportTextList(scenario.problem)}</section><section><h4>AI 价值｜可以做什么</h4>${exportTextList(scenario.aiValue)}${acceptance}</section><section><h4>主要风险</h4>${exportTextList(scenario.risk)}${handoff}</section><section><h4>哪些公司做过</h4><div class="links">${exportCompanyCases(scenario, data)}</div></section><section><h4>证据锚点</h4><div class="links">${exportEvidence(scenario, data)}</div></section></div>`;
   }
 
   function buildStandaloneReport(data, generatedAt = new Date()) {
@@ -261,8 +261,8 @@
         detailBlock('业务痛点', scenario.problem),
         detailBlock('AI 价值｜可以做什么', renderAiValue(scenario)),
         detailBlock('主要风险', renderRisk(scenario), true, 'risk-detail'),
-        detailBlock('证据锚点', renderEvidence(scenario, data), true, 'evidence-detail'),
         detailBlock('哪些公司做过', renderCompanyCases(scenario, data), true, 'company-detail'),
+        detailBlock('证据锚点', renderEvidence(scenario, data), true, 'evidence-detail'),
       ]),
       jump,
     ]);
@@ -291,8 +291,8 @@
         detailBlock('业务痛点', scenario.problem),
         detailBlock('AI 价值｜可以做什么', renderAiValue(scenario)),
         detailBlock('主要风险', renderRisk(scenario), true, 'risk-detail'),
-        detailBlock('证据锚点', renderEvidence(scenario, data), true, 'evidence-detail'),
         detailBlock('哪些公司做过', renderCompanyCases(scenario, data), true, 'company-detail'),
+        detailBlock('证据锚点', renderEvidence(scenario, data), true, 'evidence-detail'),
       ]),
     ]);
     detail.hidden = true;
