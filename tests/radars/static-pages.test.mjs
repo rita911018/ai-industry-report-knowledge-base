@@ -151,10 +151,13 @@ test('shared radar styles cover focus, mobile, reduced motion, print, and readab
   assertRuleDeclaration(css, '.company-case-summary', 'color', /^var\(--text-muted-dark\)$/);
   assertRuleDeclaration(css, '.source-fact p', 'color', /^var\(--text-muted-dark\)$/);
   assertRuleDeclaration(css, '.evidence-confidence', 'background', /^rgba\(169,\s*183,\s*122,\s*(?:0?\.1|\.10)\)$/);
-  assertRuleDeclaration(css, '.matrix-point', 'left', /^clamp\(42px,\s*var\(--x\),\s*calc\(100% - 42px\)\)$/);
-  assertRuleDeclaration(css, '.matrix-point', 'width', /^84px$/);
-  assertRuleDeclaration(css, '.matrix-point', 'min-width', /^84px$/);
-  assertRuleDeclaration(css, '.matrix-point', 'max-width', /^84px$/);
+  assertRuleDeclaration(css, '.matrix-point', 'left', /^clamp\(54px,\s*var\(--x\),\s*calc\(100% - 54px\)\)$/);
+  assertRuleDeclaration(css, '.matrix-point', 'width', /^108px$/);
+  assertRuleDeclaration(css, '.matrix-point', 'min-width', /^108px$/);
+  assertRuleDeclaration(css, '.matrix-point', 'max-width', /^108px$/);
+  assertRuleDeclaration(css, '.matrix-point', 'min-height', /^50px$/);
+  assertRuleDeclaration(css, '.matrix-point-number', 'font-size', /^12px$/);
+  assertRuleDeclaration(css, '.matrix-point-title', 'font-size', /^12px$/);
   assertRuleDeclaration(css, '.matrix-point', 'background', /^transparent$/);
   assertRuleDeclaration(css, '.matrix-point', 'box-shadow', /^none$/);
   assertRuleDeclaration(css, '.matrix-point.p0 .matrix-point-number', 'background', /^var\(--signal\)$/);

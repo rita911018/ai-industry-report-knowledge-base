@@ -84,9 +84,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .axis { position: absolute; color: var(--forest); font-size: 11px; font-weight: 800; letter-spacing: .08em; }
 .axis-y { left: 0; top: 50%; transform: rotate(-90deg) translateX(-50%); transform-origin: left top; }
 .axis-x { right: 0; bottom: 6px; }
-.matrix-point { position: absolute; left: clamp(42px, var(--x), calc(100% - 42px)); top: var(--y); width: 84px; min-width: 84px; max-width: 84px; min-height: 40px; display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 4px; align-items: center; padding: 3px 4px; transform: translate(-50%, -50%); border: 1px solid transparent; border-radius: 5px; background: transparent; color: var(--ink); text-align: left; box-shadow: none; cursor: pointer; transition: transform .18s ease, background .18s ease, color .18s ease, box-shadow .18s ease; }
-.matrix-point-number { display: grid; min-height: 24px; place-items: center; border: 1px solid currentColor; border-radius: 50%; background: var(--paper-bright); font-size: 10px; font-weight: 900; }
-.matrix-point-title { font-size: 9.5px; font-weight: 780; line-height: 1.15; }
+.matrix-point { position: absolute; left: clamp(54px, var(--x), calc(100% - 54px)); top: var(--y); width: 108px; min-width: 108px; max-width: 108px; min-height: 50px; display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 7px; align-items: center; padding: 5px 6px; transform: translate(-50%, -50%); border: 1px solid transparent; border-radius: 5px; background: transparent; color: var(--ink); text-align: left; box-shadow: none; cursor: pointer; transition: transform .18s ease, background .18s ease, color .18s ease, box-shadow .18s ease; }
+.matrix-point-number { display: grid; min-height: 30px; place-items: center; border: 1px solid currentColor; border-radius: 50%; background: var(--paper-bright); font-size: 12px; font-weight: 900; }
+.matrix-point-title { font-size: 12px; font-weight: 780; line-height: 1.18; }
 .matrix-point.p0 { background: transparent; }
 .matrix-point.p0 .matrix-point-number { background: var(--signal); color: var(--ink); }
 .matrix-point.p3 { border-style: solid; }
@@ -291,8 +291,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .decision-strip .radar-shell { align-items: flex-start; flex-direction: column; gap: 7px; }
   .radar-section-head { grid-template-columns: 1fr; gap: 12px; }
   .matrix { height: 440px; }
-  .matrix-point-number { min-height: 24px; }
-  .matrix-point-title { font-size: 10px; }
+  .matrix-point-number { min-height: 30px; }
+  .matrix-point-title { font-size: 12px; }
   .scenario-header { grid-template-columns: 34px 46px 1fr 34px; gap: 8px; }
   .scenario-scores { display: none; }
   .scenario-detail { padding-left: 0; }
@@ -327,12 +327,12 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .matrix-wrap { padding: 0 0 34px; }
   .axis { display: none; }
   .matrix { height: auto; min-height: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 10px; border: 1px solid var(--ink); background-image: none; }
-  .matrix-point { position: static; width: 100%; min-width: 0; max-width: none; min-height: 46px; grid-template-columns: 24px 1fr; gap: 6px; padding: 6px; transform: none; border: 1px solid var(--ink); background: var(--paper-bright); }
+  .matrix-point { position: static; width: 100%; min-width: 0; max-width: none; min-height: 54px; grid-template-columns: 30px 1fr; gap: 7px; padding: 7px; transform: none; border: 1px solid var(--ink); background: var(--paper-bright); }
   .matrix-point.p0 { background: var(--signal); }
   .matrix-point.p3 { border-style: dashed; }
   .matrix-point:hover, .matrix-point:focus-visible, .matrix-point[aria-pressed="true"] { transform: translateY(-2px); background: var(--ink); }
-  .matrix-point-number { min-height: 24px; font-size: 9px; }
-  .matrix-point-title { font-size: 10px; }
+  .matrix-point-number { min-height: 30px; font-size: 11px; }
+  .matrix-point-title { font-size: 12px; }
   .filter-panel { grid-template-columns: 1fr; }
   .filter-panel > span { padding-top: 4px; }
   .scenario-header { min-height: 82px; }
