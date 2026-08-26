@@ -382,6 +382,7 @@ test('standalone export contains the complete current-domain report and no secre
   const reportCss = report.match(/<style>([\s\S]*?)<\/style>/)?.[1];
   assert.ok(reportCss, 'Standalone report contains its stylesheet');
   const printStyleBlocks = atRuleBlocks(reportCss, '@media print');
+  const [mobileStyles] = atRuleBlocks(reportCss, '@media(max-width:760px)');
   assert.throws(() => atRuleBlocks('@media print', '@media print'), /Missing opening brace/);
   assert.throws(() => atRuleBlocks('@media print{body{color:#111}', '@media print'), /Unclosed/);
   const declarationBoundaryFixture = '.fixture{border-color:red;max-width:100px}';
@@ -404,6 +405,21 @@ test('standalone export contains the complete current-domain report and no secre
   assertRuleDeclaration(reportCss, '.evidence small', 'color', /^var\(--text-muted-dark\)$/);
   assertRuleDeclaration(reportCss, '.export-scenario details>.export-score header strong', 'color', /^var\(--signal-strong\)$/);
   assertRuleDeclaration(reportCss, '.export-scenario details>.export-score .score-row em', 'background', /^var\(--signal-strong\)$/);
+  assertRuleDeclaration(reportCss, '.matrix button', 'left', /^clamp\(42px,var\(--x\),calc\(100% - 42px\)\)$/);
+  assertRuleDeclaration(reportCss, '.matrix button', 'width', /^84px$/);
+  assertRuleDeclaration(reportCss, '.matrix button', 'min-width', /^84px$/);
+  assertRuleDeclaration(reportCss, '.matrix button', 'max-width', /^84px$/);
+  assertRuleDeclaration(reportCss, '.matrix button', 'background', /^transparent$/);
+  assertRuleDeclaration(reportCss, '.matrix button', 'box-shadow', /^none$/);
+  assertRuleDeclaration(reportCss, '.matrix button.p0 b', 'background', /^var\(--signal\)$/);
+  assertRuleDeclaration(reportCss, '.matrix button.p3 b', 'border-style', /^dashed$/);
+  assertRuleDeclaration(mobileStyles, '.matrix', 'display', /^grid$/);
+  assertRuleDeclaration(mobileStyles, '.matrix', 'grid-template-columns', /^1fr 1fr$/);
+  assertRuleDeclaration(mobileStyles, '.matrix button', 'position', /^static$/);
+  assertRuleDeclaration(mobileStyles, '.matrix button', 'width', /^100%$/);
+  assertRuleDeclaration(mobileStyles, '.matrix button', 'background', /^var\(--bright\)$/);
+  assertRuleDeclaration(mobileStyles, '.matrix button', 'border', /^1px solid var\(--ink\)$/);
+  assertRuleDeclaration(mobileStyles, '.matrix button', 'transform', /^none$/);
   for (const selector of ['.evidence', '.evidence b', '.evidence span', '.evidence small']) {
     assertAnyPrintRuleDeclaration(printStyleBlocks, selector, 'color', /^#111$/);
   }

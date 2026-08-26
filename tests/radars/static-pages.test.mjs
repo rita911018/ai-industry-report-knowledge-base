@@ -113,6 +113,7 @@ for (const domain of domains) {
 test('shared radar styles cover focus, mobile, reduced motion, print, and readable sage', async () => {
   const css = await readFile(new URL('radar.css', root), 'utf8');
   const printStyles = atRuleBlock(css, '@media print');
+  const compactMobile = atRuleBlock(css, '@media (max-width: 390px)');
   assert.throws(() => atRuleBlock('@media print', '@media print'), /Missing opening brace/);
   assert.throws(() => atRuleBlock('@media print{body{color:#111}', '@media print'), /Unclosed/);
   const declarationBoundaryFixture = '.fixture{border-color:red;max-width:100px}';
@@ -150,6 +151,17 @@ test('shared radar styles cover focus, mobile, reduced motion, print, and readab
   assertRuleDeclaration(css, '.company-case-summary', 'color', /^var\(--text-muted-dark\)$/);
   assertRuleDeclaration(css, '.source-fact p', 'color', /^var\(--text-muted-dark\)$/);
   assertRuleDeclaration(css, '.evidence-confidence', 'background', /^rgba\(169,\s*183,\s*122,\s*(?:0?\.1|\.10)\)$/);
+  assertRuleDeclaration(css, '.matrix-point', 'left', /^clamp\(42px,\s*var\(--x\),\s*calc\(100% - 42px\)\)$/);
+  assertRuleDeclaration(css, '.matrix-point', 'width', /^84px$/);
+  assertRuleDeclaration(css, '.matrix-point', 'min-width', /^84px$/);
+  assertRuleDeclaration(css, '.matrix-point', 'max-width', /^84px$/);
+  assertRuleDeclaration(css, '.matrix-point', 'background', /^transparent$/);
+  assertRuleDeclaration(css, '.matrix-point', 'box-shadow', /^none$/);
+  assertRuleDeclaration(css, '.matrix-point.p0 .matrix-point-number', 'background', /^var\(--signal\)$/);
+  assertRuleDeclaration(css, '.matrix-point.p3 .matrix-point-number', 'border-style', /^dashed$/);
+  assertRuleDeclaration(compactMobile, '.matrix-point', 'width', /^100%$/);
+  assertRuleDeclaration(compactMobile, '.matrix-point', 'background', /^var\(--paper-bright\)$/);
+  assertRuleDeclaration(compactMobile, '.matrix-point', 'border', /^1px solid var\(--ink\)$/);
   for (const selector of ['.detail-block p', '.detail-list', '.decision-link strong', '.decision-link small', '.company-case-summary', '.source-fact p', '.calibration-item p']) {
     assertRuleDeclaration(printStyles, selector, 'color', /^#222\s*!important$/);
   }
