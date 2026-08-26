@@ -93,3 +93,18 @@ test('cleans common extraction noise without changing the Markdown source', () =
   assert.doesNotMatch(html, /收藏<\/a>\[/);
   assert.match(html, /<a href="https:\/\/example\.com\/report\.pdf"[^>]*>下载报告<\/a>/);
 });
+
+test('removes malformed card wrappers and empty image placeholders from reading pages', () => {
+  const html = renderMarkdown(`正文
+
+[
+
+![](https://example.com/cover.png)
+
+保留的卡片说明
+
+](https://example.com/story)[](https://example.com/# "保存")`);
+  assert.match(html, /正文/);
+  assert.match(html, /保留的卡片说明/);
+  assert.doesNotMatch(html, /<p>\[<\/p>|图：|<p><\/p>|\]\(https:/);
+});

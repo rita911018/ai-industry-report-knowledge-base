@@ -17,10 +17,6 @@
       <a href="#top" aria-current="page">知识库</a>
       <a href="radars/index.html">AI机会雷达</a>
     </nav>
-    <div class="mast-meta">
-      <span><strong id="article-count">470</strong> 篇归档</span>
-      <span><strong>6</strong> 个来源</span>
-    </div>
   </header>
 
   <main id="top">
@@ -28,7 +24,7 @@
       <div class="section-index" aria-hidden="true">01 / KNOWLEDGE</div>
       <div class="knowledge-hero-copy">
         <p class="eyebrow">Grounded research assistant</p>
-        <h1 id="knowledge-heading">AI 行业报告知识库，<br>洞察皆有出处。</h1>
+        <h1 id="knowledge-heading">洞察皆有出处。</h1>
         <p>答案只基于已归档全文，并逐条标注出处。没有足够证据时，系统会明确说明。</p>
         <a class="hero-link" href="#library-heading">浏览 470 篇文章 ↓</a>
       </div>
@@ -76,8 +72,8 @@
     </section>
   </main>
 
-  <button id="knowledge-chat-button" class="knowledge-chat-button" type="button" aria-label="问整个知识库" aria-expanded="false" aria-controls="knowledge-chat-drawer">
-    <span aria-hidden="true">✦</span><span>问知识库</span>
+  <button id="knowledge-chat-button" class="knowledge-chat-button" type="button" aria-label="向我提问" aria-expanded="false" aria-controls="knowledge-chat-drawer">
+    <span>向我提问</span>
   </button>
   <aside id="knowledge-chat-drawer" class="knowledge-chat-drawer" role="dialog" aria-modal="false" aria-labelledby="chat-heading" aria-hidden="true" hidden>
     <header class="knowledge-chat-head">
@@ -120,14 +116,12 @@
     <p id="dialog-summary" class="dialog-summary"></p>
     <div class="dialog-links">
       <a data-link="chinese" target="_blank">查看中文全文</a>
-      <a data-link="original" target="_blank">查看原文归档</a>
       <a data-link="pdf" target="_blank" rel="noreferrer" hidden>打开原始报告 PDF</a>
       <a data-link="official" target="_blank" rel="noreferrer">打开官方原文</a>
     </div>
   </dialog>
 
   <footer>
-    <p><strong>方法说明</strong>　网页先在本地全文中检索证据，再把有限证据片段发送给服务器配置的问答模型。每个模型引用都必须与实际检索片段匹配后才会展示。</p>
     <p>归档来源：BCG · Anthropic · McKinsey · MIT · Bain · Gartner</p>
   </footer>
 

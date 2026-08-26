@@ -362,13 +362,13 @@ test('adds the Gartner report as the canonical 470th knowledge-library record', 
   }
   for (const snippet of [
     'Gartner 的 470 篇 AI 管理洞察',
-    '<strong id="article-count">470</strong> 篇归档',
     '浏览 470 篇文章 ↓',
     '470 articles · global search',
     '向 470 篇全文提问',
     '归档来源：BCG · Anthropic · McKinsey · MIT · Bain · Gartner',
   ]) assert.ok(indexHtml.includes(snippet), `web/index.html missing: ${snippet}`);
-  assert.ok(appScript.includes("String(articles.length || 470)"), 'web/app.js must use the 470 fallback');
+  assert.doesNotMatch(indexHtml, /id="article-count"|篇归档/, 'web/index.html must not restore the removed archive-count chrome');
+  assert.doesNotMatch(appScript, /article-count/, 'web/app.js must not target the removed archive-count element');
   assert.equal(occurrenceCount(chatScript, '470 篇归档文章'), 3, 'chat welcome and capability copy must all use 470');
 });
 

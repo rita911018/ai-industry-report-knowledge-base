@@ -40,7 +40,7 @@ export function renderInline(source) {
     tokens.push(html);
     return token;
   };
-  value = value.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+&quot;[^&]*&quot;)?\)/g, (_, alt) => preserve(`<span class="image-alt">图：${alt}</span>`));
+  value = value.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+&quot;[^&]*&quot;)?\)/g, (_, alt) => alt.trim() ? preserve(`<span class="image-alt">图：${alt}</span>`) : '');
   value = value.replace(/\[\]\(([^)\s]+)(?:\s+&quot;[^&]*&quot;)?\)/g, '');
   value = value.replace(/\[([^\[\]]+)\]\(([^)\s]+)(?:\s+&quot;[^&]*&quot;)?\)/g, (_, label, href) => {
     if (!isSafeHref(href)) return label;
@@ -114,7 +114,10 @@ function startsBlock(line) {
 export function renderMarkdown(markdown) {
   if (typeof markdown !== 'string' || !markdown.trim()) throw new Error('Chinese Markdown rendered empty');
   const normalized = markdown.replace(/\r\n?/g, '\n').replace(/\[\s*\n\s*\n([^\n[\]]+)\]\((https?:\/\/[^)\n]+)\)/g, '\n\n[$1]($2)');
-  const lines = normalized.split('\n');
+  const lines = normalized.split('\n').filter((line) => {
+    const trimmed = line.trim();
+    return trimmed !== '[' && !/^\]\(https?:\/\//i.test(trimmed);
+  });
   const output = [];
   let index = 0;
   let tableNumber = 0;
@@ -175,7 +178,8 @@ export function renderMarkdown(markdown) {
     const paragraph = [line.trim()];
     index += 1;
     while (index < lines.length && !startsBlock(lines[index])) paragraph.push(lines[index++].trim());
-    output.push(`<p>${renderInline(paragraph.join('\n')).replaceAll('\n', '<br>')}</p>`);
+    const rendered = renderInline(paragraph.join('\n')).replaceAll('\n', '<br>').trim();
+    if (rendered) output.push(`<p>${rendered}</p>`);
   }
   const html = output.join('\n');
   if (!html.trim()) throw new Error('Chinese Markdown rendered empty');

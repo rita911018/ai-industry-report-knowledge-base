@@ -134,8 +134,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .scenario-detail { padding: 0 0 36px 102px; }
 .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line-dark); border: 1px solid var(--line-dark); }
 .detail-block { min-width: 0; padding: 23px; background: var(--ink-soft); }
-.detail-block h4 { margin: 0 0 7px; color: var(--signal); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
-.detail-block h5, .source-facts h5 { margin: 18px 0 8px; color: var(--signal); font-size: 10px; letter-spacing: .08em; }
+.detail-block h4 { margin: 0 0 9px; color: var(--signal); font-size: 14px; line-height: 1.35; letter-spacing: .08em; text-transform: uppercase; }
+.detail-block h5, .source-facts h5 { margin: 18px 0 8px; color: var(--signal); font-size: 12px; line-height: 1.4; letter-spacing: .06em; }
 .detail-block p { margin: 0; color: #c1cec5; font-size: 13px; }
 .detail-list { display: grid; gap: 8px; margin: 0; padding-left: 20px; color: #c1cec5; font-size: 13px; }
 .detail-list li::marker { color: var(--signal); }
@@ -308,6 +308,18 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .radar-directory-link { grid-template-columns: 58px 1fr 26px; min-height: 160px; }
   .directory-stats { grid-column: 2; }
   .directory-arrow { grid-column: 3; grid-row: 1 / span 2; }
+}
+
+@media (max-width: 560px) {
+  .matrix-wrap { padding: 0 0 34px; }
+  .axis { display: none; }
+  .matrix { height: auto; min-height: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 10px; border: 1px solid var(--ink); background-image: none; }
+  .matrix-point { position: static; width: 100%; min-width: 0; max-width: none; min-height: 54px; grid-template-columns: 30px 1fr; gap: 7px; padding: 7px; transform: none; border: 1px solid var(--ink); background: var(--paper-bright); }
+  .matrix-point.p0 { background: var(--signal); }
+  .matrix-point.p3 { border-style: dashed; }
+  .matrix-point:hover, .matrix-point:focus-visible, .matrix-point[aria-pressed="true"] { transform: translateY(-2px); background: var(--ink); }
+  .matrix-point-number { min-height: 30px; font-size: 11px; }
+  .matrix-point-title { font-size: 12px; }
 }
 
 @media (max-width: 390px) {

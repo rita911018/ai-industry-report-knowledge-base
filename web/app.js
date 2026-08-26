@@ -82,7 +82,6 @@
     const dialog = $('#article-dialog');
     const links = new Map([...dialog.querySelectorAll('[data-link]')].map((link) => [link.dataset.link, link]));
     links.get('chinese').href = article.localPaths?.chinese || '#';
-    links.get('original').href = article.localPaths?.original || article.localPaths?.snapshot || '#';
     const pdfLink = links.get('pdf');
     if (article.localPaths?.pdf) {
       pdfLink.href = article.localPaths.pdf;
@@ -107,7 +106,6 @@
     $('#sort-control').addEventListener('change', () => $('#article-results').scrollIntoView({ block: 'start', behavior: 'smooth' }));
   }
 
-  $('#article-count').textContent = String(articles.length || 470);
   $('#load-more').addEventListener('click', () => { state.visible += 30; renderArticles(); });
   $('#article-dialog .dialog-close').addEventListener('click', () => $('#article-dialog').close());
   initFilters();

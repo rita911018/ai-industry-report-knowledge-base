@@ -185,9 +185,16 @@
       if (event.type === 'status') setProgress(event.message);
       else if (event.type === 'answer_start') answer.replaceChildren(questionNode());
       else if (event.type === 'section') renderSection(event.section);
-      else if (event.type === 'sources') renderSources(event.sources);
-      else if (event.type === 'insufficient') renderFailure(event.message);
-      else if (event.type === 'error') renderFailure(event.message || '刚刚没能完成回答，请再试一次。', { retry: true });
+      else if (event.type === 'sources') {
+        renderSources(event.sources);
+        state.streamDone = true;
+      } else if (event.type === 'insufficient') {
+        renderFailure(event.message);
+        state.streamDone = true;
+      } else if (event.type === 'error') {
+        renderFailure(event.message || '刚刚没能完成回答，请再试一次。', { retry: true });
+        state.streamDone = true;
+      }
       else if (event.type === 'done') state.streamDone = true;
     }
 

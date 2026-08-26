@@ -107,6 +107,16 @@ test('renders structured streamed sections and compact traceable sources', async
   dom.window.close();
 });
 
+test('keeps a complete answer when the transport drops only the final done sentinel', async () => {
+  const current = await bootWidget({ streamFactory: () => streamResponse(successEvents.filter((event) => event.type !== 'done')) });
+  await submitQuestion(current.dom, current.document, '如何治理智能体？');
+  const text = current.document.querySelector('#answer').textContent;
+  assert.match(text, /核心结论.*建议动作.*参考来源/s);
+  assert.doesNotMatch(text, /刚刚没能完成回答|重新提问/);
+  assert.equal(current.document.querySelectorAll('.chat-source-card').length, 1);
+  current.dom.window.close();
+});
+
 test('answers common small talk locally without calling the stream endpoint', async () => {
   const { dom, document, calls } = await bootWidget();
   for (const [question, expected] of [

@@ -8,7 +8,8 @@ test('unified page exposes an accessible cited research workspace', async () => 
   const html = await readFile(new URL('index.html', root), 'utf8');
   assert.equal((html.match(/<main\b/g) || []).length, 1);
   assert.doesNotMatch(html, /class="ask-console"/);
-  assert.match(html, /<h1 id="knowledge-heading">AI 行业报告知识库，<br>洞察皆有出处。<\/h1>/);
+  assert.match(html, /<h1 id="knowledge-heading">洞察皆有出处。<\/h1>/);
+  assert.doesNotMatch(html, /<h1 id="knowledge-heading">AI 行业报告知识库/);
   assert.doesNotMatch(html, /问报告，也问证据。/);
   assert.doesNotMatch(html, /问报告，<br>/);
   assert.match(html, /<form[^>]+id="question-form"/);
@@ -19,7 +20,9 @@ test('unified page exposes an accessible cited research workspace', async () => 
   assert.doesNotMatch(html, /id="source-drawer"/);
   assert.match(html, /id="article-dialog"/);
   assert.doesNotMatch(html, /id="api-status"/);
-  assert.match(html, /id="knowledge-chat-button"[^>]+aria-label="问整个知识库"/);
+  assert.doesNotMatch(html, /class="mast-meta"|id="article-count"/);
+  assert.doesNotMatch(html, /方法说明/);
+  assert.match(html, /id="knowledge-chat-button"[^>]+aria-label="向我提问"[^>]*>\s*<span>向我提问<\/span>/);
   assert.match(html, /id="knowledge-chat-drawer"[^>]+role="dialog"[^>]+aria-modal="false"/);
   assert.match(html, /id="source-reader"/);
   assert.match(html, /id="source-reader-frame"/);
@@ -36,7 +39,7 @@ test('unified page exposes an accessible cited research workspace', async () => 
   assert.match(html, /<nav[^>]+aria-label="主导航"/);
   assert.match(html, /href="radars\/index\.html"[^>]*>AI机会雷达<\/a>/);
   assert.match(html, /data-link="chinese"/);
-  assert.match(html, /data-link="original"/);
+  assert.doesNotMatch(html, /data-link="original"|查看原文归档/);
   assert.match(html, /data-link="official"/);
   assert.match(html, /data-link="pdf"[^>]+hidden/);
   assert.match(html, /id="sort-control"/);
@@ -66,6 +69,8 @@ test('assets include responsive, accessible and safe rendering contracts', async
   assert.match(css, /\.knowledge-hero\s*\{[^}]*min-width:\s*0/);
   assert.match(css, /\.knowledge-hero-copy\s*\{[^}]*width:\s*min\(100%,\s*1180px\)/);
   assert.match(css, /\.knowledge-chat-drawer\s*\{[^}]*width:\s*min\(520px,\s*44vw\)/);
+  assert.match(css, /\.knowledge-chat-button\s*\{[^}]*width:\s*auto[^}]*border-radius:\s*999px[^}]*font-size:\s*15px/);
+  assert.doesNotMatch(css, /\.knowledge-chat-button > span:last-child/);
   assert.match(css, /\.knowledge-chat-drawer \.answer\s*\{[^}]*font-size:\s*15px[^}]*line-height:\s*1\.72/);
   assert.match(css, /\.answer-section h3\s*\{[^}]*font-size:\s*16px/);
   assert.doesNotMatch(css, /\.(?:claim|limitations|history)\s*\{/);

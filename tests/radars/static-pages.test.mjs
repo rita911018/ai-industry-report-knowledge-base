@@ -113,6 +113,7 @@ for (const domain of domains) {
 test('shared radar styles cover focus, mobile, reduced motion, print, and readable sage', async () => {
   const css = await readFile(new URL('radar.css', root), 'utf8');
   const printStyles = atRuleBlock(css, '@media print');
+  const narrowMobile = atRuleBlock(css, '@media (max-width: 560px)');
   const compactMobile = atRuleBlock(css, '@media (max-width: 390px)');
   assert.throws(() => atRuleBlock('@media print', '@media print'), /Missing opening brace/);
   assert.throws(() => atRuleBlock('@media print{body{color:#111}', '@media print'), /Unclosed/);
@@ -158,6 +159,12 @@ test('shared radar styles cover focus, mobile, reduced motion, print, and readab
   assertRuleDeclaration(css, '.matrix-point', 'min-height', /^50px$/);
   assertRuleDeclaration(css, '.matrix-point-number', 'font-size', /^12px$/);
   assertRuleDeclaration(css, '.matrix-point-title', 'font-size', /^12px$/);
+  assertRuleDeclaration(css, '.detail-block h4', 'font-size', /^14px$/);
+  assertRuleDeclaration(css, '.detail-block h5', 'font-size', /^12px$/);
+  assertRuleDeclaration(css, '.source-facts h5', 'font-size', /^12px$/);
+  assertRuleDeclaration(narrowMobile, '.matrix', 'display', /^grid$/);
+  assertRuleDeclaration(narrowMobile, '.matrix-point', 'position', /^static$/);
+  assertRuleDeclaration(narrowMobile, '.matrix-point-title', 'font-size', /^12px$/);
   assertRuleDeclaration(css, '.matrix-point', 'background', /^transparent$/);
   assertRuleDeclaration(css, '.matrix-point', 'box-shadow', /^none$/);
   assertRuleDeclaration(css, '.matrix-point.p0 .matrix-point-number', 'background', /^var\(--signal\)$/);
